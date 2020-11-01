@@ -1,10 +1,11 @@
 // Auto-Generated
 import React from "react";
+import cn from 'classnames';
 
 import { ButtonProps } from "./Button.types";
 
 const Button: React.FC<ButtonProps> = ({ children }) => (
-    <button data-testid="Button" className="dodo-btn">{children}</button>
+    <div data-testid="Button" className={cn("dodo-btn")}>{children}</div>
 );
 
 export default Button;
