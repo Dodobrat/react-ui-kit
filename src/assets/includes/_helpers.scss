@@ -1,0 +1,13 @@
+.dodo-ui__container {
+	max-width: 71.25rem;
+	min-width: 0;
+	width: 100%;
+	width: clamp(0rem, 100%, 71.25rem);
+	margin: 0 auto;
+	&--fluid {
+		max-width: 100%;
+		min-width: 0;
+		width: 100%;
+		width: clamp(0rem, 100%, 100%);
+	}
+}

@@ -1,5 +1,5 @@
 const fs = require("fs");
-const templates = require("./templates");
+const templates = require("./forwardRef-templates");
 
 const componentName = process.argv[2];
 

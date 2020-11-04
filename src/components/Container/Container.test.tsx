@@ -2,11 +2,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Card from "./Card";
-import { CardProps } from "./Card.types";
+import Container from "./Container";
+import { ContainerProps } from "./Container.types";
 
 describe("Test Component", () => {
-	let props: CardProps;
+	let props: ContainerProps;
 
 	beforeEach(() => {
 		props = {
@@ -14,13 +14,13 @@ describe("Test Component", () => {
 		};
 	});
 
-	const renderComponent = () => render(<Card {...props} />);
+	const renderComponent = () => render(<Container {...props} />);
 
 	it("should render children correctly", () => {
 		props.children = "Dodo was here";
 		const { getByTestId } = renderComponent();
 
-		const component = getByTestId("Card");
+		const component = getByTestId("Container");
 
 		expect(component).toHaveTextContent("Dodo was here");
 	});
