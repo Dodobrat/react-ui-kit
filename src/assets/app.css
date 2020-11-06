@@ -555,6 +555,302 @@ h6 {
   animation: dash 2s ease-in-out infinite;
 }
 
+.dodo-ui__btn--modern-primary {
+  background-color: rgba(15, 121, 193, 0.15);
+  color: #0d6aa9;
+}
+
+.dodo-ui__btn--modern-primary:hover {
+  background-color: rgba(15, 121, 193, 0.2);
+}
+
+.dodo-ui__btn--modern-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(15, 121, 193, 0.25);
+}
+
+.dodo-ui__btn--modern-primary.dodo-ui__btn--loading {
+  color: rgba(15, 121, 193, 0.1);
+}
+
+.dodo-ui__btn--modern-primary.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--modern-primary.dodo-ui__btn--loading > svg > circle {
+  stroke: #0f79c1;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--modern-secondary {
+  background-color: rgba(97, 120, 140, 0.15);
+  color: #576b7d;
+}
+
+.dodo-ui__btn--modern-secondary:hover {
+  background-color: rgba(97, 120, 140, 0.2);
+}
+
+.dodo-ui__btn--modern-secondary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(97, 120, 140, 0.25);
+}
+
+.dodo-ui__btn--modern-secondary.dodo-ui__btn--loading {
+  color: rgba(97, 120, 140, 0.1);
+}
+
+.dodo-ui__btn--modern-secondary.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--modern-secondary.dodo-ui__btn--loading > svg > circle {
+  stroke: #61788c;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--modern-success {
+  background-color: rgba(0, 133, 46, 0.15);
+  color: #006c25;
+}
+
+.dodo-ui__btn--modern-success:hover {
+  background-color: rgba(0, 133, 46, 0.2);
+}
+
+.dodo-ui__btn--modern-success:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 133, 46, 0.25);
+}
+
+.dodo-ui__btn--modern-success.dodo-ui__btn--loading {
+  color: rgba(0, 133, 46, 0.1);
+}
+
+.dodo-ui__btn--modern-success.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--modern-success.dodo-ui__btn--loading > svg > circle {
+  stroke: #00852e;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--modern-warning {
+  background-color: rgba(237, 185, 14, 0.15);
+  color: #d5a60d;
+}
+
+.dodo-ui__btn--modern-warning:hover {
+  background-color: rgba(237, 185, 14, 0.2);
+}
+
+.dodo-ui__btn--modern-warning:focus {
+  box-shadow: 0 0 0 0.2rem rgba(237, 185, 14, 0.25);
+}
+
+.dodo-ui__btn--modern-warning.dodo-ui__btn--loading {
+  color: rgba(237, 185, 14, 0.1);
+}
+
+.dodo-ui__btn--modern-warning.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--modern-warning.dodo-ui__btn--loading > svg > circle {
+  stroke: #edb90e;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--modern-info {
+  background-color: rgba(83, 188, 204, 0.15);
+  color: #3fb4c6;
+}
+
+.dodo-ui__btn--modern-info:hover {
+  background-color: rgba(83, 188, 204, 0.2);
+}
+
+.dodo-ui__btn--modern-info:focus {
+  box-shadow: 0 0 0 0.2rem rgba(83, 188, 204, 0.25);
+}
+
+.dodo-ui__btn--modern-info.dodo-ui__btn--loading {
+  color: rgba(83, 188, 204, 0.1);
+}
+
+.dodo-ui__btn--modern-info.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--modern-info.dodo-ui__btn--loading > svg > circle {
+  stroke: #53bccc;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--modern-danger {
+  background-color: rgba(223, 41, 53, 0.15);
+  color: #cf1f2b;
+}
+
+.dodo-ui__btn--modern-danger:hover {
+  background-color: rgba(223, 41, 53, 0.2);
+}
+
+.dodo-ui__btn--modern-danger:focus {
+  box-shadow: 0 0 0 0.2rem rgba(223, 41, 53, 0.25);
+}
+
+.dodo-ui__btn--modern-danger.dodo-ui__btn--loading {
+  color: rgba(223, 41, 53, 0.1);
+}
+
+.dodo-ui__btn--modern-danger.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--modern-danger.dodo-ui__btn--loading > svg > circle {
+  stroke: #df2935;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--modern-light {
+  background-color: rgba(242, 243, 243, 0.15);
+  color: #e5e7e7;
+}
+
+.dodo-ui__btn--modern-light:hover {
+  background-color: rgba(242, 243, 243, 0.2);
+}
+
+.dodo-ui__btn--modern-light:focus {
+  box-shadow: 0 0 0 0.2rem rgba(242, 243, 243, 0.25);
+}
+
+.dodo-ui__btn--modern-light.dodo-ui__btn--loading {
+  color: rgba(242, 243, 243, 0.1);
+}
+
+.dodo-ui__btn--modern-light.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--modern-light.dodo-ui__btn--loading > svg > circle {
+  stroke: #f2f3f3;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--modern-dark {
+  background-color: rgba(39, 41, 50, 0.15);
+  color: #1c1d24;
+}
+
+.dodo-ui__btn--modern-dark:hover {
+  background-color: rgba(39, 41, 50, 0.2);
+}
+
+.dodo-ui__btn--modern-dark:focus {
+  box-shadow: 0 0 0 0.2rem rgba(39, 41, 50, 0.25);
+}
+
+.dodo-ui__btn--modern-dark.dodo-ui__btn--loading {
+  color: rgba(39, 41, 50, 0.1);
+}
+
+.dodo-ui__btn--modern-dark.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--modern-dark.dodo-ui__btn--loading > svg > circle {
+  stroke: #272932;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary {
   background-color: transparent;
   color: #0f79c1;

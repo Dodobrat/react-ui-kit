@@ -11,6 +11,7 @@ export interface ButtonProps {
 	unWrapText?: boolean;
 	leftAlignContent?: boolean;
 	pigment?: "none" | "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
+	modern?: boolean;
 	iconLeft?: React.ReactNode | string;
 	iconRight?: React.ReactNode | string;
 	loading?: boolean;

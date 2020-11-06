@@ -29,6 +29,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			unWrapText = false,
 			leftAlignContent = false,
 			pigment = "none",
+			modern = false,
 			iconLeft = null,
 			iconRight = null,
 			loading = false,
@@ -63,7 +64,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 						"dodo-ui__btn--icon-right": !!iconRight,
 					},
 					{
-						[`dodo-ui__btn--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dodo-ui__btn--pigment-${pigment}`]: !modern && pigmentOptions.includes(pigment),
+						[`dodo-ui__btn--modern-${pigment}`]: modern && pigmentOptions.includes(pigment),
 					},
 					{
 						"dodo-ui__btn--loading": loading,
