@@ -1,1 +1,1 @@
-export const pigmentOptions = ["default", "primary", "secondary", "success", "warning", "info", "danger"];
+export const pigmentOptions = ["primary", "secondary", "success", "warning", "info", "danger", "light", "dark"];

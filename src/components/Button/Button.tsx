@@ -4,6 +4,16 @@ import cn from "classnames";
 
 import { ButtonProps } from "./Button.types";
 import { pigmentOptions } from "../../helpers/pigments";
+import Icon from "../Icon/Icon";
+
+const ButtonLoader: React.FC<{ size: number }> = ({ size }) => {
+	const strokeWidth = Math.max(2, size * 0.1);
+	return (
+		<svg viewBox={`0 0 ${size * 2} ${size * 2}`}>
+			<circle cx={size} cy={size} r={size - Math.max(5, strokeWidth)} strokeWidth={strokeWidth} />
+		</svg>
+	);
+};
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 	(
@@ -11,16 +21,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			className,
 			type = "button",
 			ariaLabel = "button",
-			size = "default",
+			size = "md",
 			outlined = false,
-			rounded = false,
+			round = false,
 			wide = false,
 			flex = false,
 			unWrapText = false,
 			leftAlignContent = false,
 			pigment = "none",
-			hoverPigment = "none",
-			focusPigment = "none",
+			iconLeft = null,
+			iconRight = null,
+			loading = false,
+			active = false,
 			children,
 			...rest
 		},
@@ -40,22 +52,31 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					},
 					{
 						"dodo-ui__btn--outlined": outlined,
-						"dodo-ui__btn--round": rounded,
+						"dodo-ui__btn--round": round,
 						"dodo-ui__btn--wide": wide,
 						"dodo-ui__btn--flex": flex,
 						"dodo-ui__btn--no-wrap": unWrapText,
 						"dodo-ui__btn--left-align": leftAlignContent,
 					},
 					{
-						[`dodo-ui__btn--${pigment}`]: pigmentOptions.includes(pigment),
-						[`dodo-ui__btn--hover-${pigment}`]: pigmentOptions.includes(pigment),
-						[`dodo-ui__btn--focus-${pigment}`]: pigmentOptions.includes(pigment),
+						"dodo-ui__btn--icon-left": !!iconLeft,
+						"dodo-ui__btn--icon-right": !!iconRight,
+					},
+					{
+						[`dodo-ui__btn--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+					},
+					{
+						"dodo-ui__btn--loading": loading,
+						"dodo-ui__btn--active": active,
 					},
 					className
 				)}
 				{...rest}
 				ref={ref}>
+				{typeof iconLeft !== "string" ? iconLeft : <Icon>{iconLeft}</Icon>}
 				{children}
+				{typeof iconRight !== "string" ? iconRight : <Icon>{iconRight}</Icon>}
+				{loading && <ButtonLoader size={10} />}
 			</button>
 		);
 	}

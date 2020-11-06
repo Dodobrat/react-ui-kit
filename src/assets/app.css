@@ -1,64 +1,116 @@
-@font-face {
-	font-family: Rubik;
-	src: url(fonts/Rubik-VariableFont_wght.ttf);
+:root {
+  --primary: #0f79c1;
+  --secondary: #61788c;
+  --success: #00852e;
+  --warning: #edb90e;
+  --danger: #df2935;
+  --info: #53bccc;
+  --light: #f2f3f3;
+  --dark: #272932;
+  --primaryFont: #fff;
+  --secondaryFont: #fff;
+  --successFont: #fff;
+  --warningFont: #000;
+  --dangerFont: #fff;
+  --infoFont: #000;
+  --lightFont: #000;
+  --darkFont: #fff;
+  --fontSize: 16px;
+  --smFont: 0.8rem;
+  --mdFont: 1rem;
+  --lgFont: 1.2rem;
+  --xlFont: 1.4rem;
+  --sm: $fontSize * 1.9375;
+  --md: $fontSize * 2.375;
+  --lg: $fontSize * 3;
+  --xl: $fontSize * 4;
+  --smBorderRadius: 0.3125rem;
+  --mdBorderRadius: 0.625rem;
+  --lgBorderRadius: 1rem;
+  --xlBorderRadisu: 2rem;
+  --roundBorderRadius: 3rem;
+  --circleBorderRadius: 50%;
 }
 
 @font-face {
-	font-family: Rubik-Italic;
-	src: url(fonts/Rubik-Italic-VariableFont_wght.ttf);
+  font-family: "Manrope";
+  src: url("fonts/Manrope-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("fonts/Manrope-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("fonts/Manrope-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("fonts/Manrope-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("fonts/Manrope-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("fonts/Manrope-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("fonts/Manrope-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
 }
 
 html {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 html,
 body,
 #root {
-	box-sizing: border-box;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
-	overflow-y: auto;
-}
-
-body {
-	font-family: Rubik, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	font-variation-settings: "wght" 475;
-	-webkit-font-smoothing: subpixel-antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-	font-family: Rubik, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	-moz-tap-highlight-color: rgba(0, 0, 0, 0);
-	box-sizing: inherit;
+  font-family: Manrope, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: inherit;
 }
 
-*:after,
-*:before {
-	box-sizing: inherit;
+*:after, *:before {
+  box-sizing: inherit;
 }
 
 *::-moz-focus-inner {
-	border: 0 !important;
+  border: 0 !important;
 }
 
 img {
-	display: block;
-	max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 a {
-	text-decoration: none;
-}
-
-button {
-	cursor: pointer;
+  text-decoration: none;
 }
 
 h1,
@@ -66,62 +118,934 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
-	font-size: 1rem;
-	margin: 0 0 1rem 0;
+h6 {
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+}
+
+@keyframes rotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 0, 55;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 20, 55;
+    stroke-dashoffset: -15;
+  }
+  100% {
+    stroke-dasharray: 30, 55;
+    stroke-dashoffset: -31;
+  }
 }
 
 .dodo-ui__btn {
-	position: relative;
-	height: 2.375rem;
-	padding: 0 1rem;
-	margin: 0;
-	border: none;
-	background: transparent;
-	border-radius: 0.3125rem;
-	width: auto;
-	cursor: pointer;
-	color: #131313;
-	display: inline-block;
-	font-size: 0.9rem;
-	user-select: none;
-	overflow: hidden;
-	line-height: 1;
+  transition: all 0.15s ease;
+  position: relative;
+  height: 38px;
+  margin: 0.4rem 0;
+  padding: 0 1rem;
+  background-color: transparent;
+  border: 1px solid transparent;
+  width: auto;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+  line-height: 1;
+  outline: none;
+  text-decoration: none;
 }
 
 .dodo-ui__btn i {
-	font-size: 1.15rem;
+  font-size: 1rem;
 }
 
 .dodo-ui__btn:focus {
-	outline: none;
-	box-shadow: 0 0 0.25rem 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
 }
 
-.dodo-ui__btn > * {
-	user-select: none;
-	text-decoration: none;
-	cursor: pointer;
-	color: #131313;
+.dodo-ui__btn:hover {
+  transition: all 0.15s ease;
 }
 
 .dodo-ui__btn:disabled {
-	pointer-events: none !important;
-	opacity: 0.5 !important;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.dodo-ui__btn--loading {
+  cursor: progress;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--loading > svg > circle {
+  stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--sm {
+  height: 31px;
+  font-size: 0.8rem;
+}
+
+.dodo-ui__btn--lg {
+  height: 48px;
+  font-size: 1.2rem;
+  padding: 0 1.2rem;
+}
+
+.dodo-ui__btn--xl {
+  height: 64px;
+  font-size: 1.4rem;
+  padding: 0 1.4rem;
+}
+
+.dodo-ui__btn--round {
+  border-radius: 3rem;
+}
+
+.dodo-ui__btn--wide {
+  width: 100%;
+}
+
+.dodo-ui__btn--flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dodo-ui__btn--no-wrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.dodo-ui__btn--left-align {
+  text-align: left;
+}
+
+.dodo-ui__btn--left-align.dodo-ui__btn--flex {
+  justify-content: flex-start;
+}
+
+.dodo-ui__btn--icon-left > i {
+  margin-right: 0.8rem;
+}
+
+.dodo-ui__btn--icon-right > i {
+  margin-left: 0.8rem;
+}
+
+.dodo-ui__btn--pigment-primary {
+  background-color: #0f79c1;
+  color: #fff;
+}
+
+.dodo-ui__btn--pigment-primary:hover {
+  background-color: #0d6aa9;
+}
+
+.dodo-ui__btn--pigment-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(15, 121, 193, 0.25);
+}
+
+.dodo-ui__btn--pigment-primary.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--pigment-primary.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--pigment-primary.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--pigment-secondary {
+  background-color: #61788c;
+  color: #fff;
+}
+
+.dodo-ui__btn--pigment-secondary:hover {
+  background-color: #576b7d;
+}
+
+.dodo-ui__btn--pigment-secondary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(97, 120, 140, 0.25);
+}
+
+.dodo-ui__btn--pigment-secondary.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--pigment-secondary.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--pigment-secondary.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--pigment-success {
+  background-color: #00852e;
+  color: #fff;
+}
+
+.dodo-ui__btn--pigment-success:hover {
+  background-color: #006c25;
+}
+
+.dodo-ui__btn--pigment-success:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 133, 46, 0.25);
+}
+
+.dodo-ui__btn--pigment-success.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--pigment-success.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--pigment-success.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--pigment-warning {
+  background-color: #edb90e;
+  color: #000;
+}
+
+.dodo-ui__btn--pigment-warning:hover {
+  background-color: #d5a60d;
+}
+
+.dodo-ui__btn--pigment-warning:focus {
+  box-shadow: 0 0 0 0.2rem rgba(237, 185, 14, 0.25);
+}
+
+.dodo-ui__btn--pigment-warning.dodo-ui__btn--loading {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.dodo-ui__btn--pigment-warning.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--pigment-warning.dodo-ui__btn--loading > svg > circle {
+  stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--pigment-info {
+  background-color: #53bccc;
+  color: #000;
+}
+
+.dodo-ui__btn--pigment-info:hover {
+  background-color: #3fb4c6;
+}
+
+.dodo-ui__btn--pigment-info:focus {
+  box-shadow: 0 0 0 0.2rem rgba(83, 188, 204, 0.25);
+}
+
+.dodo-ui__btn--pigment-info.dodo-ui__btn--loading {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.dodo-ui__btn--pigment-info.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--pigment-info.dodo-ui__btn--loading > svg > circle {
+  stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--pigment-danger {
+  background-color: #df2935;
+  color: #fff;
+}
+
+.dodo-ui__btn--pigment-danger:hover {
+  background-color: #cf1f2b;
+}
+
+.dodo-ui__btn--pigment-danger:focus {
+  box-shadow: 0 0 0 0.2rem rgba(223, 41, 53, 0.25);
+}
+
+.dodo-ui__btn--pigment-danger.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--pigment-danger.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--pigment-danger.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--pigment-light {
+  background-color: #f2f3f3;
+  color: #000;
+}
+
+.dodo-ui__btn--pigment-light:hover {
+  background-color: #e5e7e7;
+}
+
+.dodo-ui__btn--pigment-light:focus {
+  box-shadow: 0 0 0 0.2rem rgba(242, 243, 243, 0.25);
+}
+
+.dodo-ui__btn--pigment-light.dodo-ui__btn--loading {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg > circle {
+  stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--pigment-dark {
+  background-color: #272932;
+  color: #fff;
+}
+
+.dodo-ui__btn--pigment-dark:hover {
+  background-color: #1c1d24;
+}
+
+.dodo-ui__btn--pigment-dark:focus {
+  box-shadow: 0 0 0 0.2rem rgba(39, 41, 50, 0.25);
+}
+
+.dodo-ui__btn--pigment-dark.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--pigment-dark.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--pigment-dark.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary {
+  background-color: transparent;
+  color: #0f79c1;
+  border: 1px solid #0f79c1;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--loading {
+  color: rgba(15, 121, 193, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--loading > svg > circle {
+  stroke: #0f79c1;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover {
+  background-color: #0f79c1;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary {
+  background-color: transparent;
+  color: #61788c;
+  border: 1px solid #61788c;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--loading {
+  color: rgba(97, 120, 140, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--loading > svg > circle {
+  stroke: #61788c;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover {
+  background-color: #61788c;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-success {
+  background-color: transparent;
+  color: #00852e;
+  border: 1px solid #00852e;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--loading {
+  color: rgba(0, 133, 46, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--loading > svg > circle {
+  stroke: #00852e;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover {
+  background-color: #00852e;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning {
+  background-color: transparent;
+  color: #edb90e;
+  border: 1px solid #edb90e;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--loading {
+  color: rgba(237, 185, 14, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--loading > svg > circle {
+  stroke: #edb90e;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover {
+  background-color: #edb90e;
+  color: #000;
+  border: 1px solid transparent;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover.dodo-ui__btn--loading {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover.dodo-ui__btn--loading > svg > circle {
+  stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-info {
+  background-color: transparent;
+  color: #53bccc;
+  border: 1px solid #53bccc;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--loading {
+  color: rgba(83, 188, 204, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--loading > svg > circle {
+  stroke: #53bccc;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover {
+  background-color: #53bccc;
+  color: #000;
+  border: 1px solid transparent;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover.dodo-ui__btn--loading {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover.dodo-ui__btn--loading > svg > circle {
+  stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger {
+  background-color: transparent;
+  color: #df2935;
+  border: 1px solid #df2935;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--loading {
+  color: rgba(223, 41, 53, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--loading > svg > circle {
+  stroke: #df2935;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover {
+  background-color: #df2935;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-light {
+  background-color: transparent;
+  color: #f2f3f3;
+  border: 1px solid #f2f3f3;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--loading {
+  color: rgba(242, 243, 243, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg > circle {
+  stroke: #f2f3f3;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover {
+  background-color: #f2f3f3;
+  color: #000;
+  border: 1px solid transparent;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover.dodo-ui__btn--loading {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover.dodo-ui__btn--loading > svg > circle {
+  stroke: #000;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark {
+  background-color: transparent;
+  color: #272932;
+  border: 1px solid #272932;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--loading {
+  color: rgba(39, 41, 50, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--loading > svg > circle {
+  stroke: #272932;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover {
+  background-color: #272932;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover.dodo-ui__btn--loading {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover.dodo-ui__btn--loading > svg {
+  pointer-events: none;
+  fill: transparent;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover.dodo-ui__btn--loading > svg > circle {
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash 2s ease-in-out infinite;
 }
 
 .dodo-ui__container {
-	max-width: 71.25rem;
-	min-width: 0;
-	width: 100%;
-	width: clamp(0rem, 100%, 71.25rem);
-	margin: 0 auto;
+  max-width: 71.25rem;
+  min-width: 0;
+  width: 100%;
+  width: clamp(0rem, 100%, 71.25rem);
+  margin: 0 auto;
 }
 
 .dodo-ui__container--fluid {
-	max-width: 100%;
-	min-width: 0;
-	width: 100%;
-	width: clamp(0rem, 100%, 100%);
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+  width: clamp(0rem, 100%, 100%);
 }

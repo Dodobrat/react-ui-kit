@@ -3,15 +3,17 @@ export interface ButtonProps {
 	className?: string;
 	type?: "button" | "submit" | "reset";
 	ariaLabel?: string;
-	size?: string;
+	size?: "sm" | "md" | "lg" | "xl";
 	outlined?: boolean;
-	rounded?: boolean;
+	round?: boolean;
 	wide?: boolean;
 	flex?: boolean;
 	unWrapText?: boolean;
 	leftAlignContent?: boolean;
-	pigment?: "default" | "primary" | "secondary" | "success" | "warning" | "info" | "danger";
-	hoverPigment?: "default" | "primary" | "secondary" | "success" | "warning" | "info" | "danger";
-	focusPigment?: "default" | "primary" | "secondary" | "success" | "warning" | "info" | "danger";
+	pigment?: "none" | "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
+	iconLeft?: React.ReactNode | string;
+	iconRight?: React.ReactNode | string;
+	loading?: boolean;
+	active?: boolean;
 	children: any;
 }
