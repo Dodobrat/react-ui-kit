@@ -2,7 +2,7 @@
 	transition: all 0.15s ease;
 	position: relative;
 	height: $md;
-	margin: $smFont / 2 0;
+	margin: 0;
 	padding: 0 $mdFont;
 	background-color: transparent;
 	border: 1px solid transparent;
@@ -10,7 +10,7 @@
 	border-radius: $smBorderRadius;
 	font-size: $mdFont;
 	font-weight: 500;
-	color: $lightFont;
+	color: $darkFont;
 	overflow: hidden;
 	user-select: none;
 	cursor: pointer;
@@ -80,6 +80,12 @@
 	}
 }
 
+$pigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
+	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+
+$mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success, "warning" $mWarning $warning,
+	"info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
+
 .dodo-ui__btn {
 	@include btn();
 	&--loading {
@@ -131,346 +137,114 @@
 			margin-left: $smFont;
 		}
 	}
-	&--pigment {
-		&-primary {
-			background-color: $primary;
-			color: $primaryFont;
-			&:hover {
-				background-color: darken($primary, 5%);
+	@each $name, $color, $font in $pigments {
+		&.dodo-ui__btn--pigment-#{$name} {
+			background-color: $color;
+			color: $font;
+			&:hover,
+			&.dodo-ui__btn--active {
+				background-color: darken($color, 5%);
 			}
 			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+				box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
 			}
 			&.dodo-ui__btn--loading {
-				@include btnLoader($primaryFont);
-			}
-		}
-		&-secondary {
-			background-color: $secondary;
-			color: $secondaryFont;
-			&:hover {
-				background-color: darken($secondary, 5%);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($secondary, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($secondaryFont);
-			}
-		}
-		&-success {
-			background-color: $success;
-			color: $successFont;
-			&:hover {
-				background-color: darken($success, 5%);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($success, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($successFont);
-			}
-		}
-		&-warning {
-			background-color: $warning;
-			color: $warningFont;
-			&:hover {
-				background-color: darken($warning, 5%);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($warning, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($warningFont);
-			}
-		}
-		&-info {
-			background-color: $info;
-			color: $infoFont;
-			&:hover {
-				background-color: darken($info, 5%);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($info, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($infoFont);
-			}
-		}
-		&-danger {
-			background-color: $danger;
-			color: $dangerFont;
-			&:hover {
-				background-color: darken($danger, 5%);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($danger, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($dangerFont);
-			}
-		}
-		&-light {
-			background-color: $light;
-			color: $lightFont;
-			&:hover {
-				background-color: darken($light, 5%);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($light, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($lightFont);
-			}
-		}
-		&-dark {
-			background-color: $dark;
-			color: $darkFont;
-			&:hover {
-				background-color: darken($dark, 5%);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($dark, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($darkFont);
-			}
-		}
-	}
-	&--modern {
-		&-primary {
-			background-color: rgba($primary, 0.15);
-			color: darken($primary, 5%);
-			&:hover {
-				background-color: rgba($primary, 0.2);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($primary);
-			}
-		}
-		&-secondary {
-			background-color: rgba($secondary, 0.15);
-			color: darken($secondary, 5%);
-			&:hover {
-				background-color: rgba($secondary, 0.2);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($secondary, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($secondary);
-			}
-		}
-		&-success {
-			background-color: rgba($success, 0.15);
-			color: darken($success, 5%);
-			&:hover {
-				background-color: rgba($success, 0.2);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($success, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($success);
-			}
-		}
-		&-warning {
-			background-color: rgba($warning, 0.15);
-			color: darken($warning, 5%);
-			&:hover {
-				background-color: rgba($warning, 0.2);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($warning, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($warning);
-			}
-		}
-		&-info {
-			background-color: rgba($info, 0.15);
-			color: darken($info, 5%);
-			&:hover {
-				background-color: rgba($info, 0.2);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($info, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($info);
-			}
-		}
-		&-danger {
-			background-color: rgba($danger, 0.15);
-			color: darken($danger, 5%);
-			&:hover {
-				background-color: rgba($danger, 0.2);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($danger, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($danger);
-			}
-		}
-		&-light {
-			background-color: rgba($light, 0.15);
-			color: darken($light, 5%);
-			&:hover {
-				background-color: rgba($light, 0.2);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($light, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($light);
-			}
-		}
-		&-dark {
-			background-color: rgba($dark, 0.15);
-			color: darken($dark, 5%);
-			&:hover {
-				background-color: rgba($dark, 0.2);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($dark, 0.25);
-			}
-			&.dodo-ui__btn--loading {
-				@include btnLoader($dark);
+				@include btnLoader($font);
 			}
 		}
 	}
 	&--outlined {
-		&.dodo-ui__btn--pigment {
-			&-primary {
+		@each $name, $color, $font in $pigments {
+			&.dodo-ui__btn--pigment-#{$name} {
 				background-color: transparent;
-				color: $primary;
-				border: 1px solid $primary;
+				color: $color;
+				border: 1px solid $color;
 				&.dodo-ui__btn--loading {
-					@include btnLoader($primary);
+					@include btnLoader($color);
 				}
-				&:hover {
-					background-color: $primary;
-					color: $primaryFont;
+				&:hover,
+				&.dodo-ui__btn--active {
+					background-color: $color;
+					color: $font;
 					border: 1px solid transparent;
 					&.dodo-ui__btn--loading {
-						@include btnLoader($primaryFont);
+						@include btnLoader($font);
 					}
 				}
 			}
-			&-secondary {
-				background-color: transparent;
-				color: $secondary;
-				border: 1px solid $secondary;
-				&.dodo-ui__btn--loading {
-					@include btnLoader($secondary);
+		}
+	}
+	&--modern {
+		@each $name, $color, $font in $mPigments {
+			&.dodo-ui__btn--pigment-#{$name} {
+				background-color: $color;
+				@if $name == "light" {
+					color: darken($font, 50%);
+				} @else {
+					color: darken($font, 10%);
 				}
-				&:hover {
-					background-color: $secondary;
-					color: $secondaryFont;
-					border: 1px solid transparent;
-					&.dodo-ui__btn--loading {
-						@include btnLoader($secondaryFont);
-					}
+				&:hover,
+				&.dodo-ui__btn--active {
+					background-color: darken($color, 5%);
+				}
+				&:focus {
+					box-shadow: 0 0 0 0.2rem rgba($font, 0.25);
+				}
+				&.dodo-ui__btn--loading {
+					@include btnLoader($font);
 				}
 			}
-			&-success {
-				background-color: transparent;
-				color: $success;
-				border: 1px solid $success;
-				&.dodo-ui__btn--loading {
-					@include btnLoader($success);
-				}
-				&:hover {
-					background-color: $success;
-					color: $successFont;
-					border: 1px solid transparent;
-					&.dodo-ui__btn--loading {
-						@include btnLoader($successFont);
-					}
-				}
+		}
+	}
+	&-group {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		& > * {
+			border-radius: 0;
+			&:focus {
+				z-index: 2;
 			}
-			&-warning {
-				background-color: transparent;
-				color: $warning;
-				border: 1px solid $warning;
-				&.dodo-ui__btn--loading {
-					@include btnLoader($warning);
-				}
-				&:hover {
-					background-color: $warning;
-					color: $warningFont;
-					border: 1px solid transparent;
-					&.dodo-ui__btn--loading {
-						@include btnLoader($warningFont);
-					}
-				}
+		}
+		& > *:first-child {
+			border-radius: $smBorderRadius 0 0 $smBorderRadius;
+		}
+		& > *:last-child {
+			border-radius: 0 $smBorderRadius $smBorderRadius 0;
+		}
+		&--wide {
+			width: 100%;
+			& > * {
+				flex: 1;
 			}
-			&-info {
-				background-color: transparent;
-				color: $info;
-				border: 1px solid $info;
-				&.dodo-ui__btn--loading {
-					@include btnLoader($info);
-				}
-				&:hover {
-					background-color: $info;
-					color: $infoFont;
-					border: 1px solid transparent;
-					&.dodo-ui__btn--loading {
-						@include btnLoader($infoFont);
-					}
-				}
+		}
+		&--round {
+			& > *:first-child {
+				border-radius: $roundBorderRadius 0 0 $roundBorderRadius;
 			}
-			&-danger {
-				background-color: transparent;
-				color: $danger;
-				border: 1px solid $danger;
-				&.dodo-ui__btn--loading {
-					@include btnLoader($danger);
-				}
-				&:hover {
-					background-color: $danger;
-					color: $dangerFont;
-					border: 1px solid transparent;
-					&.dodo-ui__btn--loading {
-						@include btnLoader($dangerFont);
-					}
-				}
+			& > *:last-child {
+				border-radius: 0 $roundBorderRadius $roundBorderRadius 0;
 			}
-			&-light {
-				background-color: transparent;
-				color: $light;
-				border: 1px solid $light;
-				&.dodo-ui__btn--loading {
-					@include btnLoader($light);
-				}
-				&:hover {
-					background-color: $light;
-					color: $lightFont;
-					border: 1px solid transparent;
-					&.dodo-ui__btn--loading {
-						@include btnLoader($lightFont);
-					}
-				}
+		}
+		&--vertical {
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			& > * {
+				width: 100%;
 			}
-			&-dark {
-				background-color: transparent;
-				color: $dark;
-				border: 1px solid $dark;
-				&.dodo-ui__btn--loading {
-					@include btnLoader($dark);
+			& > *:first-child {
+				border-radius: $smBorderRadius $smBorderRadius 0 0;
+			}
+			& > *:last-child {
+				border-radius: 0 0 $smBorderRadius $smBorderRadius;
+			}
+			&.dodo-ui__btn-group--round {
+				& > *:first-child {
+					border-radius: $lgBorderRadius $lgBorderRadius 0 0;
 				}
-				&:hover {
-					background-color: $dark;
-					color: $darkFont;
-					border: 1px solid transparent;
-					&.dodo-ui__btn--loading {
-						@include btnLoader($darkFont);
-					}
+				& > *:last-child {
+					border-radius: 0 0 $lgBorderRadius $lgBorderRadius;
 				}
 			}
 		}

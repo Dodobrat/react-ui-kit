@@ -4,7 +4,9 @@
 	"main": "build/index.js",
 	"module": "build/index.esm.js",
 	"files": [
-		"build"
+		"build",
+		"CHANGELOG.md",
+		"README.md"
 	],
 	"types": "build/index.d.ts",
 	"description": "Reusable ReactJS Component Library",
@@ -12,8 +14,8 @@
 		"build": "rollup -c",
 		"test": "jest",
 		"test:watch": "jest --watch",
-		"generate": "node ./util/create-component",
-		"generate:forwardRef": "node ./util/create-forwardRef-component",
+		"generate": "node ./commands/create-component",
+		"generate:forwardRef": "node ./commands/create-forwardRef-component",
 		"prepublishOnly": "npm run build"
 	},
 	"repository": {
@@ -21,10 +23,10 @@
 		"url": "git+https://github.com/Dodobrat/react-ui-kit.git"
 	},
 	"keywords": [
-		"React",
-		"UI",
+		"react",
+		"framework",
 		"ui-kit",
-		"Library"
+		"react-ui-framework"
 	],
 	"author": "Deyan Bozhilov",
 	"license": "MIT",
@@ -32,6 +34,7 @@
 		"url": "https://github.com/Dodobrat/react-ui-kit/issues"
 	},
 	"homepage": "https://github.com/Dodobrat/react-ui-kit#readme",
+	"deprecated": false,
 	"peerDependencies": {
 		"react": ">=16.8.0",
 		"react-dom": ">=16.8.0"
@@ -41,6 +44,7 @@
 		"@rollup/plugin-node-resolve": "^7.1.3",
 		"@testing-library/jest-dom": "^5.5.0",
 		"@testing-library/react": "^10.0.2",
+		"@types/classnames": "^2.2.11",
 		"@types/jest": "^24.0.24",
 		"@types/react": "^16.9.12",
 		"@types/react-dom": "^16.9.8",

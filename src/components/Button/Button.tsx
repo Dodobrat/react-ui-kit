@@ -44,6 +44,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				data-testid='Button'
 				type={type}
 				aria-label={ariaLabel}
+				tabIndex={rest?.disabled ? -1 : 0}
 				className={cn(
 					"dodo-ui__btn",
 					{
@@ -53,6 +54,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					},
 					{
 						"dodo-ui__btn--outlined": outlined,
+						"dodo-ui__btn--modern": modern,
 						"dodo-ui__btn--round": round,
 						"dodo-ui__btn--wide": wide,
 						"dodo-ui__btn--flex": flex,
@@ -64,8 +66,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 						"dodo-ui__btn--icon-right": !!iconRight,
 					},
 					{
-						[`dodo-ui__btn--pigment-${pigment}`]: !modern && pigmentOptions.includes(pigment),
-						[`dodo-ui__btn--modern-${pigment}`]: modern && pigmentOptions.includes(pigment),
+						[`dodo-ui__btn--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					{
 						"dodo-ui__btn--loading": loading,

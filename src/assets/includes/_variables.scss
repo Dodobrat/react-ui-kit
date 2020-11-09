@@ -9,15 +9,19 @@ $info: #53bccc;
 $light: #f2f3f3;
 $dark: #272932;
 
+// Modern Accents
+$mPrimary: #dbebf6;
+$mSecondary: #e7ebee;
+$mSuccess: #d9ede0;
+$mWarning: #fcf5db;
+$mDanger: #fadfe1;
+$mInfo: #e5f5f7;
+$mLight: #fdfdfd;
+$mDark: #dfdfe0;
+
 // Font Colors
-$primaryFont: #fff;
-$secondaryFont: #fff;
-$successFont: #fff;
-$warningFont: #000;
-$dangerFont: #fff;
-$infoFont: #000;
-$lightFont: #000;
-$darkFont: #fff;
+$lightFont: #fff;
+$darkFont: #000;
 
 //SIZING
 //default size
@@ -41,55 +45,6 @@ $xl: $fontSize * 4;
 $smBorderRadius: 0.3125rem;
 $mdBorderRadius: 0.625rem;
 $lgBorderRadius: 1rem;
-$xlBorderRadisu: 2rem;
-$roundBorderRadius: 3rem;
+$xlBorderRadius: 2rem;
+$roundBorderRadius: 99rem;
 $circleBorderRadius: 50%;
-
-:root {
-	//COLORS
-	// Accents
-	--primary: #0f79c1;
-	--secondary: #61788c;
-	--success: #00852e;
-	--warning: #edb90e;
-	--danger: #df2935;
-	--info: #53bccc;
-	--light: #f2f3f3;
-	--dark: #272932;
-
-	// Font Colors
-	--primaryFont: #fff;
-	--secondaryFont: #fff;
-	--successFont: #fff;
-	--warningFont: #000;
-	--dangerFont: #fff;
-	--infoFont: #000;
-	--lightFont: #000;
-	--darkFont: #fff;
-
-	//SIZING
-	//default size
-	--fontSize: 16px;
-
-	//font size based on default size
-	--smFont: 0.8rem;
-	--mdFont: 1rem;
-	--lgFont: 1.2rem;
-	--xlFont: 1.4rem;
-
-	//component sizing based on default font size
-	--sm: $fontSize * 1.9375;
-	--md: $fontSize * 2.375;
-	--lg: $fontSize * 3;
-	--xl: $fontSize * 4;
-
-	//SHADOWS
-
-	//OTHER
-	--smBorderRadius: 0.3125rem;
-	--mdBorderRadius: 0.625rem;
-	--lgBorderRadius: 1rem;
-	--xlBorderRadisu: 2rem;
-	--roundBorderRadius: 3rem;
-	--circleBorderRadius: 50%;
-}
