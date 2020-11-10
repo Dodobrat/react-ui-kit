@@ -1367,6 +1367,185 @@ p {
   border-radius: 0 0 1rem 1rem;
 }
 
+.dodo-ui__badge {
+  display: inline-block;
+  padding: 0.3125rem 0.5rem;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  user-select: none;
+  border-radius: 0.3125rem;
+  background: #0f79c1;
+  color: #fff;
+}
+
+.dodo-ui__badge * {
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--sm {
+  font-size: calc(0.8rem - 0.1rem);
+}
+
+.dodo-ui__badge.dodo-ui__badge--lg {
+  font-size: calc(1.2rem - 0.1rem);
+}
+
+.dodo-ui__badge.dodo-ui__badge--xl {
+  font-size: calc(1.4rem - 0.1rem);
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-primary {
+  background: #0f79c1;
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-primary * {
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-secondary {
+  background: #61788c;
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-secondary * {
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-success {
+  background: #00852e;
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-success * {
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-warning {
+  background: #edb90e;
+  color: #000;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-warning * {
+  color: #000;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-info {
+  background: #53bccc;
+  color: #000;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-info * {
+  color: #000;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-danger {
+  background: #df2935;
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-danger * {
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-light {
+  background: #f2f3f3;
+  color: #000;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-light * {
+  color: #000;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-dark {
+  background: #272932;
+  color: #fff;
+}
+
+.dodo-ui__badge.dodo-ui__badge--pigment-dark * {
+  color: #fff;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-primary {
+  background: #dbebf6;
+  color: #0b5b92;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-primary * {
+  color: #0b5b92;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-secondary {
+  background: #e7ebee;
+  color: #4c5e6e;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-secondary * {
+  color: #4c5e6e;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-success {
+  background: #d9ede0;
+  color: #00521c;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-success * {
+  color: #00521c;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-warning {
+  background: #fcf5db;
+  color: #bd930b;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-warning * {
+  color: #bd930b;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-info {
+  background: #e5f5f7;
+  color: #36a5b6;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-info * {
+  color: #36a5b6;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-danger {
+  background: #fadfe1;
+  color: #b91c26;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-danger * {
+  color: #b91c26;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-light {
+  background: #fdfdfd;
+  color: #6e7878;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-light * {
+  color: #6e7878;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-dark {
+  background: #dfdfe0;
+  color: #111215;
+}
+
+.dodo-ui__badge--modern.dodo-ui__badge--pigment-dark * {
+  color: #111215;
+}
+
+.dodo-ui__badge--pill {
+  border-radius: 2rem;
+}
+
 .dodo-ui__card {
   position: relative;
   background: #fff;
@@ -2376,6 +2555,7 @@ p {
 }
 
 .dodo-ui__line-loader {
+  position: relative;
   overflow: hidden;
   height: 0.3125rem;
   left: 0;

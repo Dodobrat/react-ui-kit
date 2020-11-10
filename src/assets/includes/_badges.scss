@@ -1,0 +1,64 @@
+@mixin badge($bgColor, $fontColor, $radius: $smBorderRadius) {
+	display: inline-block;
+	padding: 0.3125rem 0.5rem;
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	user-select: none;
+	border-radius: $radius;
+	background: $bgColor;
+	color: $fontColor;
+	* {
+		color: $fontColor;
+	}
+}
+
+$sizes: "sm" $smFont, "lg" $lgFont, "xl" $xlFont;
+
+$pigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
+	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+
+$mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success, "warning" $mWarning $warning,
+	"info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
+
+.dodo-ui__badge {
+	@include badge($primary, $lightFont);
+	@each $name, $font in $sizes {
+		&.dodo-ui__badge--#{$name} {
+			font-size: calc(#{$font} - 0.1rem);
+		}
+	}
+	@each $name, $color, $font in $pigments {
+		&.dodo-ui__badge--pigment-#{$name} {
+			background: $color;
+			color: $font;
+			* {
+				color: $font;
+			}
+		}
+	}
+	&--modern {
+		@each $name, $color, $font in $mPigments {
+			&.dodo-ui__badge--pigment-#{$name} {
+				background: $color;
+				@if $name == "light" {
+					color: darken($font, 50%);
+					* {
+						color: darken($font, 50%);
+					}
+				} @else {
+					color: darken($font, 10%);
+					* {
+						color: darken($font, 10%);
+					}
+				}
+			}
+		}
+	}
+	&--pill {
+		border-radius: $xlBorderRadius;
+	}
+}

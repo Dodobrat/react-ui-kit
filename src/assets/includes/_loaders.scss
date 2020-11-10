@@ -32,6 +32,7 @@ $pigments: "primary" $primary, "secondary" $secondary, "success" $success, "warn
 }
 
 .dodo-ui__line-loader {
+	position: relative;
 	overflow: hidden;
 	height: 0.3125rem;
 	left: 0;
