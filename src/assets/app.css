@@ -51,6 +51,7 @@ body,
   width: 100%;
   padding: 0;
   margin: 0;
+  background-color: #fbfbfb;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1381,7 +1382,12 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card img {
+  user-select: none;
+}
+
 .dodo-ui__card__loader {
+  grid-area: card-loader;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -1416,9 +1422,9 @@ p {
 }
 
 .dodo-ui__card__img {
+  grid-area: card-img;
   max-width: 100%;
   overflow: hidden;
-  max-height: 15rem;
 }
 
 .dodo-ui__card__img > img {
@@ -1428,6 +1434,7 @@ p {
 }
 
 .dodo-ui__card__header {
+  grid-area: card-header;
   margin: 0;
   padding: 1rem 1.5rem;
   background: rgba(0, 0, 0, 0.03);
@@ -1435,10 +1442,12 @@ p {
 }
 
 .dodo-ui__card__body {
+  grid-area: card-body;
   padding: 1.5rem;
 }
 
 .dodo-ui__card__footer {
+  grid-area: card-footer;
   margin: 0;
   padding: 1rem 1.5rem;
   background: rgba(0, 0, 0, 0.03);
@@ -1453,11 +1462,44 @@ p {
   overflow-y: auto;
   color: #fff;
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card.dodo-ui__card--pigment-primary--overflow {
   overflow: visible;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-primary img {
+  user-select: none;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-primary > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-primary > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-primary > .dodo-ui__card__header {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-primary > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-primary > .dodo-ui__card__footer {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card.dodo-ui__card--pigment-secondary {
@@ -1468,11 +1510,44 @@ p {
   overflow-y: auto;
   color: #fff;
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card.dodo-ui__card--pigment-secondary--overflow {
   overflow: visible;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-secondary img {
+  user-select: none;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-secondary > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-secondary > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-secondary > .dodo-ui__card__header {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-secondary > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-secondary > .dodo-ui__card__footer {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card.dodo-ui__card--pigment-success {
@@ -1483,11 +1558,44 @@ p {
   overflow-y: auto;
   color: #fff;
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card.dodo-ui__card--pigment-success--overflow {
   overflow: visible;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-success img {
+  user-select: none;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-success > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-success > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-success > .dodo-ui__card__header {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-success > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-success > .dodo-ui__card__footer {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card.dodo-ui__card--pigment-warning {
@@ -1505,6 +1613,39 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card.dodo-ui__card--pigment-warning img {
+  user-select: none;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-warning > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-warning > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-warning > .dodo-ui__card__header {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-warning > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-warning > .dodo-ui__card__footer {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 .dodo-ui__card.dodo-ui__card--pigment-info {
   position: relative;
   background: #53bccc;
@@ -1520,6 +1661,39 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card.dodo-ui__card--pigment-info img {
+  user-select: none;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-info > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-info > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-info > .dodo-ui__card__header {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-info > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-info > .dodo-ui__card__footer {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 .dodo-ui__card.dodo-ui__card--pigment-danger {
   position: relative;
   background: #df2935;
@@ -1528,11 +1702,44 @@ p {
   overflow-y: auto;
   color: #fff;
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card.dodo-ui__card--pigment-danger--overflow {
   overflow: visible;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-danger img {
+  user-select: none;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-danger > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-danger > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-danger > .dodo-ui__card__header {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-danger > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-danger > .dodo-ui__card__footer {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card.dodo-ui__card--pigment-light {
@@ -1550,6 +1757,39 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card.dodo-ui__card--pigment-light img {
+  user-select: none;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-light > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-light > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-light > .dodo-ui__card__header {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-light > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-light > .dodo-ui__card__footer {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 .dodo-ui__card.dodo-ui__card--pigment-dark {
   position: relative;
   background: #272932;
@@ -1558,11 +1798,44 @@ p {
   overflow-y: auto;
   color: #fff;
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card.dodo-ui__card--pigment-dark--overflow {
   overflow: visible;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-dark img {
+  user-select: none;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-dark > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-dark > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-dark > .dodo-ui__card__header {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-dark > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card.dodo-ui__card--pigment-dark > .dodo-ui__card__footer {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .dodo-ui__card--modern {
@@ -1580,10 +1853,13 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card--modern img {
+  user-select: none;
+}
+
 .dodo-ui__card--modern > .dodo-ui__card__img {
   max-width: 100%;
   overflow: hidden;
-  max-height: 15rem;
 }
 
 .dodo-ui__card--modern > .dodo-ui__card__img > img {
@@ -1625,6 +1901,39 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card--modern.dodo-ui__card--pigment-primary img {
+  user-select: none;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-primary > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-primary > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-primary > .dodo-ui__card__header {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-bottom: 1px solid rgba(15, 121, 193, 0.05);
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-primary > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-primary > .dodo-ui__card__footer {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-top: 1px solid rgba(15, 121, 193, 0.05);
+}
+
 .dodo-ui__card--modern.dodo-ui__card--pigment-secondary {
   position: relative;
   background: #e7ebee;
@@ -1638,6 +1947,39 @@ p {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-secondary--overflow {
   overflow: visible;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-secondary img {
+  user-select: none;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-secondary > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-secondary > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-secondary > .dodo-ui__card__header {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-bottom: 1px solid rgba(97, 120, 140, 0.05);
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-secondary > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-secondary > .dodo-ui__card__footer {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-top: 1px solid rgba(97, 120, 140, 0.05);
 }
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-success {
@@ -1655,6 +1997,39 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card--modern.dodo-ui__card--pigment-success img {
+  user-select: none;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-success > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-success > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-success > .dodo-ui__card__header {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-bottom: 1px solid rgba(0, 133, 46, 0.05);
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-success > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-success > .dodo-ui__card__footer {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-top: 1px solid rgba(0, 133, 46, 0.05);
+}
+
 .dodo-ui__card--modern.dodo-ui__card--pigment-warning {
   position: relative;
   background: #fcf5db;
@@ -1668,6 +2043,39 @@ p {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-warning--overflow {
   overflow: visible;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-warning img {
+  user-select: none;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-warning > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-warning > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-warning > .dodo-ui__card__header {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-bottom: 1px solid rgba(237, 185, 14, 0.05);
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-warning > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-warning > .dodo-ui__card__footer {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-top: 1px solid rgba(237, 185, 14, 0.05);
 }
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-info {
@@ -1685,6 +2093,39 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card--modern.dodo-ui__card--pigment-info img {
+  user-select: none;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-info > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-info > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-info > .dodo-ui__card__header {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-bottom: 1px solid rgba(83, 188, 204, 0.05);
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-info > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-info > .dodo-ui__card__footer {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-top: 1px solid rgba(83, 188, 204, 0.05);
+}
+
 .dodo-ui__card--modern.dodo-ui__card--pigment-danger {
   position: relative;
   background: #fadfe1;
@@ -1698,6 +2139,39 @@ p {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-danger--overflow {
   overflow: visible;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-danger img {
+  user-select: none;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-danger > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-danger > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-danger > .dodo-ui__card__header {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-bottom: 1px solid rgba(223, 41, 53, 0.05);
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-danger > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-danger > .dodo-ui__card__footer {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-top: 1px solid rgba(223, 41, 53, 0.05);
 }
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-light {
@@ -1715,6 +2189,39 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card--modern.dodo-ui__card--pigment-light img {
+  user-select: none;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-light > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-light > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-light > .dodo-ui__card__header {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-bottom: 1px solid rgba(242, 243, 243, 0.05);
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-light > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-light > .dodo-ui__card__footer {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-top: 1px solid rgba(242, 243, 243, 0.05);
+}
+
 .dodo-ui__card--modern.dodo-ui__card--pigment-dark {
   position: relative;
   background: #dfdfe0;
@@ -1730,8 +2237,69 @@ p {
   overflow: visible;
 }
 
+.dodo-ui__card--modern.dodo-ui__card--pigment-dark img {
+  user-select: none;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-dark > .dodo-ui__card__img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-dark > .dodo-ui__card__img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-dark > .dodo-ui__card__header {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-bottom: 1px solid rgba(39, 41, 50, 0.05);
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-dark > .dodo-ui__card__body {
+  padding: 1.5rem;
+}
+
+.dodo-ui__card--modern.dodo-ui__card--pigment-dark > .dodo-ui__card__footer {
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  background: unset;
+  border-top: 1px solid rgba(39, 41, 50, 0.05);
+}
+
 .dodo-ui__card--loading {
   cursor: progress;
+}
+
+.dodo-ui__card--img-top {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+  grid-template-areas: "card-loader" "card-img" "card-header" "card-body" "card-footer";
+}
+
+.dodo-ui__card--img-bottom {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+  grid-template-areas: "card-loader" "card-header" "card-body" "card-footer" "card-img";
+}
+
+.dodo-ui__card--img-left {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 33.33% 1fr;
+  grid-template-areas: "card-loader card-loader" "card-img card-header" "card-img card-body" "card-img card-footer";
+}
+
+.dodo-ui__card--img-right {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr 33.33%;
+  grid-template-areas: "card-loader card-loader" "card-header card-img" "card-body card-img" "card-footer card-img";
 }
 
 .dodo-ui__spinner {

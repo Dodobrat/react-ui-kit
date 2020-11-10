@@ -8,19 +8,51 @@
 	&--overflow {
 		overflow: visible;
 	}
+	img {
+		user-select: none;
+	}
 	@if $modern {
 		box-shadow: $smShadow;
 		border: none;
 	} @else {
 		box-shadow: none;
-		border: 1px solid rgba(0, 0, 0, 0.125);
+		border: 1px solid rgba($font, 0.125);
 	}
 }
 
-@mixin cardImg($modern: false) {
+@mixin cardLoader() {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba($cardBg, 0.6);
+	user-select: none;
+	z-index: 99;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&--modern {
+		display: block;
+	}
+	&--sticky {
+		position: sticky;
+		display: block;
+		height: 0;
+		overflow: visible;
+		transform: translateY(2rem);
+		&.dodo-ui__card__loader--modern {
+			transform: translateY(0);
+		}
+		& > .dodo-ui__spinner {
+			margin: 0 auto;
+		}
+	}
+}
+
+@mixin cardImg($modern: false, $accentContrast: $darkFont) {
 	max-width: 100%;
 	overflow: hidden;
-	max-height: 15rem;
 	& > img {
 		object-fit: cover;
 		width: 100%;
@@ -28,35 +60,35 @@
 	}
 }
 
-@mixin cardHeader($modern: false) {
+@mixin cardHeader($modern: false, $accentContrast: $darkFont) {
 	@if $modern {
 		margin: 0 1rem;
 		padding: 1rem 0.5rem;
 		background: unset;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+		border-bottom: 1px solid rgba($accentContrast, 0.05);
 	} @else {
 		margin: 0;
 		padding: 1rem 1.5rem;
 		background: rgba(0, 0, 0, 0.03);
-		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+		border-bottom: 1px solid rgba($accentContrast, 0.125);
 	}
 }
 
-@mixin cardBody($modern: false) {
+@mixin cardBody($modern: false, $accentContrast: $darkFont) {
 	padding: 1.5rem;
 }
 
-@mixin cardFooter($modern: false) {
+@mixin cardFooter($modern: false, $accentContrast: $darkFont) {
 	@if $modern {
 		margin: 0 1rem;
 		padding: 1rem 0.5rem;
 		background: unset;
-		border-top: 1px solid rgba(0, 0, 0, 0.05);
+		border-top: 1px solid rgba($accentContrast, 0.05);
 	} @else {
 		margin: 0;
 		padding: 1rem 1.5rem;
 		background: rgba(0, 0, 0, 0.03);
-		border-top: 1px solid rgba(0, 0, 0, 0.125);
+		border-top: 1px solid rgba($accentContrast, 0.125);
 	}
 }
 
@@ -69,49 +101,40 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 .dodo-ui__card {
 	@include card();
 	&__loader {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		top: 0;
-		left: 0;
-		background-color: rgba($cardBg, 0.6);
-		user-select: none;
-		z-index: 99;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		&--modern {
-			display: block;
-		}
-		&--sticky {
-			position: sticky;
-			display: block;
-			height: 0;
-			overflow: visible;
-			transform: translateY(2rem);
-			&.dodo-ui__card__loader--modern {
-				transform: translateY(0);
-			}
-			& > .dodo-ui__spinner {
-				margin: 0 auto;
-			}
-		}
+		grid-area: card-loader;
+		@include cardLoader();
 	}
 	&__img {
+		grid-area: card-img;
 		@include cardImg();
 	}
 	&__header {
+		grid-area: card-header;
 		@include cardHeader();
 	}
 	&__body {
+		grid-area: card-body;
 		@include cardBody();
 	}
 	&__footer {
+		grid-area: card-footer;
 		@include cardFooter();
 	}
 	@each $name, $color, $font in $pigments {
 		&.dodo-ui__card--pigment-#{$name} {
 			@include card(false, $color, $font);
+			& > .dodo-ui__card__img {
+				@include cardImg(false, $font);
+			}
+			& > .dodo-ui__card__header {
+				@include cardHeader(false, $font);
+			}
+			& > .dodo-ui__card__body {
+				@include cardBody(false, $font);
+			}
+			& > .dodo-ui__card__footer {
+				@include cardFooter(false, $font);
+			}
 		}
 	}
 	&--modern {
@@ -131,10 +154,66 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 		@each $name, $color, $font in $mPigments {
 			&.dodo-ui__card--pigment-#{$name} {
 				@include card(true, $color, $font);
+				& > .dodo-ui__card__img {
+					@include cardImg(true, $font);
+				}
+				& > .dodo-ui__card__header {
+					@include cardHeader(true, $font);
+				}
+				& > .dodo-ui__card__body {
+					@include cardBody(true, $font);
+				}
+				& > .dodo-ui__card__footer {
+					@include cardFooter(true, $font);
+				}
 			}
 		}
 	}
 	&--loading {
 		cursor: progress;
+	}
+	&--img {
+		&-top {
+			display: grid;
+			gap: 0;
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				"card-loader"
+				"card-img"
+				"card-header"
+				"card-body"
+				"card-footer";
+		}
+		&-bottom {
+			display: grid;
+			gap: 0;
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				"card-loader"
+				"card-header"
+				"card-body"
+				"card-footer"
+				"card-img";
+		}
+		&-left {
+			display: grid;
+			gap: 0;
+			grid-template-columns: 33.33% 1fr;
+			grid-template-areas:
+				"card-loader card-loader"
+				"card-img card-header"
+				"card-img card-body"
+				"card-img card-footer";
+		}
+		&-right {
+			display: grid;
+			gap: 0;
+			grid-template-columns: 1fr 33.33%;
+			grid-template-areas:
+				"card-loader card-loader"
+				"card-header card-img"
+				"card-body card-img"
+				"card-footer card-img";
+		}
 	}
 }

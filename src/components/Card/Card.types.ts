@@ -1,9 +1,10 @@
 // Auto-Generated
 export interface CardProps {
-	headerImg?: React.ReactNode | string | null;
-	headerImgAlt?: string;
-	headerImgClassName?: string;
-	headerImgProps?: Object;
+	cardImgPosition?: "top" | "bottom" | "left" | "right";
+	cardImg?: React.ReactNode | string | null;
+	cardImgAlt?: string;
+	cardImgClassName?: string;
+	cardImgProps?: Object;
 	header?: React.ReactNode | string | number | null;
 	headerClassName?: string;
 	headerProps?: Object;

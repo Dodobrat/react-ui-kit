@@ -10,10 +10,11 @@ import LineLoader from "../LineLoader/LineLoader";
 const Card = forwardRef<HTMLDivElement, CardProps>(
 	(
 		{
-			headerImg = null,
-			headerImgAlt = "",
-			headerImgClassName = "",
-			headerImgProps,
+			cardImgPosition = "top",
+			cardImg = null,
+			cardImgAlt = "",
+			cardImgClassName = "",
+			cardImgProps,
 			header = null,
 			headerClassName = "",
 			headerProps,
@@ -46,6 +47,9 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 						"dodo-ui__card--loading": loading,
 					},
 					{
+						[`dodo-ui__card--img-${cardImgPosition}`]: !!cardImg,
+					},
+					{
 						[`dodo-ui__card--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
@@ -64,9 +68,9 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 						{modern ? <LineLoader pigment={loaderPigment} /> : <SpinnerLoader pigment={loaderPigment} />}
 					</div>
 				)}
-				{headerImg && (
-					<div className={cn("dodo-ui__card__img", headerImgClassName)} {...headerImgProps}>
-						{typeof headerImg === "string" ? <img src={headerImg} alt={headerImgAlt} /> : headerImg}
+				{cardImg && (
+					<div className={cn("dodo-ui__card__img", cardImgClassName)} {...cardImgProps}>
+						{typeof cardImg === "string" ? <img src={cardImg} alt={cardImgAlt} /> : cardImg}
 					</div>
 				)}
 				{header && (
