@@ -1,4 +1,4 @@
 // Auto-Generated
 export interface IconProps {
-    children: any;
+	children?: React.ReactNode;
 }

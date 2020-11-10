@@ -1,6 +1,6 @@
 // Auto-Generated
 export interface ContainerProps {
-	children: any;
+	children?: React.ReactNode;
 	fluid?: boolean;
 	className?: string;
 }

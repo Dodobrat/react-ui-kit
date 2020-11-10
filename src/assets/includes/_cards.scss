@@ -1,0 +1,140 @@
+@mixin card($modern: false, $pigment: $cardBg, $font: $darkFont) {
+	position: relative;
+	background: $pigment;
+	border-radius: $smBorderRadius;
+	overflow: hidden;
+	overflow-y: auto;
+	color: $font;
+	&--overflow {
+		overflow: visible;
+	}
+	@if $modern {
+		box-shadow: $smShadow;
+		border: none;
+	} @else {
+		box-shadow: none;
+		border: 1px solid rgba(0, 0, 0, 0.125);
+	}
+}
+
+@mixin cardImg($modern: false) {
+	max-width: 100%;
+	overflow: hidden;
+	max-height: 15rem;
+	& > img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+@mixin cardHeader($modern: false) {
+	@if $modern {
+		margin: 0 1rem;
+		padding: 1rem 0.5rem;
+		background: unset;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	} @else {
+		margin: 0;
+		padding: 1rem 1.5rem;
+		background: rgba(0, 0, 0, 0.03);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+	}
+}
+
+@mixin cardBody($modern: false) {
+	padding: 1.5rem;
+}
+
+@mixin cardFooter($modern: false) {
+	@if $modern {
+		margin: 0 1rem;
+		padding: 1rem 0.5rem;
+		background: unset;
+		border-top: 1px solid rgba(0, 0, 0, 0.05);
+	} @else {
+		margin: 0;
+		padding: 1rem 1.5rem;
+		background: rgba(0, 0, 0, 0.03);
+		border-top: 1px solid rgba(0, 0, 0, 0.125);
+	}
+}
+
+$pigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
+	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+
+$mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success, "warning" $mWarning $warning,
+	"info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
+
+.dodo-ui__card {
+	@include card();
+	&__loader {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: rgba($cardBg, 0.6);
+		user-select: none;
+		z-index: 99;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&--modern {
+			display: block;
+		}
+		&--sticky {
+			position: sticky;
+			display: block;
+			height: 0;
+			overflow: visible;
+			transform: translateY(2rem);
+			&.dodo-ui__card__loader--modern {
+				transform: translateY(0);
+			}
+			& > .dodo-ui__spinner {
+				margin: 0 auto;
+			}
+		}
+	}
+	&__img {
+		@include cardImg();
+	}
+	&__header {
+		@include cardHeader();
+	}
+	&__body {
+		@include cardBody();
+	}
+	&__footer {
+		@include cardFooter();
+	}
+	@each $name, $color, $font in $pigments {
+		&.dodo-ui__card--pigment-#{$name} {
+			@include card(false, $color, $font);
+		}
+	}
+	&--modern {
+		@include card(true);
+		& > .dodo-ui__card__img {
+			@include cardImg(true);
+		}
+		& > .dodo-ui__card__header {
+			@include cardHeader(true);
+		}
+		& > .dodo-ui__card__body {
+			@include cardBody(true);
+		}
+		& > .dodo-ui__card__footer {
+			@include cardFooter(true);
+		}
+		@each $name, $color, $font in $mPigments {
+			&.dodo-ui__card--pigment-#{$name} {
+				@include card(true, $color, $font);
+			}
+		}
+	}
+	&--loading {
+		cursor: progress;
+	}
+}

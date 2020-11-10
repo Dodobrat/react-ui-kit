@@ -48,9 +48,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				className={cn(
 					"dodo-ui__btn",
 					{
-						"dodo-ui__btn--sm": size === "sm",
-						"dodo-ui__btn--lg": size === "lg",
-						"dodo-ui__btn--xl": size === "xl",
+						[`dodo-ui__btn--${size}`]: size !== "md",
 					},
 					{
 						"dodo-ui__btn--outlined": outlined,

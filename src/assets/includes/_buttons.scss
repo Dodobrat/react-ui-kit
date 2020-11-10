@@ -80,6 +80,8 @@
 	}
 }
 
+$sizes: "sm" $sm $smFont, "lg" $lg $lgFont, "xl" $xl $xlFont;
+
 $pigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
 	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
 
@@ -92,19 +94,12 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 		cursor: progress;
 		@include btnLoader($lightFont);
 	}
-	&--sm {
-		height: $sm;
-		font-size: $smFont;
-	}
-	&--lg {
-		height: $lg;
-		font-size: $lgFont;
-		padding: 0 $lgFont;
-	}
-	&--xl {
-		height: $xl;
-		font-size: $xlFont;
-		padding: 0 $xlFont;
+	@each $name, $size, $font in $sizes {
+		&.dodo-ui__btn--#{$name} {
+			height: $size;
+			font-size: $font;
+			padding: 0 $font;
+		}
 	}
 	&--round {
 		border-radius: $roundBorderRadius;

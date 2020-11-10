@@ -1,0 +1,70 @@
+$sizes: "sm" $sm, "lg" $lg, "xl" $xl;
+
+$pigments: "primary" $primary, "secondary" $secondary, "success" $success, "warning" $warning, "info" $info, "danger" $danger,
+	"light" $light, "dark" $dark;
+
+.dodo-ui__spinner {
+	border-style: solid;
+	border-width: 0.3rem;
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	animation: spin 1s linear infinite;
+	@each $name, $size in $sizes {
+		&.dodo-ui__spinner--#{$name} {
+			width: calc(#{$size} + 0.5rem);
+			height: calc(#{$size} + 0.5rem);
+			border-width: $size * 0.1;
+		}
+	}
+	@each $name, $color in $pigments {
+		&.dodo-ui__spinner--pigment-#{$name} {
+			border-color: rgba($color, 0.25);
+			border-top-color: $color;
+		}
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.dodo-ui__line-loader {
+	overflow: hidden;
+	height: 0.3125rem;
+	left: 0;
+	right: 0;
+	width: 100%;
+
+	&__line {
+		position: absolute;
+		top: 0;
+		left: -80%;
+		will-change: left, right;
+		height: 0.3125rem;
+		border-radius: $mdBorderRadius;
+		animation: indeterminate 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+	}
+
+	@each $name, $color in $pigments {
+		&.dodo-ui__line-loader--pigment-#{$name} {
+			background-color: rgba($color, 0.25);
+			.dodo-ui__line-loader__line {
+				background: $color;
+			}
+		}
+	}
+}
+
+@keyframes indeterminate {
+	0% {
+		left: -35%;
+		right: 100%;
+	}
+	100% {
+		left: 100%;
+		right: -160%;
+	}
+}
