@@ -211,6 +211,11 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 		position: relative;
 		display: inline-flex;
 		align-items: center;
+		border-radius: $smBorderRadius;
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+		}
 		& > * {
 			border-radius: 0;
 			&:focus {
@@ -230,6 +235,7 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 			}
 		}
 		&--round {
+			border-radius: $roundBorderRadius;
 			& > *:first-child {
 				border-radius: $roundBorderRadius 0 0 $roundBorderRadius;
 			}
@@ -251,6 +257,7 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 				border-radius: 0 0 $smBorderRadius $smBorderRadius;
 			}
 			&.dodo-ui__btn-group--round {
+				border-radius: $lgBorderRadius;
 				& > *:first-child {
 					border-radius: $lgBorderRadius $lgBorderRadius 0 0;
 				}

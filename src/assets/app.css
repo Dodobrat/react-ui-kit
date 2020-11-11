@@ -1307,6 +1307,12 @@ p {
   position: relative;
   display: inline-flex;
   align-items: center;
+  border-radius: 0.3125rem;
+}
+
+.dodo-ui__btn-group:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
 }
 
 .dodo-ui__btn-group > * {
@@ -1333,6 +1339,10 @@ p {
   flex: 1;
 }
 
+.dodo-ui__btn-group--round {
+  border-radius: 99rem;
+}
+
 .dodo-ui__btn-group--round > *:first-child {
   border-radius: 99rem 0 0 99rem;
 }
@@ -1357,6 +1367,10 @@ p {
 
 .dodo-ui__btn-group--vertical > *:last-child {
   border-radius: 0 0 0.3125rem 0.3125rem;
+}
+
+.dodo-ui__btn-group--vertical.dodo-ui__btn-group--round {
+  border-radius: 1rem;
 }
 
 .dodo-ui__btn-group--vertical.dodo-ui__btn-group--round > *:first-child {
