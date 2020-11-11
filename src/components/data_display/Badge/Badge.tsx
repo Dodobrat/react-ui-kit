@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { BadgeProps } from "./Badge.types";
-import { pigmentOptions } from "../../helpers/pigments";
+import { pigmentOptions } from "../../../helpers/pigments";
 
 const Badge = forwardRef<HTMLDivElement, BadgeProps>(
 	({ className, pigment = "primary", size = "md", pill = false, modern = false, children, ...rest }, ref) => {

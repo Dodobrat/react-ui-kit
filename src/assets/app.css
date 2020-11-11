@@ -530,7 +530,7 @@ p {
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary {
   background-color: transparent;
   color: #0f79c1;
-  border: 1px solid #0f79c1;
+  border: 1px solid rgba(15, 121, 193, 0.75);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--loading {
@@ -558,13 +558,13 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--active {
-  background-color: #0f79c1;
-  color: #fff;
-  border: 1px solid transparent;
+  background-color: rgba(15, 121, 193, 0.2);
+  color: #0b5b92;
+  border: 1px solid #0f79c1;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover.dodo-ui__btn--loading, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--active.dodo-ui__btn--loading {
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(15, 121, 193, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover.dodo-ui__btn--loading > svg, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--active.dodo-ui__btn--loading > svg {
@@ -581,7 +581,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover.dodo-ui__btn--loading > svg > circle, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--active.dodo-ui__btn--loading > svg > circle {
-  stroke: #fff;
+  stroke: #0f79c1;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -590,7 +590,7 @@ p {
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary {
   background-color: transparent;
   color: #61788c;
-  border: 1px solid #61788c;
+  border: 1px solid rgba(97, 120, 140, 0.75);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--loading {
@@ -618,13 +618,13 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--active {
-  background-color: #61788c;
-  color: #fff;
-  border: 1px solid transparent;
+  background-color: rgba(97, 120, 140, 0.2);
+  color: #4c5e6e;
+  border: 1px solid #61788c;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover.dodo-ui__btn--loading, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--active.dodo-ui__btn--loading {
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(97, 120, 140, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover.dodo-ui__btn--loading > svg, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--active.dodo-ui__btn--loading > svg {
@@ -641,7 +641,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover.dodo-ui__btn--loading > svg > circle, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--active.dodo-ui__btn--loading > svg > circle {
-  stroke: #fff;
+  stroke: #61788c;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -650,7 +650,7 @@ p {
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success {
   background-color: transparent;
   color: #00852e;
-  border: 1px solid #00852e;
+  border: 1px solid rgba(0, 133, 46, 0.75);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--loading {
@@ -678,13 +678,13 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--active {
-  background-color: #00852e;
-  color: #fff;
-  border: 1px solid transparent;
+  background-color: rgba(0, 133, 46, 0.2);
+  color: #00521c;
+  border: 1px solid #00852e;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover.dodo-ui__btn--loading, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--active.dodo-ui__btn--loading {
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 133, 46, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover.dodo-ui__btn--loading > svg, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--active.dodo-ui__btn--loading > svg {
@@ -701,7 +701,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover.dodo-ui__btn--loading > svg > circle, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--active.dodo-ui__btn--loading > svg > circle {
-  stroke: #fff;
+  stroke: #00852e;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -710,7 +710,7 @@ p {
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning {
   background-color: transparent;
   color: #edb90e;
-  border: 1px solid #edb90e;
+  border: 1px solid rgba(237, 185, 14, 0.75);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--loading {
@@ -738,13 +738,13 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--active {
-  background-color: #edb90e;
-  color: #000;
-  border: 1px solid transparent;
+  background-color: rgba(237, 185, 14, 0.2);
+  color: #bd930b;
+  border: 1px solid #edb90e;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover.dodo-ui__btn--loading, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--active.dodo-ui__btn--loading {
-  color: rgba(0, 0, 0, 0.1);
+  color: rgba(237, 185, 14, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover.dodo-ui__btn--loading > svg, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--active.dodo-ui__btn--loading > svg {
@@ -761,7 +761,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover.dodo-ui__btn--loading > svg > circle, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--active.dodo-ui__btn--loading > svg > circle {
-  stroke: #000;
+  stroke: #edb90e;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -770,7 +770,7 @@ p {
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info {
   background-color: transparent;
   color: #53bccc;
-  border: 1px solid #53bccc;
+  border: 1px solid rgba(83, 188, 204, 0.75);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--loading {
@@ -798,13 +798,13 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--active {
-  background-color: #53bccc;
-  color: #000;
-  border: 1px solid transparent;
+  background-color: rgba(83, 188, 204, 0.2);
+  color: #36a5b6;
+  border: 1px solid #53bccc;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover.dodo-ui__btn--loading, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--active.dodo-ui__btn--loading {
-  color: rgba(0, 0, 0, 0.1);
+  color: rgba(83, 188, 204, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover.dodo-ui__btn--loading > svg, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--active.dodo-ui__btn--loading > svg {
@@ -821,7 +821,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover.dodo-ui__btn--loading > svg > circle, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--active.dodo-ui__btn--loading > svg > circle {
-  stroke: #000;
+  stroke: #53bccc;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -830,7 +830,7 @@ p {
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger {
   background-color: transparent;
   color: #df2935;
-  border: 1px solid #df2935;
+  border: 1px solid rgba(223, 41, 53, 0.75);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--loading {
@@ -858,13 +858,13 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--active {
-  background-color: #df2935;
-  color: #fff;
-  border: 1px solid transparent;
+  background-color: rgba(223, 41, 53, 0.2);
+  color: #b91c26;
+  border: 1px solid #df2935;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover.dodo-ui__btn--loading, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--active.dodo-ui__btn--loading {
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(223, 41, 53, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover.dodo-ui__btn--loading > svg, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--active.dodo-ui__btn--loading > svg {
@@ -881,7 +881,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover.dodo-ui__btn--loading > svg > circle, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--active.dodo-ui__btn--loading > svg > circle {
-  stroke: #fff;
+  stroke: #df2935;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -890,11 +890,11 @@ p {
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light {
   background-color: transparent;
   color: #f2f3f3;
-  border: 1px solid #f2f3f3;
+  border: 1px solid rgba(242, 243, 243, 0.75);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--loading {
-  color: rgba(242, 243, 243, 0.1);
+  color: rgba(176, 182, 182, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg {
@@ -911,20 +911,20 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg > circle {
-  stroke: #f2f3f3;
+  stroke: #b0b6b6;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--active {
-  background-color: #f2f3f3;
-  color: #000;
-  border: 1px solid transparent;
+  background-color: rgba(242, 243, 243, 0.2);
+  color: #6e7878;
+  border: 1px solid #f2f3f3;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover.dodo-ui__btn--loading, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--active.dodo-ui__btn--loading {
-  color: rgba(0, 0, 0, 0.1);
+  color: rgba(176, 182, 182, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover.dodo-ui__btn--loading > svg, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--active.dodo-ui__btn--loading > svg {
@@ -941,7 +941,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover.dodo-ui__btn--loading > svg > circle, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--active.dodo-ui__btn--loading > svg > circle {
-  stroke: #000;
+  stroke: #b0b6b6;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -950,7 +950,7 @@ p {
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark {
   background-color: transparent;
   color: #272932;
-  border: 1px solid #272932;
+  border: 1px solid rgba(39, 41, 50, 0.75);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--loading {
@@ -978,13 +978,13 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--active {
-  background-color: #272932;
-  color: #fff;
-  border: 1px solid transparent;
+  background-color: rgba(39, 41, 50, 0.2);
+  color: #111215;
+  border: 1px solid #272932;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover.dodo-ui__btn--loading, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--active.dodo-ui__btn--loading {
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(39, 41, 50, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover.dodo-ui__btn--loading > svg, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--active.dodo-ui__btn--loading > svg {
@@ -1001,7 +1001,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover.dodo-ui__btn--loading > svg > circle, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--active.dodo-ui__btn--loading > svg > circle {
-  stroke: #fff;
+  stroke: #272932;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -1243,7 +1243,7 @@ p {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-light.dodo-ui__btn--loading {
-  color: rgba(242, 243, 243, 0.1);
+  color: rgba(176, 182, 182, 0.1);
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg {
@@ -1260,7 +1260,7 @@ p {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg > circle {
-  stroke: #f2f3f3;
+  stroke: #b0b6b6;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;

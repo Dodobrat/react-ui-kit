@@ -3,7 +3,7 @@ import React from "react";
 import cn from "classnames";
 
 import { SpinnerLoaderProps } from "./SpinnerLoader.types";
-import { pigmentOptions } from "../../helpers/pigments";
+import { pigmentOptions } from "../../../helpers/pigments";
 
 const SpinnerLoader: React.FC<SpinnerLoaderProps> = ({ size = "md", pigment = "primary" }) => {
 	return (

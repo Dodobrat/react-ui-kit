@@ -5,9 +5,9 @@ import cn from 'classnames';
 
 import { ${componentName}Props } from "./${componentName}.types";
 
-const ${componentName} = forwardRef<HTMLDivElement, ${componentName}Props>(({ children }, ref) => {
+const ${componentName} = forwardRef<HTMLDivElement, ${componentName}Props>(({ className, children }, ref) => {
     return(
-        <div data-testid="${componentName}" className={cn("")} ref={ref}>{children}</div>
+        <div data-testid="${componentName}" className={cn("", className)} ref={ref}>{children}</div>
     )
 });
 

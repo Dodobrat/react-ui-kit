@@ -153,17 +153,29 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 			&.dodo-ui__btn--pigment-#{$name} {
 				background-color: transparent;
 				color: $color;
-				border: 1px solid $color;
+				border: 1px solid rgba($color, 0.75);
 				&.dodo-ui__btn--loading {
-					@include btnLoader($color);
+					@if $name == "light" {
+						@include btnLoader(darken($color, 25%));
+					} @else {
+						@include btnLoader($color);
+					}
 				}
 				&:hover,
 				&.dodo-ui__btn--active {
-					background-color: $color;
-					color: $font;
-					border: 1px solid transparent;
+					background-color: rgba($color, 0.2);
+					@if $name == "light" {
+						color: darken($color, 50%);
+					} @else {
+						color: darken($color, 10%);
+					}
+					border: 1px solid $color;
 					&.dodo-ui__btn--loading {
-						@include btnLoader($font);
+						@if $name == "light" {
+							@include btnLoader(darken($color, 25%));
+						} @else {
+							@include btnLoader($color);
+						}
 					}
 				}
 			}
@@ -186,7 +198,11 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 					box-shadow: 0 0 0 0.2rem rgba($font, 0.25);
 				}
 				&.dodo-ui__btn--loading {
-					@include btnLoader($font);
+					@if $name == "light" {
+						@include btnLoader(darken($font, 25%));
+					} @else {
+						@include btnLoader($font);
+					}
 				}
 			}
 		}

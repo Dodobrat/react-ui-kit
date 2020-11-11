@@ -3,9 +3,9 @@ import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { CardProps } from "./Card.types";
-import { pigmentOptions } from "../../helpers/pigments";
-import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
-import LineLoader from "../LineLoader/LineLoader";
+import { pigmentOptions } from "../../../helpers/pigments";
+import SpinnerLoader from "../../loaders/SpinnerLoader/SpinnerLoader";
+import LineLoader from "../../loaders/LineLoader/LineLoader";
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
 	(

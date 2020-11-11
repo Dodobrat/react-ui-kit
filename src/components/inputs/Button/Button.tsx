@@ -3,8 +3,8 @@ import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { ButtonProps } from "./Button.types";
-import { pigmentOptions } from "../../helpers/pigments";
-import Icon from "../Icon/Icon";
+import { pigmentOptions } from "../../../helpers/pigments";
+import Icon from "../../data_display/Icon/Icon";
 
 const ButtonLoader: React.FC<{ size: number }> = ({ size }) => {
 	const strokeWidth = Math.max(2, size * 0.1);
@@ -20,7 +20,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		{
 			className,
 			type = "button",
-			ariaLabel = "button",
 			size = "md",
 			outlined = false,
 			round = false,
@@ -43,7 +42,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			<button
 				data-testid='Button'
 				type={type}
-				aria-label={ariaLabel}
 				tabIndex={rest?.disabled ? -1 : 0}
 				className={cn(
 					"dodo-ui__btn",

@@ -1,15 +1,15 @@
 // Utility components
-import Container from "./util_components/Container/Container";
+import Container from "./components/layout/Container/Container";
 
 // Components
 // --Partials
-import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
-import Button from "./components/Button/Button";
-import Card from "./components/Card/Card";
-import Badge from "./components/Badge/Badge";
-import Icon from "./components/Icon/Icon";
+import ButtonGroup from "./components/inputs/ButtonGroup/ButtonGroup";
+import Button from "./components/inputs/Button/Button";
+import Card from "./components/surfaces/Card/Card";
+import Badge from "./components/data_display/Badge/Badge";
+import Icon from "./components/data_display/Icon/Icon";
 // --Spinners
-import SpinnerLoader from "./components/SpinnerLoader/SpinnerLoader";
-import LineLoader from "./components/LineLoader/LineLoader";
+import SpinnerLoader from "./components/loaders/SpinnerLoader/SpinnerLoader";
+import LineLoader from "./components/loaders/LineLoader/LineLoader";
 
 export { Container, ButtonGroup, Button, Card, Badge, Icon, SpinnerLoader, LineLoader };

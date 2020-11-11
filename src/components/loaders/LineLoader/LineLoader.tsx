@@ -3,7 +3,7 @@ import React from "react";
 import cn from "classnames";
 
 import { LineLoaderProps } from "./LineLoader.types";
-import { pigmentOptions } from "../../helpers/pigments";
+import { pigmentOptions } from "../../../helpers/pigments";
 
 const LineLoader: React.FC<LineLoaderProps> = ({ className, pigment = "primary" }) => {
 	return (

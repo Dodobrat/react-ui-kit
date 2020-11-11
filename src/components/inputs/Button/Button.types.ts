@@ -2,7 +2,6 @@
 export interface ButtonProps {
 	className?: string;
 	type?: "button" | "submit" | "reset";
-	ariaLabel?: string;
 	size?: "sm" | "md" | "lg" | "xl";
 	outlined?: boolean;
 	round?: boolean;
