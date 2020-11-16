@@ -2,7 +2,7 @@ module.exports = (componentName) => ({
 	content: `// Auto-Generated
 export interface ${componentName}Props {
 	className?: string;
-	children?: React.ReactNode;
+	children?: JSX.Element;
 }
 `,
 	extension: `.types.ts`,

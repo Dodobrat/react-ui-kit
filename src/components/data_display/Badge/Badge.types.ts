@@ -5,5 +5,5 @@ export interface BadgeProps {
 	modern?: boolean;
 	size?: "sm" | "md" | "lg" | "xl";
 	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
-	children?: React.ReactNode;
+	children?: JSX.Element;
 }

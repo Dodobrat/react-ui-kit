@@ -1,4 +1,4 @@
 // Auto-Generated
 export interface BreadcrumbsProps {
-	children?: React.ReactNode;
+	children?: JSX.Element;
 }

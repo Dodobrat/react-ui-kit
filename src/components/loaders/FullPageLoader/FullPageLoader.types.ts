@@ -1,4 +1,4 @@
 // Auto-Generated
 export interface FullPageLoaderProps {
-	children?: React.ReactNode;
+	children?: JSX.Element;
 }

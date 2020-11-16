@@ -163,7 +163,7 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 				}
 				&:hover,
 				&.dodo-ui__btn--active {
-					background-color: rgba($color, 0.2);
+					background-color: rgba($color, 0.1);
 					@if $name == "light" {
 						color: darken($color, 50%);
 					} @else {

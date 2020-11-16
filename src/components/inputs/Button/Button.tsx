@@ -29,8 +29,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			leftAlignContent = false,
 			pigment = "none",
 			modern = false,
-			iconLeft = null,
-			iconRight = null,
+			// iconLeft = null,
+			// iconRight = null,
 			loading = false,
 			active = false,
 			children,
@@ -57,10 +57,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 						"dodo-ui__btn--no-wrap": unWrapText,
 						"dodo-ui__btn--left-align": leftAlignContent,
 					},
-					{
-						"dodo-ui__btn--icon-left": !!iconLeft,
-						"dodo-ui__btn--icon-right": !!iconRight,
-					},
+					// {
+					// 	"dodo-ui__btn--icon-left": !!iconLeft,
+					// 	"dodo-ui__btn--icon-right": !!iconRight,
+					// },
 					{
 						[`dodo-ui__btn--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
@@ -72,9 +72,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				)}
 				{...rest}
 				ref={ref}>
-				{typeof iconLeft !== "string" ? iconLeft : <Icon>{iconLeft}</Icon>}
+				{/* {typeof iconLeft !== "string" ? iconLeft : <Icon>{iconLeft}</Icon>} */}
 				{children}
-				{typeof iconRight !== "string" ? iconRight : <Icon>{iconRight}</Icon>}
+				{/* {typeof iconRight !== "string" ? iconRight : <Icon>{iconRight}</Icon>} */}
 				{loading && <ButtonLoader size={10} />}
 			</button>
 		);

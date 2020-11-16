@@ -558,7 +558,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--active {
-  background-color: rgba(15, 121, 193, 0.2);
+  background-color: rgba(15, 121, 193, 0.1);
   color: #0b5b92;
   border: 1px solid #0f79c1;
 }
@@ -618,7 +618,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--active {
-  background-color: rgba(97, 120, 140, 0.2);
+  background-color: rgba(97, 120, 140, 0.1);
   color: #4c5e6e;
   border: 1px solid #61788c;
 }
@@ -678,7 +678,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--active {
-  background-color: rgba(0, 133, 46, 0.2);
+  background-color: rgba(0, 133, 46, 0.1);
   color: #00521c;
   border: 1px solid #00852e;
 }
@@ -738,7 +738,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--active {
-  background-color: rgba(237, 185, 14, 0.2);
+  background-color: rgba(237, 185, 14, 0.1);
   color: #bd930b;
   border: 1px solid #edb90e;
 }
@@ -798,7 +798,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--active {
-  background-color: rgba(83, 188, 204, 0.2);
+  background-color: rgba(83, 188, 204, 0.1);
   color: #36a5b6;
   border: 1px solid #53bccc;
 }
@@ -858,7 +858,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--active {
-  background-color: rgba(223, 41, 53, 0.2);
+  background-color: rgba(223, 41, 53, 0.1);
   color: #b91c26;
   border: 1px solid #df2935;
 }
@@ -918,7 +918,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--active {
-  background-color: rgba(242, 243, 243, 0.2);
+  background-color: rgba(242, 243, 243, 0.1);
   color: #6e7878;
   border: 1px solid #f2f3f3;
 }
@@ -978,7 +978,7 @@ p {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--active {
-  background-color: rgba(39, 41, 50, 0.2);
+  background-color: rgba(39, 41, 50, 0.1);
   color: #111215;
   border: 1px solid #272932;
 }
