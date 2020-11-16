@@ -12,4 +12,7 @@ import Icon from "./components/data_display/Icon/Icon";
 import SpinnerLoader from "./components/loaders/SpinnerLoader/SpinnerLoader";
 import LineLoader from "./components/loaders/LineLoader/LineLoader";
 
-export { Container, ButtonGroup, Button, Card, Badge, Icon, SpinnerLoader, LineLoader };
+//Functions
+import { useWindowResize } from "./helpers/useWindowResize";
+
+export { Container, ButtonGroup, Button, Card, Badge, Icon, SpinnerLoader, LineLoader, useWindowResize };

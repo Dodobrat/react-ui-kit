@@ -6,5 +6,5 @@ export interface CardProps {
 	loading?: boolean;
 	pigment?: "none" | "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	className?: string;
-	children?: JSX.Element;
+	children?: React.ReactNode;
 }

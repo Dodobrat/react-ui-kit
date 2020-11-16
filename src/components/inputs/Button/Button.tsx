@@ -15,6 +15,11 @@ const ButtonLoader: React.FC<{ size: number }> = ({ size }) => {
 	);
 };
 
+// console.log(
+// 	Object.values(children).length,
+// 	React.Children.map(children, (child: JSX.Element, index: number) => (child.type.displayName === "CardFooter" ? index : null))[0]
+// );
+
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 	(
 		{

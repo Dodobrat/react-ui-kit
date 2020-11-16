@@ -4,7 +4,7 @@ import LineLoader from "../../loaders/LineLoader/LineLoader";
 import SpinnerLoader from "../../loaders/SpinnerLoader/SpinnerLoader";
 import { CardImageSubComponentProps, CardLoaderSubComponentProps, CardSubComponentProps } from "./CardSubcomponents.types";
 
-export const Loader: React.FC<CardLoaderSubComponentProps> = ({
+export const CardLoader: React.FC<CardLoaderSubComponentProps> = ({
 	className,
 	modern = false,
 	sticky = false,
@@ -24,36 +24,36 @@ export const Loader: React.FC<CardLoaderSubComponentProps> = ({
 	</div>
 );
 
-Loader.displayName = "Loader";
+CardLoader.displayName = "CardLoader";
 
-export const Image: React.FC<CardImageSubComponentProps> = ({ imgLink = null, imgLinkAlt = "image", className, children, ...rest }) => (
+export const CardImage: React.FC<CardImageSubComponentProps> = ({ imgLink = null, imgLinkAlt = "image", className, children, ...rest }) => (
 	<div className={cn("dodo-ui__card__img", className)} {...rest}>
 		{imgLink ? <img src={imgLink} alt={imgLinkAlt} /> : children}
 	</div>
 );
 
-Image.displayName = "Image";
+CardImage.displayName = "CardImage";
 
-export const Header: React.FC<CardSubComponentProps> = ({ className, children, ...rest }) => (
+export const CardHeader: React.FC<CardSubComponentProps> = ({ className, children, ...rest }) => (
 	<div className={cn("dodo-ui__card__header", className)} {...rest}>
 		{children}
 	</div>
 );
 
-Header.displayName = "Header";
+CardHeader.displayName = "CardHeader";
 
-export const Body: React.FC<CardSubComponentProps> = ({ className, children, ...rest }) => (
+export const CardBody: React.FC<CardSubComponentProps> = ({ className, children, ...rest }) => (
 	<div className={cn("dodo-ui__card__body", className)} {...rest}>
 		{children}
 	</div>
 );
 
-Body.displayName = "Body";
+CardBody.displayName = "CardBody";
 
-export const Footer: React.FC<CardSubComponentProps> = ({ className, children, ...rest }) => (
+export const CardFooter: React.FC<CardSubComponentProps> = ({ className, children, ...rest }) => (
 	<div className={cn("dodo-ui__card__footer", className)} {...rest}>
 		{children}
 	</div>
 );
 
-Footer.displayName = "Footer";
+CardFooter.displayName = "CardFooter";

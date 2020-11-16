@@ -4,10 +4,10 @@ import cn from "classnames";
 
 import { CardProps } from "./Card.types";
 import { pigmentOptions } from "../../../helpers/pigments";
-import { Body, Footer, Header, Image, Loader } from "./CardSubcomponents";
+import { CardBody, CardFooter, CardHeader, CardImage, CardLoader } from "./CardSubcomponents";
 import { CardImageSubComponentProps, CardLoaderSubComponentProps, CardSubComponentProps } from "./CardSubcomponents.types";
 
-interface CardComponent extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLInputElement>> {
+interface CardComponent extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.FC<CardLoaderSubComponentProps>;
 	Image: React.FC<CardImageSubComponentProps>;
 	Header: React.FC<CardSubComponentProps>;
@@ -17,11 +17,11 @@ interface CardComponent extends React.ForwardRefExoticComponent<CardProps & Reac
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
 	({ cardImgPosition = "top", modern = false, allowOverflow = false, pigment, loading = false, className, children, ...rest }, ref) => {
-		const loader = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "Loader" ? child : null));
-		const image = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "Image" ? child : null));
-		const header = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "Header" ? child : null));
-		const body = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "Body" ? child : null));
-		const footer = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "Footer" ? child : null));
+		const loader = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardLoader" ? child : null));
+		const image = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardImage" ? child : null));
+		const header = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardHeader" ? child : null));
+		const body = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardBody" ? child : null));
+		const footer = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardFooter" ? child : null));
 
 		return (
 			<div
@@ -43,7 +43,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 				)}
 				{...rest}
 				ref={ref}>
-				{loading && loader.length > 0 ? loader : loading ? <Loader modern={modern} /> : null}
+				{loading && loader.length > 0 ? loader : loading ? <CardLoader modern={modern} /> : null}
 				{image}
 				{header}
 				{body}
@@ -53,10 +53,10 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 	}
 ) as CardComponent;
 
-Card.Loader = Loader;
-Card.Image = Image;
-Card.Header = Header;
-Card.Body = Body;
-Card.Footer = Footer;
+Card.Loader = CardLoader;
+Card.Image = CardImage;
+Card.Header = CardHeader;
+Card.Body = CardBody;
+Card.Footer = CardFooter;
 
 export default Card;

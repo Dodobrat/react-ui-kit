@@ -101,7 +101,6 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 .dodo-ui__card {
 	@include card();
 	&__loader {
-		grid-area: card-loader;
 		@include cardLoader();
 	}
 	&__img {
@@ -178,7 +177,6 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 			gap: 0;
 			grid-template-columns: 1fr;
 			grid-template-areas:
-				"card-loader"
 				"card-img"
 				"card-header"
 				"card-body"
@@ -189,7 +187,6 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 			gap: 0;
 			grid-template-columns: 1fr;
 			grid-template-areas:
-				"card-loader"
 				"card-header"
 				"card-body"
 				"card-footer"
@@ -200,7 +197,6 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 			gap: 0;
 			grid-template-columns: 33.33% 1fr;
 			grid-template-areas:
-				"card-loader card-loader"
 				"card-img card-header"
 				"card-img card-body"
 				"card-img card-footer";
@@ -210,7 +206,6 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 			gap: 0;
 			grid-template-columns: 1fr 33.33%;
 			grid-template-areas:
-				"card-loader card-loader"
 				"card-header card-img"
 				"card-body card-img"
 				"card-footer card-img";

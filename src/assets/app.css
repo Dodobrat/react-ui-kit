@@ -1580,7 +1580,6 @@ p {
 }
 
 .dodo-ui__card__loader {
-  grid-area: card-loader;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -2471,28 +2470,28 @@ p {
   display: grid;
   gap: 0;
   grid-template-columns: 1fr;
-  grid-template-areas: "card-loader" "card-img" "card-header" "card-body" "card-footer";
+  grid-template-areas: "card-img" "card-header" "card-body" "card-footer";
 }
 
 .dodo-ui__card--img-bottom {
   display: grid;
   gap: 0;
   grid-template-columns: 1fr;
-  grid-template-areas: "card-loader" "card-header" "card-body" "card-footer" "card-img";
+  grid-template-areas: "card-header" "card-body" "card-footer" "card-img";
 }
 
 .dodo-ui__card--img-left {
   display: grid;
   gap: 0;
   grid-template-columns: 33.33% 1fr;
-  grid-template-areas: "card-loader card-loader" "card-img card-header" "card-img card-body" "card-img card-footer";
+  grid-template-areas: "card-img card-header" "card-img card-body" "card-img card-footer";
 }
 
 .dodo-ui__card--img-right {
   display: grid;
   gap: 0;
   grid-template-columns: 1fr 33.33%;
-  grid-template-areas: "card-loader card-loader" "card-header card-img" "card-body card-img" "card-footer card-img";
+  grid-template-areas: "card-header card-img" "card-body card-img" "card-footer card-img";
 }
 
 .dodo-ui__spinner {

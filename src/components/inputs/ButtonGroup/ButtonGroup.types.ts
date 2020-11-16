@@ -9,6 +9,6 @@ export interface ButtonGroupProps {
 	vertical?: boolean;
 	pigment?: "none" | "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	modern?: boolean;
-	children?: JSX.Element;
+	children?: React.ReactNode;
 	disabled?: boolean;
 }

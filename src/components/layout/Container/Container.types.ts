@@ -2,5 +2,5 @@
 export interface ContainerProps {
 	fluid?: boolean;
 	className?: string;
-	children?: JSX.Element;
+	children?: React.ReactNode;
 }

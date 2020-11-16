@@ -1,6 +1,6 @@
 export interface CardSubComponentProps {
 	className?: string;
-	children?: JSX.Element;
+	children?: React.ReactNode;
 }
 
 export interface CardLoaderSubComponentProps extends CardSubComponentProps {

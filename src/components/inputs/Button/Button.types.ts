@@ -15,6 +15,6 @@ export interface ButtonProps {
 	// iconRight?: React.ReactNode | string;
 	loading?: boolean;
 	active?: boolean;
-	children?: JSX.Element;
+	children?: React.ReactNode;
 	disabled?: boolean;
 }
