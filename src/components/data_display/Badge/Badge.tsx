@@ -6,7 +6,7 @@ import { BadgeProps } from "./Badge.types";
 import { pigmentOptions } from "../../../helpers/pigments";
 
 const Badge = forwardRef<HTMLDivElement, BadgeProps>(
-	({ className, pigment = "primary", size = "md", pill = false, modern = false, children, ...rest }, ref) => {
+	({ className, pigment = "primary", size = "md", pill = false, modern = false, onClick = null, children, ...rest }, ref) => {
 		return (
 			<div
 				data-testid='Badge'
@@ -18,12 +18,14 @@ const Badge = forwardRef<HTMLDivElement, BadgeProps>(
 					{
 						"dodo-ui__badge--pill": pill,
 						"dodo-ui__badge--modern": modern,
+						"dodo-ui__badge--clickable": onClick,
 					},
 					{
 						[`dodo-ui__badge--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}
+				onClick={onClick}
 				{...rest}
 				ref={ref}>
 				{children}

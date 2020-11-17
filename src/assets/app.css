@@ -78,6 +78,7 @@ img {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 h1,
@@ -1402,14 +1403,17 @@ p {
 
 .dodo-ui__badge.dodo-ui__badge--sm {
   font-size: calc(0.8rem - 0.1rem);
+  padding: calc(0.8rem / 3.5) calc(0.8rem / 2);
 }
 
 .dodo-ui__badge.dodo-ui__badge--lg {
   font-size: calc(1.2rem - 0.1rem);
+  padding: calc(1.2rem / 3.5) calc(1.2rem / 2);
 }
 
 .dodo-ui__badge.dodo-ui__badge--xl {
   font-size: calc(1.4rem - 0.1rem);
+  padding: calc(1.4rem / 3.5) calc(1.4rem / 2);
 }
 
 .dodo-ui__badge.dodo-ui__badge--pigment-primary {
@@ -1558,6 +1562,10 @@ p {
 
 .dodo-ui__badge--pill {
   border-radius: 2rem;
+}
+
+.dodo-ui__badge--clickable {
+  cursor: pointer;
 }
 
 .dodo-ui__card {

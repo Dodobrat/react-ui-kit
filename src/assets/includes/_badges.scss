@@ -29,6 +29,7 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 	@each $name, $font in $sizes {
 		&.dodo-ui__badge--#{$name} {
 			font-size: calc(#{$font} - 0.1rem);
+			padding: calc(#{$font} / 3.5) calc(#{$font} / 2);
 		}
 	}
 	@each $name, $color, $font in $pigments {
@@ -60,5 +61,8 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 	}
 	&--pill {
 		border-radius: $xlBorderRadius;
+	}
+	&--clickable {
+		cursor: pointer;
 	}
 }
