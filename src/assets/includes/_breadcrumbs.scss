@@ -1,0 +1,18 @@
+.dodo-ui__breadcrumbs {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+
+	&__item {
+		display: flex;
+		& > span {
+			margin: 0 0.5rem;
+			user-select: none;
+		}
+		&:last-child {
+			opacity: 0.65;
+		}
+	}
+}

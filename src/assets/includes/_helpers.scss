@@ -11,3 +11,47 @@
 		width: clamp(0rem, 100%, 100%);
 	}
 }
+
+$columns: 12;
+$width: 100% / $columns;
+
+.dodo-ui__flex {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin-left: -0.625rem;
+	margin-right: -0.625rem;
+	&--no-margin {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	&--unwrap {
+		flex-wrap: nowrap;
+	}
+	&__col {
+		padding-left: 0.625rem;
+		padding-right: 0.625rem;
+		flex: 1;
+		// @for $i from 1 through $columns {
+		// 	&--col-#{$i} {
+		// 		flex: 0 0 $width * $i;
+		// 	}
+		// 	&--col-hide {
+		// 		display: none;
+		// 	}
+		// 	&--col-lg-#{$i} {
+		// 		@media all and (max-width: 1200px) {
+		// 			flex: 0 0 $width * $i;
+		// 		}
+		// 	}
+		// 	&--col-lg-hide {
+		// 		@media all and (max-width: 1200px) {
+		// 			display: none;
+		// 		}
+		// 	}
+
+		// }
+	}
+}

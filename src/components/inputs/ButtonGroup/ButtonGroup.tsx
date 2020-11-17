@@ -38,7 +38,7 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
 				)}
 				{...rest}
 				ref={ref}>
-				{Object.values(children).map((child: React.ReactElement) => ({
+				{Object.values(children).map((child: JSX.Element) => ({
 					...child,
 					props: {
 						...child.props,
