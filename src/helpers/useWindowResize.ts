@@ -5,7 +5,7 @@ interface useWindowResizeTypes {
 	height: number;
 }
 
-export const useWindowResize = () => {
+export const useWindowResize: () => useWindowResizeTypes = () => {
 	const isSSR: boolean = typeof window === "undefined";
 	const [dimensions, setDimensions] = useState<useWindowResizeTypes>(() =>
 		isSSR ? { width: 1920, height: 1080 } : { width: window.innerWidth, height: window.innerHeight }

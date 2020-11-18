@@ -2690,6 +2690,3482 @@ p {
   }
 }
 
+.dodo-ui__progress-bar {
+  position: relative;
+  width: 100%;
+  height: 1.4rem;
+  background: #eeeeee;
+  border-radius: 0.3125rem;
+}
+
+.dodo-ui__progress-bar .dodo-ui__progress-bar__progress {
+  border-radius: 0.3125rem;
+}
+
+.dodo-ui__progress-bar .dodo-ui__progress-bar__progress__label {
+  border-radius: 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #0f79c1;
+  color: #fff;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress:hover {
+  background-color: #0d6aa9;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #0f79c1;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #0f79c1;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #0f79c1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #0f79c1;
+  color: #fff;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #0d6aa9;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #0f79c1;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #0f79c1;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #0f79c1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #61788c;
+  color: #fff;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress:hover {
+  background-color: #576b7d;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #61788c;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #61788c;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #61788c;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #61788c;
+  color: #fff;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #576b7d;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #61788c;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #61788c;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #61788c;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #00852e;
+  color: #fff;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress:hover {
+  background-color: #006c25;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #00852e;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #00852e;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #00852e;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #00852e;
+  color: #fff;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #006c25;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #00852e;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #00852e;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #00852e;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #edb90e;
+  color: #000;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress:hover {
+  background-color: #d5a60d;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #edb90e;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #edb90e;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #edb90e;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #000;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #edb90e;
+  color: #000;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #d5a60d;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #edb90e;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #edb90e;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #edb90e;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #000;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #53bccc;
+  color: #000;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress:hover {
+  background-color: #3fb4c6;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #53bccc;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #53bccc;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #53bccc;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #000;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #53bccc;
+  color: #000;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #3fb4c6;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #53bccc;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #53bccc;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #53bccc;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #000;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #df2935;
+  color: #fff;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress:hover {
+  background-color: #cf1f2b;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #df2935;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #df2935;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #df2935;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #df2935;
+  color: #fff;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #cf1f2b;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #df2935;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #df2935;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #df2935;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #f2f3f3;
+  color: #000;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress:hover {
+  background-color: #e5e7e7;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #f2f3f3;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #f2f3f3;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #f2f3f3;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #000;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #f2f3f3;
+  color: #000;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #e5e7e7;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #f2f3f3;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #f2f3f3;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #f2f3f3;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #000;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #272932;
+  color: #fff;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress:hover {
+  background-color: #1c1d24;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #272932;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #272932;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #272932;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #272932;
+  color: #fff;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #1c1d24;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #272932;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #272932;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #272932;
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #fff;
+}
+
+.dodo-ui__progress-bar--minified {
+  height: 0.25rem;
+}
+
+.dodo-ui__progress-bar--modern {
+  background: whitesmoke;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #dbebf6;
+  color: #0f79c1;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress:hover {
+  background-color: #c7e0f1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #dbebf6;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #dbebf6;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #dbebf6;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #0f79c1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #dbebf6;
+  color: #0f79c1;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #c7e0f1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #dbebf6;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #dbebf6;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(15, 121, 193, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #dbebf6;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #0f79c1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #e7ebee;
+  color: #61788c;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress:hover {
+  background-color: #d8dfe3;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #e7ebee;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #e7ebee;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #e7ebee;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #61788c;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #e7ebee;
+  color: #61788c;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #d8dfe3;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #e7ebee;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #e7ebee;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(97, 120, 140, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #e7ebee;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #61788c;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #d9ede0;
+  color: #00852e;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress:hover {
+  background-color: #c8e5d2;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #d9ede0;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #d9ede0;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #d9ede0;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #00852e;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #d9ede0;
+  color: #00852e;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #c8e5d2;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #d9ede0;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #d9ede0;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(0, 133, 46, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #d9ede0;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #00852e;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #fcf5db;
+  color: #edb90e;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress:hover {
+  background-color: #faeec3;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #fcf5db;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #fcf5db;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #fcf5db;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #edb90e;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #fcf5db;
+  color: #edb90e;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #faeec3;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #fcf5db;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #fcf5db;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(237, 185, 14, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #fcf5db;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #edb90e;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #e5f5f7;
+  color: #53bccc;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress:hover {
+  background-color: #d2eef1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #e5f5f7;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #e5f5f7;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #e5f5f7;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #53bccc;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #e5f5f7;
+  color: #53bccc;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #d2eef1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #e5f5f7;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #e5f5f7;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(83, 188, 204, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #e5f5f7;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #53bccc;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #fadfe1;
+  color: #df2935;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress:hover {
+  background-color: #f7c9cc;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #fadfe1;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #fadfe1;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #fadfe1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #df2935;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #fadfe1;
+  color: #df2935;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #f7c9cc;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #fadfe1;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #fadfe1;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(223, 41, 53, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #fadfe1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #df2935;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #fdfdfd;
+  color: #f2f3f3;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress:hover {
+  background-color: #f0f0f0;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #fdfdfd;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #fdfdfd;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #fdfdfd;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #f2f3f3;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #fdfdfd;
+  color: #f2f3f3;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #f0f0f0;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #fdfdfd;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #fdfdfd;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(242, 243, 243, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #fdfdfd;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #f2f3f3;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #dfdfe0;
+  color: #272932;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress:hover {
+  background-color: #d2d2d3;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #dfdfe0;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #dfdfe0;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #dfdfe0;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #272932;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #dfdfe0;
+  color: #272932;
+  overflow: hidden;
+  overflow: hidden;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress--allow-overflow {
+  overflow: visible;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
+  background-color: #d2d2d3;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(25%, -50%);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 50%;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 50%;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -50%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: -100%;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -25%);
+  background: #dfdfe0;
+  padding: 0.25rem 0.3125rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #dfdfe0;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress::after {
+  content: "";
+  display: block;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(39, 41, 50, 0.5), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%,
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified {
+  margin-top: 1.1rem;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
+  top: 0;
+  transform: translate(25%, -125%);
+  color: #dfdfe0;
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
+  top: 0;
+  left: 50%;
+  right: unset;
+  transform: translate(-50%, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-sticky {
+  top: 0;
+  left: unset;
+  right: 0.3125rem;
+  transform: translate(0, -125%);
+}
+
+.dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-outer {
+  top: 0;
+  left: unset;
+  right: 0;
+  transform: translate(50%, -125%);
+  color: #272932;
+}
+
+.dodo-ui__progress-bar--rounded {
+  border-radius: 99rem;
+}
+
+.dodo-ui__progress-bar--rounded .dodo-ui__progress-bar__progress {
+  border-radius: 99rem;
+}
+
+.dodo-ui__progress-bar--rounded .dodo-ui__progress-bar__progress__label {
+  border-radius: 99rem;
+}
+
 .dodo-ui__container {
   max-width: 71.25rem;
   min-width: 0;

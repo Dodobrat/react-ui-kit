@@ -1,0 +1,158 @@
+$labelPositions: "center" 50% 50% unset translate(-50%, -50%), "sticky" 50% unset 0.3125rem translate(0, -50%),
+	"outer" -100% unset 0 translate(50%, -25%);
+
+$minifiedLabelPositions: "center" 0 50% unset translate(-50%, -125%), "sticky" 0 unset 0.3125rem translate(0, -125%),
+	"outer" 0 unset 0 translate(50%, -125%);
+
+@mixin progress($bgColor, $fontColor, $animated: false) {
+	.dodo-ui__progress-bar__progress {
+		position: relative;
+		width: 0;
+		height: 100%;
+		background: $bgColor;
+		color: $fontColor;
+		overflow: hidden;
+
+		&--allow-overflow {
+			overflow: visible;
+		}
+
+		&:hover {
+			background-color: darken($bgColor, 5%);
+		}
+		&__label {
+			font-size: $smFont;
+			font-weight: 600;
+			line-height: 1;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translate(25%, -50%);
+			user-select: none;
+			white-space: nowrap;
+			@each $name, $top, $left, $right, $translate in $labelPositions {
+				&.dodo-ui__progress-bar__progress__label--position-#{$name} {
+					top: $top;
+					left: $left;
+					right: $right;
+					transform: $translate;
+					@if ($name == "outer") {
+						background: $bgColor;
+						padding: 0.25rem 0.3125rem;
+						&::after {
+							content: "";
+							display: block;
+							position: absolute;
+							left: calc(50% - 0.25rem);
+							width: 0.5rem;
+							height: 0.5rem;
+							background: $bgColor;
+							transform: rotate(-45deg);
+							z-index: -1;
+						}
+					}
+				}
+			}
+		}
+
+		@if ($animated) {
+			overflow: hidden;
+			&::after {
+				content: "";
+				display: block;
+				top: 0;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				transform: translateX(-100%);
+				background: linear-gradient(90deg, transparent, rgba($fontColor, 0.5), transparent);
+				animation: loading 2s infinite;
+			}
+
+			@keyframes loading {
+				0%,
+				50% {
+					transform: translateX(-100%);
+				}
+				100% {
+					transform: translateX(100%);
+				}
+			}
+		}
+	}
+	&.dodo-ui__progress-bar--minified {
+		margin-top: 1.1rem;
+		.dodo-ui__progress-bar__progress {
+			&__label {
+				top: 0;
+				transform: translate(25%, -125%);
+				color: $bgColor;
+				@each $name, $top, $left, $right, $translate in $minifiedLabelPositions {
+					&.dodo-ui__progress-bar__progress__label--position-#{$name} {
+						top: $top;
+						left: $left;
+						right: $right;
+						transform: $translate;
+						@if ($name == "outer") {
+							color: $fontColor;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+$pigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
+	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+
+$mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success, "warning" $mWarning $warning,
+	"info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
+
+.dodo-ui__progress {
+	&-bar {
+		position: relative;
+		width: 100%;
+		height: 1.4rem;
+		background: darken($bg, 5%);
+		border-radius: $smBorderRadius;
+		.dodo-ui__progress-bar__progress {
+			border-radius: $smBorderRadius;
+			&__label {
+				border-radius: $smBorderRadius;
+			}
+		}
+		@each $name, $color, $font in $pigments {
+			&.dodo-ui__progress-bar--pigment-#{$name} {
+				@include progress($color, $font);
+				&.dodo-ui__progress-bar--animated {
+					@include progress($color, $font, true);
+				}
+			}
+		}
+		&--minified {
+			height: 0.25rem;
+		}
+		&--modern {
+			background: darken($bg, 2.5%);
+
+			@each $name, $color, $font in $mPigments {
+				&.dodo-ui__progress-bar--pigment-#{$name} {
+					@include progress($color, $font);
+					&.dodo-ui__progress-bar--animated {
+						@include progress($color, $font, true);
+					}
+				}
+			}
+		}
+		&--rounded {
+			border-radius: $roundBorderRadius;
+			.dodo-ui__progress-bar__progress {
+				border-radius: $roundBorderRadius;
+				&__label {
+					border-radius: $roundBorderRadius;
+				}
+			}
+		}
+	}
+}
