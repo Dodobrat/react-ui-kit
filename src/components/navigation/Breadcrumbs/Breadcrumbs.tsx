@@ -10,7 +10,7 @@ interface BreadcrumbComponent extends React.ForwardRefExoticComponent<Breadcrumb
 	Item: React.FC<BreadcrumbsSubComponentProps>;
 }
 
-const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>(({ className, separator = "/", children }, ref) => {
+const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>(({ className, separator = "/", children, ...rest }, ref) => {
 	const item = React.Children.map(children, (child: JSX.Element, index: number) => {
 		if (child.type.displayName === "BreadcrumbItem" && index === Object.values(children).length - 1) {
 			return child;
@@ -30,7 +30,7 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>(({ className,
 	});
 
 	return (
-		<ol data-testid='Breadcrumbs' className={cn("dodo-ui__breadcrumbs", className)} ref={ref}>
+		<ol data-testid='Breadcrumbs' className={cn("dodo-ui__breadcrumbs", className)} {...rest} ref={ref}>
 			{item}
 		</ol>
 	);

@@ -6166,6 +6166,299 @@ p {
   border-radius: 99rem;
 }
 
+.dodo-ui__progress-circle {
+  position: relative;
+  user-select: none;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-primary > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #0f79c1;
+  stroke-linecap: unset;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-primary .dodo-ui__progress-circle__track {
+  stroke: whitesmoke;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-primary .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #0f79c1;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-secondary > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #61788c;
+  stroke-linecap: unset;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-secondary .dodo-ui__progress-circle__track {
+  stroke: whitesmoke;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-secondary .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #61788c;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-success > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #00852e;
+  stroke-linecap: unset;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-success .dodo-ui__progress-circle__track {
+  stroke: whitesmoke;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-success .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #00852e;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-warning > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #edb90e;
+  stroke-linecap: unset;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-warning .dodo-ui__progress-circle__track {
+  stroke: whitesmoke;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-warning .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #edb90e;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-info > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #53bccc;
+  stroke-linecap: unset;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-info .dodo-ui__progress-circle__track {
+  stroke: whitesmoke;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-info .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #53bccc;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-danger > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #df2935;
+  stroke-linecap: unset;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-danger .dodo-ui__progress-circle__track {
+  stroke: whitesmoke;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-danger .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #df2935;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-light > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #f2f3f3;
+  stroke-linecap: unset;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-light .dodo-ui__progress-circle__track {
+  stroke: whitesmoke;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-light .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #f2f3f3;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-dark > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #272932;
+  stroke-linecap: unset;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-dark .dodo-ui__progress-circle__track {
+  stroke: whitesmoke;
+}
+
+.dodo-ui__progress-circle.dodo-ui__progress-circle--pigment-dark .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #272932;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-primary > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #9ec9e7;
+  stroke-linecap: round;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-primary .dodo-ui__progress-circle__track {
+  stroke: #eff6fb;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-primary .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #0f79c1;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-secondary > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #bac6ce;
+  stroke-linecap: round;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-secondary .dodo-ui__progress-circle__track {
+  stroke: #f6f7f9;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-secondary .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #61788c;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-success > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #a5d4b6;
+  stroke-linecap: round;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-success .dodo-ui__progress-circle__track {
+  stroke: #eaf5ee;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-success .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #00852e;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-warning > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #f6e194;
+  stroke-linecap: round;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-warning .dodo-ui__progress-circle__track {
+  stroke: #fefcf3;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-warning .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #edb90e;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-info > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #abdfe5;
+  stroke-linecap: round;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-info .dodo-ui__progress-circle__track {
+  stroke: #f9fdfd;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-info .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #53bccc;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-danger > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #f09da3;
+  stroke-linecap: round;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-danger .dodo-ui__progress-circle__track {
+  stroke: #fdf5f6;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-danger .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #df2935;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-light > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #d7d7d7;
+  stroke-linecap: round;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-light .dodo-ui__progress-circle__track {
+  stroke: white;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-light .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #f2f3f3;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-dark > circle {
+  fill: transparent;
+  transition: stroke-dashoffset 0.425s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: #b8b8ba;
+  stroke-linecap: round;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-dark .dodo-ui__progress-circle__track {
+  stroke: #ececed;
+}
+
+.dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-dark .dodo-ui__progress-circle__label {
+  font-weight: 100;
+  stroke: #272932;
+}
+
 .dodo-ui__container {
   max-width: 71.25rem;
   min-width: 0;

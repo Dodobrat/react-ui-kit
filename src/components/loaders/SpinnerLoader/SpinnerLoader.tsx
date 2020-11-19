@@ -5,7 +5,7 @@ import cn from "classnames";
 import { SpinnerLoaderProps } from "./SpinnerLoader.types";
 import { pigmentOptions } from "../../../helpers/pigments";
 
-const SpinnerLoader: React.FC<SpinnerLoaderProps> = ({ size = "md", pigment = "primary" }) => {
+const SpinnerLoader: React.FC<SpinnerLoaderProps> = ({ size = "md", pigment = "primary", ...rest }) => {
 	return (
 		<div
 			data-testid='SpinnerLoader'
@@ -13,6 +13,7 @@ const SpinnerLoader: React.FC<SpinnerLoaderProps> = ({ size = "md", pigment = "p
 				[`dodo-ui__spinner--${size}`]: size !== "md",
 				[`dodo-ui__spinner--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 			})}
+			{...rest}
 		/>
 	);
 };

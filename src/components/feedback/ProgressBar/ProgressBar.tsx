@@ -21,17 +21,18 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 			rounded = false,
 			minified = false,
 			pigment = "primary",
+			...rest
 		},
 		ref
 	) => {
-		const parseValueToWidth: () => number | string = () => {
+		const parseValueToPercent: () => number | string = () => {
 			const range: number = max - min;
 			const correctedStartValue: number = value - min;
 			const percentage: number = (correctedStartValue * 100) / range;
 			if (fixedLabelValue !== 0) {
-				return percentage.toFixed(fixedLabelValue);
+				return Math.min(percentage, 100).toFixed(fixedLabelValue);
 			}
-			return percentage;
+			return Math.min(percentage, 100);
 		};
 
 		return (
@@ -50,12 +51,13 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 					},
 					className
 				)}
+				{...rest}
 				ref={ref}>
 				<div
 					className={cn("dodo-ui__progress-bar__progress", {
 						"dodo-ui__progress-bar__progress--allow-overflow": (labelPosition === "outer" || minified) && !animated,
 					})}
-					style={{ width: `${parseValueToWidth()}%` }}
+					style={{ width: `${parseValueToPercent()}%` }}
 					role='progressbar'
 					aria-valuenow={value}
 					aria-valuemin={min}
@@ -66,10 +68,10 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 								[`dodo-ui__progress-bar__progress__label--position-${labelPosition}`]: labelPosition !== "left",
 							})}>
 							{labelValue === "%"
-								? `${parseValueToWidth()} %`
+								? `${parseValueToPercent()} %`
 								: labelValue === "count"
 								? value
-								: labelValue === "count + %" && `${value} | ${parseValueToWidth()} %`}
+								: labelValue === "count + %" && `${value} | ${parseValueToPercent()} %`}
 						</div>
 					)}
 				</div>

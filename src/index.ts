@@ -15,6 +15,7 @@ import LineLoader from "./components/loaders/LineLoader/LineLoader";
 import SpinnerLoader from "./components/loaders/SpinnerLoader/SpinnerLoader";
 //--Progress
 import ProgressBar from "./components/feedback/ProgressBar/ProgressBar";
+import ProgressCircle from "./components/feedback/ProgressCircle/ProgressCircle";
 
 //Functions
 import { useWindowResize } from "./helpers/useWindowResize";
@@ -32,5 +33,6 @@ export {
 	LineLoader,
 	SpinnerLoader,
 	ProgressBar,
+	ProgressCircle,
 	useWindowResize,
 };

@@ -4,7 +4,7 @@ $labelPositions: "center" 50% 50% unset translate(-50%, -50%), "sticky" 50% unse
 $minifiedLabelPositions: "center" 0 50% unset translate(-50%, -125%), "sticky" 0 unset 0.3125rem translate(0, -125%),
 	"outer" 0 unset 0 translate(50%, -125%);
 
-@mixin progress($bgColor, $fontColor, $animated: false) {
+@mixin progressBar($bgColor, $fontColor, $animated: false) {
 	.dodo-ui__progress-bar__progress {
 		position: relative;
 		width: 0;
@@ -103,6 +103,37 @@ $minifiedLabelPositions: "center" 0 50% unset translate(-50%, -125%), "sticky" 0
 	}
 }
 
+@mixin progressCircle($bgColor, $fontColor, $modern: false) {
+	& > circle {
+		fill: transparent;
+		transition: stroke-dashoffset 0.425s ease-in-out;
+		transform: rotate(-90deg);
+		transform-origin: 50% 50%;
+		@if ($modern) {
+			stroke: darken($bgColor, 15%);
+			stroke-linecap: round;
+		} @else {
+			stroke: $bgColor;
+			stroke-linecap: unset;
+		}
+	}
+	.dodo-ui__progress-circle__track {
+		@if ($modern) {
+			stroke: lighten($bgColor, 5%);
+		} @else {
+			stroke: darken($bg, 2.5%);
+		}
+	}
+	.dodo-ui__progress-circle__label {
+		font-weight: 100;
+		@if ($modern) {
+			stroke: $fontColor;
+		} @else {
+			stroke: $bgColor;
+		}
+	}
+}
+
 $pigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
 	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
 
@@ -124,9 +155,9 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 		}
 		@each $name, $color, $font in $pigments {
 			&.dodo-ui__progress-bar--pigment-#{$name} {
-				@include progress($color, $font);
+				@include progressBar($color, $font);
 				&.dodo-ui__progress-bar--animated {
-					@include progress($color, $font, true);
+					@include progressBar($color, $font, true);
 				}
 			}
 		}
@@ -138,9 +169,9 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 
 			@each $name, $color, $font in $mPigments {
 				&.dodo-ui__progress-bar--pigment-#{$name} {
-					@include progress($color, $font);
+					@include progressBar($color, $font);
 					&.dodo-ui__progress-bar--animated {
-						@include progress($color, $font, true);
+						@include progressBar($color, $font, true);
 					}
 				}
 			}
@@ -151,6 +182,22 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 				border-radius: $roundBorderRadius;
 				&__label {
 					border-radius: $roundBorderRadius;
+				}
+			}
+		}
+	}
+	&-circle {
+		position: relative;
+		user-select: none;
+		@each $name, $color, $font in $pigments {
+			&.dodo-ui__progress-circle--pigment-#{$name} {
+				@include progressCircle($color, $font);
+			}
+		}
+		&--modern {
+			@each $name, $color, $font in $mPigments {
+				&.dodo-ui__progress-circle--pigment-#{$name} {
+					@include progressCircle($color, $font, true);
 				}
 			}
 		}

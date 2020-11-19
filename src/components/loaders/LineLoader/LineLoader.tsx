@@ -5,7 +5,7 @@ import cn from "classnames";
 import { LineLoaderProps } from "./LineLoader.types";
 import { pigmentOptions } from "../../../helpers/pigments";
 
-const LineLoader: React.FC<LineLoaderProps> = ({ className, pigment = "primary" }) => {
+const LineLoader: React.FC<LineLoaderProps> = ({ className, pigment = "primary", ...rest }) => {
 	return (
 		<div
 			data-testid='LineLoader'
@@ -13,7 +13,8 @@ const LineLoader: React.FC<LineLoaderProps> = ({ className, pigment = "primary" 
 				"dodo-ui__line-loader",
 				{ [`dodo-ui__line-loader--pigment-${pigment}`]: pigmentOptions.includes(pigment) },
 				className
-			)}>
+			)}
+			{...rest}>
 			<div className='dodo-ui__line-loader__line' />
 		</div>
 	);
