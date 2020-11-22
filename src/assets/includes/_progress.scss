@@ -110,26 +110,32 @@ $minifiedLabelPositions: "center" 0 50% unset translate(-50%, -125%), "sticky" 0
 		transform: rotate(-90deg);
 		transform-origin: 50% 50%;
 		@if ($modern) {
-			stroke: darken($bgColor, 15%);
+			stroke: $fontColor;
 			stroke-linecap: round;
 		} @else {
 			stroke: $bgColor;
 			stroke-linecap: unset;
 		}
 	}
+	&.dodo-ui__progress-circle--reversed {
+		& > circle {
+			transform: rotate(-90deg) rotateX(180deg);
+		}
+	}
 	.dodo-ui__progress-circle__track {
 		@if ($modern) {
-			stroke: lighten($bgColor, 5%);
+			stroke: $bgColor;
 		} @else {
 			stroke: darken($bg, 2.5%);
 		}
 	}
 	.dodo-ui__progress-circle__label {
-		font-weight: 100;
+		font-weight: 900;
+		stroke-width: 0;
 		@if ($modern) {
-			stroke: $fontColor;
+			fill: $fontColor;
 		} @else {
-			stroke: $bgColor;
+			fill: $bgColor;
 		}
 	}
 }

@@ -20,6 +20,8 @@ const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
 			modern = false,
 			pigment = "primary",
 			withTrack = true,
+			counterClockWise = false,
+			style,
 			...rest
 		},
 		ref
@@ -45,14 +47,19 @@ const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
 					"dodo-ui__progress-circle",
 					{
 						"dodo-ui__progress-circle--modern": modern,
+						"dodo-ui__progress-circle--reversed": counterClockWise,
 					},
 					{
 						[`dodo-ui__progress-circle--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}
-				height={radius * 2}
-				width={radius * 2}
+				style={{
+					...style,
+					maxWidth: radius * 2,
+					maxHeight: radius * 2,
+				}}
+				viewBox={`0 0 ${radius * 2} ${radius * 2}`}
 				{...rest}
 				ref={ref}>
 				{withTrack && (
@@ -72,6 +79,7 @@ const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
 					cx={radius}
 					cy={radius}
 				/>
+
 				{labeled && (
 					<text
 						className='dodo-ui__progress-circle__label'

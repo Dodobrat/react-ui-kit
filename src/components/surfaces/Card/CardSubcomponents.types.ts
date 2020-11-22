@@ -4,8 +4,14 @@ export interface CardSubComponentProps {
 }
 
 export interface CardLoaderSubComponentProps extends CardSubComponentProps {
-	modern?: boolean;
 	sticky?: boolean;
+	modern?: boolean;
+	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark" | null;
+}
+
+export interface CardHeaderSubComponentProps extends CardSubComponentProps {
+	onClose?: () => void | null;
+	modern?: boolean;
 	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark" | null;
 }
 

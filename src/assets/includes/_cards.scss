@@ -72,6 +72,13 @@
 		background: rgba(0, 0, 0, 0.03);
 		border-bottom: 1px solid rgba($accentContrast, 0.125);
 	}
+	&--dismissible {
+		display: flex;
+		align-items: center;
+		.dodo-ui__card__header__title {
+			flex: 1;
+		}
+	}
 }
 
 @mixin cardBody($modern: false, $accentContrast: $darkFont) {

@@ -2,7 +2,13 @@ import React from "react";
 import cn from "classnames";
 import LineLoader from "../../loaders/LineLoader/LineLoader";
 import SpinnerLoader from "../../loaders/SpinnerLoader/SpinnerLoader";
-import { CardImageSubComponentProps, CardLoaderSubComponentProps, CardSubComponentProps } from "./CardSubcomponents.types";
+import {
+	CardHeaderSubComponentProps,
+	CardImageSubComponentProps,
+	CardLoaderSubComponentProps,
+	CardSubComponentProps,
+} from "./CardSubcomponents.types";
+import Button from "../../inputs/Button/Button";
 
 export const CardLoader: React.FC<CardLoaderSubComponentProps> = ({
 	className,
@@ -34,9 +40,33 @@ export const CardImage: React.FC<CardImageSubComponentProps> = ({ imgLink = null
 
 CardImage.displayName = "CardImage";
 
-export const CardHeader: React.FC<CardSubComponentProps> = ({ className, children, ...rest }) => (
-	<div className={cn("dodo-ui__card__header", className)} {...rest}>
-		{children}
+export const CardHeader: React.FC<CardHeaderSubComponentProps> = ({
+	className,
+	onClose = null,
+	modern = true,
+	pigment = "secondary",
+	children,
+	...rest
+}) => (
+	<div
+		className={cn(
+			"dodo-ui__card__header",
+			{
+				"dodo-ui__card__header--dismissible": onClose,
+			},
+			className
+		)}
+		{...rest}>
+		{onClose ? (
+			<>
+				<div className='dodo-ui__card__header__title'>{children}</div>
+				<Button size='sm' modern={modern} pigment={pigment} onClick={onClose}>
+					X
+				</Button>
+			</>
+		) : (
+			children
+		)}
 	</div>
 );
 

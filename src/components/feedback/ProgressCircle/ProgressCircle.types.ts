@@ -12,4 +12,6 @@ export interface ProgressCircleProps {
 	modern?: boolean;
 	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	withTrack?: boolean;
+	counterClockWise?: boolean;
+	style?: React.CSSProperties;
 }

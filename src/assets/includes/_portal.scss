@@ -1,0 +1,35 @@
+$sizes: "xs" 30rem, "sm" 37.5rem, "lg" 56.25rem, "xl" 75rem, "max" unset;
+
+.dodo-ui__portal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1050;
+	outline: 0;
+	display: block;
+	overflow: auto;
+	overscroll-behavior: contain;
+
+	&__inner {
+		position: relative;
+		max-width: 48rem;
+		margin: 1.75rem auto;
+		@each $name, $maxWidth in $sizes {
+			&.dodo-ui__portal__inner--#{$name} {
+				max-width: $maxWidth;
+			}
+		}
+	}
+
+	&__backdrop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1040;
+		width: 100vw;
+		height: 100vh;
+		background: rgba($bg, 0.75);
+	}
+}

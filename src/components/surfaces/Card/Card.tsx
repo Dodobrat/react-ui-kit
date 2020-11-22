@@ -5,12 +5,17 @@ import cn from "classnames";
 import { CardProps } from "./Card.types";
 import { pigmentOptions } from "../../../helpers/pigments";
 import { CardBody, CardFooter, CardHeader, CardImage, CardLoader } from "./CardSubcomponents";
-import { CardImageSubComponentProps, CardLoaderSubComponentProps, CardSubComponentProps } from "./CardSubcomponents.types";
+import {
+	CardHeaderSubComponentProps,
+	CardImageSubComponentProps,
+	CardLoaderSubComponentProps,
+	CardSubComponentProps,
+} from "./CardSubcomponents.types";
 
 interface CardComponent extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.FC<CardLoaderSubComponentProps>;
 	Image: React.FC<CardImageSubComponentProps>;
-	Header: React.FC<CardSubComponentProps>;
+	Header: React.FC<CardHeaderSubComponentProps>;
 	Body: React.FC<CardSubComponentProps>;
 	Footer: React.FC<CardSubComponentProps>;
 }
@@ -19,7 +24,18 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 	({ cardImgPosition = "top", modern = false, allowOverflow = false, pigment, loading = false, className, children, ...rest }, ref) => {
 		const loader = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardLoader" ? child : null));
 		const image = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardImage" ? child : null));
-		const header = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardHeader" ? child : null));
+		const header = React.Children.map(children, (child: JSX.Element) =>
+			child.type.displayName === "CardHeader"
+				? {
+						...child,
+						props: {
+							...child.props,
+							pigment: child.props.pigment ?? pigment,
+							modern: child.props.modern ?? modern,
+						},
+				  }
+				: null
+		);
 		const body = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardBody" ? child : null));
 		const footer = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardFooter" ? child : null));
 

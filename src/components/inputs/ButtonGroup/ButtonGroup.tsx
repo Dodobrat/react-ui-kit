@@ -38,14 +38,14 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
 				)}
 				{...rest}
 				ref={ref}>
-				{Object.values(children).map((child: JSX.Element) => ({
+				{React.Children.map(children, (child: JSX.Element) => ({
 					...child,
 					props: {
 						...child.props,
-						size: size ?? child.props.size,
-						outlined: outlined ?? child.props.outlined,
-						pigment: pigment ?? child.props.pigment,
-						modern: modern ?? child.props.modern,
+						size: child.props.size ?? size,
+						outlined: child.props.outlined ?? outlined,
+						pigment: child.props.pigment ?? pigment,
+						modern: child.props.modern ?? modern,
 						disabled: rest?.disabled,
 					},
 				}))}

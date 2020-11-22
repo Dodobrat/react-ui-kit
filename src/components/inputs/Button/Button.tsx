@@ -4,7 +4,7 @@ import cn from "classnames";
 
 import { ButtonProps } from "./Button.types";
 import { pigmentOptions } from "../../../helpers/pigments";
-import Icon from "../../data_display/Icon/Icon";
+// import Icon from "../../data_display/Icon/Icon";
 
 const ButtonLoader: React.FC<{ size: number }> = ({ size }) => {
 	const strokeWidth = Math.max(2, size * 0.1);
@@ -32,13 +32,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			flex = false,
 			unWrapText = false,
 			leftAlignContent = false,
-			pigment = "none",
+			pigment = "primary",
 			modern = false,
 			// iconLeft = null,
 			// iconRight = null,
 			loading = false,
 			active = false,
 			children,
+			onClick,
 			...rest
 		},
 		ref
@@ -75,6 +76,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					},
 					className
 				)}
+				onClick={onClick}
 				{...rest}
 				ref={ref}>
 				{/* {typeof iconLeft !== "string" ? iconLeft : <Icon>{iconLeft}</Icon>} */}
