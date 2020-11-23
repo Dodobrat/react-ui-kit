@@ -1,5 +1,5 @@
 // Auto-Generated
-export interface ListProps {
+export interface ListGroupProps {
 	className?: string;
 	children?: React.ReactNode;
 }

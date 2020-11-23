@@ -9,7 +9,8 @@ import Button from "./components/inputs/Button/Button";
 import ButtonGroup from "./components/inputs/ButtonGroup/ButtonGroup";
 import Card from "./components/surfaces/Card/Card";
 import Icon from "./components/data_display/Icon/Icon";
-import List from "./components/data_display/List/List";
+import ListGroup from "./components/data_display/ListGroup/ListGroup";
+import ListItem from "./components/data_display/ListItem/ListItem";
 import Portal from "./components/util/Portal/Portal";
 // --Spinners
 import LineLoader from "./components/loaders/LineLoader/LineLoader";
@@ -20,8 +21,8 @@ import ProgressCircle from "./components/feedback/ProgressCircle/ProgressCircle"
 
 //Hooks
 import { useKeyPress } from "./helpers/useKeyPress";
-import { useWindowResize } from "./helpers/useWindowResize";
 import { usePortal } from "./components/util/Portal/usePortal";
+import { useWindowResize } from "./helpers/useWindowResize";
 
 export {
 	Container,
@@ -32,13 +33,14 @@ export {
 	ButtonGroup,
 	Card,
 	Icon,
-	List,
+	ListGroup,
+	ListItem,
 	Portal,
 	LineLoader,
 	SpinnerLoader,
 	ProgressBar,
 	ProgressCircle,
 	useKeyPress,
-	useWindowResize,
 	usePortal,
+	useWindowResize,
 };

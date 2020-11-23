@@ -22,22 +22,12 @@ interface CardComponent extends React.ForwardRefExoticComponent<CardProps & Reac
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
 	({ cardImgPosition = "top", modern = false, allowOverflow = false, pigment, loading = false, className, children, ...rest }, ref) => {
-		const loader = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardLoader" ? child : null));
-		const image = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardImage" ? child : null));
-		const header = React.Children.map(children, (child: JSX.Element) =>
-			child.type.displayName === "CardHeader"
-				? {
-						...child,
-						props: {
-							...child.props,
-							pigment: child.props.pigment ?? pigment,
-							modern: child.props.modern ?? modern,
-						},
-				  }
-				: null
+		const loader: JSX.Element[] = React.Children.map(children, (child: JSX.Element) =>
+			child.type?.displayName === "CardLoader" ? child : null
 		);
-		const body = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardBody" ? child : null));
-		const footer = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "CardFooter" ? child : null));
+		const image: JSX.Element[] = React.Children.map(children, (child: JSX.Element) =>
+			child.type?.displayName === "CardImage" ? child : null
+		);
 
 		return (
 			<div
@@ -60,10 +50,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 				{...rest}
 				ref={ref}>
 				{loading && loader.length > 0 ? loader : loading ? <CardLoader modern={modern} /> : null}
-				{image}
-				{header}
-				{body}
-				{footer}
+				{children}
 			</div>
 		);
 	}

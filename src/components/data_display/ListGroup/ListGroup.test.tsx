@@ -2,11 +2,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import List from "./List";
-import { ListProps } from "./List.types";
+import ListGroup from "./ListGroup";
+import { ListGroupProps } from "./ListGroup.types";
 
 describe("Test Component", () => {
-  let props: ListProps;
+  let props: ListGroupProps;
 
   beforeEach(() => {
     props = {
@@ -14,13 +14,13 @@ describe("Test Component", () => {
     };
   });
 
-  const renderComponent = () => render(<List {...props} />);
+  const renderComponent = () => render(<ListGroup {...props} />);
 
   it("should render children correctly", () => {
     props.children = "Dodo was here";
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId("List");
+    const component = getByTestId("ListGroup");
 
     expect(component).toHaveTextContent("Dodo was here");
   });
