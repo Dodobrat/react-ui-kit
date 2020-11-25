@@ -130,7 +130,7 @@
 			color: $font;
 			&:hover,
 			&.dodo-ui__btn--active {
-				background-color: darken($color, 5%);
+				background-color: darken(rgbaToRgb($color), 5%);
 			}
 			&:focus {
 				box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
@@ -147,27 +147,15 @@
 				color: $color;
 				border: 1px solid rgba($color, 0.75);
 				&.dodo-ui__btn--loading {
-					@if $name == "light" {
-						@include btnLoader(darken($color, 25%));
-					} @else {
-						@include btnLoader($color);
-					}
+					@include btnLoader($color);
 				}
 				&:hover,
 				&.dodo-ui__btn--active {
-					background-color: rgba($color, 0.1);
-					@if $name == "light" {
-						color: darken($color, 50%);
-					} @else {
-						color: darken($color, 10%);
-					}
+					background-color: rgba(rgbaToRgb($color), 0.1);
+					color: $color;
 					border: 1px solid $color;
 					&.dodo-ui__btn--loading {
-						@if $name == "light" {
-							@include btnLoader(darken($color, 25%));
-						} @else {
-							@include btnLoader($color);
-						}
+						@include btnLoader($color);
 					}
 				}
 			}
@@ -176,25 +164,17 @@
 	&--modern {
 		@each $name, $color, $font in $btnModernPigments {
 			&.dodo-ui__btn--pigment-#{$name} {
-				background-color: $color;
-				@if $name == "light" {
-					color: darken($font, 50%);
-				} @else {
-					color: darken($font, 10%);
-				}
+				background-color: rgbaToRgb($color);
+				color: $font;
 				&:hover,
 				&.dodo-ui__btn--active {
-					background-color: darken($color, 5%);
+					background-color: darken(rgbaToRgb($color), 5%);
 				}
 				&:focus {
 					box-shadow: 0 0 0 0.2rem rgba($font, 0.25);
 				}
 				&.dodo-ui__btn--loading {
-					@if $name == "light" {
-						@include btnLoader(darken($font, 25%));
-					} @else {
-						@include btnLoader($font);
-					}
+					@include btnLoader($font);
 				}
 			}
 		}

@@ -60,7 +60,7 @@
 	background: $pigment;
 	color: $font;
 	&.dodo-ui__list__group__item--active {
-		background: darken($pigment, 5%);
+		background: darken(rgbaToRgb($pigment), 5%);
 	}
 	@if ($modern) {
 		margin: 0 1rem;

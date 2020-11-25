@@ -1,16 +1,18 @@
-@import "includes/variables";
-@import "includes/fonts";
-@import "includes/defaults";
+@charset "utf-8";
+
+@import "./includes/variables";
+@import "./includes/fonts";
+@import "./includes/defaults";
 
 // COMPONENTS
-@import "includes/badges";
-@import "includes/breadcrumbs";
-@import "includes/buttons";
-@import "includes/cards";
-@import "includes/lists";
-@import "includes/loaders";
-@import "includes/portals";
-@import "includes/progress";
+@import "./includes/badges";
+@import "./includes/breadcrumbs";
+@import "./includes/buttons";
+@import "./includes/cards";
+@import "./includes/lists";
+@import "./includes/loaders";
+@import "./includes/portals";
+@import "./includes/progress";
 
 //UTILITY COMPONENT STYLES
-@import "includes/helpers";
+@import "./includes/helpers";

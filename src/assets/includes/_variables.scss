@@ -14,14 +14,18 @@ $light: #f2f3f3;
 $dark: #272932;
 
 //--Modern Accents
-$mPrimary: #dbebf6;
-$mSecondary: #e7ebee;
-$mSuccess: #d9ede0;
-$mWarning: #fcf5db;
-$mDanger: #fadfe1;
-$mInfo: #e5f5f7;
-$mLight: #fdfdfd;
-$mDark: #dfdfe0;
+$mPrimary: rgba($primary, 0.15);
+$mSecondary: rgba($secondary, 0.15);
+$mSuccess: rgba($success, 0.15);
+$mWarning: rgba($warning, 0.15);
+$mDanger: rgba($danger, 0.15);
+$mInfo: rgba($info, 0.15);
+$mLight: rgba($light, 0.15);
+$mDark: rgba($dark, 0.15);
+
+@function rgbaToRgb($rgba, $background: $bg) {
+	@return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%);
+}
 
 //--Font Colors
 $lightFont: #fff;

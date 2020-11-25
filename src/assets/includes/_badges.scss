@@ -36,17 +36,10 @@
 	&--modern {
 		@each $name, $color, $font in $badgeModernPigments {
 			&.dodo-ui__badge--pigment-#{$name} {
-				background: $color;
-				@if $name == "light" {
-					color: darken($font, 50%);
-					* {
-						color: darken($font, 50%);
-					}
-				} @else {
-					color: darken($font, 10%);
-					* {
-						color: darken($font, 10%);
-					}
+				background: rgbaToRgb($color);
+				color: $font;
+				* {
+					color: $font;
 				}
 			}
 		}

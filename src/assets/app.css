@@ -1,42 +1,42 @@
 @font-face {
   font-family: "Manrope";
-  src: url("fonts/Manrope-ExtraLight.ttf") format("truetype");
+  src: local("../fonts/Manrope-ExtraLight.ttf") format("truetype");
   font-weight: 200;
 }
 
 @font-face {
   font-family: "Manrope";
-  src: url("fonts/Manrope-Light.ttf") format("truetype");
+  src: local("./fonts/Manrope-Light.ttf") format("truetype");
   font-weight: 300;
 }
 
 @font-face {
   font-family: "Manrope";
-  src: url("fonts/Manrope-Regular.ttf") format("truetype");
+  src: local("./fonts/Manrope-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Manrope";
-  src: url("fonts/Manrope-Medium.ttf") format("truetype");
+  src: local("./fonts/Manrope-Medium.ttf") format("truetype");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "Manrope";
-  src: url("fonts/Manrope-SemiBold.ttf") format("truetype");
+  src: local("./fonts/Manrope-SemiBold.ttf") format("truetype");
   font-weight: 600;
 }
 
 @font-face {
   font-family: "Manrope";
-  src: url("fonts/Manrope-Bold.ttf") format("truetype");
+  src: local("./fonts/Manrope-Bold.ttf") format("truetype");
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Manrope";
-  src: url("fonts/Manrope-ExtraBold.ttf") format("truetype");
+  src: local("./fonts/Manrope-ExtraBold.ttf") format("truetype");
   font-weight: 800;
 }
 
@@ -253,75 +253,75 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-primary {
-  background: #dbebf6;
-  color: #0b5b92;
+  background: #d8e8f2;
+  color: #0f79c1;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-primary * {
-  color: #0b5b92;
+  color: #0f79c1;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-secondary {
-  background: #e7ebee;
-  color: #4c5e6e;
+  background: #e4e7ea;
+  color: #61788c;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-secondary * {
-  color: #4c5e6e;
+  color: #61788c;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-success {
-  background: #d9ede0;
-  color: #00521c;
+  background: #d5e9dc;
+  color: #00852e;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-success * {
-  color: #00521c;
+  color: #00852e;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-warning {
-  background: #fcf5db;
-  color: #bd930b;
+  background: #f9f1d7;
+  color: #edb90e;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-warning * {
-  color: #bd930b;
+  color: #edb90e;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-info {
-  background: #e5f5f7;
-  color: #36a5b6;
+  background: #e2f2f4;
+  color: #53bccc;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-info * {
-  color: #36a5b6;
+  color: #53bccc;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-danger {
-  background: #fadfe1;
-  color: #b91c26;
+  background: #f7dcdd;
+  color: #df2935;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-danger * {
-  color: #b91c26;
+  color: #df2935;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-light {
-  background: #fdfdfd;
-  color: #6e7878;
+  background: #fafafa;
+  color: #f2f3f3;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-light * {
-  color: #6e7878;
+  color: #f2f3f3;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-dark {
-  background: #dfdfe0;
-  color: #111215;
+  background: #dbdcdd;
+  color: #272932;
 }
 
 .dodo-ui__badge--modern.dodo-ui__badge--pigment-dark * {
-  color: #111215;
+  color: #272932;
 }
 
 .dodo-ui__badge--pill {
@@ -818,7 +818,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-primary.dodo-ui__btn--active {
   background-color: rgba(15, 121, 193, 0.1);
-  color: #0b5b92;
+  color: #0f79c1;
   border: 1px solid #0f79c1;
 }
 
@@ -878,7 +878,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-secondary.dodo-ui__btn--active {
   background-color: rgba(97, 120, 140, 0.1);
-  color: #4c5e6e;
+  color: #61788c;
   border: 1px solid #61788c;
 }
 
@@ -938,7 +938,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-success.dodo-ui__btn--active {
   background-color: rgba(0, 133, 46, 0.1);
-  color: #00521c;
+  color: #00852e;
   border: 1px solid #00852e;
 }
 
@@ -998,7 +998,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-warning.dodo-ui__btn--active {
   background-color: rgba(237, 185, 14, 0.1);
-  color: #bd930b;
+  color: #edb90e;
   border: 1px solid #edb90e;
 }
 
@@ -1058,7 +1058,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-info.dodo-ui__btn--active {
   background-color: rgba(83, 188, 204, 0.1);
-  color: #36a5b6;
+  color: #53bccc;
   border: 1px solid #53bccc;
 }
 
@@ -1118,7 +1118,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-danger.dodo-ui__btn--active {
   background-color: rgba(223, 41, 53, 0.1);
-  color: #b91c26;
+  color: #df2935;
   border: 1px solid #df2935;
 }
 
@@ -1153,7 +1153,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--loading {
-  color: rgba(176, 182, 182, 0.1);
+  color: rgba(242, 243, 243, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg {
@@ -1170,7 +1170,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg > circle {
-  stroke: #b0b6b6;
+  stroke: #f2f3f3;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -1178,12 +1178,12 @@ hr[pigment="dark"] {
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--active {
   background-color: rgba(242, 243, 243, 0.1);
-  color: #6e7878;
+  color: #f2f3f3;
   border: 1px solid #f2f3f3;
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover.dodo-ui__btn--loading, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--active.dodo-ui__btn--loading {
-  color: rgba(176, 182, 182, 0.1);
+  color: rgba(242, 243, 243, 0.1);
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover.dodo-ui__btn--loading > svg, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--active.dodo-ui__btn--loading > svg {
@@ -1200,7 +1200,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light:hover.dodo-ui__btn--loading > svg > circle, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-light.dodo-ui__btn--active.dodo-ui__btn--loading > svg > circle {
-  stroke: #b0b6b6;
+  stroke: #f2f3f3;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -1238,7 +1238,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark:hover, .dodo-ui__btn--outlined.dodo-ui__btn--pigment-dark.dodo-ui__btn--active {
   background-color: rgba(39, 41, 50, 0.1);
-  color: #111215;
+  color: #272932;
   border: 1px solid #272932;
 }
 
@@ -1267,12 +1267,12 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-primary {
-  background-color: #dbebf6;
-  color: #0b5b92;
+  background-color: #d8e8f2;
+  color: #0f79c1;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-primary:hover, .dodo-ui__btn--modern.dodo-ui__btn--pigment-primary.dodo-ui__btn--active {
-  background-color: #c7e0f1;
+  background-color: #c5ddec;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-primary:focus {
@@ -1304,12 +1304,12 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-secondary {
-  background-color: #e7ebee;
-  color: #4c5e6e;
+  background-color: #e4e7ea;
+  color: #61788c;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-secondary:hover, .dodo-ui__btn--modern.dodo-ui__btn--pigment-secondary.dodo-ui__btn--active {
-  background-color: #d8dfe3;
+  background-color: #d6dadf;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-secondary:focus {
@@ -1341,12 +1341,12 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-success {
-  background-color: #d9ede0;
-  color: #00521c;
+  background-color: #d5e9dc;
+  color: #00852e;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-success:hover, .dodo-ui__btn--modern.dodo-ui__btn--pigment-success.dodo-ui__btn--active {
-  background-color: #c8e5d2;
+  background-color: #c4e0ce;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-success:focus {
@@ -1378,12 +1378,12 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-warning {
-  background-color: #fcf5db;
-  color: #bd930b;
+  background-color: #f9f1d7;
+  color: #edb90e;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-warning:hover, .dodo-ui__btn--modern.dodo-ui__btn--pigment-warning.dodo-ui__btn--active {
-  background-color: #faeec3;
+  background-color: #f6e9c1;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-warning:focus {
@@ -1415,12 +1415,12 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-info {
-  background-color: #e5f5f7;
-  color: #36a5b6;
+  background-color: #e2f2f4;
+  color: #53bccc;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-info:hover, .dodo-ui__btn--modern.dodo-ui__btn--pigment-info.dodo-ui__btn--active {
-  background-color: #d2eef1;
+  background-color: #d0eaed;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-info:focus {
@@ -1452,12 +1452,12 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-danger {
-  background-color: #fadfe1;
-  color: #b91c26;
+  background-color: #f7dcdd;
+  color: #df2935;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-danger:hover, .dodo-ui__btn--modern.dodo-ui__btn--pigment-danger.dodo-ui__btn--active {
-  background-color: #f7c9cc;
+  background-color: #f2c7c9;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-danger:focus {
@@ -1489,12 +1489,12 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-light {
-  background-color: #fdfdfd;
-  color: #6e7878;
+  background-color: #fafafa;
+  color: #f2f3f3;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-light:hover, .dodo-ui__btn--modern.dodo-ui__btn--pigment-light.dodo-ui__btn--active {
-  background-color: #f0f0f0;
+  background-color: #ededed;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-light:focus {
@@ -1502,7 +1502,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-light.dodo-ui__btn--loading {
-  color: rgba(176, 182, 182, 0.1);
+  color: rgba(242, 243, 243, 0.1);
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg {
@@ -1519,19 +1519,19 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-light.dodo-ui__btn--loading > svg > circle {
-  stroke: #b0b6b6;
+  stroke: #f2f3f3;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-dark {
-  background-color: #dfdfe0;
-  color: #111215;
+  background-color: #dbdcdd;
+  color: #272932;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-dark:hover, .dodo-ui__btn--modern.dodo-ui__btn--pigment-dark.dodo-ui__btn--active {
-  background-color: #d2d2d3;
+  background-color: #cecfd1;
 }
 
 .dodo-ui__btn--modern.dodo-ui__btn--pigment-dark:focus {
@@ -2232,7 +2232,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-primary {
   position: relative;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   border-radius: 0.3125rem;
   color: #0f79c1;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -2283,7 +2283,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-secondary {
   position: relative;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   border-radius: 0.3125rem;
   color: #61788c;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -2334,7 +2334,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-success {
   position: relative;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   border-radius: 0.3125rem;
   color: #00852e;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -2385,7 +2385,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-warning {
   position: relative;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   border-radius: 0.3125rem;
   color: #edb90e;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -2436,7 +2436,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-info {
   position: relative;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   border-radius: 0.3125rem;
   color: #53bccc;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -2487,7 +2487,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-danger {
   position: relative;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   border-radius: 0.3125rem;
   color: #df2935;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -2538,7 +2538,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-light {
   position: relative;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   border-radius: 0.3125rem;
   color: #f2f3f3;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -2589,7 +2589,7 @@ hr[pigment="dark"] {
 
 .dodo-ui__card--modern.dodo-ui__card--pigment-dark {
   position: relative;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   border-radius: 0.3125rem;
   color: #272932;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -7939,7 +7939,7 @@ hr[pigment="dark"] {
   display: flex;
   flex-direction: column;
   border-radius: 0.3125rem;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0;
   padding: 0;
@@ -7967,7 +7967,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__header {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: rgba(15, 121, 193, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -7979,7 +7979,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: rgba(15, 121, 193, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -7991,7 +7991,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: rgba(97, 120, 140, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8003,7 +8003,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: rgba(0, 133, 46, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8015,7 +8015,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: rgba(237, 185, 14, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8027,7 +8027,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: rgba(83, 188, 204, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8039,7 +8039,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: rgba(223, 41, 53, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8051,7 +8051,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: rgba(242, 243, 243, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8063,7 +8063,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: rgba(39, 41, 50, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8075,124 +8075,124 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--active {
-  background: #c7e0f1;
+  background: #c5ddec;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary.dodo-ui__list__group__item--active {
-  background: #c7e0f1;
+  background: #c5ddec;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary.dodo-ui__list__group__item--active {
-  background: #d8dfe3;
+  background: #d6dadf;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success.dodo-ui__list__group__item--active {
-  background: #c8e5d2;
+  background: #c4e0ce;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning.dodo-ui__list__group__item--active {
-  background: #faeec3;
+  background: #f6e9c1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info.dodo-ui__list__group__item--active {
-  background: #d2eef1;
+  background: #d0eaed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger.dodo-ui__list__group__item--active {
-  background: #f7c9cc;
+  background: #f2c7c9;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light.dodo-ui__list__group__item--active {
-  background: #f0f0f0;
+  background: #ededed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark.dodo-ui__list__group__item--active {
-  background: #d2d2d3;
+  background: #cecfd1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8210,7 +8210,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8235,7 +8235,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8253,7 +8253,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8278,7 +8278,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8296,7 +8296,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8321,7 +8321,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8339,7 +8339,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8364,7 +8364,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8382,7 +8382,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8407,7 +8407,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8425,7 +8425,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8450,7 +8450,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8468,7 +8468,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8493,7 +8493,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8511,7 +8511,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8536,7 +8536,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8554,7 +8554,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-primary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8580,7 +8580,7 @@ hr[pigment="dark"] {
   display: flex;
   flex-direction: column;
   border-radius: 0.3125rem;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0;
   padding: 0;
@@ -8608,7 +8608,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__header {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: rgba(97, 120, 140, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8620,7 +8620,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: rgba(15, 121, 193, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8632,7 +8632,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: rgba(97, 120, 140, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8644,7 +8644,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: rgba(0, 133, 46, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8656,7 +8656,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: rgba(237, 185, 14, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8668,7 +8668,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: rgba(83, 188, 204, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8680,7 +8680,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: rgba(223, 41, 53, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8692,7 +8692,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: rgba(242, 243, 243, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8704,7 +8704,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: rgba(39, 41, 50, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -8716,124 +8716,124 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--active {
-  background: #d8dfe3;
+  background: #d6dadf;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary.dodo-ui__list__group__item--active {
-  background: #c7e0f1;
+  background: #c5ddec;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary.dodo-ui__list__group__item--active {
-  background: #d8dfe3;
+  background: #d6dadf;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success.dodo-ui__list__group__item--active {
-  background: #c8e5d2;
+  background: #c4e0ce;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning.dodo-ui__list__group__item--active {
-  background: #faeec3;
+  background: #f6e9c1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info.dodo-ui__list__group__item--active {
-  background: #d2eef1;
+  background: #d0eaed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger.dodo-ui__list__group__item--active {
-  background: #f7c9cc;
+  background: #f2c7c9;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light.dodo-ui__list__group__item--active {
-  background: #f0f0f0;
+  background: #ededed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark.dodo-ui__list__group__item--active {
-  background: #d2d2d3;
+  background: #cecfd1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8851,7 +8851,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8876,7 +8876,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8894,7 +8894,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8919,7 +8919,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8937,7 +8937,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8962,7 +8962,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -8980,7 +8980,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9005,7 +9005,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9023,7 +9023,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9048,7 +9048,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9066,7 +9066,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9091,7 +9091,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9109,7 +9109,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9134,7 +9134,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9152,7 +9152,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9177,7 +9177,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9195,7 +9195,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-secondary > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9221,7 +9221,7 @@ hr[pigment="dark"] {
   display: flex;
   flex-direction: column;
   border-radius: 0.3125rem;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0;
   padding: 0;
@@ -9249,7 +9249,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__header {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: rgba(0, 133, 46, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9261,7 +9261,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: rgba(15, 121, 193, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9273,7 +9273,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: rgba(97, 120, 140, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9285,7 +9285,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: rgba(0, 133, 46, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9297,7 +9297,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: rgba(237, 185, 14, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9309,7 +9309,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: rgba(83, 188, 204, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9321,7 +9321,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: rgba(223, 41, 53, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9333,7 +9333,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: rgba(242, 243, 243, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9345,7 +9345,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: rgba(39, 41, 50, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9357,124 +9357,124 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--active {
-  background: #c8e5d2;
+  background: #c4e0ce;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary.dodo-ui__list__group__item--active {
-  background: #c7e0f1;
+  background: #c5ddec;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary.dodo-ui__list__group__item--active {
-  background: #d8dfe3;
+  background: #d6dadf;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success.dodo-ui__list__group__item--active {
-  background: #c8e5d2;
+  background: #c4e0ce;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning.dodo-ui__list__group__item--active {
-  background: #faeec3;
+  background: #f6e9c1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info.dodo-ui__list__group__item--active {
-  background: #d2eef1;
+  background: #d0eaed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger.dodo-ui__list__group__item--active {
-  background: #f7c9cc;
+  background: #f2c7c9;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light.dodo-ui__list__group__item--active {
-  background: #f0f0f0;
+  background: #ededed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark.dodo-ui__list__group__item--active {
-  background: #d2d2d3;
+  background: #cecfd1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9492,7 +9492,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9517,7 +9517,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9535,7 +9535,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9560,7 +9560,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9578,7 +9578,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9603,7 +9603,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9621,7 +9621,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9646,7 +9646,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9664,7 +9664,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9689,7 +9689,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9707,7 +9707,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9732,7 +9732,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9750,7 +9750,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9775,7 +9775,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9793,7 +9793,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9818,7 +9818,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9836,7 +9836,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-success > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -9862,7 +9862,7 @@ hr[pigment="dark"] {
   display: flex;
   flex-direction: column;
   border-radius: 0.3125rem;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0;
   padding: 0;
@@ -9890,7 +9890,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__header {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: rgba(237, 185, 14, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9902,7 +9902,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: rgba(15, 121, 193, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9914,7 +9914,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: rgba(97, 120, 140, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9926,7 +9926,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: rgba(0, 133, 46, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9938,7 +9938,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: rgba(237, 185, 14, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9950,7 +9950,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: rgba(83, 188, 204, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9962,7 +9962,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: rgba(223, 41, 53, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9974,7 +9974,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: rgba(242, 243, 243, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9986,7 +9986,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: rgba(39, 41, 50, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -9998,124 +9998,124 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--active {
-  background: #faeec3;
+  background: #f6e9c1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary.dodo-ui__list__group__item--active {
-  background: #c7e0f1;
+  background: #c5ddec;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary.dodo-ui__list__group__item--active {
-  background: #d8dfe3;
+  background: #d6dadf;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success.dodo-ui__list__group__item--active {
-  background: #c8e5d2;
+  background: #c4e0ce;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning.dodo-ui__list__group__item--active {
-  background: #faeec3;
+  background: #f6e9c1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info.dodo-ui__list__group__item--active {
-  background: #d2eef1;
+  background: #d0eaed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger.dodo-ui__list__group__item--active {
-  background: #f7c9cc;
+  background: #f2c7c9;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light.dodo-ui__list__group__item--active {
-  background: #f0f0f0;
+  background: #ededed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark.dodo-ui__list__group__item--active {
-  background: #d2d2d3;
+  background: #cecfd1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10133,7 +10133,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10158,7 +10158,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10176,7 +10176,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10201,7 +10201,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10219,7 +10219,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10244,7 +10244,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10262,7 +10262,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10287,7 +10287,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10305,7 +10305,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10330,7 +10330,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10348,7 +10348,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10373,7 +10373,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10391,7 +10391,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10416,7 +10416,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10434,7 +10434,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10459,7 +10459,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10477,7 +10477,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-warning > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10503,7 +10503,7 @@ hr[pigment="dark"] {
   display: flex;
   flex-direction: column;
   border-radius: 0.3125rem;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0;
   padding: 0;
@@ -10531,7 +10531,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__header {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: rgba(83, 188, 204, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -10543,7 +10543,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: rgba(15, 121, 193, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -10555,7 +10555,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: rgba(97, 120, 140, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -10567,7 +10567,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: rgba(0, 133, 46, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -10579,7 +10579,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: rgba(237, 185, 14, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -10591,7 +10591,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: rgba(83, 188, 204, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -10603,7 +10603,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: rgba(223, 41, 53, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -10615,7 +10615,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: rgba(242, 243, 243, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -10627,7 +10627,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: rgba(39, 41, 50, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -10639,124 +10639,124 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--active {
-  background: #d2eef1;
+  background: #d0eaed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary.dodo-ui__list__group__item--active {
-  background: #c7e0f1;
+  background: #c5ddec;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary.dodo-ui__list__group__item--active {
-  background: #d8dfe3;
+  background: #d6dadf;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success.dodo-ui__list__group__item--active {
-  background: #c8e5d2;
+  background: #c4e0ce;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning.dodo-ui__list__group__item--active {
-  background: #faeec3;
+  background: #f6e9c1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info.dodo-ui__list__group__item--active {
-  background: #d2eef1;
+  background: #d0eaed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger.dodo-ui__list__group__item--active {
-  background: #f7c9cc;
+  background: #f2c7c9;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light.dodo-ui__list__group__item--active {
-  background: #f0f0f0;
+  background: #ededed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark.dodo-ui__list__group__item--active {
-  background: #d2d2d3;
+  background: #cecfd1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10774,7 +10774,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10799,7 +10799,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10817,7 +10817,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10842,7 +10842,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10860,7 +10860,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10885,7 +10885,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10903,7 +10903,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10928,7 +10928,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10946,7 +10946,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10971,7 +10971,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -10989,7 +10989,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11014,7 +11014,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11032,7 +11032,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11057,7 +11057,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11075,7 +11075,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11100,7 +11100,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11118,7 +11118,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-info > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11144,7 +11144,7 @@ hr[pigment="dark"] {
   display: flex;
   flex-direction: column;
   border-radius: 0.3125rem;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0;
   padding: 0;
@@ -11172,7 +11172,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__header {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: rgba(223, 41, 53, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11184,7 +11184,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: rgba(15, 121, 193, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11196,7 +11196,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: rgba(97, 120, 140, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11208,7 +11208,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: rgba(0, 133, 46, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11220,7 +11220,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: rgba(237, 185, 14, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11232,7 +11232,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: rgba(83, 188, 204, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11244,7 +11244,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: rgba(223, 41, 53, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11256,7 +11256,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: rgba(242, 243, 243, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11268,7 +11268,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: rgba(39, 41, 50, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11280,124 +11280,124 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--active {
-  background: #f7c9cc;
+  background: #f2c7c9;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary.dodo-ui__list__group__item--active {
-  background: #c7e0f1;
+  background: #c5ddec;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary.dodo-ui__list__group__item--active {
-  background: #d8dfe3;
+  background: #d6dadf;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success.dodo-ui__list__group__item--active {
-  background: #c8e5d2;
+  background: #c4e0ce;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning.dodo-ui__list__group__item--active {
-  background: #faeec3;
+  background: #f6e9c1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info.dodo-ui__list__group__item--active {
-  background: #d2eef1;
+  background: #d0eaed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger.dodo-ui__list__group__item--active {
-  background: #f7c9cc;
+  background: #f2c7c9;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light.dodo-ui__list__group__item--active {
-  background: #f0f0f0;
+  background: #ededed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark.dodo-ui__list__group__item--active {
-  background: #d2d2d3;
+  background: #cecfd1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11415,7 +11415,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11440,7 +11440,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11458,7 +11458,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11483,7 +11483,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11501,7 +11501,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11526,7 +11526,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11544,7 +11544,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11569,7 +11569,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11587,7 +11587,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11612,7 +11612,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11630,7 +11630,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11655,7 +11655,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11673,7 +11673,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11698,7 +11698,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11716,7 +11716,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11741,7 +11741,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11759,7 +11759,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-danger > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -11785,7 +11785,7 @@ hr[pigment="dark"] {
   display: flex;
   flex-direction: column;
   border-radius: 0.3125rem;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0;
   padding: 0;
@@ -11813,7 +11813,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__header {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: rgba(242, 243, 243, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11825,7 +11825,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: rgba(15, 121, 193, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11837,7 +11837,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: rgba(97, 120, 140, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11849,7 +11849,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: rgba(0, 133, 46, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11861,7 +11861,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: rgba(237, 185, 14, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11873,7 +11873,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: rgba(83, 188, 204, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11885,7 +11885,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: rgba(223, 41, 53, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11897,7 +11897,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: rgba(242, 243, 243, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11909,7 +11909,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: rgba(39, 41, 50, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -11921,124 +11921,124 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--active {
-  background: #f0f0f0;
+  background: #ededed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary.dodo-ui__list__group__item--active {
-  background: #c7e0f1;
+  background: #c5ddec;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary.dodo-ui__list__group__item--active {
-  background: #d8dfe3;
+  background: #d6dadf;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success.dodo-ui__list__group__item--active {
-  background: #c8e5d2;
+  background: #c4e0ce;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning.dodo-ui__list__group__item--active {
-  background: #faeec3;
+  background: #f6e9c1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info.dodo-ui__list__group__item--active {
-  background: #d2eef1;
+  background: #d0eaed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger.dodo-ui__list__group__item--active {
-  background: #f7c9cc;
+  background: #f2c7c9;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light.dodo-ui__list__group__item--active {
-  background: #f0f0f0;
+  background: #ededed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark.dodo-ui__list__group__item--active {
-  background: #d2d2d3;
+  background: #cecfd1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12056,7 +12056,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12081,7 +12081,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12099,7 +12099,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12124,7 +12124,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12142,7 +12142,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12167,7 +12167,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12185,7 +12185,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12210,7 +12210,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12228,7 +12228,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12253,7 +12253,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12271,7 +12271,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12296,7 +12296,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12314,7 +12314,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12339,7 +12339,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12357,7 +12357,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12382,7 +12382,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12400,7 +12400,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-light > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12426,7 +12426,7 @@ hr[pigment="dark"] {
   display: flex;
   flex-direction: column;
   border-radius: 0.3125rem;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0;
   padding: 0;
@@ -12454,7 +12454,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__header {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: rgba(39, 41, 50, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -12466,7 +12466,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: rgba(15, 121, 193, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -12478,7 +12478,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: rgba(97, 120, 140, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -12490,7 +12490,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: rgba(0, 133, 46, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -12502,7 +12502,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: rgba(237, 185, 14, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -12514,7 +12514,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: rgba(83, 188, 204, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -12526,7 +12526,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: rgba(223, 41, 53, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -12538,7 +12538,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: rgba(242, 243, 243, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -12550,7 +12550,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__header.dodo-ui__list__group__header--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: rgba(39, 41, 50, 0.5);
   font-size: 0.8rem;
   font-weight: 900;
@@ -12562,124 +12562,124 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--active {
-  background: #d2d2d3;
+  background: #cecfd1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-primary.dodo-ui__list__group__item--active {
-  background: #c7e0f1;
+  background: #c5ddec;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-secondary.dodo-ui__list__group__item--active {
-  background: #d8dfe3;
+  background: #d6dadf;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-success.dodo-ui__list__group__item--active {
-  background: #c8e5d2;
+  background: #c4e0ce;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-warning.dodo-ui__list__group__item--active {
-  background: #faeec3;
+  background: #f6e9c1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-info.dodo-ui__list__group__item--active {
-  background: #d2eef1;
+  background: #d0eaed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-danger.dodo-ui__list__group__item--active {
-  background: #f7c9cc;
+  background: #f2c7c9;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-light.dodo-ui__list__group__item--active {
-  background: #f0f0f0;
+  background: #ededed;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__item.dodo-ui__list__group__item--pigment-dark.dodo-ui__list__group__item--active {
-  background: #d2d2d3;
+  background: #cecfd1;
 }
 
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12697,7 +12697,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12722,7 +12722,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12740,7 +12740,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-primary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12765,7 +12765,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12783,7 +12783,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-secondary .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12808,7 +12808,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12826,7 +12826,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-success .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12851,7 +12851,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12869,7 +12869,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-warning .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12894,7 +12894,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12912,7 +12912,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-info .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12937,7 +12937,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12955,7 +12955,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-danger .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12980,7 +12980,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -12998,7 +12998,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-light .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -13023,7 +13023,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -13041,7 +13041,7 @@ hr[pigment="dark"] {
 .dodo-ui__list__group--modern.dodo-ui__list__group--pigment-dark > .dodo-ui__list__group__collapse.dodo-ui__list__group__collapse--pigment-dark .dodo-ui__list__group__collapse__content .dodo-ui__list__group__collapse {
   position: relative;
   display: block;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   margin: 0 1rem;
   padding: 0.75rem 0;
@@ -15027,7 +15027,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   overflow: hidden;
 }
@@ -15037,7 +15037,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress:hover {
-  background-color: #c7e0f1;
+  background-color: rgba(13, 106, 169, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary .dodo-ui__progress-bar__progress__label {
@@ -15071,7 +15071,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -15082,7 +15082,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -15094,7 +15094,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #dbebf6;
+  color: rgba(15, 121, 193, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -15123,7 +15123,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   color: #0f79c1;
   overflow: hidden;
   overflow: hidden;
@@ -15134,7 +15134,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
-  background-color: #c7e0f1;
+  background-color: rgba(13, 106, 169, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
@@ -15168,7 +15168,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -15179,7 +15179,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #dbebf6;
+  background: rgba(15, 121, 193, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -15213,7 +15213,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #dbebf6;
+  color: rgba(15, 121, 193, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-primary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -15242,7 +15242,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   overflow: hidden;
 }
@@ -15252,7 +15252,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress:hover {
-  background-color: #d8dfe3;
+  background-color: rgba(87, 107, 125, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary .dodo-ui__progress-bar__progress__label {
@@ -15286,7 +15286,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -15297,7 +15297,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -15309,7 +15309,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #e7ebee;
+  color: rgba(97, 120, 140, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -15338,7 +15338,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   color: #61788c;
   overflow: hidden;
   overflow: hidden;
@@ -15349,7 +15349,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
-  background-color: #d8dfe3;
+  background-color: rgba(87, 107, 125, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
@@ -15383,7 +15383,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -15394,7 +15394,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #e7ebee;
+  background: rgba(97, 120, 140, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -15428,7 +15428,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #e7ebee;
+  color: rgba(97, 120, 140, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-secondary.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -15457,7 +15457,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   overflow: hidden;
 }
@@ -15467,7 +15467,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress:hover {
-  background-color: #c8e5d2;
+  background-color: rgba(0, 108, 37, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success .dodo-ui__progress-bar__progress__label {
@@ -15501,7 +15501,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -15512,7 +15512,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -15524,7 +15524,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #d9ede0;
+  color: rgba(0, 133, 46, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -15553,7 +15553,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   color: #00852e;
   overflow: hidden;
   overflow: hidden;
@@ -15564,7 +15564,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
-  background-color: #c8e5d2;
+  background-color: rgba(0, 108, 37, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
@@ -15598,7 +15598,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -15609,7 +15609,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #d9ede0;
+  background: rgba(0, 133, 46, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -15643,7 +15643,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #d9ede0;
+  color: rgba(0, 133, 46, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-success.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -15672,7 +15672,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   overflow: hidden;
 }
@@ -15682,7 +15682,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress:hover {
-  background-color: #faeec3;
+  background-color: rgba(213, 166, 13, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning .dodo-ui__progress-bar__progress__label {
@@ -15716,7 +15716,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -15727,7 +15727,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -15739,7 +15739,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #fcf5db;
+  color: rgba(237, 185, 14, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -15768,7 +15768,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   color: #edb90e;
   overflow: hidden;
   overflow: hidden;
@@ -15779,7 +15779,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
-  background-color: #faeec3;
+  background-color: rgba(213, 166, 13, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
@@ -15813,7 +15813,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -15824,7 +15824,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #fcf5db;
+  background: rgba(237, 185, 14, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -15858,7 +15858,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #fcf5db;
+  color: rgba(237, 185, 14, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-warning.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -15887,7 +15887,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   overflow: hidden;
 }
@@ -15897,7 +15897,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress:hover {
-  background-color: #d2eef1;
+  background-color: rgba(63, 180, 198, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info .dodo-ui__progress-bar__progress__label {
@@ -15931,7 +15931,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -15942,7 +15942,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -15954,7 +15954,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #e5f5f7;
+  color: rgba(83, 188, 204, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -15983,7 +15983,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   color: #53bccc;
   overflow: hidden;
   overflow: hidden;
@@ -15994,7 +15994,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
-  background-color: #d2eef1;
+  background-color: rgba(63, 180, 198, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
@@ -16028,7 +16028,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -16039,7 +16039,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #e5f5f7;
+  background: rgba(83, 188, 204, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -16073,7 +16073,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #e5f5f7;
+  color: rgba(83, 188, 204, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-info.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -16102,7 +16102,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   overflow: hidden;
 }
@@ -16112,7 +16112,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress:hover {
-  background-color: #f7c9cc;
+  background-color: rgba(207, 31, 43, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger .dodo-ui__progress-bar__progress__label {
@@ -16146,7 +16146,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -16157,7 +16157,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -16169,7 +16169,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #fadfe1;
+  color: rgba(223, 41, 53, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -16198,7 +16198,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   color: #df2935;
   overflow: hidden;
   overflow: hidden;
@@ -16209,7 +16209,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
-  background-color: #f7c9cc;
+  background-color: rgba(207, 31, 43, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
@@ -16243,7 +16243,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -16254,7 +16254,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #fadfe1;
+  background: rgba(223, 41, 53, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -16288,7 +16288,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #fadfe1;
+  color: rgba(223, 41, 53, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-danger.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -16317,7 +16317,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   overflow: hidden;
 }
@@ -16327,7 +16327,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress:hover {
-  background-color: #f0f0f0;
+  background-color: rgba(229, 231, 231, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light .dodo-ui__progress-bar__progress__label {
@@ -16361,7 +16361,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -16372,7 +16372,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -16384,7 +16384,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #fdfdfd;
+  color: rgba(242, 243, 243, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -16413,7 +16413,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   color: #f2f3f3;
   overflow: hidden;
   overflow: hidden;
@@ -16424,7 +16424,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
-  background-color: #f0f0f0;
+  background-color: rgba(229, 231, 231, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
@@ -16458,7 +16458,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -16469,7 +16469,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #fdfdfd;
+  background: rgba(242, 243, 243, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -16503,7 +16503,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #fdfdfd;
+  color: rgba(242, 243, 243, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-light.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -16532,7 +16532,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   overflow: hidden;
 }
@@ -16542,7 +16542,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress:hover {
-  background-color: #d2d2d3;
+  background-color: rgba(28, 29, 36, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark .dodo-ui__progress-bar__progress__label {
@@ -16576,7 +16576,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -16587,7 +16587,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -16599,7 +16599,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #dfdfe0;
+  color: rgba(39, 41, 50, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -16628,7 +16628,7 @@ hr[pigment="dark"] {
   position: relative;
   width: 0;
   height: 100%;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   color: #272932;
   overflow: hidden;
   overflow: hidden;
@@ -16639,7 +16639,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress:hover {
-  background-color: #d2d2d3;
+  background-color: rgba(28, 29, 36, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated .dodo-ui__progress-bar__progress__label {
@@ -16673,7 +16673,7 @@ hr[pigment="dark"] {
   left: unset;
   right: 0;
   transform: translate(50%, -25%);
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   padding: 0.25rem 0.3125rem;
 }
 
@@ -16684,7 +16684,7 @@ hr[pigment="dark"] {
   left: calc(50% - 0.25rem);
   width: 0.5rem;
   height: 0.5rem;
-  background: #dfdfe0;
+  background: rgba(39, 41, 50, 0.15);
   transform: rotate(-45deg);
   z-index: -1;
 }
@@ -16718,7 +16718,7 @@ hr[pigment="dark"] {
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label {
   top: 0;
   transform: translate(25%, -125%);
-  color: #dfdfe0;
+  color: rgba(39, 41, 50, 0.15);
 }
 
 .dodo-ui__progress-bar--modern.dodo-ui__progress-bar--pigment-dark.dodo-ui__progress-bar--animated.dodo-ui__progress-bar--minified .dodo-ui__progress-bar__progress__label.dodo-ui__progress-bar__progress__label--position-center {
@@ -16958,7 +16958,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-primary .dodo-ui__progress-circle__track {
-  stroke: #dbebf6;
+  stroke: rgba(15, 121, 193, 0.15);
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-primary .dodo-ui__progress-circle__label {
@@ -16981,7 +16981,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-secondary .dodo-ui__progress-circle__track {
-  stroke: #e7ebee;
+  stroke: rgba(97, 120, 140, 0.15);
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-secondary .dodo-ui__progress-circle__label {
@@ -17004,7 +17004,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-success .dodo-ui__progress-circle__track {
-  stroke: #d9ede0;
+  stroke: rgba(0, 133, 46, 0.15);
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-success .dodo-ui__progress-circle__label {
@@ -17027,7 +17027,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-warning .dodo-ui__progress-circle__track {
-  stroke: #fcf5db;
+  stroke: rgba(237, 185, 14, 0.15);
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-warning .dodo-ui__progress-circle__label {
@@ -17050,7 +17050,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-info .dodo-ui__progress-circle__track {
-  stroke: #e5f5f7;
+  stroke: rgba(83, 188, 204, 0.15);
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-info .dodo-ui__progress-circle__label {
@@ -17073,7 +17073,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-danger .dodo-ui__progress-circle__track {
-  stroke: #fadfe1;
+  stroke: rgba(223, 41, 53, 0.15);
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-danger .dodo-ui__progress-circle__label {
@@ -17096,7 +17096,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-light .dodo-ui__progress-circle__track {
-  stroke: #fdfdfd;
+  stroke: rgba(242, 243, 243, 0.15);
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-light .dodo-ui__progress-circle__label {
@@ -17119,7 +17119,7 @@ hr[pigment="dark"] {
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-dark .dodo-ui__progress-circle__track {
-  stroke: #dfdfe0;
+  stroke: rgba(39, 41, 50, 0.15);
 }
 
 .dodo-ui__progress-circle--modern.dodo-ui__progress-circle--pigment-dark .dodo-ui__progress-circle__label {
