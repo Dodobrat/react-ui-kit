@@ -5,7 +5,7 @@ import cn from "classnames";
 import FocusTrap from "focus-trap-react";
 
 import { PortalProps } from "./Portal.types";
-import { useKeyPress } from "../../../helpers/useKeyPress";
+import { useKeyPress } from "../../../hooks/useKeyPress";
 
 const Portal = forwardRef<HTMLDivElement, PortalProps>(
 	(

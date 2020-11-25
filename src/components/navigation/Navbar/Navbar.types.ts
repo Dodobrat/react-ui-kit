@@ -1,5 +1,5 @@
 // Auto-Generated
-export interface ListItemProps {
+export interface NavbarProps {
 	className?: string;
 	children?: React.ReactNode;
 }

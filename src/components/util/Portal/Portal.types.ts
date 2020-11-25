@@ -3,7 +3,6 @@ export interface PortalProps {
 	className?: string;
 	innerClassName?: string;
 	backdropClassName?: string;
-	show?: boolean;
 	onClose: () => void;
 	keyboard?: boolean;
 	backdrop?: boolean | "static";

@@ -11,8 +11,8 @@ export interface CardLoaderSubComponentProps extends CardSubComponentProps {
 
 export interface CardHeaderSubComponentProps extends CardSubComponentProps {
 	onClose?: () => void | null;
-	modern?: boolean;
-	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark" | null;
+	closeBtnModern?: boolean;
+	closeBtnPigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark" | null;
 }
 
 export interface CardImageSubComponentProps extends CardSubComponentProps {

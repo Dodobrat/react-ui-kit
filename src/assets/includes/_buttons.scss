@@ -80,21 +80,13 @@
 	}
 }
 
-$sizes: "sm" $sm $smFont, "lg" $lg $lgFont, "xl" $xl $xlFont;
-
-$pigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
-	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
-
-$mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success, "warning" $mWarning $warning,
-	"info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
-
 .dodo-ui__btn {
 	@include btn();
 	&--loading {
 		cursor: progress;
 		@include btnLoader($lightFont);
 	}
-	@each $name, $size, $font in $sizes {
+	@each $name, $size, $font in $btnSizes {
 		&.dodo-ui__btn--#{$name} {
 			height: $size;
 			font-size: $font;
@@ -132,7 +124,7 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 			margin-left: $smFont;
 		}
 	}
-	@each $name, $color, $font in $pigments {
+	@each $name, $color, $font in $btnPigments {
 		&.dodo-ui__btn--pigment-#{$name} {
 			background-color: $color;
 			color: $font;
@@ -149,7 +141,7 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 		}
 	}
 	&--outlined {
-		@each $name, $color, $font in $pigments {
+		@each $name, $color, $font in $btnPigments {
 			&.dodo-ui__btn--pigment-#{$name} {
 				background-color: transparent;
 				color: $color;
@@ -182,7 +174,7 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 		}
 	}
 	&--modern {
-		@each $name, $color, $font in $mPigments {
+		@each $name, $color, $font in $btnModernPigments {
 			&.dodo-ui__btn--pigment-#{$name} {
 				background-color: $color;
 				@if $name == "light" {

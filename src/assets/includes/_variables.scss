@@ -1,8 +1,9 @@
 //COLORS
+//--Backgrounds
 $bg: #fbfbfb;
-$cardBg: #fff;
+$bgCard: #fff;
 
-// Accents
+//--Accents
 $primary: #0f79c1;
 $secondary: #61788c;
 $success: #00852e;
@@ -12,7 +13,7 @@ $info: #53bccc;
 $light: #f2f3f3;
 $dark: #272932;
 
-// Modern Accents
+//--Modern Accents
 $mPrimary: #dbebf6;
 $mSecondary: #e7ebee;
 $mSuccess: #d9ede0;
@@ -22,27 +23,31 @@ $mInfo: #e5f5f7;
 $mLight: #fdfdfd;
 $mDark: #dfdfe0;
 
-// Font Colors
+//--Font Colors
 $lightFont: #fff;
 $darkFont: #000;
 
 //SIZING
-//default size
+//--Global Font size
 $fontSize: 16px;
 
-//font size based on default size
+//--Font sizes
 $smFont: 0.8rem;
 $mdFont: 1rem;
 $lgFont: 1.2rem;
 $xlFont: 1.4rem;
 
-//component sizing based on default font size
+//--Component sizes based on Global Font size
 $sm: $fontSize * 1.9375;
 $md: $fontSize * 2.375;
 $lg: $fontSize * 3;
 $xl: $fontSize * 4;
 
 //SHADOWS
+$smShadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+$mdShadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+$lgShadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+$xlShadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 
 //OTHER
 $smBorderRadius: 0.3125rem;
@@ -52,7 +57,62 @@ $xlBorderRadius: 2rem;
 $roundBorderRadius: 99rem;
 $circleBorderRadius: 50%;
 
-$smShadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-$mdShadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-$lgShadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-$xlShadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+//LOOPS
+
+//--hr styling
+$hrPigments: "primary" $primary, "secondary" $secondary, "success" $success, "warning" $warning, "info" $info, "danger" $danger,
+	"light" $light, "dark" $dark;
+
+//--Badges
+$badgeSizes: "sm" $smFont, "lg" $lgFont, "xl" $xlFont;
+
+$badgePigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont,
+	"warning" $warning $darkFont, "info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+
+$badgeModernPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success,
+	"warning" $mWarning $warning, "info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
+
+//--Buttons
+$btnSizes: "sm" $sm $smFont, "lg" $lg $lgFont, "xl" $xl $xlFont;
+
+$btnPigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
+	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+
+$btnModernPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success,
+	"warning" $mWarning $warning, "info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
+
+//--Cards
+$cardPigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
+	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+
+$cardModernPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success,
+	"warning" $mWarning $warning, "info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
+
+//--List Groups
+$listPigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
+	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+
+$listModernPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success,
+	"warning" $mWarning $warning, "info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
+
+//--Loaders
+$loaderSizes: "sm" $sm, "lg" $lg, "xl" $xl;
+
+$loaderPigments: "primary" $primary, "secondary" $secondary, "success" $success, "warning" $warning, "info" $info, "danger" $danger,
+	"light" $light, "dark" $dark;
+
+//--Portals
+$portalSizes: "xs" 30rem, "sm" 37.5rem, "lg" 56.25rem, "xl" 75rem, "max" unset;
+
+//--Progress
+$progressBarLabelPositions: "center" 50% 50% unset translate(-50%, -50%), "sticky" 50% unset 0.3125rem translate(0, -50%),
+	"outer" -100% unset 0 translate(50%, -25%);
+
+$progressBarMinifiedLabelPositions: "center" 0 50% unset translate(-50%, -125%), "sticky" 0 unset 0.3125rem translate(0, -125%),
+	"outer" 0 unset 0 translate(50%, -125%);
+
+$progressPigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont,
+	"warning" $warning $darkFont, "info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+
+$progressModernPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success,
+	"warning" $mWarning $warning, "info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;

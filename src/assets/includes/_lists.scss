@@ -1,0 +1,213 @@
+@mixin listGroup($modern: false, $pigment: $bgCard, $font: $darkFont) {
+	display: flex;
+	flex-direction: column;
+	border-radius: $smBorderRadius;
+	background: $pigment;
+	color: $font;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	& > *:first-child {
+		border-radius: $smBorderRadius $smBorderRadius 0 0;
+	}
+	& > *:last-child {
+		border-radius: 0 0 $smBorderRadius $smBorderRadius;
+	}
+
+	@if ($modern) {
+		box-shadow: $smShadow;
+		border: none;
+
+		& > * {
+			border-top: 1px solid rgba($font, 0.05);
+			&:first-child {
+				border-top: none;
+			}
+		}
+	} @else {
+		box-shadow: none;
+		border: 1px solid rgba($font, 0.125);
+
+		& > * {
+			border-top: 1px solid rgba($font, 0.125);
+			&:first-child {
+				border-top: none;
+			}
+		}
+	}
+}
+
+@mixin listGroupHeader($modern: false, $pigment: $bgCard, $font: $darkFont) {
+	position: relative;
+	display: block;
+	background: $pigment;
+	color: rgba($font, 0.5);
+	font-size: $smFont;
+	font-weight: 900;
+	text-transform: uppercase;
+	@if ($modern) {
+		margin: 0 1rem;
+		padding: 0.75rem 0;
+	} @else {
+		margin: 0;
+		padding: 0.75rem 1rem;
+	}
+}
+
+@mixin listGroupItem($modern: false, $pigment: $bgCard, $font: $darkFont) {
+	position: relative;
+	display: block;
+	background: $pigment;
+	color: $font;
+	&.dodo-ui__list__group__item--active {
+		background: darken($pigment, 5%);
+	}
+	@if ($modern) {
+		margin: 0 1rem;
+		padding: 0.75rem 0;
+	} @else {
+		margin: 0;
+		padding: 0.75rem 1rem;
+	}
+}
+
+@mixin listGroupCollapse($modern: false, $pigment: $bgCard, $font: $darkFont, $nested: false) {
+	position: relative;
+	display: block;
+	background: $pigment;
+	color: $font;
+	& > .dodo-ui__list__group__collapse__toggle {
+		user-select: none;
+		cursor: pointer;
+	}
+	& > .dodo-ui__list__group__collapse__content {
+		padding-top: 1.5rem;
+	}
+	@if ($modern) {
+		margin: 0 1rem;
+		padding: 0.75rem 0;
+		@if ($nested) {
+			margin: 0 0 0 1rem;
+			padding: 0.75rem 0 0 0;
+		}
+	} @else {
+		margin: 0;
+		padding: 0.75rem 1rem;
+		@if ($nested) {
+			padding: 0.75rem 0 0 1rem;
+		}
+	}
+}
+
+@mixin listGroupChildren($modern: false, $toLoop: $listPigments) {
+	@include listGroup($modern);
+
+	& > .dodo-ui__list__group__header {
+		@include listGroupHeader($modern, $bgCard, $darkFont);
+	}
+
+	& > .dodo-ui__list__group__item {
+		@include listGroupItem($modern, $bgCard, $darkFont);
+	}
+	& > .dodo-ui__list__group__collapse {
+		@include listGroupCollapse($modern, $bgCard, $darkFont);
+		.dodo-ui__list__group__collapse__content {
+			.dodo-ui__list__group__collapse {
+				@include listGroupCollapse($modern, $bgCard, $darkFont, true);
+			}
+		}
+		&--no-indent {
+			.dodo-ui__list__group__collapse__content {
+				.dodo-ui__list__group__collapse {
+					@if ($modern) {
+						margin: 0;
+						padding: 0.75rem 0;
+					} @else {
+						margin: 0;
+						padding: 0.75rem 0;
+					}
+				}
+			}
+		}
+	}
+
+	@each $name, $color, $font in $toLoop {
+		&.dodo-ui__list__group--pigment-#{$name} {
+			@include listGroup($modern, $color, $font);
+
+			& > .dodo-ui__list__group__header {
+				@include listGroupHeader($modern, $color, $font);
+				@each $name, $color, $font in $toLoop {
+					&.dodo-ui__list__group__header--pigment-#{$name} {
+						@include listGroupHeader($modern, $color, $font);
+					}
+				}
+			}
+
+			& > .dodo-ui__list__group__item {
+				@include listGroupItem($modern, $color, $font);
+				@each $name, $color, $font in $toLoop {
+					&.dodo-ui__list__group__item--pigment-#{$name} {
+						@include listGroupItem($modern, $color, $font);
+					}
+				}
+			}
+
+			& > .dodo-ui__list__group__collapse {
+				@include listGroupCollapse($modern, $color, $font);
+				.dodo-ui__list__group__collapse__content {
+					.dodo-ui__list__group__collapse {
+						@include listGroupCollapse($modern, $color, $font, true);
+					}
+				}
+				&--no-indent {
+					.dodo-ui__list__group__collapse__content {
+						.dodo-ui__list__group__collapse {
+							@if ($modern) {
+								margin: 0;
+								padding: 0.75rem 0;
+							} @else {
+								margin: 0;
+								padding: 0.75rem 0;
+							}
+						}
+					}
+				}
+				@each $name, $color, $font in $toLoop {
+					&.dodo-ui__list__group__collapse--pigment-#{$name} {
+						@include listGroupCollapse($modern, $color, $font);
+						.dodo-ui__list__group__collapse__content {
+							.dodo-ui__list__group__collapse {
+								@include listGroupCollapse($modern, $color, $font, true);
+							}
+						}
+
+						&.dodo-ui__list__group__collapse--no-indent {
+							.dodo-ui__list__group__collapse__content {
+								.dodo-ui__list__group__collapse {
+									@if ($modern) {
+										margin: 0;
+										padding: 0.75rem 0;
+									} @else {
+										margin: 0;
+										padding: 0.75rem 0;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.dodo-ui__list {
+	&__group {
+		@include listGroupChildren();
+
+		&--modern {
+			@include listGroupChildren(true, $listModernPigments);
+		}
+	}
+}

@@ -13,11 +13,11 @@ import {
 } from "./CardSubcomponents.types";
 
 interface CardComponent extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> {
-	Loader: React.FC<CardLoaderSubComponentProps>;
-	Image: React.FC<CardImageSubComponentProps>;
-	Header: React.FC<CardHeaderSubComponentProps>;
-	Body: React.FC<CardSubComponentProps>;
-	Footer: React.FC<CardSubComponentProps>;
+	Loader: React.ForwardRefExoticComponent<CardLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
+	Image: React.ForwardRefExoticComponent<CardImageSubComponentProps & React.RefAttributes<HTMLDivElement>>;
+	Header: React.ForwardRefExoticComponent<CardHeaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
+	Body: React.ForwardRefExoticComponent<CardSubComponentProps & React.RefAttributes<HTMLDivElement>>;
+	Footer: React.ForwardRefExoticComponent<CardSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(

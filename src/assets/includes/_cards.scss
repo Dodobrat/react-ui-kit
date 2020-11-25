@@ -1,13 +1,8 @@
-@mixin card($modern: false, $pigment: $cardBg, $font: $darkFont) {
+@mixin card($modern: false, $pigment: $bgCard, $font: $darkFont) {
 	position: relative;
 	background: $pigment;
 	border-radius: $smBorderRadius;
-	overflow: hidden;
-	overflow-y: auto;
 	color: $font;
-	&--overflow {
-		overflow: visible;
-	}
 	img {
 		user-select: none;
 	}
@@ -26,12 +21,14 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	background-color: rgba($cardBg, 0.6);
+	background-color: rgba($bgCard, 0.6);
 	user-select: none;
 	z-index: 99;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	overflow: hidden;
+	border-radius: $smBorderRadius;
 	&--modern {
 		display: block;
 	}
@@ -99,81 +96,51 @@
 	}
 }
 
-$pigments: "primary" $primary $lightFont, "secondary" $secondary $lightFont, "success" $success $lightFont, "warning" $warning $darkFont,
-	"info" $info $darkFont, "danger" $danger $lightFont, "light" $light $darkFont, "dark" $dark $lightFont;
+@mixin cardChildren($modern, $toLoop) {
+	@include card($modern);
 
-$mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "success" $mSuccess $success, "warning" $mWarning $warning,
-	"info" $mInfo $info, "danger" $mDanger $danger, "light" $mLight $light, "dark" $mDark $dark;
-
-.dodo-ui__card {
-	@include card();
-	&__loader {
+	& > .dodo-ui__card__loader {
 		@include cardLoader();
 	}
-	&__img {
+	& > .dodo-ui__card__img {
 		grid-area: card-img;
-		@include cardImg();
+		@include cardImg($modern);
 	}
-	&__header {
+	& > .dodo-ui__card__header {
 		grid-area: card-header;
-		@include cardHeader();
+		@include cardHeader($modern);
 	}
-	&__body {
+	& > .dodo-ui__card__body {
 		grid-area: card-body;
-		@include cardBody();
+		@include cardBody($modern);
 	}
-	&__footer {
+	& > .dodo-ui__card__footer {
 		grid-area: card-footer;
-		@include cardFooter();
+		@include cardFooter($modern);
 	}
-	@each $name, $color, $font in $pigments {
+	@each $name, $color, $font in $toLoop {
 		&.dodo-ui__card--pigment-#{$name} {
-			@include card(false, $color, $font);
+			@include card($modern, $color, $font);
 			& > .dodo-ui__card__img {
-				@include cardImg(false, $font);
+				@include cardImg($modern, $font);
 			}
 			& > .dodo-ui__card__header {
-				@include cardHeader(false, $font);
+				@include cardHeader($modern, $font);
 			}
 			& > .dodo-ui__card__body {
-				@include cardBody(false, $font);
+				@include cardBody($modern, $font);
 			}
 			& > .dodo-ui__card__footer {
-				@include cardFooter(false, $font);
+				@include cardFooter($modern, $font);
 			}
 		}
 	}
+}
+
+.dodo-ui__card {
+	@include cardChildren(false, $cardPigments);
 	&--modern {
-		@include card(true);
-		& > .dodo-ui__card__img {
-			@include cardImg(true);
-		}
-		& > .dodo-ui__card__header {
-			@include cardHeader(true);
-		}
-		& > .dodo-ui__card__body {
-			@include cardBody(true);
-		}
-		& > .dodo-ui__card__footer {
-			@include cardFooter(true);
-		}
-		@each $name, $color, $font in $mPigments {
-			&.dodo-ui__card--pigment-#{$name} {
-				@include card(true, $color, $font);
-				& > .dodo-ui__card__img {
-					@include cardImg(true, $font);
-				}
-				& > .dodo-ui__card__header {
-					@include cardHeader(true, $font);
-				}
-				& > .dodo-ui__card__body {
-					@include cardBody(true, $font);
-				}
-				& > .dodo-ui__card__footer {
-					@include cardFooter(true, $font);
-				}
-			}
-		}
+		@include cardChildren(true, $cardModernPigments);
 	}
 	&--loading {
 		cursor: progress;
@@ -188,6 +155,9 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 				"card-header"
 				"card-body"
 				"card-footer";
+			& > .dodo-ui__card__img {
+				border-radius: $smBorderRadius $smBorderRadius 0 0;
+			}
 		}
 		&-bottom {
 			display: grid;
@@ -198,6 +168,9 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 				"card-body"
 				"card-footer"
 				"card-img";
+			& > .dodo-ui__card__img {
+				border-radius: 0 0 $smBorderRadius $smBorderRadius;
+			}
 		}
 		&-left {
 			display: grid;
@@ -207,6 +180,10 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 				"card-img card-header"
 				"card-img card-body"
 				"card-img card-footer";
+
+			& > .dodo-ui__card__img {
+				border-radius: $smBorderRadius 0 0 $smBorderRadius;
+			}
 		}
 		&-right {
 			display: grid;
@@ -216,6 +193,10 @@ $mPigments: "primary" $mPrimary $primary, "secondary" $mSecondary $secondary, "s
 				"card-header card-img"
 				"card-body card-img"
 				"card-footer card-img";
+
+			& > .dodo-ui__card__img {
+				border-radius: 0 $smBorderRadius $smBorderRadius 0;
+			}
 		}
 	}
 }
