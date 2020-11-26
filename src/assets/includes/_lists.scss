@@ -1,4 +1,4 @@
-@mixin listGroup($modern: false, $pigment: $bgCard, $font: $darkFont) {
+@mixin listGroup($modern: false, $pigment: $bgCard, $font: $mainFont) {
 	display: flex;
 	flex-direction: column;
 	border-radius: $smBorderRadius;
@@ -37,7 +37,7 @@
 	}
 }
 
-@mixin listGroupHeader($modern: false, $pigment: $bgCard, $font: $darkFont) {
+@mixin listGroupHeader($modern: false, $pigment: $bgCard, $font: $mainFont) {
 	position: relative;
 	display: block;
 	background: $pigment;
@@ -54,7 +54,7 @@
 	}
 }
 
-@mixin listGroupItem($modern: false, $pigment: $bgCard, $font: $darkFont) {
+@mixin listGroupItem($modern: false, $pigment: $bgCard, $font: $mainFont) {
 	position: relative;
 	display: block;
 	background: $pigment;
@@ -71,7 +71,7 @@
 	}
 }
 
-@mixin listGroupCollapse($modern: false, $pigment: $bgCard, $font: $darkFont, $nested: false) {
+@mixin listGroupCollapse($modern: false, $pigment: $bgCard, $font: $mainFont, $nested: false) {
 	position: relative;
 	display: block;
 	background: $pigment;
@@ -103,17 +103,17 @@
 	@include listGroup($modern);
 
 	& > .dui__list__group__header {
-		@include listGroupHeader($modern, $bgCard, $darkFont);
+		@include listGroupHeader($modern, $bgCard, $mainFont);
 	}
 
 	& > .dui__list__group__item {
-		@include listGroupItem($modern, $bgCard, $darkFont);
+		@include listGroupItem($modern, $bgCard, $mainFont);
 	}
 	& > .dui__list__group__collapse {
-		@include listGroupCollapse($modern, $bgCard, $darkFont);
+		@include listGroupCollapse($modern, $bgCard, $mainFont);
 		.dui__list__group__collapse__content {
 			.dui__list__group__collapse {
-				@include listGroupCollapse($modern, $bgCard, $darkFont, true);
+				@include listGroupCollapse($modern, $bgCard, $mainFont, true);
 			}
 		}
 		&--no-indent {

@@ -10,7 +10,7 @@ body,
   width: 100%;
   padding: 0;
   margin: 0;
-  background-color: #fbfbfb;
+  background-color: #fafafa;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-overflow-scrolling: touch;
@@ -66,7 +66,7 @@ hr {
   overflow: visible;
   margin: 1rem 0;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 1px solid rgba(33, 33, 33, 0.125);
 }
 
 hr[modern] {
@@ -117,11 +117,11 @@ hr[pigment="dark"] {
   user-select: none;
   border-radius: 0.3125rem;
   background: #0f79c1;
-  color: #fff;
+  color: #000;
 }
 
 .dui__badge * {
-  color: #fff;
+  color: #000;
 }
 
 .dui__badge.dui__badge--sm {
@@ -212,7 +212,7 @@ hr[pigment="dark"] {
 }
 
 .dui__badge--modern.dui__badge--pigment-primary {
-  background: #d8e8f2;
+  background: #dbebf6;
   color: #0f79c1;
 }
 
@@ -221,7 +221,7 @@ hr[pigment="dark"] {
 }
 
 .dui__badge--modern.dui__badge--pigment-secondary {
-  background: #e4e7ea;
+  background: #e7ebee;
   color: #61788c;
 }
 
@@ -230,7 +230,7 @@ hr[pigment="dark"] {
 }
 
 .dui__badge--modern.dui__badge--pigment-success {
-  background: #d5e9dc;
+  background: #d9ede0;
   color: #00852e;
 }
 
@@ -239,7 +239,7 @@ hr[pigment="dark"] {
 }
 
 .dui__badge--modern.dui__badge--pigment-warning {
-  background: #f9f1d7;
+  background: #fcf5db;
   color: #edb90e;
 }
 
@@ -248,7 +248,7 @@ hr[pigment="dark"] {
 }
 
 .dui__badge--modern.dui__badge--pigment-info {
-  background: #e2f2f4;
+  background: #e5f5f7;
   color: #53bccc;
 }
 
@@ -257,7 +257,7 @@ hr[pigment="dark"] {
 }
 
 .dui__badge--modern.dui__badge--pigment-danger {
-  background: #f7dcdd;
+  background: #fadfe1;
   color: #df2935;
 }
 
@@ -266,7 +266,7 @@ hr[pigment="dark"] {
 }
 
 .dui__badge--modern.dui__badge--pigment-light {
-  background: #fafafa;
+  background: #fdfdfd;
   color: #f2f3f3;
 }
 
@@ -275,7 +275,7 @@ hr[pigment="dark"] {
 }
 
 .dui__badge--modern.dui__badge--pigment-dark {
-  background: #dbdcdd;
+  background: #dfdfe0;
   color: #272932;
 }
 
@@ -345,7 +345,7 @@ hr[pigment="dark"] {
   border-radius: 0.3125rem;
   font-size: 1rem;
   font-weight: 400;
-  color: #000;
+  color: #212121;
   overflow: hidden;
   user-select: none;
   cursor: pointer;
@@ -359,7 +359,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.1);
 }
 
 .dui__btn:hover {
@@ -373,7 +373,7 @@ hr[pigment="dark"] {
 
 .dui__btn--loading {
   cursor: progress;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 0, 0, 0.1);
 }
 
 .dui__btn--loading > svg {
@@ -390,7 +390,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn--loading > svg > circle {
-  stroke: #fff;
+  stroke: #000;
   stroke-linecap: round;
   fill: none;
   animation: dash 2s ease-in-out infinite;
@@ -441,14 +441,6 @@ hr[pigment="dark"] {
   justify-content: flex-start;
 }
 
-.dui__btn--icon-left > i {
-  margin-right: 0.8rem;
-}
-
-.dui__btn--icon-right > i {
-  margin-left: 0.8rem;
-}
-
 .dui__btn.dui__btn--pigment-primary {
   background-color: #0f79c1;
   color: #fff;
@@ -459,7 +451,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn.dui__btn--pigment-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(15, 121, 193, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(15, 121, 193, 0.25);
 }
 
 .dui__btn.dui__btn--pigment-primary.dui__btn--loading {
@@ -496,7 +488,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn.dui__btn--pigment-secondary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(97, 120, 140, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(97, 120, 140, 0.25);
 }
 
 .dui__btn.dui__btn--pigment-secondary.dui__btn--loading {
@@ -533,7 +525,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn.dui__btn--pigment-success:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 133, 46, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(0, 133, 46, 0.25);
 }
 
 .dui__btn.dui__btn--pigment-success.dui__btn--loading {
@@ -570,7 +562,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn.dui__btn--pigment-warning:focus {
-  box-shadow: 0 0 0 0.2rem rgba(237, 185, 14, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(237, 185, 14, 0.25);
 }
 
 .dui__btn.dui__btn--pigment-warning.dui__btn--loading {
@@ -607,7 +599,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn.dui__btn--pigment-info:focus {
-  box-shadow: 0 0 0 0.2rem rgba(83, 188, 204, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(83, 188, 204, 0.25);
 }
 
 .dui__btn.dui__btn--pigment-info.dui__btn--loading {
@@ -644,7 +636,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn.dui__btn--pigment-danger:focus {
-  box-shadow: 0 0 0 0.2rem rgba(223, 41, 53, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(223, 41, 53, 0.25);
 }
 
 .dui__btn.dui__btn--pigment-danger.dui__btn--loading {
@@ -681,7 +673,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn.dui__btn--pigment-light:focus {
-  box-shadow: 0 0 0 0.2rem rgba(242, 243, 243, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(242, 243, 243, 0.25);
 }
 
 .dui__btn.dui__btn--pigment-light.dui__btn--loading {
@@ -718,7 +710,7 @@ hr[pigment="dark"] {
 }
 
 .dui__btn.dui__btn--pigment-dark:focus {
-  box-shadow: 0 0 0 0.2rem rgba(39, 41, 50, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(39, 41, 50, 0.25);
 }
 
 .dui__btn.dui__btn--pigment-dark.dui__btn--loading {
@@ -1226,16 +1218,16 @@ hr[pigment="dark"] {
 }
 
 .dui__btn--modern.dui__btn--pigment-primary {
-  background-color: #d8e8f2;
+  background-color: #dbebf6;
   color: #0f79c1;
 }
 
 .dui__btn--modern.dui__btn--pigment-primary:hover, .dui__btn--modern.dui__btn--pigment-primary.dui__btn--active {
-  background-color: #c5ddec;
+  background-color: #c7e0f1;
 }
 
 .dui__btn--modern.dui__btn--pigment-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(15, 121, 193, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(15, 121, 193, 0.25);
 }
 
 .dui__btn--modern.dui__btn--pigment-primary.dui__btn--loading {
@@ -1263,16 +1255,16 @@ hr[pigment="dark"] {
 }
 
 .dui__btn--modern.dui__btn--pigment-secondary {
-  background-color: #e4e7ea;
+  background-color: #e7ebee;
   color: #61788c;
 }
 
 .dui__btn--modern.dui__btn--pigment-secondary:hover, .dui__btn--modern.dui__btn--pigment-secondary.dui__btn--active {
-  background-color: #d6dadf;
+  background-color: #d8dfe3;
 }
 
 .dui__btn--modern.dui__btn--pigment-secondary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(97, 120, 140, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(97, 120, 140, 0.25);
 }
 
 .dui__btn--modern.dui__btn--pigment-secondary.dui__btn--loading {
@@ -1300,16 +1292,16 @@ hr[pigment="dark"] {
 }
 
 .dui__btn--modern.dui__btn--pigment-success {
-  background-color: #d5e9dc;
+  background-color: #d9ede0;
   color: #00852e;
 }
 
 .dui__btn--modern.dui__btn--pigment-success:hover, .dui__btn--modern.dui__btn--pigment-success.dui__btn--active {
-  background-color: #c4e0ce;
+  background-color: #c8e5d2;
 }
 
 .dui__btn--modern.dui__btn--pigment-success:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 133, 46, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(0, 133, 46, 0.25);
 }
 
 .dui__btn--modern.dui__btn--pigment-success.dui__btn--loading {
@@ -1337,16 +1329,16 @@ hr[pigment="dark"] {
 }
 
 .dui__btn--modern.dui__btn--pigment-warning {
-  background-color: #f9f1d7;
+  background-color: #fcf5db;
   color: #edb90e;
 }
 
 .dui__btn--modern.dui__btn--pigment-warning:hover, .dui__btn--modern.dui__btn--pigment-warning.dui__btn--active {
-  background-color: #f6e9c1;
+  background-color: #faeec3;
 }
 
 .dui__btn--modern.dui__btn--pigment-warning:focus {
-  box-shadow: 0 0 0 0.2rem rgba(237, 185, 14, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(237, 185, 14, 0.25);
 }
 
 .dui__btn--modern.dui__btn--pigment-warning.dui__btn--loading {
@@ -1374,16 +1366,16 @@ hr[pigment="dark"] {
 }
 
 .dui__btn--modern.dui__btn--pigment-info {
-  background-color: #e2f2f4;
+  background-color: #e5f5f7;
   color: #53bccc;
 }
 
 .dui__btn--modern.dui__btn--pigment-info:hover, .dui__btn--modern.dui__btn--pigment-info.dui__btn--active {
-  background-color: #d0eaed;
+  background-color: #d2eef1;
 }
 
 .dui__btn--modern.dui__btn--pigment-info:focus {
-  box-shadow: 0 0 0 0.2rem rgba(83, 188, 204, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(83, 188, 204, 0.25);
 }
 
 .dui__btn--modern.dui__btn--pigment-info.dui__btn--loading {
@@ -1411,16 +1403,16 @@ hr[pigment="dark"] {
 }
 
 .dui__btn--modern.dui__btn--pigment-danger {
-  background-color: #f7dcdd;
+  background-color: #fadfe1;
   color: #df2935;
 }
 
 .dui__btn--modern.dui__btn--pigment-danger:hover, .dui__btn--modern.dui__btn--pigment-danger.dui__btn--active {
-  background-color: #f2c7c9;
+  background-color: #f7c9cc;
 }
 
 .dui__btn--modern.dui__btn--pigment-danger:focus {
-  box-shadow: 0 0 0 0.2rem rgba(223, 41, 53, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(223, 41, 53, 0.25);
 }
 
 .dui__btn--modern.dui__btn--pigment-danger.dui__btn--loading {
@@ -1448,16 +1440,16 @@ hr[pigment="dark"] {
 }
 
 .dui__btn--modern.dui__btn--pigment-light {
-  background-color: #fafafa;
+  background-color: #fdfdfd;
   color: #f2f3f3;
 }
 
 .dui__btn--modern.dui__btn--pigment-light:hover, .dui__btn--modern.dui__btn--pigment-light.dui__btn--active {
-  background-color: #ededed;
+  background-color: #f0f0f0;
 }
 
 .dui__btn--modern.dui__btn--pigment-light:focus {
-  box-shadow: 0 0 0 0.2rem rgba(242, 243, 243, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(242, 243, 243, 0.25);
 }
 
 .dui__btn--modern.dui__btn--pigment-light.dui__btn--loading {
@@ -1485,16 +1477,16 @@ hr[pigment="dark"] {
 }
 
 .dui__btn--modern.dui__btn--pigment-dark {
-  background-color: #dbdcdd;
+  background-color: #dfdfe0;
   color: #272932;
 }
 
 .dui__btn--modern.dui__btn--pigment-dark:hover, .dui__btn--modern.dui__btn--pigment-dark.dui__btn--active {
-  background-color: #cecfd1;
+  background-color: #d2d2d3;
 }
 
 .dui__btn--modern.dui__btn--pigment-dark:focus {
-  box-shadow: 0 0 0 0.2rem rgba(39, 41, 50, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(39, 41, 50, 0.25);
 }
 
 .dui__btn--modern.dui__btn--pigment-dark.dui__btn--loading {
@@ -1530,7 +1522,7 @@ hr[pigment="dark"] {
 
 .dui__btn-group:focus {
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.1);
 }
 
 .dui__btn-group > * {
@@ -1603,9 +1595,9 @@ hr[pigment="dark"] {
   position: relative;
   background: #fff;
   border-radius: 0.3125rem;
-  color: #000;
+  color: #212121;
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(33, 33, 33, 0.125);
 }
 
 .dui__card img {
@@ -1665,7 +1657,7 @@ hr[pigment="dark"] {
   margin: 0;
   padding: 1rem 1.5rem;
   background: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(33, 33, 33, 0.125);
 }
 
 .dui__card > .dui__card__header--dismissible {
@@ -1687,7 +1679,7 @@ hr[pigment="dark"] {
   margin: 0;
   padding: 1rem 1.5rem;
   background: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 1px solid rgba(33, 33, 33, 0.125);
 }
 
 .dui__card.dui__card--pigment-primary {
@@ -2102,7 +2094,7 @@ hr[pigment="dark"] {
   position: relative;
   background: #fff;
   border-radius: 0.3125rem;
-  color: #000;
+  color: #212121;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   border: none;
 }
@@ -2164,7 +2156,7 @@ hr[pigment="dark"] {
   margin: 0 1rem;
   padding: 1rem 0.5rem;
   background: unset;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(33, 33, 33, 0.05);
 }
 
 .dui__card--modern > .dui__card__header--dismissible {
@@ -2186,7 +2178,7 @@ hr[pigment="dark"] {
   margin: 0 1rem;
   padding: 1rem 0.5rem;
   background: unset;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(33, 33, 33, 0.05);
 }
 
 .dui__card--modern.dui__card--pigment-primary {
@@ -2650,12 +2642,12 @@ hr[pigment="dark"] {
   flex-direction: column;
   border-radius: 0.3125rem;
   background: #fff;
-  color: #000;
+  color: #212121;
   margin: 0;
   padding: 0;
   list-style-type: none;
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(33, 33, 33, 0.125);
 }
 
 .dui__list__group > *:first-child {
@@ -2667,7 +2659,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group > * {
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 1px solid rgba(33, 33, 33, 0.125);
 }
 
 .dui__list__group > *:first-child {
@@ -2678,7 +2670,7 @@ hr[pigment="dark"] {
   position: relative;
   display: block;
   background: #fff;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(33, 33, 33, 0.5);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -2690,7 +2682,7 @@ hr[pigment="dark"] {
   position: relative;
   display: block;
   background: #fff;
-  color: #000;
+  color: #212121;
   margin: 0;
   padding: 0.75rem 1rem;
 }
@@ -2703,7 +2695,7 @@ hr[pigment="dark"] {
   position: relative;
   display: block;
   background: #fff;
-  color: #000;
+  color: #212121;
   margin: 0;
   padding: 0.75rem 1rem;
 }
@@ -2721,7 +2713,7 @@ hr[pigment="dark"] {
   position: relative;
   display: block;
   background: #fff;
-  color: #000;
+  color: #212121;
   margin: 0;
   padding: 0.75rem 1rem;
   padding: 0.75rem 0 0 1rem;
@@ -7802,7 +7794,7 @@ hr[pigment="dark"] {
   flex-direction: column;
   border-radius: 0.3125rem;
   background: #fff;
-  color: #000;
+  color: #212121;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -7819,7 +7811,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern > * {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(33, 33, 33, 0.05);
 }
 
 .dui__list__group--modern > *:first-child {
@@ -7830,7 +7822,7 @@ hr[pigment="dark"] {
   position: relative;
   display: block;
   background: #fff;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(33, 33, 33, 0.5);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -7842,7 +7834,7 @@ hr[pigment="dark"] {
   position: relative;
   display: block;
   background: #fff;
-  color: #000;
+  color: #212121;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
@@ -7855,7 +7847,7 @@ hr[pigment="dark"] {
   position: relative;
   display: block;
   background: #fff;
-  color: #000;
+  color: #212121;
   margin: 0 1rem;
   padding: 0.75rem 0;
 }
@@ -7873,7 +7865,7 @@ hr[pigment="dark"] {
   position: relative;
   display: block;
   background: #fff;
-  color: #000;
+  color: #212121;
   margin: 0 1rem;
   padding: 0.75rem 0;
   margin: 0 0 0 1rem;
@@ -8041,7 +8033,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--active {
-  background: #c5ddec;
+  background: #c7e0f1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-primary {
@@ -8054,7 +8046,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-primary.dui__list__group__item--active {
-  background: #c5ddec;
+  background: #c7e0f1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-secondary {
@@ -8067,7 +8059,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-secondary.dui__list__group__item--active {
-  background: #d6dadf;
+  background: #d8dfe3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-success {
@@ -8080,7 +8072,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-success.dui__list__group__item--active {
-  background: #c4e0ce;
+  background: #c8e5d2;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-warning {
@@ -8093,7 +8085,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-warning.dui__list__group__item--active {
-  background: #f6e9c1;
+  background: #faeec3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-info {
@@ -8106,7 +8098,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-info.dui__list__group__item--active {
-  background: #d0eaed;
+  background: #d2eef1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-danger {
@@ -8119,7 +8111,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-danger.dui__list__group__item--active {
-  background: #f2c7c9;
+  background: #f7c9cc;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-light {
@@ -8132,7 +8124,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-light.dui__list__group__item--active {
-  background: #ededed;
+  background: #f0f0f0;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-dark {
@@ -8145,7 +8137,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__item.dui__list__group__item--pigment-dark.dui__list__group__item--active {
-  background: #cecfd1;
+  background: #d2d2d3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-primary > .dui__list__group__collapse {
@@ -8682,7 +8674,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--active {
-  background: #d6dadf;
+  background: #d8dfe3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-primary {
@@ -8695,7 +8687,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-primary.dui__list__group__item--active {
-  background: #c5ddec;
+  background: #c7e0f1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-secondary {
@@ -8708,7 +8700,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-secondary.dui__list__group__item--active {
-  background: #d6dadf;
+  background: #d8dfe3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-success {
@@ -8721,7 +8713,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-success.dui__list__group__item--active {
-  background: #c4e0ce;
+  background: #c8e5d2;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-warning {
@@ -8734,7 +8726,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-warning.dui__list__group__item--active {
-  background: #f6e9c1;
+  background: #faeec3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-info {
@@ -8747,7 +8739,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-info.dui__list__group__item--active {
-  background: #d0eaed;
+  background: #d2eef1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-danger {
@@ -8760,7 +8752,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-danger.dui__list__group__item--active {
-  background: #f2c7c9;
+  background: #f7c9cc;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-light {
@@ -8773,7 +8765,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-light.dui__list__group__item--active {
-  background: #ededed;
+  background: #f0f0f0;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-dark {
@@ -8786,7 +8778,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__item.dui__list__group__item--pigment-dark.dui__list__group__item--active {
-  background: #cecfd1;
+  background: #d2d2d3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-secondary > .dui__list__group__collapse {
@@ -9323,7 +9315,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--active {
-  background: #c4e0ce;
+  background: #c8e5d2;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-primary {
@@ -9336,7 +9328,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-primary.dui__list__group__item--active {
-  background: #c5ddec;
+  background: #c7e0f1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-secondary {
@@ -9349,7 +9341,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-secondary.dui__list__group__item--active {
-  background: #d6dadf;
+  background: #d8dfe3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-success {
@@ -9362,7 +9354,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-success.dui__list__group__item--active {
-  background: #c4e0ce;
+  background: #c8e5d2;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-warning {
@@ -9375,7 +9367,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-warning.dui__list__group__item--active {
-  background: #f6e9c1;
+  background: #faeec3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-info {
@@ -9388,7 +9380,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-info.dui__list__group__item--active {
-  background: #d0eaed;
+  background: #d2eef1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-danger {
@@ -9401,7 +9393,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-danger.dui__list__group__item--active {
-  background: #f2c7c9;
+  background: #f7c9cc;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-light {
@@ -9414,7 +9406,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-light.dui__list__group__item--active {
-  background: #ededed;
+  background: #f0f0f0;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-dark {
@@ -9427,7 +9419,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__item.dui__list__group__item--pigment-dark.dui__list__group__item--active {
-  background: #cecfd1;
+  background: #d2d2d3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-success > .dui__list__group__collapse {
@@ -9964,7 +9956,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--active {
-  background: #f6e9c1;
+  background: #faeec3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-primary {
@@ -9977,7 +9969,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-primary.dui__list__group__item--active {
-  background: #c5ddec;
+  background: #c7e0f1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-secondary {
@@ -9990,7 +9982,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-secondary.dui__list__group__item--active {
-  background: #d6dadf;
+  background: #d8dfe3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-success {
@@ -10003,7 +9995,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-success.dui__list__group__item--active {
-  background: #c4e0ce;
+  background: #c8e5d2;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-warning {
@@ -10016,7 +10008,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-warning.dui__list__group__item--active {
-  background: #f6e9c1;
+  background: #faeec3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-info {
@@ -10029,7 +10021,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-info.dui__list__group__item--active {
-  background: #d0eaed;
+  background: #d2eef1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-danger {
@@ -10042,7 +10034,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-danger.dui__list__group__item--active {
-  background: #f2c7c9;
+  background: #f7c9cc;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-light {
@@ -10055,7 +10047,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-light.dui__list__group__item--active {
-  background: #ededed;
+  background: #f0f0f0;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-dark {
@@ -10068,7 +10060,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__item.dui__list__group__item--pigment-dark.dui__list__group__item--active {
-  background: #cecfd1;
+  background: #d2d2d3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-warning > .dui__list__group__collapse {
@@ -10605,7 +10597,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--active {
-  background: #d0eaed;
+  background: #d2eef1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-primary {
@@ -10618,7 +10610,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-primary.dui__list__group__item--active {
-  background: #c5ddec;
+  background: #c7e0f1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-secondary {
@@ -10631,7 +10623,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-secondary.dui__list__group__item--active {
-  background: #d6dadf;
+  background: #d8dfe3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-success {
@@ -10644,7 +10636,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-success.dui__list__group__item--active {
-  background: #c4e0ce;
+  background: #c8e5d2;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-warning {
@@ -10657,7 +10649,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-warning.dui__list__group__item--active {
-  background: #f6e9c1;
+  background: #faeec3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-info {
@@ -10670,7 +10662,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-info.dui__list__group__item--active {
-  background: #d0eaed;
+  background: #d2eef1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-danger {
@@ -10683,7 +10675,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-danger.dui__list__group__item--active {
-  background: #f2c7c9;
+  background: #f7c9cc;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-light {
@@ -10696,7 +10688,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-light.dui__list__group__item--active {
-  background: #ededed;
+  background: #f0f0f0;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-dark {
@@ -10709,7 +10701,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__item.dui__list__group__item--pigment-dark.dui__list__group__item--active {
-  background: #cecfd1;
+  background: #d2d2d3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-info > .dui__list__group__collapse {
@@ -11246,7 +11238,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--active {
-  background: #f2c7c9;
+  background: #f7c9cc;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-primary {
@@ -11259,7 +11251,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-primary.dui__list__group__item--active {
-  background: #c5ddec;
+  background: #c7e0f1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-secondary {
@@ -11272,7 +11264,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-secondary.dui__list__group__item--active {
-  background: #d6dadf;
+  background: #d8dfe3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-success {
@@ -11285,7 +11277,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-success.dui__list__group__item--active {
-  background: #c4e0ce;
+  background: #c8e5d2;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-warning {
@@ -11298,7 +11290,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-warning.dui__list__group__item--active {
-  background: #f6e9c1;
+  background: #faeec3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-info {
@@ -11311,7 +11303,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-info.dui__list__group__item--active {
-  background: #d0eaed;
+  background: #d2eef1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-danger {
@@ -11324,7 +11316,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-danger.dui__list__group__item--active {
-  background: #f2c7c9;
+  background: #f7c9cc;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-light {
@@ -11337,7 +11329,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-light.dui__list__group__item--active {
-  background: #ededed;
+  background: #f0f0f0;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-dark {
@@ -11350,7 +11342,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__item.dui__list__group__item--pigment-dark.dui__list__group__item--active {
-  background: #cecfd1;
+  background: #d2d2d3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-danger > .dui__list__group__collapse {
@@ -11887,7 +11879,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--active {
-  background: #ededed;
+  background: #f0f0f0;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-primary {
@@ -11900,7 +11892,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-primary.dui__list__group__item--active {
-  background: #c5ddec;
+  background: #c7e0f1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-secondary {
@@ -11913,7 +11905,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-secondary.dui__list__group__item--active {
-  background: #d6dadf;
+  background: #d8dfe3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-success {
@@ -11926,7 +11918,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-success.dui__list__group__item--active {
-  background: #c4e0ce;
+  background: #c8e5d2;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-warning {
@@ -11939,7 +11931,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-warning.dui__list__group__item--active {
-  background: #f6e9c1;
+  background: #faeec3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-info {
@@ -11952,7 +11944,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-info.dui__list__group__item--active {
-  background: #d0eaed;
+  background: #d2eef1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-danger {
@@ -11965,7 +11957,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-danger.dui__list__group__item--active {
-  background: #f2c7c9;
+  background: #f7c9cc;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-light {
@@ -11978,7 +11970,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-light.dui__list__group__item--active {
-  background: #ededed;
+  background: #f0f0f0;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-dark {
@@ -11991,7 +11983,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__item.dui__list__group__item--pigment-dark.dui__list__group__item--active {
-  background: #cecfd1;
+  background: #d2d2d3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-light > .dui__list__group__collapse {
@@ -12528,7 +12520,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--active {
-  background: #cecfd1;
+  background: #d2d2d3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-primary {
@@ -12541,7 +12533,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-primary.dui__list__group__item--active {
-  background: #c5ddec;
+  background: #c7e0f1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-secondary {
@@ -12554,7 +12546,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-secondary.dui__list__group__item--active {
-  background: #d6dadf;
+  background: #d8dfe3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-success {
@@ -12567,7 +12559,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-success.dui__list__group__item--active {
-  background: #c4e0ce;
+  background: #c8e5d2;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-warning {
@@ -12580,7 +12572,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-warning.dui__list__group__item--active {
-  background: #f6e9c1;
+  background: #faeec3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-info {
@@ -12593,7 +12585,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-info.dui__list__group__item--active {
-  background: #d0eaed;
+  background: #d2eef1;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-danger {
@@ -12606,7 +12598,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-danger.dui__list__group__item--active {
-  background: #f2c7c9;
+  background: #f7c9cc;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-light {
@@ -12619,7 +12611,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-light.dui__list__group__item--active {
-  background: #ededed;
+  background: #f0f0f0;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-dark {
@@ -12632,7 +12624,7 @@ hr[pigment="dark"] {
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__item.dui__list__group__item--pigment-dark.dui__list__group__item--active {
-  background: #cecfd1;
+  background: #d2d2d3;
 }
 
 .dui__list__group--modern.dui__list__group--pigment-dark > .dui__list__group__collapse {
@@ -13235,14 +13227,14 @@ hr[pigment="dark"] {
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background: rgba(251, 251, 251, 0.75);
+  background: rgba(250, 250, 250, 0.75);
 }
 
 .dui__progress-bar {
   position: relative;
   width: 100%;
   height: 1.4rem;
-  background: #eeeeee;
+  background: #ededed;
   border-radius: 0.3125rem;
 }
 
@@ -14979,7 +14971,7 @@ hr[pigment="dark"] {
 }
 
 .dui__progress-bar--modern {
-  background: whitesmoke;
+  background: #f4f4f4;
 }
 
 .dui__progress-bar--modern.dui__progress-bar--pigment-primary .dui__progress-bar__progress {
@@ -16733,7 +16725,7 @@ hr[pigment="dark"] {
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-primary .dui__progress-circle__track {
-  stroke: whitesmoke;
+  stroke: #f4f4f4;
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-primary .dui__progress-circle__label {
@@ -16756,7 +16748,7 @@ hr[pigment="dark"] {
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-secondary .dui__progress-circle__track {
-  stroke: whitesmoke;
+  stroke: #f4f4f4;
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-secondary .dui__progress-circle__label {
@@ -16779,7 +16771,7 @@ hr[pigment="dark"] {
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-success .dui__progress-circle__track {
-  stroke: whitesmoke;
+  stroke: #f4f4f4;
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-success .dui__progress-circle__label {
@@ -16802,7 +16794,7 @@ hr[pigment="dark"] {
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-warning .dui__progress-circle__track {
-  stroke: whitesmoke;
+  stroke: #f4f4f4;
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-warning .dui__progress-circle__label {
@@ -16825,7 +16817,7 @@ hr[pigment="dark"] {
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-info .dui__progress-circle__track {
-  stroke: whitesmoke;
+  stroke: #f4f4f4;
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-info .dui__progress-circle__label {
@@ -16848,7 +16840,7 @@ hr[pigment="dark"] {
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-danger .dui__progress-circle__track {
-  stroke: whitesmoke;
+  stroke: #f4f4f4;
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-danger .dui__progress-circle__label {
@@ -16871,7 +16863,7 @@ hr[pigment="dark"] {
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-light .dui__progress-circle__track {
-  stroke: whitesmoke;
+  stroke: #f4f4f4;
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-light .dui__progress-circle__label {
@@ -16894,7 +16886,7 @@ hr[pigment="dark"] {
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-dark .dui__progress-circle__track {
-  stroke: whitesmoke;
+  stroke: #f4f4f4;
 }
 
 .dui__progress-circle.dui__progress-circle--pigment-dark .dui__progress-circle__label {

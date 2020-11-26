@@ -1,4 +1,4 @@
-@mixin card($modern: false, $pigment: $bgCard, $font: $darkFont) {
+@mixin card($modern: false, $pigment: $bgCard, $font: $mainFont) {
 	position: relative;
 	background: $pigment;
 	border-radius: $smBorderRadius;
@@ -47,7 +47,7 @@
 	}
 }
 
-@mixin cardImg($modern: false, $accentContrast: $darkFont) {
+@mixin cardImg($modern: false, $accentContrast: $mainFont) {
 	max-width: 100%;
 	overflow: hidden;
 	& > img {
@@ -57,7 +57,7 @@
 	}
 }
 
-@mixin cardHeader($modern: false, $accentContrast: $darkFont) {
+@mixin cardHeader($modern: false, $accentContrast: $mainFont) {
 	@if $modern {
 		margin: 0 1rem;
 		padding: 1rem 0.5rem;
@@ -78,11 +78,11 @@
 	}
 }
 
-@mixin cardBody($modern: false, $accentContrast: $darkFont) {
+@mixin cardBody($modern: false, $accentContrast: $mainFont) {
 	padding: 1.5rem;
 }
 
-@mixin cardFooter($modern: false, $accentContrast: $darkFont) {
+@mixin cardFooter($modern: false, $accentContrast: $mainFont) {
 	@if $modern {
 		margin: 0 1rem;
 		padding: 1rem 0.5rem;
