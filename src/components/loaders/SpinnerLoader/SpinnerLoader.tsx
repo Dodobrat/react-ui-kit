@@ -9,9 +9,9 @@ const SpinnerLoader: React.FC<SpinnerLoaderProps> = ({ size = "md", pigment = "p
 	return (
 		<div
 			data-testid='SpinnerLoader'
-			className={cn("dodo-ui__spinner", {
-				[`dodo-ui__spinner--${size}`]: size !== "md",
-				[`dodo-ui__spinner--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+			className={cn("dui__spinner", {
+				[`dui__spinner--${size}`]: size !== "md",
+				[`dui__spinner--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 			})}
 			{...rest}
 		/>

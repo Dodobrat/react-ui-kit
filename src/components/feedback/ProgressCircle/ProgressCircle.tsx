@@ -44,13 +44,13 @@ const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
 			<svg
 				data-testid='ProgressCircle'
 				className={cn(
-					"dodo-ui__progress-circle",
+					"dui__progress-circle",
 					{
-						"dodo-ui__progress-circle--modern": modern,
-						"dodo-ui__progress-circle--reversed": counterClockWise,
+						"dui__progress-circle--modern": modern,
+						"dui__progress-circle--reversed": counterClockWise,
 					},
 					{
-						[`dodo-ui__progress-circle--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__progress-circle--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}
@@ -64,7 +64,7 @@ const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
 				ref={ref}>
 				{withTrack && (
 					<circle
-						className='dodo-ui__progress-circle__track'
+						className='dui__progress-circle__track'
 						strokeWidth={strokeWidth}
 						r={normalizedRadius}
 						cx={radius}
@@ -82,7 +82,7 @@ const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
 
 				{labeled && (
 					<text
-						className='dodo-ui__progress-circle__label'
+						className='dui__progress-circle__label'
 						x='50%'
 						y='50%'
 						textAnchor='middle'

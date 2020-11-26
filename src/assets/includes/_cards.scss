@@ -38,10 +38,10 @@
 		height: 0;
 		overflow: visible;
 		transform: translateY(2rem);
-		&.dodo-ui__card__loader--modern {
+		&.dui__card__loader--modern {
 			transform: translateY(0);
 		}
-		& > .dodo-ui__spinner {
+		& > .dui__spinner {
 			margin: 0 auto;
 		}
 	}
@@ -72,7 +72,7 @@
 	&--dismissible {
 		display: flex;
 		align-items: center;
-		.dodo-ui__card__header__title {
+		.dui__card__header__title {
 			flex: 1;
 		}
 	}
@@ -99,45 +99,45 @@
 @mixin cardChildren($modern, $toLoop) {
 	@include card($modern);
 
-	& > .dodo-ui__card__loader {
+	& > .dui__card__loader {
 		@include cardLoader();
 	}
-	& > .dodo-ui__card__img {
+	& > .dui__card__img {
 		grid-area: card-img;
 		@include cardImg($modern);
 	}
-	& > .dodo-ui__card__header {
+	& > .dui__card__header {
 		grid-area: card-header;
 		@include cardHeader($modern);
 	}
-	& > .dodo-ui__card__body {
+	& > .dui__card__body {
 		grid-area: card-body;
 		@include cardBody($modern);
 	}
-	& > .dodo-ui__card__footer {
+	& > .dui__card__footer {
 		grid-area: card-footer;
 		@include cardFooter($modern);
 	}
 	@each $name, $color, $font in $toLoop {
-		&.dodo-ui__card--pigment-#{$name} {
+		&.dui__card--pigment-#{$name} {
 			@include card($modern, $color, $font);
-			& > .dodo-ui__card__img {
+			& > .dui__card__img {
 				@include cardImg($modern, $font);
 			}
-			& > .dodo-ui__card__header {
+			& > .dui__card__header {
 				@include cardHeader($modern, $font);
 			}
-			& > .dodo-ui__card__body {
+			& > .dui__card__body {
 				@include cardBody($modern, $font);
 			}
-			& > .dodo-ui__card__footer {
+			& > .dui__card__footer {
 				@include cardFooter($modern, $font);
 			}
 		}
 	}
 }
 
-.dodo-ui__card {
+.dui__card {
 	@include cardChildren(false, $cardPigments);
 	&--modern {
 		@include cardChildren(true, $cardModernPigments);
@@ -155,7 +155,7 @@
 				"card-header"
 				"card-body"
 				"card-footer";
-			& > .dodo-ui__card__img {
+			& > .dui__card__img {
 				border-radius: $smBorderRadius $smBorderRadius 0 0;
 			}
 		}
@@ -168,7 +168,7 @@
 				"card-body"
 				"card-footer"
 				"card-img";
-			& > .dodo-ui__card__img {
+			& > .dui__card__img {
 				border-radius: 0 0 $smBorderRadius $smBorderRadius;
 			}
 		}
@@ -181,7 +181,7 @@
 				"card-img card-body"
 				"card-img card-footer";
 
-			& > .dodo-ui__card__img {
+			& > .dui__card__img {
 				border-radius: $smBorderRadius 0 0 $smBorderRadius;
 			}
 		}
@@ -194,7 +194,7 @@
 				"card-body card-img"
 				"card-footer card-img";
 
-			& > .dodo-ui__card__img {
+			& > .dui__card__img {
 				border-radius: 0 $smBorderRadius $smBorderRadius 0;
 			}
 		}

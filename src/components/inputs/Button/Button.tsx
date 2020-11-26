@@ -4,7 +4,6 @@ import cn from "classnames";
 
 import { ButtonProps } from "./Button.types";
 import { pigmentOptions } from "../../../helpers/pigments";
-// import Icon from "../../data_display/Icon/Icon";
 
 const ButtonLoader: React.FC<{ size: number }> = ({ size }) => {
 	const strokeWidth = Math.max(2, size * 0.1);
@@ -14,11 +13,6 @@ const ButtonLoader: React.FC<{ size: number }> = ({ size }) => {
 		</svg>
 	);
 };
-
-// console.log(
-// 	Object.values(children).length,
-// 	React.Children.map(children, (child: JSX.Element, index: number) => (child.type.displayName === "CardFooter" ? index : null))[0]
-// );
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 	(
@@ -34,12 +28,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			leftAlignContent = false,
 			pigment = "primary",
 			modern = false,
-			// iconLeft = null,
-			// iconRight = null,
 			loading = false,
 			active = false,
 			children,
-			onClick,
 			...rest
 		},
 		ref
@@ -48,40 +39,33 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			<button
 				data-testid='Button'
 				type={type}
-				tabIndex={rest?.disabled ? -1 : 0}
+				tabIndex={rest["disabled"] ? -1 : 0}
 				className={cn(
-					"dodo-ui__btn",
+					"dui__btn",
 					{
-						[`dodo-ui__btn--${size}`]: size !== "md",
+						[`dui__btn--${size}`]: size !== "md",
 					},
 					{
-						"dodo-ui__btn--outlined": outlined,
-						"dodo-ui__btn--modern": modern,
-						"dodo-ui__btn--round": round,
-						"dodo-ui__btn--wide": wide,
-						"dodo-ui__btn--flex": flex,
-						"dodo-ui__btn--no-wrap": unWrapText,
-						"dodo-ui__btn--left-align": leftAlignContent,
-					},
-					// {
-					// 	"dodo-ui__btn--icon-left": !!iconLeft,
-					// 	"dodo-ui__btn--icon-right": !!iconRight,
-					// },
-					{
-						[`dodo-ui__btn--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						"dui__btn--outlined": outlined,
+						"dui__btn--modern": modern,
+						"dui__btn--round": round,
+						"dui__btn--wide": wide,
+						"dui__btn--flex": flex,
+						"dui__btn--no-wrap": unWrapText,
+						"dui__btn--left-align": leftAlignContent,
 					},
 					{
-						"dodo-ui__btn--loading": loading,
-						"dodo-ui__btn--active": active,
+						[`dui__btn--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+					},
+					{
+						"dui__btn--loading": loading,
+						"dui__btn--active": active,
 					},
 					className
 				)}
-				onClick={onClick}
 				{...rest}
 				ref={ref}>
-				{/* {typeof iconLeft !== "string" ? iconLeft : <Icon>{iconLeft}</Icon>} */}
 				{children}
-				{/* {typeof iconRight !== "string" ? iconRight : <Icon>{iconRight}</Icon>} */}
 				{loading && <ButtonLoader size={10} />}
 			</button>
 		);

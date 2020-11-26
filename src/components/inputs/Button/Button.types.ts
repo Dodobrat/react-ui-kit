@@ -11,11 +11,8 @@ export interface ButtonProps {
 	leftAlignContent?: boolean;
 	pigment?: "none" | "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	modern?: boolean;
-	// iconLeft?: React.ReactNode | string;
-	// iconRight?: React.ReactNode | string;
 	loading?: boolean;
 	active?: boolean;
 	children?: React.ReactNode;
 	onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-	disabled?: boolean;
 }

@@ -30,7 +30,7 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>(({ className,
 	});
 
 	return (
-		<ol data-testid='Breadcrumbs' className={cn("dodo-ui__breadcrumbs", className)} {...rest} ref={ref}>
+		<ol data-testid='Breadcrumbs' className={cn("dui__breadcrumbs", className)} {...rest} ref={ref}>
 			{item}
 		</ol>
 	);

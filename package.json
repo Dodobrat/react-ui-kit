@@ -37,8 +37,7 @@
 	"deprecated": false,
 	"peerDependencies": {
 		"react": ">=16.8.0",
-		"react-dom": ">=16.8.0",
-		"focus-trap-react": ">= 8.3.0 < 9"
+		"react-dom": ">=16.8.0"
 	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^11.1.0",
@@ -53,7 +52,7 @@
 		"focus-trap-react": "^8.3.0",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^24.9.0",
-		"node-sass": "^4.14.1",
+		"node-sass": "^5.0.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"rollup": "^1.27.4",

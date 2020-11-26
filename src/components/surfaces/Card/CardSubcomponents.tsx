@@ -13,12 +13,7 @@ import Button from "../../inputs/Button/Button";
 export const CardLoader = forwardRef<HTMLDivElement, CardLoaderSubComponentProps>(
 	({ className, modern = false, sticky = false, pigment, children, ...rest }, ref) => (
 		<div
-			className={cn(
-				"dodo-ui__card__loader",
-				{ "dodo-ui__card__loader--sticky": sticky },
-				{ "dodo-ui__card__loader--modern": modern },
-				className
-			)}
+			className={cn("dui__card__loader", { "dui__card__loader--sticky": sticky }, { "dui__card__loader--modern": modern }, className)}
 			{...rest}
 			ref={ref}>
 			{!!children ? children : modern ? <LineLoader pigment={pigment} /> : <SpinnerLoader pigment={pigment} />}
@@ -30,7 +25,7 @@ CardLoader.displayName = "CardLoader";
 
 export const CardImage = forwardRef<HTMLDivElement, CardImageSubComponentProps>(
 	({ imgLink = null, imgLinkAlt = "image", className, children, ...rest }, ref) => (
-		<div className={cn("dodo-ui__card__img", className)} {...rest} ref={ref}>
+		<div className={cn("dui__card__img", className)} {...rest} ref={ref}>
 			{imgLink ? <img src={imgLink} alt={imgLinkAlt} /> : children}
 		</div>
 	)
@@ -42,9 +37,9 @@ export const CardHeader = forwardRef<HTMLDivElement, CardHeaderSubComponentProps
 	({ className, onClose = null, closeBtnModern = true, closeBtnPigment = "secondary", children, ...rest }, ref) => (
 		<div
 			className={cn(
-				"dodo-ui__card__header",
+				"dui__card__header",
 				{
-					"dodo-ui__card__header--dismissible": onClose,
+					"dui__card__header--dismissible": onClose,
 				},
 				className
 			)}
@@ -52,7 +47,7 @@ export const CardHeader = forwardRef<HTMLDivElement, CardHeaderSubComponentProps
 			ref={ref}>
 			{onClose ? (
 				<>
-					<div className='dodo-ui__card__header__title'>{children}</div>
+					<div className='dui__card__header__title'>{children}</div>
 					<Button size='sm' modern={closeBtnModern} pigment={closeBtnPigment} onClick={onClose}>
 						X
 					</Button>
@@ -67,7 +62,7 @@ export const CardHeader = forwardRef<HTMLDivElement, CardHeaderSubComponentProps
 CardHeader.displayName = "CardHeader";
 
 export const CardBody = forwardRef<HTMLDivElement, CardSubComponentProps>(({ className, children, ...rest }, ref) => (
-	<div className={cn("dodo-ui__card__body", className)} {...rest} ref={ref}>
+	<div className={cn("dui__card__body", className)} {...rest} ref={ref}>
 		{children}
 	</div>
 ));
@@ -75,7 +70,7 @@ export const CardBody = forwardRef<HTMLDivElement, CardSubComponentProps>(({ cla
 CardBody.displayName = "CardBody";
 
 export const CardFooter = forwardRef<HTMLDivElement, CardSubComponentProps>(({ className, children, ...rest }, ref) => (
-	<div className={cn("dodo-ui__card__footer", className)} {...rest} ref={ref}>
+	<div className={cn("dui__card__footer", className)} {...rest} ref={ref}>
 		{children}
 	</div>
 ));

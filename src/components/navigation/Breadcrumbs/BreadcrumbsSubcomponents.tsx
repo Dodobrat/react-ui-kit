@@ -4,7 +4,7 @@ import { BreadcrumbsSubComponentProps } from "./BreadcrumbsSubcomponents.types";
 
 export const BreadcrumbItem = forwardRef<HTMLLIElement, BreadcrumbsSubComponentProps>(
 	({ className, separator, children, ...rest }, ref) => (
-		<li className={cn("dodo-ui__breadcrumbs__item", className)} {...rest} ref={ref}>
+		<li className={cn("dui__breadcrumbs__item", className)} {...rest} ref={ref}>
 			{children}
 			{separator && <span aria-hidden>{separator}</span>}
 		</li>

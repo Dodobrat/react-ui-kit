@@ -9,13 +9,9 @@ const LineLoader: React.FC<LineLoaderProps> = ({ className, pigment = "primary",
 	return (
 		<div
 			data-testid='LineLoader'
-			className={cn(
-				"dodo-ui__line-loader",
-				{ [`dodo-ui__line-loader--pigment-${pigment}`]: pigmentOptions.includes(pigment) },
-				className
-			)}
+			className={cn("dui__line-loader", { [`dui__line-loader--pigment-${pigment}`]: pigmentOptions.includes(pigment) }, className)}
 			{...rest}>
-			<div className='dodo-ui__line-loader__line' />
+			<div className='dui__line-loader__line' />
 		</div>
 	);
 };

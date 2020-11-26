@@ -39,23 +39,23 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 			<div
 				data-testid='ProgressBar'
 				className={cn(
-					"dodo-ui__progress-bar",
+					"dui__progress-bar",
 					{
-						"dodo-ui__progress-bar--modern": modern,
-						"dodo-ui__progress-bar--animated": animated,
-						"dodo-ui__progress-bar--rounded": rounded,
-						"dodo-ui__progress-bar--minified": minified,
+						"dui__progress-bar--modern": modern,
+						"dui__progress-bar--animated": animated,
+						"dui__progress-bar--rounded": rounded,
+						"dui__progress-bar--minified": minified,
 					},
 					{
-						[`dodo-ui__progress-bar--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__progress-bar--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}
 				{...rest}
 				ref={ref}>
 				<div
-					className={cn("dodo-ui__progress-bar__progress", {
-						"dodo-ui__progress-bar__progress--allow-overflow": (labelPosition === "outer" || minified) && !animated,
+					className={cn("dui__progress-bar__progress", {
+						"dui__progress-bar__progress--allow-overflow": (labelPosition === "outer" || minified) && !animated,
 					})}
 					style={{ width: `${parseValueToPercent()}%` }}
 					role='progressbar'
@@ -64,8 +64,8 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 					aria-valuemax={max}>
 					{labeled && (
 						<div
-							className={cn("dodo-ui__progress-bar__progress__label", {
-								[`dodo-ui__progress-bar__progress__label--position-${labelPosition}`]: labelPosition !== "left",
+							className={cn("dui__progress-bar__progress__label", {
+								[`dui__progress-bar__progress__label--position-${labelPosition}`]: labelPosition !== "left",
 							})}>
 							{labelValue === "%"
 								? `${parseValueToPercent()} %`

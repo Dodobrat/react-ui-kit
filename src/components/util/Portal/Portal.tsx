@@ -30,7 +30,7 @@ const Portal = forwardRef<HTMLDivElement, PortalProps>(
 		useEffect(() => {
 			if (backdrop !== "static") {
 				const detectClicked = (e: any) => {
-					if (e.target.classList.contains("dodo-ui__portal")) {
+					if (e.target.classList.contains("dui__portal")) {
 						onClose();
 					}
 				};
@@ -43,14 +43,14 @@ const Portal = forwardRef<HTMLDivElement, PortalProps>(
 
 		return ReactDOM.createPortal(
 			<>
-				{backdrop && <div className={cn("dodo-ui__portal__backdrop", backdropClassName)} />}
+				{backdrop && <div className={cn("dui__portal__backdrop", backdropClassName)} />}
 				<FocusTrap active={!!rootEl}>
-					<div data-testid='Portal' className={cn("dodo-ui__portal", className)} {...rest} ref={ref}>
+					<div data-testid='Portal' className={cn("dui__portal", className)} {...rest} ref={ref}>
 						<div
 							className={cn(
-								"dodo-ui__portal__inner",
+								"dui__portal__inner",
 								{
-									[`dodo-ui__portal__inner--${size}`]: size !== "md",
+									[`dui__portal__inner--${size}`]: size !== "md",
 								},
 								innerClassName
 							)}>

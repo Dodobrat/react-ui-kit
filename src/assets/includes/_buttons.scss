@@ -9,7 +9,7 @@
 	width: auto;
 	border-radius: $smBorderRadius;
 	font-size: $mdFont;
-	font-weight: 500;
+	font-weight: 400;
 	color: $darkFont;
 	overflow: hidden;
 	user-select: none;
@@ -18,7 +18,7 @@
 	outline: none;
 	text-decoration: none;
 
-	i {
+	& > i {
 		font-size: $mdFont;
 	}
 
@@ -80,14 +80,14 @@
 	}
 }
 
-.dodo-ui__btn {
+.dui__btn {
 	@include btn();
 	&--loading {
 		cursor: progress;
 		@include btnLoader($lightFont);
 	}
 	@each $name, $size, $font in $btnSizes {
-		&.dodo-ui__btn--#{$name} {
+		&.dui__btn--#{$name} {
 			height: $size;
 			font-size: $font;
 			padding: 0 $font;
@@ -110,7 +110,7 @@
 	}
 	&--left-align {
 		text-align: left;
-		&.dodo-ui__btn--flex {
+		&.dui__btn--flex {
 			justify-content: flex-start;
 		}
 	}
@@ -125,36 +125,36 @@
 		}
 	}
 	@each $name, $color, $font in $btnPigments {
-		&.dodo-ui__btn--pigment-#{$name} {
+		&.dui__btn--pigment-#{$name} {
 			background-color: $color;
 			color: $font;
 			&:hover,
-			&.dodo-ui__btn--active {
+			&.dui__btn--active {
 				background-color: darken(rgbaToRgb($color), 5%);
 			}
 			&:focus {
 				box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
 			}
-			&.dodo-ui__btn--loading {
+			&.dui__btn--loading {
 				@include btnLoader($font);
 			}
 		}
 	}
 	&--outlined {
 		@each $name, $color, $font in $btnPigments {
-			&.dodo-ui__btn--pigment-#{$name} {
+			&.dui__btn--pigment-#{$name} {
 				background-color: transparent;
 				color: $color;
 				border: 1px solid rgba($color, 0.75);
-				&.dodo-ui__btn--loading {
+				&.dui__btn--loading {
 					@include btnLoader($color);
 				}
 				&:hover,
-				&.dodo-ui__btn--active {
+				&.dui__btn--active {
 					background-color: rgba(rgbaToRgb($color), 0.1);
 					color: $color;
 					border: 1px solid $color;
-					&.dodo-ui__btn--loading {
+					&.dui__btn--loading {
 						@include btnLoader($color);
 					}
 				}
@@ -163,17 +163,17 @@
 	}
 	&--modern {
 		@each $name, $color, $font in $btnModernPigments {
-			&.dodo-ui__btn--pigment-#{$name} {
+			&.dui__btn--pigment-#{$name} {
 				background-color: rgbaToRgb($color);
 				color: $font;
 				&:hover,
-				&.dodo-ui__btn--active {
+				&.dui__btn--active {
 					background-color: darken(rgbaToRgb($color), 5%);
 				}
 				&:focus {
 					box-shadow: 0 0 0 0.2rem rgba($font, 0.25);
 				}
-				&.dodo-ui__btn--loading {
+				&.dui__btn--loading {
 					@include btnLoader($font);
 				}
 			}
@@ -228,7 +228,7 @@
 			& > *:last-child {
 				border-radius: 0 0 $smBorderRadius $smBorderRadius;
 			}
-			&.dodo-ui__btn-group--round {
+			&.dui__btn-group--round {
 				border-radius: $lgBorderRadius;
 				& > *:first-child {
 					border-radius: $lgBorderRadius $lgBorderRadius 0 0;

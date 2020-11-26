@@ -28,11 +28,11 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
 				aria-label={ariaLabel}
 				tabIndex={rest?.disabled ? -1 : 0}
 				className={cn(
-					"dodo-ui__btn-group",
+					"dui__btn-group",
 					{
-						"dodo-ui__btn-group--round": round,
-						"dodo-ui__btn-group--wide": wide,
-						"dodo-ui__btn-group--vertical": vertical,
+						"dui__btn-group--round": round,
+						"dui__btn-group--wide": wide,
+						"dui__btn-group--vertical": vertical,
 					},
 					className
 				)}

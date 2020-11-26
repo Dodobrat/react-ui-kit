@@ -58,12 +58,12 @@ const ListGroup = forwardRef<HTMLDivElement, ListGroupProps>(
 			<ElementType
 				data-testid='ListGroup'
 				className={cn(
-					"dodo-ui__list__group",
+					"dui__list__group",
 					{
-						"dodo-ui__list__group--modern": modern,
+						"dui__list__group--modern": modern,
 					},
 					{
-						[`dodo-ui__list__group--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__list__group--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}

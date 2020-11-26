@@ -16,10 +16,10 @@ export const ListGroupHeader = forwardRef<HTMLDivElement, ListGroupHeaderSubComp
 		return (
 			<ElementType
 				className={cn(
-					"dodo-ui__list__group__header",
+					"dui__list__group__header",
 					{
-						[`dodo-ui__list__group__header--align-${align}`]: align !== "left",
-						[`dodo-ui__list__group__header--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__list__group__header--align-${align}`]: align !== "left",
+						[`dui__list__group__header--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}
@@ -40,12 +40,12 @@ export const ListGroupItem = forwardRef<HTMLDivElement, ListGroupItemSubComponen
 		return (
 			<ElementType
 				className={cn(
-					"dodo-ui__list__group__item",
+					"dui__list__group__item",
 					{
-						"dodo-ui__list__group__item--active": active,
+						"dui__list__group__item--active": active,
 					},
 					{
-						[`dodo-ui__list__group__item--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__list__group__item--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}
@@ -62,7 +62,7 @@ ListGroupItem.displayName = "ListGroupItem";
 export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupCollapseToggleSubComponentProps>(
 	({ className, onToggle, children, ...rest }, ref) => {
 		return (
-			<div className={cn("dodo-ui__list__group__collapse__toggle", className)} {...rest} onClick={onToggle} ref={ref}>
+			<div className={cn("dui__list__group__collapse__toggle", className)} {...rest} onClick={onToggle} ref={ref}>
 				{children}
 			</div>
 		);
@@ -76,7 +76,7 @@ export const ListGroupCollapseContent = forwardRef<HTMLDivElement, ListGroupColl
 		if (collapsed) return null;
 
 		return (
-			<div className={cn("dodo-ui__list__group__collapse__content", className)} {...rest} ref={ref}>
+			<div className={cn("dui__list__group__collapse__content", className)} {...rest} ref={ref}>
 				{children}
 			</div>
 		);
@@ -129,12 +129,12 @@ export const ListGroupCollapse = forwardRef<HTMLDivElement, ListGroupCollapseSub
 		return (
 			<ElementType
 				className={cn(
-					"dodo-ui__list__group__collapse",
+					"dui__list__group__collapse",
 					{
-						"dodo-ui__list__group__collapse--no-indent": !nestedCollapseIndent,
+						"dui__list__group__collapse--no-indent": !nestedCollapseIndent,
 					},
 					{
-						[`dodo-ui__list__group__collapse--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__list__group__collapse--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}

@@ -43,7 +43,7 @@
 	background: $pigment;
 	color: rgba($font, 0.5);
 	font-size: $smFont;
-	font-weight: 900;
+	font-weight: 600;
 	text-transform: uppercase;
 	@if ($modern) {
 		margin: 0 1rem;
@@ -59,7 +59,7 @@
 	display: block;
 	background: $pigment;
 	color: $font;
-	&.dodo-ui__list__group__item--active {
+	&.dui__list__group__item--active {
 		background: darken(rgbaToRgb($pigment), 5%);
 	}
 	@if ($modern) {
@@ -76,11 +76,11 @@
 	display: block;
 	background: $pigment;
 	color: $font;
-	& > .dodo-ui__list__group__collapse__toggle {
+	& > .dui__list__group__collapse__toggle {
 		user-select: none;
 		cursor: pointer;
 	}
-	& > .dodo-ui__list__group__collapse__content {
+	& > .dui__list__group__collapse__content {
 		padding-top: 1.5rem;
 	}
 	@if ($modern) {
@@ -102,23 +102,23 @@
 @mixin listGroupChildren($modern: false, $toLoop: $listPigments) {
 	@include listGroup($modern);
 
-	& > .dodo-ui__list__group__header {
+	& > .dui__list__group__header {
 		@include listGroupHeader($modern, $bgCard, $darkFont);
 	}
 
-	& > .dodo-ui__list__group__item {
+	& > .dui__list__group__item {
 		@include listGroupItem($modern, $bgCard, $darkFont);
 	}
-	& > .dodo-ui__list__group__collapse {
+	& > .dui__list__group__collapse {
 		@include listGroupCollapse($modern, $bgCard, $darkFont);
-		.dodo-ui__list__group__collapse__content {
-			.dodo-ui__list__group__collapse {
+		.dui__list__group__collapse__content {
+			.dui__list__group__collapse {
 				@include listGroupCollapse($modern, $bgCard, $darkFont, true);
 			}
 		}
 		&--no-indent {
-			.dodo-ui__list__group__collapse__content {
-				.dodo-ui__list__group__collapse {
+			.dui__list__group__collapse__content {
+				.dui__list__group__collapse {
 					@if ($modern) {
 						margin: 0;
 						padding: 0.75rem 0;
@@ -132,37 +132,37 @@
 	}
 
 	@each $name, $color, $font in $toLoop {
-		&.dodo-ui__list__group--pigment-#{$name} {
+		&.dui__list__group--pigment-#{$name} {
 			@include listGroup($modern, $color, $font);
 
-			& > .dodo-ui__list__group__header {
+			& > .dui__list__group__header {
 				@include listGroupHeader($modern, $color, $font);
 				@each $name, $color, $font in $toLoop {
-					&.dodo-ui__list__group__header--pigment-#{$name} {
+					&.dui__list__group__header--pigment-#{$name} {
 						@include listGroupHeader($modern, $color, $font);
 					}
 				}
 			}
 
-			& > .dodo-ui__list__group__item {
+			& > .dui__list__group__item {
 				@include listGroupItem($modern, $color, $font);
 				@each $name, $color, $font in $toLoop {
-					&.dodo-ui__list__group__item--pigment-#{$name} {
+					&.dui__list__group__item--pigment-#{$name} {
 						@include listGroupItem($modern, $color, $font);
 					}
 				}
 			}
 
-			& > .dodo-ui__list__group__collapse {
+			& > .dui__list__group__collapse {
 				@include listGroupCollapse($modern, $color, $font);
-				.dodo-ui__list__group__collapse__content {
-					.dodo-ui__list__group__collapse {
+				.dui__list__group__collapse__content {
+					.dui__list__group__collapse {
 						@include listGroupCollapse($modern, $color, $font, true);
 					}
 				}
 				&--no-indent {
-					.dodo-ui__list__group__collapse__content {
-						.dodo-ui__list__group__collapse {
+					.dui__list__group__collapse__content {
+						.dui__list__group__collapse {
 							@if ($modern) {
 								margin: 0;
 								padding: 0.75rem 0;
@@ -174,17 +174,17 @@
 					}
 				}
 				@each $name, $color, $font in $toLoop {
-					&.dodo-ui__list__group__collapse--pigment-#{$name} {
+					&.dui__list__group__collapse--pigment-#{$name} {
 						@include listGroupCollapse($modern, $color, $font);
-						.dodo-ui__list__group__collapse__content {
-							.dodo-ui__list__group__collapse {
+						.dui__list__group__collapse__content {
+							.dui__list__group__collapse {
 								@include listGroupCollapse($modern, $color, $font, true);
 							}
 						}
 
-						&.dodo-ui__list__group__collapse--no-indent {
-							.dodo-ui__list__group__collapse__content {
-								.dodo-ui__list__group__collapse {
+						&.dui__list__group__collapse--no-indent {
+							.dui__list__group__collapse__content {
+								.dui__list__group__collapse {
 									@if ($modern) {
 										margin: 0;
 										padding: 0.75rem 0;
@@ -202,7 +202,7 @@
 	}
 }
 
-.dodo-ui__list {
+.dui__list {
 	&__group {
 		@include listGroupChildren();
 

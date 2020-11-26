@@ -12,7 +12,7 @@ interface FlexComponent extends React.ForwardRefExoticComponent<FlexProps & Reac
 const Flex = forwardRef<HTMLDivElement, FlexProps>(({ className, children }, ref) => {
 	const col: JSX.Element[] = React.Children.map(children, (child: JSX.Element) => (child.type.displayName === "FlexCol" ? child : null));
 	return (
-		<div data-testid='Flex' className={cn("dodo-ui__flex", className)} ref={ref}>
+		<div data-testid='Flex' className={cn("dui__flex", className)} ref={ref}>
 			{col}
 		</div>
 	);

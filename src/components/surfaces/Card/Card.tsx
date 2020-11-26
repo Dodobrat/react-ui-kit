@@ -33,17 +33,17 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 			<div
 				data-testid='Card'
 				className={cn(
-					"dodo-ui__card",
+					"dui__card",
 					{
-						"dodo-ui__card--modern": modern,
-						"dodo-ui__card--overflow": allowOverflow,
-						"dodo-ui__card--loading": loading,
+						"dui__card--modern": modern,
+						"dui__card--overflow": allowOverflow,
+						"dui__card--loading": loading,
 					},
 					{
-						[`dodo-ui__card--img-${cardImgPosition}`]: image.length > 0,
+						[`dui__card--img-${cardImgPosition}`]: image.length > 0,
 					},
 					{
-						[`dodo-ui__card--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__card--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}

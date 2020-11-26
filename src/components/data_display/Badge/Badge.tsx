@@ -11,17 +11,17 @@ const Badge = forwardRef<HTMLDivElement, BadgeProps>(
 			<div
 				data-testid='Badge'
 				className={cn(
-					"dodo-ui__badge",
+					"dui__badge",
 					{
-						[`dodo-ui__badge--${size}`]: size !== "md",
+						[`dui__badge--${size}`]: size !== "md",
 					},
 					{
-						"dodo-ui__badge--pill": pill,
-						"dodo-ui__badge--modern": modern,
-						"dodo-ui__badge--clickable": onClick,
+						"dui__badge--pill": pill,
+						"dui__badge--modern": modern,
+						"dui__badge--clickable": onClick,
 					},
 					{
-						[`dodo-ui__badge--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__badge--pigment-${pigment}`]: pigmentOptions.includes(pigment),
 					},
 					className
 				)}

@@ -1,4 +1,4 @@
-.dodo-ui__spinner {
+.dui__spinner {
 	border-style: solid;
 	border-width: 0.3rem;
 	border-radius: 50%;
@@ -6,14 +6,14 @@
 	height: 3rem;
 	animation: spin 1s linear infinite;
 	@each $name, $size in $loaderSizes {
-		&.dodo-ui__spinner--#{$name} {
+		&.dui__spinner--#{$name} {
 			width: calc(#{$size} + 0.5rem);
 			height: calc(#{$size} + 0.5rem);
 			border-width: $size * 0.1;
 		}
 	}
 	@each $name, $color in $loaderPigments {
-		&.dodo-ui__spinner--pigment-#{$name} {
+		&.dui__spinner--pigment-#{$name} {
 			border-color: rgba($color, 0.25);
 			border-top-color: $color;
 		}
@@ -26,7 +26,7 @@
 	}
 }
 
-.dodo-ui__line-loader {
+.dui__line-loader {
 	position: relative;
 	overflow: hidden;
 	height: 0.3125rem;
@@ -45,9 +45,9 @@
 	}
 
 	@each $name, $color in $loaderPigments {
-		&.dodo-ui__line-loader--pigment-#{$name} {
+		&.dui__line-loader--pigment-#{$name} {
 			background-color: rgba($color, 0.25);
-			.dodo-ui__line-loader__line {
+			.dui__line-loader__line {
 				background: $color;
 			}
 		}

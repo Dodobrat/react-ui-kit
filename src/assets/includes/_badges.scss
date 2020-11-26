@@ -2,7 +2,7 @@
 	display: inline-block;
 	padding: 0.3125rem 0.5rem;
 	font-size: 75%;
-	font-weight: 700;
+	font-weight: 500;
 	line-height: 1;
 	text-align: center;
 	white-space: nowrap;
@@ -16,16 +16,16 @@
 	}
 }
 
-.dodo-ui__badge {
+.dui__badge {
 	@include badge($primary, $lightFont);
 	@each $name, $font in $badgeSizes {
-		&.dodo-ui__badge--#{$name} {
+		&.dui__badge--#{$name} {
 			font-size: calc(#{$font} - 0.1rem);
 			padding: calc(#{$font} / 3.5) calc(#{$font} / 2);
 		}
 	}
 	@each $name, $color, $font in $badgePigments {
-		&.dodo-ui__badge--pigment-#{$name} {
+		&.dui__badge--pigment-#{$name} {
 			background: $color;
 			color: $font;
 			* {
@@ -35,7 +35,7 @@
 	}
 	&--modern {
 		@each $name, $color, $font in $badgeModernPigments {
-			&.dodo-ui__badge--pigment-#{$name} {
+			&.dui__badge--pigment-#{$name} {
 				background: rgbaToRgb($color);
 				color: $font;
 				* {
