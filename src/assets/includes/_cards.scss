@@ -72,8 +72,27 @@
 	&--dismissible {
 		display: flex;
 		align-items: center;
+		color: $accentContrast;
 		.dui__card__header__title {
 			flex: 1;
+		}
+		.dui__close__btn {
+			@include closeBtn(2rem);
+			margin: -1rem 0 -1rem auto;
+			@if $modern {
+				background: transparent;
+			} @else {
+				background: rgba($accentContrast, 0.05);
+			}
+
+			&::before,
+			&::after {
+				background-color: rgba($accentContrast, 0.65);
+			}
+
+			&:focus {
+				box-shadow: 0 0 0 0.2rem rgba($accentContrast, 0.05);
+			}
 		}
 	}
 }

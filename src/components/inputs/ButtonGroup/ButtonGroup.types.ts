@@ -7,7 +7,7 @@ export interface ButtonGroupProps {
 	wide?: boolean;
 	outlined?: boolean;
 	vertical?: boolean;
-	pigment?: "none" | "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
+	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	modern?: boolean;
 	children?: React.ReactNode;
 	disabled?: boolean;

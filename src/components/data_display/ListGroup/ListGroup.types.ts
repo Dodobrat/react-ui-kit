@@ -3,6 +3,6 @@ export interface ListGroupProps {
 	className?: string;
 	as?: HTMLElementTagNameMap;
 	modern?: boolean;
-	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark" | null;
+	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	children?: React.ReactNode;
 }

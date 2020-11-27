@@ -8,6 +8,7 @@ import {
 	ListGroupItemSubComponentProps,
 } from "./ListGroupSubcomponents.types";
 import { pigmentOptions } from "../../../helpers/pigments";
+import ExpandIndicator from "../../partials/ExpandIndicator/ExpandIndicator";
 
 export const ListGroupHeader = forwardRef<HTMLDivElement, ListGroupHeaderSubComponentProps>(
 	({ className, as, pigment, align = "left", children, ...rest }, ref) => {
@@ -60,10 +61,27 @@ export const ListGroupItem = forwardRef<HTMLDivElement, ListGroupItemSubComponen
 ListGroupItem.displayName = "ListGroupItem";
 
 export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupCollapseToggleSubComponentProps>(
-	({ className, onToggle, children, ...rest }, ref) => {
+	({ className, onToggle, collapsed, collapseIndicator = true, collapseIndicatorComponent, children, ...rest }, ref) => {
 		return (
-			<div className={cn("dui__list__group__collapse__toggle", className)} {...rest} onClick={onToggle} ref={ref}>
-				{children}
+			<div
+				className={cn(
+					"dui__list__group__collapse__toggle",
+					{
+						"dui__list__group__collapse__toggle--indicated": collapseIndicator,
+					},
+					className
+				)}
+				{...rest}
+				onClick={onToggle}
+				ref={ref}>
+				{collapseIndicator ? (
+					<>
+						<div className='dui__list__group__collapse__toggle__title'>{children}</div>
+						{!!collapseIndicatorComponent ? collapseIndicatorComponent : <ExpandIndicator active={!collapsed} />}
+					</>
+				) : (
+					children
+				)}
 			</div>
 		);
 	}
@@ -97,7 +115,7 @@ export const ListGroupCollapse = forwardRef<HTMLDivElement, ListGroupCollapseSub
 
 		const onCollapseToggle = () => {
 			setCollapseState((prev) => !prev);
-			if (onToggle) onToggle({ collapseState });
+			if (onToggle) onToggle(collapseState);
 		};
 
 		const collapseChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) => {
@@ -106,6 +124,7 @@ export const ListGroupCollapse = forwardRef<HTMLDivElement, ListGroupCollapseSub
 					...child,
 					props: {
 						...child.props,
+						collapsed: collapseState,
 						onToggle: child.props.onClick ?? onCollapseToggle,
 					},
 				};

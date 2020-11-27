@@ -1,5 +1,6 @@
 @mixin progressBar($bgColor, $fontColor, $animated: false) {
 	.dui__progress-bar__progress {
+		transition: width 0.15s ease-out;
 		position: relative;
 		width: 0;
 		height: 100%;

@@ -4,7 +4,7 @@ export interface CardProps {
 	modern?: boolean;
 	allowOverflow?: boolean;
 	loading?: boolean;
-	pigment?: "none" | "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
+	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	className?: string;
 	children?: React.ReactNode;
 }

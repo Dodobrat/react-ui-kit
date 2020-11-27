@@ -79,6 +79,13 @@
 	& > .dui__list__group__collapse__toggle {
 		user-select: none;
 		cursor: pointer;
+		&--indicated {
+			display: flex;
+			align-items: center;
+			.dui__list__group__collapse__toggle__title {
+				flex: 1;
+			}
+		}
 	}
 	& > .dui__list__group__collapse__content {
 		padding-top: 1.5rem;

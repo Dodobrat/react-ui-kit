@@ -8,7 +8,7 @@ import {
 	CardLoaderSubComponentProps,
 	CardSubComponentProps,
 } from "./CardSubcomponents.types";
-import Button from "../../inputs/Button/Button";
+import CloseBtn from "../../partials/CloseBtn/CloseBtn";
 
 export const CardLoader = forwardRef<HTMLDivElement, CardLoaderSubComponentProps>(
 	({ className, modern = false, sticky = false, pigment, children, ...rest }, ref) => (
@@ -34,29 +34,29 @@ export const CardImage = forwardRef<HTMLDivElement, CardImageSubComponentProps>(
 CardImage.displayName = "CardImage";
 
 export const CardHeader = forwardRef<HTMLDivElement, CardHeaderSubComponentProps>(
-	({ className, onClose = null, closeBtnModern = true, closeBtnPigment = "secondary", children, ...rest }, ref) => (
-		<div
-			className={cn(
-				"dui__card__header",
-				{
-					"dui__card__header--dismissible": onClose,
-				},
-				className
-			)}
-			{...rest}
-			ref={ref}>
-			{onClose ? (
-				<>
-					<div className='dui__card__header__title'>{children}</div>
-					<Button size='sm' modern={closeBtnModern} pigment={closeBtnPigment} onClick={onClose}>
-						X
-					</Button>
-				</>
-			) : (
-				children
-			)}
-		</div>
-	)
+	({ className, onClose = null, closeBtnComponent, children, ...rest }, ref) => {
+		return (
+			<div
+				className={cn(
+					"dui__card__header",
+					{
+						"dui__card__header--dismissible": onClose,
+					},
+					className
+				)}
+				{...rest}
+				ref={ref}>
+				{onClose || closeBtnComponent ? (
+					<>
+						<div className='dui__card__header__title'>{children}</div>
+						{!!closeBtnComponent ? closeBtnComponent : <CloseBtn onClick={onClose} />}
+					</>
+				) : (
+					children
+				)}
+			</div>
+		);
+	}
 );
 
 CardHeader.displayName = "CardHeader";

@@ -26,7 +26,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			flex = false,
 			unWrapText = false,
 			leftAlignContent = false,
-			pigment = "primary",
+			pigment,
 			modern = false,
 			loading = false,
 			active = false,

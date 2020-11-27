@@ -59,6 +59,13 @@ p {
 	margin: 0 0 1rem 0;
 }
 
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+	cursor: pointer;
+}
+
 hr {
 	box-sizing: content-box;
 	height: 0;

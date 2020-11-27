@@ -23,7 +23,7 @@
 	}
 
 	&:focus {
-		box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
 	}
 
 	&:hover {
@@ -123,7 +123,7 @@
 				background-color: darken(rgbaToRgb($color), 5%);
 			}
 			&:focus {
-				box-shadow: 0 0 0 0.15rem rgba($color, 0.25);
+				box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
 			}
 			&.dui__btn--loading {
 				@include btnLoader($font);
@@ -161,7 +161,7 @@
 					background-color: darken(rgbaToRgb($color), 5%);
 				}
 				&:focus {
-					box-shadow: 0 0 0 0.15rem rgba($font, 0.25);
+					box-shadow: 0 0 0 0.2rem rgba($font, 0.25);
 				}
 				&.dui__btn--loading {
 					@include btnLoader($font);
@@ -176,7 +176,7 @@
 		border-radius: $smBorderRadius;
 		&:focus {
 			outline: none;
-			box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.1);
+			box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
 		}
 		& > * {
 			border-radius: 0;

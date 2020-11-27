@@ -1,18 +1,115 @@
-// .dui {
-// 	&__input {
-// 		&__group {
-// 		}
-// 	}
-// 	&__textarea {
-// 	}
-// 	&__checkbox {
-// 	}
-// 	&__radio {
-// 	}
-// 	&__file {
-// 	}
-// 	&__slider {
-// 	}
-// 	&__switch {
-// 	}
-// }
+@mixin input($pigment: $subFont, $font: transparent, $modern: false) {
+	transition: all 0.15s ease;
+	position: relative;
+	caret-color: $mainFont;
+	background: darken($bg, 2.5%);
+	padding: 0 0.625rem 0 0;
+	text-indent: 0.625rem;
+	display: block;
+	border: 1px solid rgbaToRgb(rgba($pigment, 0.3));
+	width: 100%;
+	color: $mainFont;
+	border-radius: $smBorderRadius;
+	outline: none;
+	font-size: $mdFont;
+	height: $md;
+
+	&:hover {
+		border: 1px solid rgbaToRgb(rgba($pigment, 0.6));
+	}
+
+	&:focus {
+		box-shadow: 0 0 0 0.2rem rgba($pigment, 0.1);
+	}
+
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus {
+		border: none;
+		box-shadow: 0 0 0 50rem $bg inset;
+		-webkit-text-fill-color: $mainFont;
+		-webkit-box-shadow: 0 0 0 50rem $bg inset;
+		transition: background-color 5000s ease-in-out 0s;
+	}
+
+	&:-webkit-autofill:focus {
+		box-shadow: 0 0 0 0.2rem rgba($pigment, 0.1);
+	}
+
+	&.dui__input--round {
+		border-radius: $roundBorderRadius;
+		text-indent: 1rem;
+	}
+
+	&.dui__input--loading {
+		cursor: progress;
+	}
+
+	@if ($modern) {
+		background: lighten($pigment, 20%);
+		border: 1px solid transparent;
+
+		&:hover {
+			border: 1px solid transparent;
+			background: lighten($pigment, 30%);
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 0.2rem rgba($font, 0.2);
+		}
+
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus {
+			box-shadow: 0 0 0 50rem $pigment inset;
+			-webkit-box-shadow: 0 0 0 50rem $pigment inset;
+		}
+
+		&:-webkit-autofill:focus {
+			box-shadow: 0 0 0 0.2rem rgba($font, 0.2);
+		}
+	}
+}
+.dui {
+	&__input {
+		@include input();
+		@each $name, $color in $inputPigments {
+			&.dui__input--pigment-#{$name} {
+				@include input($color);
+			}
+		}
+		&--modern {
+			@include input($bg, $mainFont, true);
+			@each $name, $color, $font in $inputModernPigments {
+				&.dui__input--pigment-#{$name} {
+					@include input($color, $font, true);
+				}
+			}
+		}
+		@each $name, $size, $fontSize in $inputSizes {
+			&.dui__input--#{$name} {
+				height: $size;
+				font-size: $fontSize;
+				text-indent: calc(#{$size} / 3.5);
+				&.dui__input--round {
+					text-indent: calc(#{$size} / 2.5);
+				}
+			}
+		}
+	}
+	&__textarea {
+		display: block;
+		width: 100%;
+		resize: vertical;
+	}
+	// &__checkbox {
+	// }
+	// &__radio {
+	// }
+	// &__file {
+	// }
+	// &__slider {
+	// }
+	// &__switch {
+	// }
+}

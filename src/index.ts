@@ -25,6 +25,9 @@ import SpinnerLoader from "./components/loaders/SpinnerLoader/SpinnerLoader";
 // --Navigation
 import Breadcrumbs from "./components/navigation/Breadcrumbs/Breadcrumbs";
 import Navbar from "./components/navigation/Navbar/Navbar";
+// --Partials
+import CLoseBtn from "./components/partials/CloseBtn/CloseBtn";
+import ExpandIndicator from "./components/partials/ExpandIndicator/ExpandIndicator";
 // --Surfaces
 import Card from "./components/surfaces/Card/Card";
 // --Utilities
@@ -63,6 +66,9 @@ export {
 	//--Navigation
 	Breadcrumbs,
 	Navbar,
+	//--Partials
+	CLoseBtn,
+	ExpandIndicator,
 	//--Surfaces
 	Card,
 	//--Utilities

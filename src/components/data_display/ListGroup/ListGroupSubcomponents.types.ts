@@ -1,7 +1,7 @@
 export interface ListGroupSubComponentProps {
 	className?: string;
 	as?: HTMLElementTagNameMap;
-	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark" | null;
+	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	children?: React.ReactNode;
 }
 
@@ -22,6 +22,9 @@ export interface ListGroupCollapseSubComponentProps extends ListGroupSubComponen
 export interface ListGroupCollapseToggleSubComponentProps {
 	className?: string;
 	onToggle?: ({}) => void;
+	collapsed?: boolean;
+	collapseIndicator?: boolean;
+	collapseIndicatorComponent?: React.ReactNode;
 	children?: React.ReactNode;
 }
 

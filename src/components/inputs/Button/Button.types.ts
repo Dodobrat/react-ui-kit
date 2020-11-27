@@ -9,7 +9,7 @@ export interface ButtonProps {
 	flex?: boolean;
 	unWrapText?: boolean;
 	leftAlignContent?: boolean;
-	pigment?: "none" | "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
+	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	modern?: boolean;
 	loading?: boolean;
 	active?: boolean;
