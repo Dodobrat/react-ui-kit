@@ -1,14 +1,21 @@
 // Auto-Generated
 import React, { forwardRef } from "react";
-import cn from 'classnames';
+import cn from "classnames";
 
 import { FormProps } from "./Form.types";
+import { FormControlSubComponentProps, FormFooterSubComponentProps } from "./FormSubcomponents.types";
 
-const Form = forwardRef<HTMLDivElement, FormProps>(({ className, children, ...rest }, ref) => {
-    return(
-        <div data-testid="Form" className={cn("", className)} {...rest} ref={ref}>{children}</div>
-    )
-});
+interface FormComponent extends React.ForwardRefExoticComponent<FormProps & React.RefAttributes<HTMLFormElement>> {
+	Control: React.ForwardRefExoticComponent<FormControlSubComponentProps & React.RefAttributes<HTMLDivElement>>;
+	Footer: React.ForwardRefExoticComponent<FormFooterSubComponentProps & React.RefAttributes<HTMLDivElement>>;
+}
+
+const Form = forwardRef<HTMLFormElement, FormProps>(({ className, children, ...rest }, ref) => {
+	return (
+		<form data-testid='Form' className={cn("dui__form", className)} {...rest} ref={ref}>
+			{children}
+		</form>
+	);
+}) as FormComponent;
 
 export default Form;
-

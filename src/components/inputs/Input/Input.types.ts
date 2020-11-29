@@ -1,7 +1,12 @@
 // Auto-Generated
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	className?: string;
-	type: "text" | "email" | "password" | "url" | "number" | "tel" | "search";
+	labelClassName?: string;
+	fieldClassName?: string;
+	hintClassName?: string;
+	label: string | React.ReactNode | null;
+	invisibleLabel?: boolean;
+	hintMsg?: string | React.ReactNode | null;
 	valid?: boolean | null;
 	fieldSize?: "sm" | "md" | "lg" | "xl";
 	round?: boolean;

@@ -31,6 +31,7 @@ import ExpandIndicator from "./components/partials/ExpandIndicator/ExpandIndicat
 // --Surfaces
 import Card from "./components/surfaces/Card/Card";
 // --Utilities
+import Form from "./components/util/Form/Form";
 import Portal from "./components/util/Portal/Portal";
 
 //Hooks
@@ -72,6 +73,7 @@ export {
 	//--Surfaces
 	Card,
 	//--Utilities
+	Form,
 	Portal,
 	//HOOKS
 	useKeyPress,

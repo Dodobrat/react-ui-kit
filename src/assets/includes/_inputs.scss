@@ -1,4 +1,4 @@
-@mixin input($pigment: $subFont, $font: transparent, $modern: false) {
+@mixin input($pigment: $subFont, $modern: false) {
 	transition: all 0.15s ease;
 	position: relative;
 	caret-color: $mainFont;
@@ -34,60 +34,44 @@
 
 	&:-webkit-autofill:focus {
 		box-shadow: 0 0 0 0.2rem rgba($pigment, 0.1);
+		@if ($modern) {
+			box-shadow: none;
+		}
 	}
 
-	&.dui__input--round {
-		border-radius: $roundBorderRadius;
-		text-indent: 1rem;
-	}
-
-	&.dui__input--loading {
+	&.dui__input__field--loading {
 		cursor: progress;
 	}
 
 	@if ($modern) {
-		background: lighten($pigment, 20%);
 		border: 1px solid transparent;
-
 		&:hover {
 			border: 1px solid transparent;
-			background: lighten($pigment, 30%);
 		}
 
 		&:focus {
-			box-shadow: 0 0 0 0.2rem rgba($font, 0.2);
-		}
-
-		&:-webkit-autofill,
-		&:-webkit-autofill:hover,
-		&:-webkit-autofill:focus {
-			box-shadow: 0 0 0 50rem $pigment inset;
-			-webkit-box-shadow: 0 0 0 50rem $pigment inset;
-		}
-
-		&:-webkit-autofill:focus {
-			box-shadow: 0 0 0 0.2rem rgba($font, 0.2);
+			box-shadow: none;
 		}
 	}
 }
-.dui {
-	&__input {
+.dui__input {
+	&__field {
 		@include input();
 		@each $name, $color in $inputPigments {
-			&.dui__input--pigment-#{$name} {
+			&.dui__input__field--pigment-#{$name} {
 				@include input($color);
 			}
 		}
 		&--modern {
-			@include input($bg, $mainFont, true);
-			@each $name, $color, $font in $inputModernPigments {
-				&.dui__input--pigment-#{$name} {
-					@include input($color, $font, true);
+			@include input($subFont, true);
+			@each $name, $color in $inputPigments {
+				&.dui__input__field--pigment-#{$name} {
+					@include input($color, true);
 				}
 			}
 		}
 		@each $name, $size, $fontSize in $inputSizes {
-			&.dui__input--#{$name} {
+			&.dui__input__field--#{$name} {
 				height: $size;
 				font-size: $fontSize;
 				text-indent: calc(#{$size} / 3.5);
@@ -95,6 +79,9 @@
 					text-indent: calc(#{$size} / 2.5);
 				}
 			}
+		}
+		&.dui__input__field--round {
+			border-radius: $roundBorderRadius;
 		}
 	}
 	&__textarea {

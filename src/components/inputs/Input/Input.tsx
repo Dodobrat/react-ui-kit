@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import cn from "classnames";
 
 import { InputProps } from "./Input.types";
@@ -9,6 +9,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
 		{
 			className,
+			labelClassName,
+			fieldClassName,
+			hintClassName,
+			label = null,
+			invisibleLabel = false,
+			hintMsg = null,
 			type = "text",
 			name,
 			id = name,
@@ -23,31 +29,47 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 		},
 		ref
 	) => {
+		// const [populated, setPopulated] = useState(rest.value ? true : false);
 		return (
-			<input
-				data-testid='Input'
-				type={type}
-				name={id}
-				id={id}
+			<div
 				className={cn(
 					"dui__input",
-					{
-						[`dui__input--${fieldSize}`]: fieldSize !== "md",
-					},
-					{
-						"dui__input--round": round,
-						"dui__input--modern": modern,
-						"dui__input--loading": loading,
-					},
-					{
-						[`dui__input--valid-${valid}`]: valid,
-						[`dui__input--pigment-${pigment}`]: pigmentOptions.includes(pigment),
-					},
+					// {
+					// 	"dui__input--populated": populated,
+					// },
 					className
+				)}>
+				{label && (
+					<label htmlFor={id} className={cn("dui__input__label", labelClassName)}>
+						{label}
+					</label>
 				)}
-				{...rest}
-				ref={ref}
-			/>
+				<input
+					data-testid='Input'
+					type={type}
+					name={id}
+					id={id}
+					className={cn(
+						"dui__input__field",
+						{
+							[`dui__input__field--${fieldSize}`]: fieldSize !== "md",
+						},
+						{
+							"dui__input__field--round": round,
+							"dui__input__field--modern": modern,
+							"dui__input__field--loading": loading,
+						},
+						{
+							[`dui__input__field--valid-${valid}`]: valid,
+							[`dui__input__field--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						},
+						fieldClassName
+					)}
+					{...rest}
+					ref={ref}
+				/>
+				{hintMsg && <small className={cn("dui__input__hint", hintClassName)}>{hintMsg}</small>}
+			</div>
 		);
 	}
 );
