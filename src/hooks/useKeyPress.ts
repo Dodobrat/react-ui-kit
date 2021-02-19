@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const useKeyPress = (key: number | string, callback: (e: KeyboardEvent) => void, dir: "down" | "up" = "down") => {
+export const useKeyPress = (key: number | string, callback: (e: KeyboardEvent) => void, dir: "down" | "up" = "up") => {
 	const onPressRef = useRef(callback);
 
 	useEffect(() => {

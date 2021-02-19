@@ -1,11 +1,10 @@
 @mixin btn() {
-	transition: all 0.15s ease;
+	transition: $fastTrans;
+	display: inline-block;
 	position: relative;
-	height: $md;
 	margin: 0;
-	padding: 0 $mdFont;
+	padding: calc(#{$mdFont} * 0.6875) $mdFont;
 	background-color: transparent;
-	border: 1px solid transparent;
 	width: auto;
 	border-radius: $smBorderRadius;
 	font-size: $mdFont;
@@ -17,92 +16,139 @@
 	line-height: 1;
 	outline: none;
 	text-decoration: none;
+	border: none;
 
-	& > i {
+	& > * {
 		font-size: $mdFont;
 	}
 
-	&:focus {
+	&.dui__btn--focus-ring {
+		&:focus {
+			box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	&.dui__btn--active {
+		background: rgba(0, 0, 0, 0.175);
+	}
+
+	&:focus-visible {
 		box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
 	}
 
 	&:hover {
-		transition: all 0.15s ease;
+		transition: $fastTrans;
+		background: rgba(0, 0, 0, 0.1);
+	}
+
+	@include spongy();
+	&.dui__btn--still {
+		@include spongy(1);
 	}
 
 	&:disabled {
 		pointer-events: none;
+		cursor: not-allowed;
 		opacity: 0.5;
 	}
 }
 
-@mixin btnLoader($spinnerColor) {
-	color: rgba($spinnerColor, 0.1);
-	& > svg {
-		pointer-events: none;
-		fill: transparent;
-		z-index: 2;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 100%;
-		height: 100%;
-		animation: rotate 2s linear infinite;
+@mixin btnRoundOption($size: $mdFont) {
+	&.dui__btn--round {
+		border-radius: $roundBorderRadius;
+		width: calc(calc(#{$size} * 1.375) + #{$size});
+		height: calc(calc(#{$size} * 1.375) + #{$size});
+		padding: 0;
+	}
+}
 
-		& > circle {
-			stroke: $spinnerColor;
-			stroke-linecap: round;
-			fill: none;
-			animation: dash 2s ease-in-out infinite;
+@mixin btnPigmentOptions($options: $btnPigments) {
+	@each $name, $color, $font in $options {
+		&.dui__btn--#{$name} {
+			background-color: $color;
+			color: $font;
+			&:hover,
+			&.dui__btn--active {
+				background-color: darken($color, 5%);
+			}
+			&.dui__btn--focus-ring {
+				&:focus {
+					box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+				}
+			}
+			&:focus-visible {
+				box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+			}
+		}
+		&.dui__btn--color-#{$name} {
+			color: $font;
+			&.dui__btn--focus-ring {
+				&:focus {
+					box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+				}
+			}
+			&:focus-visible {
+				box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+			}
 		}
 	}
 }
 
-@keyframes rotate {
-	100% {
-		transform: translate(-50%, -50%) rotate(360deg);
+@mixin btnGroupCornerRoudness($radius: $smBorderRadius, $dir: "horizontal") {
+	border-radius: $radius;
+
+	& > *:first-child {
+		border-radius: $radius 0 0 $radius;
+	}
+	& > *:last-child {
+		border-radius: 0 $radius $radius 0;
+	}
+
+	@if $dir == "vertical" {
+		& > *:first-child {
+			border-radius: $radius $radius 0 0;
+		}
+		& > *:last-child {
+			border-radius: 0 0 $radius $radius;
+		}
 	}
 }
 
-@keyframes dash {
-	0% {
-		stroke-dasharray: 0, 55;
-		stroke-dashoffset: 0;
-	}
-	50% {
-		stroke-dasharray: 20, 55;
-		stroke-dashoffset: -15;
-	}
-	100% {
-		stroke-dasharray: 30, 55;
-		stroke-dashoffset: -31;
-	}
+a.dui__btn {
+	vertical-align: bottom;
 }
 
 .dui__btn {
 	@include btn();
-	&--loading {
-		cursor: progress;
-		@include btnLoader($lightFont);
-	}
-	@each $name, $size, $font in $btnSizes {
+	@include btnRoundOption();
+	@each $name, $font in $btnSizes {
 		&.dui__btn--#{$name} {
-			height: $size;
 			font-size: $font;
-			padding: 0 $font;
+			padding: calc(#{$font} * 0.75) $font;
+
+			& > * {
+				font-size: $font;
+			}
+			@include btnRoundOption($font);
 		}
 	}
-	&--round {
-		border-radius: $roundBorderRadius;
+	@include btnPigmentOptions();
+	&.dui__btn--contrast {
+		@include btnPigmentOptions($contrastBtnPigments);
+	}
+	&--loading {
+		cursor: progress;
+		opacity: 0.75;
+	}
+	&--flat {
+		border-radius: $flatBorderRadius;
+	}
+	&--rounded {
+		border-radius: $roundedBorderRadius;
 	}
 	&--wide {
+		display: block;
 		width: 100%;
-	}
-	&--flex {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 	&--no-wrap {
 		white-space: nowrap;
@@ -110,100 +156,35 @@
 	}
 	&--left-align {
 		text-align: left;
-		&.dui__btn--flex {
-			justify-content: flex-start;
-		}
-	}
-	@each $name, $color, $font in $btnPigments {
-		&.dui__btn--pigment-#{$name} {
-			background-color: $color;
-			color: $font;
-			&:hover,
-			&.dui__btn--active {
-				background-color: darken(rgbaToRgb($color), 5%);
-			}
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
-			}
-			&.dui__btn--loading {
-				@include btnLoader($font);
-			}
-		}
-	}
-	&--outlined {
-		@each $name, $color, $font in $btnPigments {
-			&.dui__btn--pigment-#{$name} {
-				background-color: transparent;
-				color: $color;
-				border: 1px solid rgba($color, 0.75);
-				&.dui__btn--loading {
-					@include btnLoader($color);
-				}
-				&:hover,
-				&.dui__btn--active {
-					background-color: rgba(rgbaToRgb($color), 0.1);
-					color: $color;
-					border: 1px solid $color;
-					&.dui__btn--loading {
-						@include btnLoader($color);
-					}
-				}
-			}
-		}
-	}
-	&--modern {
-		@each $name, $color, $font in $btnModernPigments {
-			&.dui__btn--pigment-#{$name} {
-				background-color: rgbaToRgb($color);
-				color: $font;
-				&:hover,
-				&.dui__btn--active {
-					background-color: darken(rgbaToRgb($color), 5%);
-				}
-				&:focus {
-					box-shadow: 0 0 0 0.2rem rgba($font, 0.25);
-				}
-				&.dui__btn--loading {
-					@include btnLoader($font);
-				}
-			}
-		}
 	}
 	&-group {
 		position: relative;
 		display: inline-flex;
 		align-items: center;
-		border-radius: $smBorderRadius;
-		&:focus {
-			outline: none;
+		outline: none;
+
+		&:focus-visible {
 			box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
 		}
+
 		& > * {
 			border-radius: 0;
 			&:focus {
 				z-index: 2;
 			}
 		}
-		& > *:first-child {
-			border-radius: $smBorderRadius 0 0 $smBorderRadius;
-		}
-		& > *:last-child {
-			border-radius: 0 $smBorderRadius $smBorderRadius 0;
-		}
+		@include btnGroupCornerRoudness();
 		&--wide {
 			width: 100%;
 			& > * {
 				flex: 1;
 			}
 		}
-		&--round {
-			border-radius: $roundBorderRadius;
-			& > *:first-child {
-				border-radius: $roundBorderRadius 0 0 $roundBorderRadius;
-			}
-			& > *:last-child {
-				border-radius: 0 $roundBorderRadius $roundBorderRadius 0;
-			}
+		&--rounded {
+			@include btnGroupCornerRoudness($roundedBorderRadius);
+		}
+		&--flat {
+			@include btnGroupCornerRoudness($flatBorderRadius);
 		}
 		&--vertical {
 			flex-direction: column;
@@ -212,20 +193,13 @@
 			& > * {
 				width: 100%;
 			}
-			& > *:first-child {
-				border-radius: $smBorderRadius $smBorderRadius 0 0;
+			@include btnGroupCornerRoudness($smBorderRadius, "vertical");
+
+			&.dui__btn-group--rounded {
+				@include btnGroupCornerRoudness($xlBorderRadius, "vertical");
 			}
-			& > *:last-child {
-				border-radius: 0 0 $smBorderRadius $smBorderRadius;
-			}
-			&.dui__btn-group--round {
-				border-radius: $lgBorderRadius;
-				& > *:first-child {
-					border-radius: $lgBorderRadius $lgBorderRadius 0 0;
-				}
-				& > *:last-child {
-					border-radius: 0 0 $lgBorderRadius $lgBorderRadius;
-				}
+			&.dui__btn-group--flat {
+				@include btnGroupCornerRoudness($flatBorderRadius, "vertical");
 			}
 		}
 	}

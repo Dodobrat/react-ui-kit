@@ -1,82 +1,69 @@
+// Styles
+import "./assets/app.scss";
 // Components
-// --Data Display
-import Badge from "./components/data_display/Badge/Badge";
-import ListGroup from "./components/data_display/ListGroup/ListGroup";
-//--Feedback
-import ProgressBar from "./components/feedback/ProgressBar/ProgressBar";
-import ProgressCircle from "./components/feedback/ProgressCircle/ProgressCircle";
-// --Inputs
-import Button from "./components/inputs/Button/Button";
-import ButtonGroup from "./components/inputs/ButtonGroup/ButtonGroup";
-import Checkbox from "./components/inputs/Checkbox/Checkbox";
-import File from "./components/inputs/File/File";
-import Input from "./components/inputs/Input/Input";
-import InputGroup from "./components/inputs/InputGroup/InputGroup";
-import Radio from "./components/inputs/Radio/Radio";
-import Slider from "./components/inputs/Slider/Slider";
-import Switch from "./components/inputs/Switch/Switch";
-import TextArea from "./components/inputs/TextArea/TextArea";
-// --Layout
-import Container from "./components/layout/Container/Container";
-import Flex from "./components/layout/Flex/Flex";
-// --Loaders
-import LineLoader from "./components/loaders/LineLoader/LineLoader";
-import SpinnerLoader from "./components/loaders/SpinnerLoader/SpinnerLoader";
-// --Navigation
-import Breadcrumbs from "./components/navigation/Breadcrumbs/Breadcrumbs";
-import Navbar from "./components/navigation/Navbar/Navbar";
-// --Partials
-import CLoseBtn from "./components/partials/CloseBtn/CloseBtn";
-import ExpandIndicator from "./components/partials/ExpandIndicator/ExpandIndicator";
-// --Surfaces
-import Card from "./components/surfaces/Card/Card";
-// --Utilities
+import Badge from "./components/Badge/Badge";
+import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
+import Button from "./components/Button/Button";
+import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
+import Card from "./components/Card/Card";
+import Checkbox from "./components/Checkbox/Checkbox";
+import CloseBtn from "./components/CloseBtn/CloseBtn";
+import Container from "./components/Container/Container";
+import ExpandIndicator from "./components/ExpandIndicator/ExpandIndicator";
+import File from "./components/File/File";
+import Flex from "./components/Flex/Flex";
 import Form from "./components/util/Form/Form";
+import Input from "./components/Input/Input";
+import InputGroup from "./components/InputGroup/InputGroup";
+import LineLoader from "./components/LineLoader/LineLoader";
+import ListGroup from "./components/ListGroup/ListGroup";
+import Navbar from "./components/Navbar/Navbar";
 import Portal from "./components/util/Portal/Portal";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
+import ProgressCircle from "./components/ProgressCircle/ProgressCircle";
+import Radio from "./components/Radio/Radio";
+import Slider from "./components/Slider/Slider";
+import SpinnerLoader from "./components/SpinnerLoader/SpinnerLoader";
+import Switch from "./components/Switch/Switch";
+import TextArea from "./components/TextArea/TextArea";
 
 //Hooks
 import { useKeyPress } from "./hooks/useKeyPress";
 import { usePortal } from "./components/util/Portal/usePortal";
 import { useWindowResize } from "./hooks/useWindowResize";
 
+//Context
+
 export {
 	//COMPONENTS
-	//--Data Display
 	Badge,
-	ListGroup,
-	//--Feedback
-	ProgressBar,
-	ProgressCircle,
-	//--Inputs
-	ButtonGroup,
+	Breadcrumbs,
 	Button,
+	ButtonGroup,
+	Card,
 	Checkbox,
+	CloseBtn,
+	Container,
+	ExpandIndicator,
 	File,
+	Flex,
+	Form,
 	Input,
 	InputGroup,
+	LineLoader,
+	ListGroup,
+	Navbar,
+	Portal,
+	ProgressBar,
+	ProgressCircle,
 	Radio,
 	Slider,
+	SpinnerLoader,
 	Switch,
 	TextArea,
-	//--Layout
-	Container,
-	Flex,
-	//--Loaders
-	LineLoader,
-	SpinnerLoader,
-	//--Navigation
-	Breadcrumbs,
-	Navbar,
-	//--Partials
-	CLoseBtn,
-	ExpandIndicator,
-	//--Surfaces
-	Card,
-	//--Utilities
-	Form,
-	Portal,
 	//HOOKS
 	useKeyPress,
 	usePortal,
 	useWindowResize,
+	//CONTEXT
 };

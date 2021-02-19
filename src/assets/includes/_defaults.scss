@@ -50,20 +50,11 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: $lgFont;
-	font-weight: 500;
 	margin: 0 0 1rem 0;
 }
 
 p {
 	margin: 0 0 1rem 0;
-}
-
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled),
-button:not(:disabled) {
-	cursor: pointer;
 }
 
 hr {
@@ -73,12 +64,9 @@ hr {
 	margin: 1rem 0;
 	border: 0;
 	border-top: 1px solid rgba($mainFont, 0.125);
-	&[modern] {
-		margin: 1rem;
-	}
-	@each $name, $color in $hrPigments {
-		&[pigment="#{$name}"] {
-			border-top: 1px solid rgba($color, 0.125);
-		}
-	}
+	// @each $name, $color in $hrPigments {
+	// 	&[pigment="#{$name}"] {
+	// 		border-top: 1px solid rgba($color, 0.125);
+	// 	}
+	// }
 }

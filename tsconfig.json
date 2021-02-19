@@ -10,8 +10,13 @@
 		"jsx": "react",
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"allowJs": false,
+		"forceConsistentCasingInFileNames": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"suppressImplicitAnyIndexErrors": true
 	},
 	"include": ["src/**/*"],
-	"exclude": ["node_modules", "build", "src/**/*.test.tsx"]
+	"exclude": ["node_modules", "build", "rollup.config.js", "src/**/*.test.tsx"]
 }
