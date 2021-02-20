@@ -113,12 +113,6 @@ $roundBorderRadius: 50% !default;
 // 	"dark" $modernDark $dark;
 
 //--Buttons
-$btnSizes: (
-	"xs": $xsFont,
-	"sm": $smFont,
-	"lg": $lgFont,
-	"xl": $xlFont,
-);
 
 //--Inputs
 // $inputPigments: "primary" $primary, "secondary" $secondary, "success" $success, "warning" $warning, "info" $info, "danger" $danger,
@@ -164,6 +158,14 @@ $progressBarMinifiedLabelPositions: "center" 0 50% unset translate(-50%, -125%),
 // 	"dark" $modernDark $dark;
 
 // Helpers
+$sizes: (
+	"xs": $xsFont,
+	"sm": $smFont,
+	"md": $mdFont,
+	"lg": $lgFont,
+	"xl": $xlFont,
+);
+
 $pigments: (
 	"primary": (
 		"name": "primary",

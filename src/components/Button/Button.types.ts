@@ -34,6 +34,7 @@ export interface ButtonProps extends ExtraButtonProps {
 	flat?: boolean;
 	wide?: boolean;
 	active?: boolean;
+	disableWhileLoading?: boolean;
 	loading?: boolean;
 	loadingComponent?: boolean | JSX.Element | React.ReactNode | React.ElementType;
 	children?: React.ReactNode;

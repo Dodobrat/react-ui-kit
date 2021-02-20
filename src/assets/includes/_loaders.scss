@@ -13,33 +13,75 @@
 	}
 }
 
-// .dui__spinner {
-// 	border-style: solid;
-// 	border-width: 0.3rem;
-// 	border-radius: 50%;
-// 	width: 3rem;
-// 	height: 3rem;
-// 	animation: spin 1s linear infinite;
-// 	@each $name, $size in $loaderSizes {
-// 		&.dui__spinner--#{$name} {
-// 			width: calc(#{$size} + 0.5rem);
-// 			height: calc(#{$size} + 0.5rem);
-// 			border-width: $size * 0.1;
-// 		}
-// 	}
-// 	@each $name, $color in $loaderPigments {
-// 		&.dui__spinner--pigment-#{$name} {
-// 			border-color: rgba($color, 0.25);
-// 			border-top-color: $color;
-// 		}
-// 	}
-// }
+@mixin spinnerPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
 
-// @keyframes spin {
-// 	to {
-// 		transform: rotate(360deg);
-// 	}
-// }
+		&.dui__spinner--pigment-#{$name} {
+			border-color: rgba($bgColor, 0.25);
+			border-top-color: $bgColor;
+		}
+	}
+}
+
+@mixin spinnerPigmentBtnOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+
+		&.dui__spinner--pigment-#{$name} {
+			border-color: rgba($fontColor, 0.25);
+			border-top-color: $fontColor;
+		}
+	}
+}
+
+.dui__spinner {
+	border-style: solid;
+	border-radius: $roundBorderRadius;
+	animation: spin 1s linear infinite;
+	@each $name, $size in $sizes {
+		&.dui__spinner--#{$name} {
+			$calcSize: calc(calc(#{$size} * 1.375) + #{$size});
+
+			width: $calcSize;
+			height: $calcSize;
+			border-width: calc(#{$calcSize} * 0.15);
+		}
+	}
+
+	@include spinnerPigmentOptions();
+
+	&--contrast {
+		@include spinnerPigmentOptions($contrastPigments);
+	}
+
+	&--btn {
+		animation: btnSpin 1s linear infinite;
+		@include spinnerPigmentBtnOptions();
+		&.dui__spinner--contrast {
+			@include spinnerPigmentBtnOptions($contrastPigments);
+		}
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes btnSpin {
+	from {
+		transform: scale(0.5) rotate(0deg);
+	}
+	to {
+		transform: scale(0.5) rotate(360deg);
+	}
+}
 
 .dui__line-loader {
 	position: relative;

@@ -3,19 +3,29 @@ import React from "react";
 import cn from "classnames";
 
 import { SpinnerLoaderProps } from "./SpinnerLoader.types";
-import { PigmentOptions } from "../../helpers/global";
+import { PigmentOptions, SizeOptions } from "../../helpers/global";
 
-const SpinnerLoader: React.FC<SpinnerLoaderProps> = ({ size = "md", pigment = "primary", ...rest }) => {
+const SpinnerLoader: React.ForwardRefRenderFunction<HTMLDivElement, SpinnerLoaderProps> = (props, ref) => {
+	const { size = "md", btnLoader = false, contrast = false, pigment = "primary", ...rest } = props;
+
 	return (
 		<div
 			data-testid='SpinnerLoader'
-			className={cn("dui__spinner", {
-				[`dui__spinner--${size}`]: size !== "md",
-				[`dui__spinner--pigment-${pigment}`]: PigmentOptions.includes(pigment),
-			})}
+			className={cn(
+				"dui__spinner",
+				{
+					"dui__spinner--contrast": contrast,
+					"dui__spinner--btn": btnLoader,
+				},
+				{
+					[`dui__spinner--${size}`]: SizeOptions.includes(size),
+					[`dui__spinner--pigment-${pigment}`]: PigmentOptions.includes(pigment),
+				}
+			)}
 			{...rest}
+			ref={ref}
 		/>
 	);
 };
 
-export default SpinnerLoader;
+export default React.forwardRef<HTMLDivElement, SpinnerLoaderProps>(SpinnerLoader);

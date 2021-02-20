@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { useDebounce } from "./useDebounce";
 
 interface useWindowResizeTypes {
 	width: number;
 	height: number;
 }
 
-export const useWindowResize: () => useWindowResizeTypes = () => {
+export const useWindowResize: (delay?: number) => useWindowResizeTypes = (delay = 1) => {
 	const isSSR: boolean = typeof window === "undefined";
 	const [dimensions, setDimensions] = useState<useWindowResizeTypes>(() =>
 		isSSR ? { width: 1920, height: 1080 } : { width: window.innerWidth, height: window.innerHeight }
@@ -23,5 +24,7 @@ export const useWindowResize: () => useWindowResizeTypes = () => {
 		}
 	});
 
-	return dimensions;
+	const debouncedWindowDimensions: any = useDebounce(dimensions, delay);
+
+	return debouncedWindowDimensions;
 };

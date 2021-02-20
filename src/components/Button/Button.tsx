@@ -27,8 +27,9 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		flat = false,
 		wide = false,
 		active = false,
+		disableWhileLoading = true,
 		loading = false,
-		loadingComponent = <SpinnerLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={pigment ?? pigmentColor} contrast={contrast} btnLoader />,
 		children,
 		...rest
 	} = props;
@@ -79,6 +80,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 				},
 				{
 					"dui__btn--loading": loading,
+					"dui__btn--loading-disabled": loading && disableWhileLoading,
 					"dui__btn--active": active,
 				},
 				className
@@ -88,7 +90,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 			{iconStart && iconStart}
 			{children}
 			{iconEnd && iconEnd}
-			{loading && loadingComponent}
+			{loading && <div className='dui__btn--loading__overlay'>{loadingComponent}</div>}
 		</ParsedComponent>
 	);
 };
