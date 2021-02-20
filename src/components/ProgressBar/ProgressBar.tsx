@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { ProgressBarProps } from "./ProgressBar.types";
-import { pigmentOptions } from "../../helpers/pigments";
+import { PigmentOptions } from "../../helpers/global";
 
 const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 	(
@@ -47,7 +47,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 						"dui__progress-bar--minified": minified,
 					},
 					{
-						[`dui__progress-bar--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__progress-bar--pigment-${pigment}`]: PigmentOptions.includes(pigment),
 					},
 					className
 				)}

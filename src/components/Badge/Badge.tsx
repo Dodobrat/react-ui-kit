@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { BadgeProps } from "./Badge.types";
-import { pigmentOptions } from "../../helpers/pigments";
+import { PigmentOptions } from "../../helpers/global";
 
 const Badge = forwardRef<HTMLDivElement, BadgeProps>(
 	({ className, pigment = "primary", size = "md", pill = false, modern = false, onClick = null, children, ...rest }, ref) => {
@@ -21,7 +21,7 @@ const Badge = forwardRef<HTMLDivElement, BadgeProps>(
 						"dui__badge--clickable": onClick,
 					},
 					{
-						[`dui__badge--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__badge--pigment-${pigment}`]: PigmentOptions.includes(pigment),
 					},
 					className
 				)}

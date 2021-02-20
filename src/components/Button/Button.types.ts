@@ -1,10 +1,26 @@
-import { PigmentOptions, SizeOptions } from "../../helpers/global.types";
+import { ElevationOptions, PigmentOptions, SizeOptions } from "../../helpers/global.types";
 
 // Auto-Generated
-export interface ButtonProps {
+type HTMLButtonProps = {
+	onClick?: React.MouseEventHandler<HTMLButtonElement>;
+};
+
+/**
+ * If href is supplied, button becomes an anchor link
+ */
+type HTMLAnchorProps = {
+	href?: string;
+};
+
+type ExtraButtonProps = HTMLButtonProps & HTMLAnchorProps;
+
+export interface ButtonProps extends ExtraButtonProps {
 	className?: string;
 	type?: "button" | "submit" | "reset";
-	renderAs?: "button" | "a";
+	renderAs?: React.ElementType;
+	elevation?: ElevationOptions;
+	iconStart?: null | React.ElementType;
+	iconEnd?: null | React.ElementType;
 	leftAlignContent?: boolean;
 	unWrapText?: boolean;
 	pigment?: null | PigmentOptions;
@@ -19,7 +35,6 @@ export interface ButtonProps {
 	wide?: boolean;
 	active?: boolean;
 	loading?: boolean;
-	loadingComponent?: boolean | JSX.Element | React.ReactNode;
+	loadingComponent?: boolean | JSX.Element | React.ReactNode | React.ElementType;
 	children?: React.ReactNode;
-	onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }

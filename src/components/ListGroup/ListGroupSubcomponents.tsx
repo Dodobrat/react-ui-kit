@@ -7,8 +7,8 @@ import {
 	ListGroupCollapseContentSubComponentProps,
 	ListGroupItemSubComponentProps,
 } from "./ListGroupSubcomponents.types";
-import { pigmentOptions } from "../../helpers/pigments";
 import ExpandIndicator from "../ExpandIndicator/ExpandIndicator";
+import { PigmentOptions } from "../../helpers/global";
 
 export const ListGroupHeader = forwardRef<HTMLDivElement, ListGroupHeaderSubComponentProps>(
 	({ className, as, pigment, align = "left", children, ...rest }, ref) => {
@@ -20,7 +20,7 @@ export const ListGroupHeader = forwardRef<HTMLDivElement, ListGroupHeaderSubComp
 					"dui__list__group__header",
 					{
 						[`dui__list__group__header--align-${align}`]: align !== "left",
-						[`dui__list__group__header--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__list__group__header--pigment-${pigment}`]: PigmentOptions.includes(pigment),
 					},
 					className
 				)}
@@ -46,7 +46,7 @@ export const ListGroupItem = forwardRef<HTMLDivElement, ListGroupItemSubComponen
 						"dui__list__group__item--active": active,
 					},
 					{
-						[`dui__list__group__item--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__list__group__item--pigment-${pigment}`]: PigmentOptions.includes(pigment),
 					},
 					className
 				)}
@@ -153,7 +153,7 @@ export const ListGroupCollapse = forwardRef<HTMLDivElement, ListGroupCollapseSub
 						"dui__list__group__collapse--no-indent": !nestedCollapseIndent,
 					},
 					{
-						[`dui__list__group__collapse--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__list__group__collapse--pigment-${pigment}`]: PigmentOptions.includes(pigment),
 					},
 					className
 				)}

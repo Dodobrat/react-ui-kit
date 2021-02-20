@@ -64,12 +64,6 @@ $mdFont: 1rem;
 $lgFont: 1.2085rem;
 $xlFont: 1.475rem;
 
-//SHADOWS
-$smShadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px !default;
-$mdShadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !default;
-$lgShadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px !default;
-$xlShadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px !default;
-
 //OTHER
 $flatBorderRadius: 0 !default;
 $xsBorderRadius: 0.15rem !default;
@@ -84,6 +78,13 @@ $roundBorderRadius: 50% !default;
 // @function rgbaToRgb($rgba, $background: $bgCard) {
 // 	@return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%);
 // }
+
+@function map-deep-get($map, $keys...) {
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+	@return $map;
+}
 
 //MIXINS
 @mixin spongy($amount: 0.95) {
@@ -112,18 +113,13 @@ $roundBorderRadius: 50% !default;
 // 	"dark" $modernDark $dark;
 
 //--Buttons
-$btnSizes: "xs" $xsFont, "sm" $smFont, "lg" $lgFont, "xl" $xlFont;
+$btnSizes: (
+	"xs": $xsFont,
+	"sm": $smFont,
+	"lg": $lgFont,
+	"xl": $xlFont,
+);
 
-$btnPigments: "primary" $primaryBg $primaryFont, "secondary" $secondaryBg $secondaryFont, "success" $successBg $successFont,
-	"warning" $warningBg $warningFont, "danger" $dangerBg $dangerFont, "info" $infoBg $infoFont;
-
-$contrastBtnPigments: "primary" $primaryContrastBg $primaryContrastFont, "secondary" $secondaryContrastBg $secondaryContrastFont,
-	"success" $successContrastBg $successContrastFont, "warning" $warningContrastBg $warningContrastFont,
-	"danger" $dangerContrastBg $dangerContrastFont, "info" $infoContrastBg $infoContrastFont;
-
-// $btnModernPigments: "primary" $modernPrimary $primary, "secondary" $modernSecondary $secondary, "success" $modernSuccess $success,
-// 	"warning" $modernWarning $warning, "info" $modernInfo $info, "danger" $modernDanger $danger, "light" $modernLight $light,
-// 	"dark" $modernDark $dark;
 //--Inputs
 // $inputPigments: "primary" $primary, "secondary" $secondary, "success" $success, "warning" $warning, "info" $info, "danger" $danger,
 // 	"light" $light, "dark" $dark;
@@ -135,12 +131,6 @@ $contrastBtnPigments: "primary" $primaryContrastBg $primaryContrastFont, "second
 // $inputSizes: "sm" $sm $smFont, "lg" $lg $lgFont, "xl" $xl $xlFont;
 
 //--Cards
-// $cardPigments: "primary" $primary $primaryFont, "secondary" $secondary $secondaryFont, "success" $success $successFont,
-// 	"warning" $warning $warningFont, "info" $info $infoFont, "danger" $danger $dangerFont, "light" $light $lightFont, "dark" $dark $darkFont;
-
-// $cardModernPigments: "primary" $modernPrimary $primary, "secondary" $modernSecondary $secondary, "success" $modernSuccess $success,
-// 	"warning" $modernWarning $warning, "info" $modernInfo $info, "danger" $modernDanger $danger, "light" $modernLight $light,
-// 	"dark" $modernDark $dark;
 
 //--List Groups
 // $listPigments: "primary" $primary $primaryFont, "secondary" $secondary $secondaryFont, "success" $success $successFont,
@@ -172,3 +162,94 @@ $progressBarMinifiedLabelPositions: "center" 0 50% unset translate(-50%, -125%),
 // $progressModernPigments: "primary" $modernPrimary $primary, "secondary" $modernSecondary $secondary, "success" $modernSuccess $success,
 // 	"warning" $modernWarning $warning, "info" $modernInfo $info, "danger" $modernDanger $danger, "light" $modernLight $light,
 // 	"dark" $modernDark $dark;
+
+// Helpers
+$pigments: (
+	"primary": (
+		"name": "primary",
+		"bgColor": $primaryBg,
+		"fontColor": $primaryFont,
+	),
+	"secondary": (
+		"name": "secondary",
+		"bgColor": $secondaryBg,
+		"fontColor": $secondaryFont,
+	),
+	"success": (
+		"name": "success",
+		"bgColor": $successBg,
+		"fontColor": $successFont,
+	),
+	"warning": (
+		"name": "warning",
+		"bgColor": $warningBg,
+		"fontColor": $warningFont,
+	),
+	"danger": (
+		"name": "danger",
+		"bgColor": $dangerBg,
+		"fontColor": $dangerFont,
+	),
+	"info": (
+		"name": "info",
+		"bgColor": $infoBg,
+		"fontColor": $infoFont,
+	),
+);
+
+$contrastPigments: (
+	"primary": (
+		"name": "primary",
+		"bgColor": $primaryContrastBg,
+		"fontColor": $primaryContrastFont,
+	),
+	"secondary": (
+		"name": "secondary",
+		"bgColor": $secondaryContrastBg,
+		"fontColor": $secondaryContrastFont,
+	),
+	"success": (
+		"name": "success",
+		"bgColor": $successContrastBg,
+		"fontColor": $successContrastFont,
+	),
+	"warning": (
+		"name": "warning",
+		"bgColor": $warningContrastBg,
+		"fontColor": $warningContrastFont,
+	),
+	"danger": (
+		"name": "danger",
+		"bgColor": $dangerContrastBg,
+		"fontColor": $dangerContrastFont,
+	),
+	"info": (
+		"name": "info",
+		"bgColor": $infoContrastBg,
+		"fontColor": $infoContrastFont,
+	),
+);
+
+$elevations: (
+	"none": none,
+	"subtle": (
+		0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.05),
+		0 0.0625rem 0.125rem rgba(0, 0, 0, 0.17),
+	),
+	"light": (
+		0 0.1875rem 0.375rem rgba(0, 0, 0, 0.09),
+		0 0.1875rem 0.375rem rgba(0, 0, 0, 0.16),
+	),
+	"medium": (
+		0 0.625rem 1.25rem rgba(0, 0, 0, 0.12),
+		0 0.375rem 0.375rem rgba(0, 0, 0, 0.16),
+	),
+	"strong": (
+		0 0.875rem 1.75rem rgba(0, 0, 0, 0.18),
+		0 0.625rem 0.625rem rgba(0, 0, 0, 0.15),
+	),
+	"interstellar": (
+		0 1.1875rem 2.375rem rgba(0, 0, 0, 0.23),
+		0 0.9375rem 0.75rem rgba(0, 0, 0, 0.15),
+	),
+);

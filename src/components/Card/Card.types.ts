@@ -1,10 +1,15 @@
+import { ElevationOptions, PigmentOptions } from "../../helpers/global.types";
+
 // Auto-Generated
 export interface CardProps {
-	cardImgPosition?: "top" | "bottom" | "left" | "right";
-	modern?: boolean;
+	imgPosition?: "top" | "bottom" | "left" | "right";
+	elevation?: ElevationOptions;
+	pigment?: null | PigmentOptions;
+	contrast?: boolean;
+	flat?: boolean;
 	allowOverflow?: boolean;
+	disableWhileLoading?: boolean;
 	loading?: boolean;
-	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	className?: string;
 	children?: React.ReactNode;
 }

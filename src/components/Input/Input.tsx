@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { InputProps } from "./Input.types";
-import { pigmentOptions } from "../../helpers/pigments";
+import { PigmentOptions } from "../../helpers/global";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
@@ -61,7 +61,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 						},
 						{
 							[`dui__input__field--valid-${valid}`]: valid,
-							[`dui__input__field--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+							[`dui__input__field--pigment-${pigment}`]: PigmentOptions.includes(pigment),
 						},
 						fieldClassName
 					)}

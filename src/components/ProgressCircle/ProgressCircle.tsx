@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { ProgressCircleProps } from "./ProgressCircle.types";
-import { pigmentOptions } from "../../helpers/pigments";
+import { PigmentOptions } from "../../helpers/global";
 
 const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
 	(
@@ -50,7 +50,7 @@ const ProgressCircle = forwardRef<SVGSVGElement, ProgressCircleProps>(
 						"dui__progress-circle--reversed": counterClockWise,
 					},
 					{
-						[`dui__progress-circle--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__progress-circle--pigment-${pigment}`]: PigmentOptions.includes(pigment),
 					},
 					className
 				)}

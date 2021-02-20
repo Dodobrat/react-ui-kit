@@ -12,11 +12,11 @@
 	color: $mainFont;
 	overflow: hidden;
 	user-select: none;
-	cursor: pointer;
 	line-height: 1;
 	outline: none;
 	text-decoration: none;
 	border: none;
+	vertical-align: middle;
 
 	& > * {
 		font-size: $mdFont;
@@ -24,7 +24,7 @@
 
 	&.dui__btn--focus-ring {
 		&:focus {
-			box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+			box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1), 0 0 0 0.1rem rgba(0, 0, 0, 0.25);
 		}
 	}
 
@@ -33,7 +33,7 @@
 	}
 
 	&:focus-visible {
-		box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1), 0 0 0 0.1rem rgba(0, 0, 0, 0.25);
 	}
 
 	&:hover {
@@ -47,9 +47,11 @@
 	}
 
 	&:disabled {
-		pointer-events: none;
 		cursor: not-allowed;
-		opacity: 0.5;
+	}
+
+	&:not(:disabled) {
+		cursor: pointer;
 	}
 }
 
@@ -62,33 +64,37 @@
 	}
 }
 
-@mixin btnPigmentOptions($options: $btnPigments) {
-	@each $name, $color, $font in $options {
+@mixin btnPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
 		&.dui__btn--#{$name} {
-			background-color: $color;
-			color: $font;
+			background-color: $bgColor;
+			color: $fontColor;
 			&:hover,
 			&.dui__btn--active {
-				background-color: darken($color, 5%);
+				background-color: darken($bgColor, 5%);
 			}
 			&.dui__btn--focus-ring {
 				&:focus {
-					box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+					box-shadow: 0 0 0 0.2rem rgba($bgColor, 0.5), 0 0 0 0.1rem rgba($fontColor, 0.25);
 				}
 			}
 			&:focus-visible {
-				box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+				box-shadow: 0 0 0 0.2rem rgba($bgColor, 0.5), 0 0 0 0.1rem rgba($fontColor, 0.25);
 			}
 		}
 		&.dui__btn--color-#{$name} {
-			color: $font;
+			color: $fontColor;
 			&.dui__btn--focus-ring {
 				&:focus {
-					box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+					box-shadow: 0 0 0 0.2rem rgba($bgColor, 0.5), 0 0 0 0.1rem rgba($fontColor, 0.25);
 				}
 			}
 			&:focus-visible {
-				box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+				box-shadow: 0 0 0 0.2rem rgba($bgColor, 0.5), 0 0 0 0.1rem rgba($fontColor, 0.25);
 			}
 		}
 	}
@@ -114,10 +120,6 @@
 	}
 }
 
-a.dui__btn {
-	vertical-align: bottom;
-}
-
 .dui__btn {
 	@include btn();
 	@include btnRoundOption();
@@ -134,7 +136,17 @@ a.dui__btn {
 	}
 	@include btnPigmentOptions();
 	&.dui__btn--contrast {
-		@include btnPigmentOptions($contrastBtnPigments);
+		@include btnPigmentOptions($contrastPigments);
+	}
+	&--icon-start {
+		i {
+			margin-right: 0.5rem;
+		}
+	}
+	&--icon-end {
+		i {
+			margin-left: 0.5rem;
+		}
 	}
 	&--loading {
 		cursor: progress;
@@ -164,7 +176,7 @@ a.dui__btn {
 		outline: none;
 
 		&:focus-visible {
-			box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+			box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1), 0 0 0 0.1rem rgba(0, 0, 0, 0.25);
 		}
 
 		& > * {

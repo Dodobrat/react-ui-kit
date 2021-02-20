@@ -1,7 +1,6 @@
 // Auto-Generated
 import React, { forwardRef } from "react";
 import cn from "classnames";
-import { pigmentOptions } from "../../helpers/pigments";
 
 import { ListGroupProps } from "./ListGroup.types";
 import {
@@ -10,6 +9,7 @@ import {
 	ListGroupItemSubComponentProps,
 } from "./ListGroupSubcomponents.types";
 import { ListGroupCollapse, ListGroupHeader, ListGroupItem } from "./ListGroupSubcomponents";
+import { PigmentOptions } from "../../helpers/global";
 
 interface ListGroupComponent extends React.ForwardRefExoticComponent<ListGroupProps & React.RefAttributes<HTMLDivElement>> {
 	Header: React.ForwardRefExoticComponent<ListGroupHeaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -63,7 +63,7 @@ const ListGroup = forwardRef<HTMLDivElement, ListGroupProps>(
 						"dui__list__group--modern": modern,
 					},
 					{
-						[`dui__list__group--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+						[`dui__list__group--pigment-${pigment}`]: PigmentOptions.includes(pigment),
 					},
 					className
 				)}

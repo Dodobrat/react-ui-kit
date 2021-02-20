@@ -1,30 +1,45 @@
-.dui__spinner {
-	border-style: solid;
-	border-width: 0.3rem;
-	border-radius: 50%;
-	width: 3rem;
-	height: 3rem;
-	animation: spin 1s linear infinite;
-	@each $name, $size in $loaderSizes {
-		&.dui__spinner--#{$name} {
-			width: calc(#{$size} + 0.5rem);
-			height: calc(#{$size} + 0.5rem);
-			border-width: $size * 0.1;
-		}
-	}
-	@each $name, $color in $loaderPigments {
-		&.dui__spinner--pigment-#{$name} {
-			border-color: rgba($color, 0.25);
-			border-top-color: $color;
+@mixin lineLoaderPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+
+		&.dui__line-loader--pigment-#{$name} {
+			background-color: rgba($bgColor, 0.25);
+			.dui__line-loader__line {
+				background: $bgColor;
+			}
 		}
 	}
 }
 
-@keyframes spin {
-	to {
-		transform: rotate(360deg);
-	}
-}
+// .dui__spinner {
+// 	border-style: solid;
+// 	border-width: 0.3rem;
+// 	border-radius: 50%;
+// 	width: 3rem;
+// 	height: 3rem;
+// 	animation: spin 1s linear infinite;
+// 	@each $name, $size in $loaderSizes {
+// 		&.dui__spinner--#{$name} {
+// 			width: calc(#{$size} + 0.5rem);
+// 			height: calc(#{$size} + 0.5rem);
+// 			border-width: $size * 0.1;
+// 		}
+// 	}
+// 	@each $name, $color in $loaderPigments {
+// 		&.dui__spinner--pigment-#{$name} {
+// 			border-color: rgba($color, 0.25);
+// 			border-top-color: $color;
+// 		}
+// 	}
+// }
+
+// @keyframes spin {
+// 	to {
+// 		transform: rotate(360deg);
+// 	}
+// }
 
 .dui__line-loader {
 	position: relative;
@@ -44,13 +59,10 @@
 		animation: indeterminate 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 	}
 
-	@each $name, $color in $loaderPigments {
-		&.dui__line-loader--pigment-#{$name} {
-			background-color: rgba($color, 0.25);
-			.dui__line-loader__line {
-				background: $color;
-			}
-		}
+	@include lineLoaderPigmentOptions();
+
+	&--contrast {
+		@include lineLoaderPigmentOptions($contrastPigments);
 	}
 }
 

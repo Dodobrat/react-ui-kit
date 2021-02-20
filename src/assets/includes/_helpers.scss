@@ -55,3 +55,9 @@ $width: 100% / $columns;
 		// }
 	}
 }
+
+@each $name, $shadow in $elevations {
+	.dui__elevation--#{$name} {
+		box-shadow: $shadow;
+	}
+}

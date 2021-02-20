@@ -3,7 +3,7 @@ import React from "react";
 import cn from "classnames";
 
 import { SpinnerLoaderProps } from "./SpinnerLoader.types";
-import { pigmentOptions } from "../../helpers/pigments";
+import { PigmentOptions } from "../../helpers/global";
 
 const SpinnerLoader: React.FC<SpinnerLoaderProps> = ({ size = "md", pigment = "primary", ...rest }) => {
 	return (
@@ -11,7 +11,7 @@ const SpinnerLoader: React.FC<SpinnerLoaderProps> = ({ size = "md", pigment = "p
 			data-testid='SpinnerLoader'
 			className={cn("dui__spinner", {
 				[`dui__spinner--${size}`]: size !== "md",
-				[`dui__spinner--pigment-${pigment}`]: pigmentOptions.includes(pigment),
+				[`dui__spinner--pigment-${pigment}`]: PigmentOptions.includes(pigment),
 			})}
 			{...rest}
 		/>

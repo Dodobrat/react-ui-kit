@@ -1,54 +1,69 @@
-@mixin card($modern: false, $pigment: $bgCard, $font: $mainFont) {
+@mixin card() {
 	position: relative;
-	background: $pigment;
-	border-radius: $smBorderRadius;
-	color: $font;
-	img {
-		user-select: none;
-	}
-	@if $modern {
-		box-shadow: $smShadow;
-		border: none;
-	} @else {
-		box-shadow: none;
-		border: 1px solid rgba($font, 0.125);
-	}
-}
-
-@mixin cardLoader() {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	background-color: rgba($bgCard, 0.6);
-	user-select: none;
-	z-index: 99;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
+	flex-direction: column;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
 	border-radius: $smBorderRadius;
-	&--modern {
-		display: block;
-	}
-	&--sticky {
-		position: sticky;
-		display: block;
-		height: 0;
-		overflow: visible;
-		transform: translateY(2rem);
-		&.dui__card__loader--modern {
-			transform: translateY(0);
-		}
-		& > .dui__spinner {
-			margin: 0 auto;
+	background-color: $bgCard;
+	background-clip: border-box;
+}
+
+@mixin cardPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+		&.dui__card--#{$name} {
+			background-color: $bgColor;
+			color: $fontColor;
+			.dui__card__header {
+				border-bottom: 0.0625rem solid rgba($fontColor, 0.1);
+			}
+			.dui__card__footer {
+				border-top: 0.0625rem solid rgba($fontColor, 0.1);
+			}
 		}
 	}
 }
 
-@mixin cardImg($modern: false, $accentContrast: $mainFont) {
-	max-width: 100%;
+@mixin cardHeaderFooterDuplicates() {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 1rem 0;
+	line-height: 1;
+	margin: 0 1rem;
+	background-color: inherit;
+}
+
+@mixin cardHeader() {
+	@include cardHeaderFooterDuplicates();
+	border-bottom: 0.0625rem solid rgba($subFont, 0.1);
+	&--rich {
+		.dui__card__header__title {
+			flex: 1;
+		}
+		.dui__card__header__actions {
+			padding-left: 1rem;
+			flex: 0 0 auto;
+		}
+	}
+}
+
+@mixin cardBody() {
+	padding: 1rem;
+}
+
+@mixin cardFooter() {
+	@include cardHeaderFooterDuplicates();
+	border-top: 0.0625rem solid rgba($subFont, 0.1);
+}
+
+@mixin cardImg() {
+	width: 100%;
 	overflow: hidden;
 	& > img {
 		object-fit: cover;
@@ -57,165 +72,102 @@
 	}
 }
 
-@mixin cardHeader($modern: false, $accentContrast: $mainFont) {
-	@if $modern {
-		margin: 0 1rem;
-		padding: 1rem 0.5rem;
-		background: unset;
-		border-bottom: 1px solid rgba($accentContrast, 0.05);
-	} @else {
-		margin: 0;
-		padding: 1rem 1.5rem;
-		background: rgba(0, 0, 0, 0.03);
-		border-bottom: 1px solid rgba($accentContrast, 0.125);
-	}
-	&--dismissible {
-		display: flex;
-		align-items: center;
-		color: $accentContrast;
-		.dui__card__header__title {
-			flex: 1;
-		}
-		.dui__close__btn {
-			@include closeBtn(2rem);
-			margin: -1rem 0 -1rem auto;
-			@if $modern {
-				background: transparent;
-			} @else {
-				background: rgba($accentContrast, 0.05);
-			}
-
-			&::before,
-			&::after {
-				background-color: rgba($accentContrast, 0.65);
-			}
-
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($accentContrast, 0.05);
-			}
-		}
-	}
-}
-
-@mixin cardBody($modern: false, $accentContrast: $mainFont) {
-	padding: 1.5rem;
-}
-
-@mixin cardFooter($modern: false, $accentContrast: $mainFont) {
-	@if $modern {
-		margin: 0 1rem;
-		padding: 1rem 0.5rem;
-		background: unset;
-		border-top: 1px solid rgba($accentContrast, 0.05);
-	} @else {
-		margin: 0;
-		padding: 1rem 1.5rem;
-		background: rgba(0, 0, 0, 0.03);
-		border-top: 1px solid rgba($accentContrast, 0.125);
-	}
-}
-
-@mixin cardChildren($modern, $toLoop) {
-	@include card($modern);
-
-	& > .dui__card__loader {
-		@include cardLoader();
-	}
-	& > .dui__card__img {
-		grid-area: card-img;
-		@include cardImg($modern);
-	}
-	& > .dui__card__header {
-		grid-area: card-header;
-		@include cardHeader($modern);
-	}
-	& > .dui__card__body {
-		grid-area: card-body;
-		@include cardBody($modern);
-	}
-	& > .dui__card__footer {
-		grid-area: card-footer;
-		@include cardFooter($modern);
-	}
-	@each $name, $color, $font in $toLoop {
-		&.dui__card--pigment-#{$name} {
-			@include card($modern, $color, $font);
-			& > .dui__card__img {
-				@include cardImg($modern, $font);
-			}
-			& > .dui__card__header {
-				@include cardHeader($modern, $font);
-			}
-			& > .dui__card__body {
-				@include cardBody($modern, $font);
-			}
-			& > .dui__card__footer {
-				@include cardFooter($modern, $font);
-			}
-		}
-	}
-}
-
 .dui__card {
-	@include cardChildren(false, $cardPigments);
-	&--modern {
-		@include cardChildren(true, $cardModernPigments);
+	@include card();
+	&__loader {
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: $smBorderRadius $smBorderRadius 0 0;
+		z-index: 1;
+		pointer-events: none;
 	}
-	&--loading {
-		cursor: progress;
+	&__img {
+		grid-area: card-img;
+		@include cardImg();
+	}
+	&__header {
+		grid-area: card-header;
+		@include cardHeader();
+	}
+	&__body {
+		grid-area: card-body;
+		@include cardBody();
+	}
+	&__footer {
+		grid-area: card-footer;
+		@include cardFooter();
+	}
+	@include cardPigmentOptions();
+	&.dui__card--contrast {
+		@include cardPigmentOptions($contrastPigments);
 	}
 	&--img {
-		&-top {
-			display: grid;
-			gap: 0;
+		display: grid;
+		gap: 0;
+		&.img-top {
 			grid-template-columns: 1fr;
 			grid-template-areas:
 				"card-img"
 				"card-header"
 				"card-body"
 				"card-footer";
-			& > .dui__card__img {
+			.dui__card__img {
 				border-radius: $smBorderRadius $smBorderRadius 0 0;
 			}
 		}
-		&-bottom {
-			display: grid;
-			gap: 0;
+		&.img-right {
+			grid-template-columns: 1fr 40%;
+			grid-template-areas:
+				"card-header card-img"
+				"card-body card-img"
+				"card-footer card-img";
+
+			.dui__card__img {
+				border-radius: 0 $smBorderRadius $smBorderRadius 0;
+			}
+		}
+		&.img-bottom {
 			grid-template-columns: 1fr;
 			grid-template-areas:
 				"card-header"
 				"card-body"
 				"card-footer"
 				"card-img";
-			& > .dui__card__img {
+			.dui__card__img {
 				border-radius: 0 0 $smBorderRadius $smBorderRadius;
 			}
 		}
-		&-left {
-			display: grid;
-			gap: 0;
-			grid-template-columns: 33.33% 1fr;
+		&.img-left {
+			grid-template-columns: 40% 1fr;
 			grid-template-areas:
 				"card-img card-header"
 				"card-img card-body"
 				"card-img card-footer";
 
-			& > .dui__card__img {
+			.dui__card__img {
 				border-radius: $smBorderRadius 0 0 $smBorderRadius;
 			}
 		}
-		&-right {
-			display: grid;
-			gap: 0;
-			grid-template-columns: 1fr 33.33%;
-			grid-template-areas:
-				"card-header card-img"
-				"card-body card-img"
-				"card-footer card-img";
-
-			& > .dui__card__img {
-				border-radius: 0 $smBorderRadius $smBorderRadius 0;
-			}
+	}
+	&--flat {
+		border-radius: $flatBorderRadius;
+		&.dui__card--img > .dui__card__img {
+			border-radius: 0;
+		}
+		.dui__card__loader {
+			border-radius: 0;
+		}
+	}
+	&--loading {
+		cursor: progress;
+		&-disabled {
+			pointer-events: none;
 		}
 	}
 }
