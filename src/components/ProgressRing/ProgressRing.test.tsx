@@ -2,11 +2,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import ProgressCircle from "./ProgressCircle";
-import { ProgressCircleProps } from "./ProgressCircle.types";
+import ProgressRing from "./ProgressRing";
+import { ProgressRingProps } from "./ProgressRing.types";
 
 describe("Test Component", () => {
-  let props: ProgressCircleProps;
+  let props: ProgressRingProps;
 
   beforeEach(() => {
     props = {
@@ -14,13 +14,13 @@ describe("Test Component", () => {
     };
   });
 
-  const renderComponent = () => render(<ProgressCircle {...props} />);
+  const renderComponent = () => render(<ProgressRing {...props} />);
 
   it("should render children correctly", () => {
     props.children = "Dodo was here";
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId("ProgressCircle");
+    const component = getByTestId("ProgressRing");
 
     expect(component).toHaveTextContent("Dodo was here");
   });

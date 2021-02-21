@@ -1,37 +1,49 @@
 // Auto-Generated
-import React, { forwardRef } from "react";
+import React from "react";
 import cn from "classnames";
 
 import { BadgeProps } from "./Badge.types";
-import { PigmentOptions } from "../../helpers/global";
+import { PigmentOptions, SizeOptions } from "../../helpers/global";
 
-const Badge = forwardRef<HTMLDivElement, BadgeProps>(
-	({ className, pigment = "primary", size = "md", pill = false, modern = false, onClick = null, children, ...rest }, ref) => {
-		return (
-			<div
-				data-testid='Badge'
-				className={cn(
-					"dui__badge",
-					{
-						[`dui__badge--${size}`]: size !== "md",
-					},
-					{
-						"dui__badge--pill": pill,
-						"dui__badge--modern": modern,
-						"dui__badge--clickable": onClick,
-					},
-					{
-						[`dui__badge--pigment-${pigment}`]: PigmentOptions.includes(pigment),
-					},
-					className
-				)}
-				onClick={onClick}
-				{...rest}
-				ref={ref}>
-				{children}
-			</div>
-		);
-	}
-);
+const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) => {
+	const {
+		className,
+		as = "span",
+		contrast = false,
+		pigment = "primary",
+		size = "md",
+		flat = false,
+		rounded = false,
+		children,
+		...rest
+	} = props;
 
-export default Badge;
+	let ParsedComponent: React.ElementType = as;
+
+	return (
+		<ParsedComponent
+			data-testid='Badge'
+			className={cn(
+				"dui__badge",
+				{
+					[`dui__badge--${size}`]: SizeOptions.includes(size),
+				},
+				{
+					"dui__badge--contrast": contrast,
+					"dui__badge--rounded": rounded,
+					"dui__badge--flat": flat,
+					"dui__badge--clickable": rest["onClick"],
+				},
+				{
+					[`dui__badge--${pigment}`]: PigmentOptions.includes(pigment),
+				},
+				className
+			)}
+			{...rest}
+			ref={ref}>
+			{children}
+		</ParsedComponent>
+	);
+};
+
+export default React.forwardRef<unknown, BadgeProps>(Badge);

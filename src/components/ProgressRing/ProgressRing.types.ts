@@ -1,18 +1,19 @@
 import { PigmentOptions } from "../../helpers/global.types";
 
 // Auto-Generated
-export interface ProgressBarProps {
+export interface ProgressRingProps {
 	className?: string;
+	size?: number;
+	strokeWidth?: number;
 	min?: number;
 	max?: number;
 	value?: number;
 	labeled?: boolean;
 	labelValue?: "%" | "count" | "count + %";
-	labelPosition?: "top" | "right" | "bottom" | "left";
 	decimals?: number;
 	flat?: boolean;
-	rounded?: boolean;
 	contrast?: boolean;
 	pigment?: PigmentOptions;
 	withTrack?: boolean;
+	counterClockWise?: boolean;
 }

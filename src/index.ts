@@ -19,17 +19,20 @@ import LineLoader from "./components/LineLoader/LineLoader";
 import ListGroup from "./components/ListGroup/ListGroup";
 import Navbar from "./components/Navbar/Navbar";
 import Portal from "./components/util/Portal/Portal";
+import PortalWrapper from "./components/util/Portal/PortalWrapper";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
-import ProgressCircle from "./components/ProgressCircle/ProgressCircle";
+import ProgressRing from "./components/ProgressRing/ProgressRing";
 import Radio from "./components/Radio/Radio";
 import Slider from "./components/Slider/Slider";
 import SpinnerLoader from "./components/SpinnerLoader/SpinnerLoader";
 import Switch from "./components/Switch/Switch";
 import TextArea from "./components/TextArea/TextArea";
 
+//Animation
+import FadeInPortal from "./components/util/animations/FadeInPortal";
+
 //Hooks
 import { useKeyPress } from "./hooks/useKeyPress";
-import { usePortal } from "./components/util/Portal/usePortal";
 import { useWindowResize } from "./hooks/useWindowResize";
 
 //Context
@@ -54,16 +57,18 @@ export {
 	ListGroup,
 	Navbar,
 	Portal,
+	PortalWrapper,
 	ProgressBar,
-	ProgressCircle,
+	ProgressRing,
 	Radio,
 	Slider,
 	SpinnerLoader,
 	Switch,
 	TextArea,
+	//ANIM
+	FadeInPortal,
 	//HOOKS
 	useKeyPress,
-	usePortal,
 	useWindowResize,
 	//CONTEXT
 };

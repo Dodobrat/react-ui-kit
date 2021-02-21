@@ -1,51 +1,54 @@
-@mixin badge($bgColor, $fontColor, $radius: $smBorderRadius) {
+@mixin badge() {
 	display: inline-block;
-	padding: 0.3125rem 0.5rem;
-	font-size: 75%;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1;
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: baseline;
+	border-radius: $smBorderRadius;
 	user-select: none;
-	border-radius: $radius;
-	background: $bgColor;
-	color: $fontColor;
-	* {
-		color: $fontColor;
-	}
 }
 
-.dui__badge {
-	@include badge($primary, $lightFont);
-	@each $name, $font in $badgeSizes {
+@mixin badgePigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
 		&.dui__badge--#{$name} {
-			font-size: calc(#{$font} - 0.1rem);
-			padding: calc(#{$font} / 3.5) calc(#{$font} / 2);
-		}
-	}
-	@each $name, $color, $font in $badgePigments {
-		&.dui__badge--pigment-#{$name} {
-			background: $color;
-			color: $font;
-			* {
-				color: $font;
-			}
-		}
-	}
-	&--modern {
-		@each $name, $color, $font in $badgeModernPigments {
-			&.dui__badge--pigment-#{$name} {
-				background: rgbaToRgb($color);
-				color: $font;
-				* {
-					color: $font;
+			background-color: $bgColor;
+			color: $fontColor;
+			&.dui__badge--clickable {
+				&:hover {
+					background-color: darken($bgColor, 5%);
 				}
 			}
 		}
 	}
-	&--pill {
-		border-radius: $xlBorderRadius;
+}
+
+.dui__badge {
+	@include badge();
+	@each $name, $size in $sizes {
+		&.dui__badge--#{$name} {
+			$fontSize: calc(#{$size} * 0.75);
+			font-size: $fontSize;
+			padding: calc(#{$fontSize} * 0.45) calc(#{$fontSize} * 0.5);
+
+			& > * {
+				font-size: $fontSize;
+			}
+		}
+	}
+	@include badgePigmentOptions();
+	&.dui__badge--contrast {
+		@include badgePigmentOptions($contrastPigments);
+	}
+	&--flat {
+		border-radius: $flatBorderRadius;
+	}
+	&--rounded {
+		border-radius: $roundedBorderRadius;
 	}
 	&--clickable {
 		cursor: pointer;

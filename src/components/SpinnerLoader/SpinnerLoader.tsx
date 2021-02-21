@@ -19,7 +19,7 @@ const SpinnerLoader: React.ForwardRefRenderFunction<HTMLDivElement, SpinnerLoade
 				},
 				{
 					[`dui__spinner--${size}`]: SizeOptions.includes(size),
-					[`dui__spinner--pigment-${pigment}`]: PigmentOptions.includes(pigment),
+					[`dui__spinner--${pigment}`]: PigmentOptions.includes(pigment),
 				}
 			)}
 			{...rest}

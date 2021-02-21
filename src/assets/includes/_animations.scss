@@ -1,0 +1,41 @@
+@mixin fadePortalAnim() {
+	&-enter {
+		opacity: 0;
+	}
+	&-enter-active {
+		transition: $slowTrans;
+		opacity: 1;
+	}
+	&-exit {
+		opacity: 1;
+	}
+	&-exit-active {
+		transition: $slowTrans;
+		opacity: 0;
+	}
+}
+
+@mixin zoomPortalAnim() {
+	&-enter {
+		transform: scale(0);
+	}
+	&-enter-active {
+		transition: $slowTrans;
+		transform: scale(1);
+	}
+	&-exit {
+		transform: scale(1);
+	}
+	&-exit-active {
+		transition: $slowTrans;
+		transform: scale(0);
+	}
+}
+
+.dui__anim--fade-portal {
+	@include fadePortalAnim();
+}
+
+.dui__anim--zoom-portal {
+	@include zoomPortalAnim();
+}

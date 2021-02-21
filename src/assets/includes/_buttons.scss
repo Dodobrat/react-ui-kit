@@ -3,7 +3,7 @@
 	display: inline-block;
 	position: relative;
 	margin: 0;
-	padding: calc(#{$mdFont} * 0.6875) $mdFont;
+	padding: calc(#{$mdFont} * 0.4375) $mdFont;
 	background-color: transparent;
 	width: auto;
 	border-radius: $smBorderRadius;
@@ -12,7 +12,7 @@
 	color: $mainFont;
 	overflow: hidden;
 	user-select: none;
-	line-height: 1;
+	line-height: 1.5;
 	outline: none;
 	text-decoration: none;
 	border: none;
@@ -132,7 +132,7 @@
 	@each $name, $size in $sizes {
 		&.dui__btn--#{$name} {
 			font-size: $size;
-			padding: calc(#{$size} * 0.75) $size;
+			padding: calc(#{$size} * 0.4375) $size;
 
 			& > * {
 				font-size: $size;

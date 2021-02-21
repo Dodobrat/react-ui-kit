@@ -10,7 +10,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 	const {
 		className,
 		type = "button",
-		renderAs = "button",
+		as = "button",
 		elevation = "none",
 		iconStart = null,
 		iconEnd = null,
@@ -34,7 +34,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		...rest
 	} = props;
 
-	let ParsedComponent: React.ElementType = renderAs;
+	let ParsedComponent: React.ElementType = as;
 
 	if (ParsedComponent === "button") {
 		if (rest["href"]) {

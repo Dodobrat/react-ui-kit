@@ -17,7 +17,7 @@ const LineLoader: React.ForwardRefRenderFunction<HTMLDivElement, LineLoaderProps
 					"dui__line-loader--contrast": contrast,
 				},
 				{
-					[`dui__line-loader--pigment-${pigment}`]: PigmentOptions.includes(pigment),
+					[`dui__line-loader--${pigment}`]: PigmentOptions.includes(pigment),
 				},
 				className
 			)}

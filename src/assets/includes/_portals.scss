@@ -1,4 +1,4 @@
-.dui__portal {
+@mixin portal() {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -6,28 +6,55 @@
 	bottom: 0;
 	z-index: 1050;
 	outline: 0;
-	display: block;
 	overflow: auto;
 	overscroll-behavior: contain;
+	height: 100vh;
+	background-color: transparent;
 
 	&__inner {
-		position: relative;
-		max-width: 48rem;
-		margin: 1.75rem auto;
-		@each $name, $maxWidth in $portalSizes {
-			&.dui__portal__inner--#{$name} {
-				max-width: $maxWidth;
-			}
+		@include portalInner();
+	}
+}
+
+$portalVerticalAlignments: (
+	"start": self-start,
+	"center": center,
+	"end": self-end,
+);
+
+@mixin portalInner() {
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+
+	@each $name, $size in $portalSizes {
+		&.dui__portal__inner--#{$name} {
+			max-width: $size;
 		}
 	}
 
-	&__backdrop {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 1040;
-		width: 100vw;
-		height: 100vh;
-		background: rgba($bg, 0.75);
+	@each $name, $size in $sizes {
+		&.dui__portal__inner--safe-#{$name} {
+			$safeSize: $size * 2;
+			padding: $safeSize 0;
+		}
+	}
+
+	@each $name, $align in $portalVerticalAlignments {
+		&.dui__portal__inner--vertical-#{$name} {
+			display: grid;
+			height: 100%;
+			align-items: $align;
+		}
+	}
+}
+
+.dui__portal {
+	@include portal();
+
+	&--backdrop {
+		background-color: rgba($bg, 0.9);
 	}
 }

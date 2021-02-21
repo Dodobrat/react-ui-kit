@@ -1,12 +1,17 @@
+import { SizeOptions } from "../../../helpers/global.types";
+
 // Auto-Generated
 export interface PortalProps {
 	className?: string;
 	innerClassName?: string;
-	backdropClassName?: string;
 	onClose: () => void;
+	withFocusLock?: boolean;
 	keyboard?: boolean;
 	backdrop?: boolean | "static";
-	size?: "xs" | "sm" | "md" | "lg" | "xl" | "max";
-	rootEl?: Element;
+	size?: SizeOptions | null;
+	safeZoneSize?: SizeOptions | null;
+	verticalAlign?: "start" | "center" | "end";
+	animation?: "default" | "zoom" | null;
+	isOpen?: boolean;
 	children?: React.ReactNode;
 }

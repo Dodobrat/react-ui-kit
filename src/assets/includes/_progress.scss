@@ -1,200 +1,192 @@
-@mixin progressBar($bgColor, $fontColor, $animated: false) {
-	.dui__progress-bar__progress {
-		transition: width 0.15s ease-out;
-		position: relative;
-		width: 0;
-		height: 100%;
-		background: $bgColor;
-		color: $fontColor;
+@mixin progressBar() {
+	position: relative;
+	display: block;
+	padding-top: 2rem;
+	&__progress {
 		overflow: hidden;
-
-		&--allow-overflow {
-			overflow: visible;
-		}
-
-		&:hover {
-			background-color: darken($bgColor, 5%);
-		}
-		&__label {
-			font-size: $smFont;
-			font-weight: 500;
-			line-height: 1;
+		height: 0.5rem;
+		border-radius: $smBorderRadius;
+		&::before {
+			content: "";
+			width: 100%;
+			height: 0.5rem;
 			position: absolute;
-			top: 50%;
+			bottom: 0;
 			left: 0;
-			transform: translate(25%, -50%);
-			user-select: none;
-			white-space: nowrap;
-			@each $name, $top, $left, $right, $translate in $progressBarLabelPositions {
-				&.dui__progress-bar__progress__label--position-#{$name} {
-					top: $top;
-					left: $left;
-					right: $right;
-					transform: $translate;
-					@if ($name == "outer") {
-						background: $bgColor;
-						padding: 0.25rem 0.3125rem;
-						&::after {
-							content: "";
-							display: block;
-							position: absolute;
-							left: calc(50% - 0.25rem);
-							width: 0.5rem;
-							height: 0.5rem;
-							background: $bgColor;
-							transform: rotate(-45deg);
-							z-index: -1;
-						}
-					}
-				}
-			}
-		}
-
-		@if ($animated) {
-			overflow: hidden;
-			&::after {
-				content: "";
-				display: block;
-				top: 0;
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				transform: translateX(-100%);
-				background: linear-gradient(90deg, transparent, rgba($fontColor, 0.5), transparent);
-				animation: loading 2s infinite;
-			}
-
-			@keyframes loading {
-				0%,
-				50% {
-					transform: translateX(-100%);
-				}
-				100% {
-					transform: translateX(100%);
-				}
-			}
+			z-index: -1;
+			border-radius: $smBorderRadius;
 		}
 	}
-	&.dui__progress-bar--minified {
-		margin-top: 1.1rem;
-		.dui__progress-bar__progress {
-			&__label {
-				top: 0;
-				transform: translate(25%, -125%);
-				color: $bgColor;
-				@each $name, $top, $left, $right, $translate in $progressBarMinifiedLabelPositions {
-					&.dui__progress-bar__progress__label--position-#{$name} {
-						top: $top;
-						left: $left;
-						right: $right;
-						transform: $translate;
-						@if ($name == "outer") {
-							color: $fontColor;
-						}
-					}
+	&__label {
+		transition: $fastTrans;
+		position: absolute;
+		border-radius: $smBorderRadius;
+		padding: 0.25rem 0.4rem;
+		font-size: 80%;
+		line-height: 1;
+		z-index: 999;
+		pointer-events: none;
+		opacity: 0;
+		@include progressBarLabelPositions();
+	}
+	&:hover {
+		.dui__progressbar__label {
+			opacity: 1;
+		}
+	}
+}
+
+@mixin progressBarPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+
+		&.dui__progressbar--#{$name} {
+			.dui__progressbar__progress {
+				background-color: $bgColor;
+				&::before {
+					background-color: rgba($bgColor, 0.25);
 				}
+			}
+			.dui__progressbar__label {
+				background-color: $bgColor;
+				color: $fontColor;
 			}
 		}
 	}
 }
 
-@mixin progressCircle($bgColor, $fontColor, $modern: false) {
-	& > circle {
-		fill: transparent;
-		transition: stroke-dashoffset 0.425s ease-in-out;
-		transform: rotate(-90deg);
-		transform-origin: 50% 50%;
-		@if ($modern) {
-			stroke: $fontColor;
-			stroke-linecap: round;
-		} @else {
-			stroke: $bgColor;
-			stroke-linecap: unset;
+$progressBarLabelPositions: (
+	"left": (
+		"name": "left",
+		"value": 0,
+		"transform": translate(-50%, calc(-125% - 0.5rem)),
+	),
+	"right": (
+		"name": "right",
+		"value": 0,
+		"transform": translate(50%, calc(-125% - 0.5rem)),
+	),
+	"top": (
+		"name": "top",
+		"value": 0,
+		"transform": translate(-50%, calc(75% - 0.5rem)),
+	),
+	"bottom": (
+		"name": "bottom",
+		"value": 0,
+		"transform": translate(-50%, 125%),
+	),
+);
+
+@mixin progressBarLabelPositions() {
+	$positionKeys: map-keys($progressBarLabelPositions);
+	@each $key in $positionKeys {
+		$name: map-deep-get($progressBarLabelPositions, $key, "name");
+		$value: map-deep-get($progressBarLabelPositions, $key, "value");
+		$transform: map-deep-get($progressBarLabelPositions, $key, "transform");
+
+		&.dui__progressbar__label--#{$name} {
+			#{$name}: $value;
+			transform: $transform;
 		}
 	}
-	&.dui__progress-circle--reversed {
+}
+
+.dui__progressbar {
+	@include progressBar();
+
+	@include progressBarPigmentOptions();
+	&--contrast {
+		@include progressBarPigmentOptions($contrastPigments);
+	}
+
+	&--flat {
+		.dui__progressbar__progress {
+			border-radius: $flatBorderRadius;
+			&::before {
+				border-radius: $flatBorderRadius;
+			}
+		}
+		.dui__progressbar__label {
+			border-radius: $flatBorderRadius;
+		}
+	}
+
+	&--rounded {
+		.dui__progressbar__progress {
+			border-radius: $roundedBorderRadius;
+			&::before {
+				border-radius: $roundedBorderRadius;
+			}
+		}
+		.dui__progressbar__label {
+			border-radius: $roundedBorderRadius;
+		}
+	}
+
+	&--no-track {
+		.dui__progressbar__progress {
+			&::before {
+				display: none;
+			}
+		}
+	}
+}
+
+@mixin progressRing() {
+	position: relative;
+	user-select: none;
+	& > circle {
+		fill: transparent;
+		transition: stroke-dashoffset $slowTransConfig;
+		transform: rotate(-90deg);
+		transform-origin: 50% 50%;
+		stroke-linecap: round;
+	}
+	.dui__progressring__label {
+		font-weight: 700;
+		stroke-width: 0;
+	}
+}
+
+@mixin progressRingPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+
+		&.dui__progressring--#{$name} {
+			& > circle {
+				stroke: $bgColor;
+			}
+			.dui__progressring__track {
+				stroke: rgba($bgColor, 0.25);
+			}
+			.dui__progressring__label {
+				fill: $bgColor;
+			}
+		}
+	}
+}
+
+.dui__progressring {
+	@include progressRing();
+	@include progressRingPigmentOptions();
+	&--contrast {
+		@include progressRingPigmentOptions($contrastPigments);
+	}
+	&--reversed {
 		& > circle {
 			transform: rotate(-90deg) rotateX(180deg);
 		}
 	}
-	.dui__progress-circle__track {
-		@if ($modern) {
-			stroke: $bgColor;
-		} @else {
-			stroke: darken($bg, 2.5%);
-		}
-	}
-	.dui__progress-circle__label {
-		font-weight: 700;
-		stroke-width: 0;
-		@if ($modern) {
-			fill: $fontColor;
-		} @else {
-			fill: $bgColor;
-		}
-	}
-}
-
-.dui__progress {
-	&-bar {
-		position: relative;
-		width: 100%;
-		height: 1.4rem;
-		background: darken($bg, 5%);
-		border-radius: $smBorderRadius;
-		.dui__progress-bar__progress {
-			border-radius: $smBorderRadius;
-			&__label {
-				border-radius: $smBorderRadius;
-			}
-		}
-		@each $name, $color, $font in $progressPigments {
-			&.dui__progress-bar--pigment-#{$name} {
-				@include progressBar($color, $font);
-				&.dui__progress-bar--animated {
-					@include progressBar($color, $font, true);
-				}
-			}
-		}
-		&--minified {
-			height: 0.25rem;
-		}
-		&--modern {
-			background: darken($bg, 2.5%);
-
-			@each $name, $color, $font in $progressModernPigments {
-				&.dui__progress-bar--pigment-#{$name} {
-					@include progressBar($color, $font);
-					&.dui__progress-bar--animated {
-						@include progressBar($color, $font, true);
-					}
-				}
-			}
-		}
-		&--rounded {
-			border-radius: $roundBorderRadius;
-			.dui__progress-bar__progress {
-				border-radius: $roundBorderRadius;
-				&__label {
-					border-radius: $roundBorderRadius;
-				}
-			}
-		}
-	}
-	&-circle {
-		position: relative;
-		user-select: none;
-		@each $name, $color, $font in $progressPigments {
-			&.dui__progress-circle--pigment-#{$name} {
-				@include progressCircle($color, $font);
-			}
-		}
-		&--modern {
-			@each $name, $color, $font in $progressModernPigments {
-				&.dui__progress-circle--pigment-#{$name} {
-					@include progressCircle($color, $font, true);
-				}
-			}
+	&--flat {
+		& > circle {
+			stroke-linecap: unset;
 		}
 	}
 }

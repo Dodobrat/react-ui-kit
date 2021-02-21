@@ -4,7 +4,7 @@
 		$name: map-deep-get($options, $key, "name");
 		$bgColor: map-deep-get($options, $key, "bgColor");
 
-		&.dui__line-loader--pigment-#{$name} {
+		&.dui__line-loader--#{$name} {
 			background-color: rgba($bgColor, 0.25);
 			.dui__line-loader__line {
 				background: $bgColor;
@@ -19,7 +19,7 @@
 		$name: map-deep-get($options, $key, "name");
 		$bgColor: map-deep-get($options, $key, "bgColor");
 
-		&.dui__spinner--pigment-#{$name} {
+		&.dui__spinner--#{$name} {
 			border-color: rgba($bgColor, 0.25);
 			border-top-color: $bgColor;
 		}
@@ -32,7 +32,7 @@
 		$name: map-deep-get($options, $key, "name");
 		$fontColor: map-deep-get($options, $key, "fontColor");
 
-		&.dui__spinner--pigment-#{$name} {
+		&.dui__spinner--#{$name} {
 			border-color: rgba($fontColor, 0.25);
 			border-top-color: $fontColor;
 		}

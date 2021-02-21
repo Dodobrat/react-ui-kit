@@ -1,10 +1,13 @@
+import { PigmentOptions, SizeOptions } from "../../helpers/global.types";
+
 // Auto-Generated
 export interface BadgeProps {
 	className?: string;
-	pill?: boolean;
-	modern?: boolean;
-	size?: "sm" | "md" | "lg" | "xl";
-	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
-	onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	as?: React.ElementType;
+	contrast?: boolean;
+	pigment?: PigmentOptions;
+	size?: SizeOptions;
+	flat?: boolean;
+	rounded?: boolean;
 	children?: React.ReactNode;
 }

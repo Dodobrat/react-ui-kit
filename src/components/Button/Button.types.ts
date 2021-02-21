@@ -17,7 +17,7 @@ type ExtraButtonProps = HTMLButtonProps & HTMLAnchorProps;
 export interface ButtonProps extends ExtraButtonProps {
 	className?: string;
 	type?: "button" | "submit" | "reset";
-	renderAs?: React.ElementType;
+	as?: React.ElementType;
 	elevation?: ElevationOptions;
 	iconStart?: null | React.ElementType;
 	iconEnd?: null | React.ElementType;

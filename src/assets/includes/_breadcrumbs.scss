@@ -1,3 +1,16 @@
+@mixin breadcrumbsPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+		&.dui__breadcrumbs--#{$name} {
+			background-color: $bgColor;
+			color: $fontColor;
+		}
+	}
+}
+
 .dui__breadcrumbs {
 	list-style-type: none;
 	margin: 0;
@@ -7,6 +20,7 @@
 
 	&__item {
 		display: flex;
+		line-height: 1.5;
 		& > span {
 			margin: 0 0.5rem;
 			user-select: none;
@@ -14,5 +28,19 @@
 		&:last-child {
 			opacity: 0.65;
 		}
+	}
+
+	&--contained {
+		padding: 0.75rem 1rem;
+		border-radius: $smBorderRadius;
+		background-color: rgba(0, 0, 0, 0.1);
+		@include breadcrumbsPigmentOptions();
+		&.dui__breadcrumbs--contrast {
+			@include breadcrumbsPigmentOptions($contrastPigments);
+		}
+	}
+
+	&--flat {
+		border-radius: $flatBorderRadius;
 	}
 }
