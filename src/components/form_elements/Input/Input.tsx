@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { InputProps } from "./Input.types";
-import { PigmentOptions } from "../../helpers/global";
+import { PigmentOptions } from "../../../helpers/global";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
 	(

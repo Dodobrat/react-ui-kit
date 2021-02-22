@@ -6,15 +6,12 @@ import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import Button from "./components/Button/Button";
 import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
 import Card from "./components/Card/Card";
-import Checkbox from "./components/Checkbox/Checkbox";
-import CloseBtn from "./components/CloseBtn/CloseBtn";
-import Container from "./components/Container/Container";
-import ExpandIndicator from "./components/ExpandIndicator/ExpandIndicator";
-import File from "./components/File/File";
-import Flex from "./components/Flex/Flex";
-import Form from "./components/util/Form/Form";
-import Input from "./components/Input/Input";
-import InputGroup from "./components/InputGroup/InputGroup";
+import Checkbox from "./components/form_elements/Checkbox/Checkbox";
+import Container from "./components/util/Container/Container";
+import File from "./components/form_elements/File/File";
+import Flex from "./components/util/Flex/Flex";
+import Input from "./components/form_elements/Input/Input";
+import InputGroup from "./components/form_elements/InputGroup/InputGroup";
 import LineLoader from "./components/LineLoader/LineLoader";
 import ListGroup from "./components/ListGroup/ListGroup";
 import Navbar from "./components/Navbar/Navbar";
@@ -22,11 +19,11 @@ import Portal from "./components/util/Portal/Portal";
 import PortalWrapper from "./components/util/Portal/PortalWrapper";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import ProgressRing from "./components/ProgressRing/ProgressRing";
-import Radio from "./components/Radio/Radio";
-import Slider from "./components/Slider/Slider";
+import Radio from "./components/form_elements/Radio/Radio";
+import Slider from "./components/form_elements/Slider/Slider";
 import SpinnerLoader from "./components/SpinnerLoader/SpinnerLoader";
-import Switch from "./components/Switch/Switch";
-import TextArea from "./components/TextArea/TextArea";
+import Switch from "./components/form_elements/Switch/Switch";
+import TextArea from "./components/form_elements/TextArea/TextArea";
 
 //Animation
 import FadePortal from "./components/util/animations/FadePortal";
@@ -46,12 +43,9 @@ export {
 	ButtonGroup,
 	Card,
 	Checkbox,
-	CloseBtn,
 	Container,
-	ExpandIndicator,
 	File,
 	Flex,
-	Form,
 	Input,
 	InputGroup,
 	LineLoader,

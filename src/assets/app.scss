@@ -4,6 +4,7 @@
 @import "./includes/defaults";
 
 // COMPONENTS
+@import "./includes/mixins";
 @import "./includes/animations";
 // @import "./includes/partials";
 @import "./includes/badges";
@@ -11,7 +12,7 @@
 @import "./includes/buttons";
 @import "./includes/cards";
 // @import "./includes/inputs";
-// @import "./includes/lists";
+@import "./includes/lists";
 @import "./includes/loaders";
 @import "./includes/portals";
 @import "./includes/progress";

@@ -4,6 +4,7 @@ import cn from "classnames";
 
 import { BadgeProps } from "./Badge.types";
 import { PigmentOptions, SizeOptions } from "../../helpers/global";
+import { addElementAttributes } from "../../helpers/functions";
 
 const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) => {
 	const {
@@ -18,7 +19,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		...rest
 	} = props;
 
-	let ParsedComponent: React.ElementType = as;
+	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent

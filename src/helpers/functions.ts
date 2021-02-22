@@ -15,6 +15,7 @@ export const parseValueToPercent: (min: number, max: number, value: number, deci
 
 export const disableScrollAndScrollBar: (active: boolean) => void = (active) => {
 	if (active) {
+		document.body.classList.add("no-scroll");
 		const viewportWidth = document.documentElement.clientWidth;
 		const windowWidth = window.innerWidth;
 		const scrollBarWidth = windowWidth - viewportWidth;
@@ -22,9 +23,55 @@ export const disableScrollAndScrollBar: (active: boolean) => void = (active) => 
 		document.body.style.paddingRight = `${scrollBarWidth}px`;
 		document.body.style.overflow = "hidden";
 	} else {
+		document.body.classList.remove("no-scroll");
 		document.body.style.paddingRight = `0px`;
 		document.body.style.overflow = "auto";
 	}
+};
+
+export const addElementAttributes: (component: React.ElementType, props: Object) => React.ElementType = (component, props) => {
+	if (component === "button") {
+		if (props["href"]) {
+			props["target"] = "_blank";
+			props["rel"] = "noopener";
+			props["role"] = "button";
+			return "a";
+		}
+		return component;
+	} else {
+		if (props["onClick"] || props["to"]) {
+			props["role"] = "button";
+			return component;
+		}
+		if (props["href"]) {
+			props["target"] = "_blank";
+			props["rel"] = "noopener";
+			return "a";
+		}
+		return component;
+	}
+};
+
+export const addElementAttributesInObj: (props: Object) => Object = (props) => {
+	const extraProps = { ...props };
+	if (extraProps["as"] === "button") {
+		if (extraProps["href"]) {
+			extraProps["target"] = "_blank";
+			extraProps["rel"] = "noopener";
+			extraProps["role"] = "button";
+			extraProps["as"] = "a";
+		}
+	} else {
+		if (extraProps["onClick"] || extraProps["to"]) {
+			extraProps["role"] = "button";
+		}
+		if (extraProps["href"]) {
+			extraProps["target"] = "_blank";
+			extraProps["rel"] = "noopener";
+			extraProps["as"] = "a";
+		}
+	}
+	return extraProps;
 };
 
 export const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);

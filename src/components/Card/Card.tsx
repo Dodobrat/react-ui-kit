@@ -51,9 +51,9 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 				{
 					"dui__card--contrast": contrast,
 					"dui__card--flat": flat,
-					"dui__card--no-overflow": !allowOverflow,
 					"dui__card--loading": loading,
 					"dui__card--loading-disabled": loading && disableWhileLoading,
+					"no-overflow": !allowOverflow,
 				},
 				{
 					[`dui__card--${pigment}`]: PigmentOptions.includes(pigment),

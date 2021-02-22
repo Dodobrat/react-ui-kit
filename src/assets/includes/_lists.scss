@@ -1,220 +1,242 @@
-@mixin listGroup($modern: false, $pigment: $bgCard, $font: $mainFont) {
+@mixin listGroup() {
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	border-radius: $smBorderRadius;
-	background: $pigment;
-	color: $font;
-	margin: 0;
 	padding: 0;
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	border-radius: $smBorderRadius;
+	background-color: $bgCard;
+	color: $mainFont;
 	list-style-type: none;
 	& > *:first-child {
 		border-radius: $smBorderRadius $smBorderRadius 0 0;
 	}
 	& > *:last-child {
 		border-radius: 0 0 $smBorderRadius $smBorderRadius;
-	}
-
-	@if ($modern) {
-		box-shadow: $smShadow;
-		border: none;
-
-		& > * {
-			border-top: 1px solid rgba($font, 0.05);
-			&:first-child {
-				border-top: none;
-			}
+		border-bottom: none;
+		& > .dui__list__group__collapse__toggle {
+			border-radius: 0 0 $smBorderRadius $smBorderRadius;
 		}
-	} @else {
-		box-shadow: none;
-		border: 1px solid rgba($font, 0.125);
+	}
+	@include listGroupPigmentOptions();
+	&--contrast {
+		@include listGroupPigmentOptions($contrastPigments);
+	}
+}
 
-		& > * {
-			border-top: 1px solid rgba($font, 0.125);
-			&:first-child {
-				border-top: none;
+@mixin listGroupPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+		&.dui__list__group--#{$name} {
+			background-color: $bgColor;
+			color: $fontColor;
+			.dui__list__group__header {
+				color: rgba($fontColor, 0.7);
+			}
+			.dui__list__group__item {
+				&--active {
+					background-color: rgba($fontColor, 0.15);
+				}
+				&:hover {
+					background-color: rgba($fontColor, 0.02);
+				}
+			}
+			* {
+				border-bottom: 0.0625rem solid rgba($fontColor, 0.1);
 			}
 		}
 	}
 }
 
-@mixin listGroupHeader($modern: false, $pigment: $bgCard, $font: $mainFont) {
+@mixin listGroupItemPigmentOptions($item: "header", $options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+		&.dui__list__group__#{$item}--#{$name} {
+			background-color: $bgColor;
+			color: $fontColor;
+			border-bottom: 0.0625rem solid rgba($fontColor, 0.1);
+			&.dui__list__group__header {
+				color: rgba($fontColor, 0.7);
+			}
+			&.dui__list__group__item {
+				&--active {
+					background-color: darken($bgColor, 5%);
+				}
+				&:hover {
+					background-color: darken($bgColor, 2.5%);
+				}
+			}
+			&.dui__list__group__collapse {
+				.dui__list__group__collapse__toggle {
+					&:hover {
+						background-color: darken($bgColor, 2.5%);
+					}
+				}
+				.dui__list__group__collapse__content {
+					border-top: 0.0625rem solid rgba($fontColor, 0.1);
+					.dui__list__group__collapse {
+						&::before {
+							background-color: rgba($fontColor, 0.2);
+						}
+						&__content {
+							border-top: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin headerItemDuplicates() {
 	position: relative;
-	display: block;
-	background: $pigment;
-	color: rgba($font, 0.5);
-	font-size: $smFont;
+	padding: 0.625rem 1rem;
+	line-height: 1.5;
+	margin: 0;
+	background-color: inherit;
+	border-bottom: 0.0625rem solid rgba($subFont, 0.1);
+}
+
+@mixin listGroupHeader() {
+	@include headerItemDuplicates();
+	display: flex;
+	align-items: center;
+	color: rgba($mainFont, 0.7);
 	font-weight: 600;
-	text-transform: uppercase;
-	@if ($modern) {
-		margin: 0 1rem;
-		padding: 0.75rem 0;
-	} @else {
-		margin: 0;
-		padding: 0.75rem 1rem;
+	&--align {
+		&-center {
+			justify-content: center;
+		}
+		&-right {
+			justify-content: flex-end;
+		}
+	}
+	@include listGroupItemPigmentOptions();
+	&--contrast {
+		@include listGroupItemPigmentOptions("header", $contrastPigments);
 	}
 }
 
-@mixin listGroupItem($modern: false, $pigment: $bgCard, $font: $mainFont) {
-	position: relative;
+@mixin listGroupItem() {
+	@include headerItemDuplicates();
 	display: block;
-	background: $pigment;
-	color: $font;
-	&.dui__list__group__item--active {
-		background: darken(rgbaToRgb($pigment), 5%);
+	color: inherit;
+	&:hover {
+		background-color: darken($bgCard, 1.5%);
 	}
-	@if ($modern) {
-		margin: 0 1rem;
-		padding: 0.75rem 0;
-	} @else {
-		margin: 0;
-		padding: 0.75rem 1rem;
+	&--active {
+		background-color: darken($bgCard, 3.5%);
+	}
+	@include listGroupItemPigmentOptions("item");
+	&--contrast {
+		@include listGroupItemPigmentOptions("item", $contrastPigments);
 	}
 }
 
-@mixin listGroupCollapse($modern: false, $pigment: $bgCard, $font: $mainFont, $nested: false) {
+@mixin listGroupCollapse {
 	position: relative;
-	display: block;
-	background: $pigment;
-	color: $font;
-	& > .dui__list__group__collapse__toggle {
+	background-color: inherit;
+	border-bottom: 0.0625rem solid rgba($subFont, 0.1);
+	&__toggle {
+		position: relative;
+		padding: 0.625rem 1rem;
+		line-height: 1.5;
+		margin: 0;
+		background-color: inherit;
+		display: flex;
+		align-items: center;
 		user-select: none;
 		cursor: pointer;
-		&--indicated {
-			display: flex;
-			align-items: center;
-			.dui__list__group__collapse__toggle__title {
-				flex: 1;
+		&__title {
+			flex: 1;
+		}
+		&:hover {
+			background-color: darken($bgCard, 1.5%);
+		}
+	}
+	&__content {
+		padding: 1rem;
+		border-top: 0.0625rem solid rgba($subFont, 0.1);
+		.dui__list__group__collapse {
+			border-bottom: none;
+			padding-left: 1.125rem;
+			&::before {
+				pointer-events: none;
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 0.125rem;
+				height: 100%;
+				background-color: rgba($subFont, 0.2);
+				border-radius: $smBorderRadius;
+			}
+			&__toggle {
+				padding: 0.625rem 1rem;
+				border-radius: $smBorderRadius;
+			}
+			&__content {
+				padding: 1rem 0 0 0;
+				border-top: none;
+			}
+			&--no-indent {
+				padding-left: 0;
+				&::before {
+					display: none;
+				}
 			}
 		}
 	}
-	& > .dui__list__group__collapse__content {
-		padding-top: 1.5rem;
-	}
-	@if ($modern) {
-		margin: 0 1rem;
-		padding: 0.75rem 0;
-		@if ($nested) {
-			margin: 0 0 0 1rem;
-			padding: 0.75rem 0 0 0;
-		}
-	} @else {
-		margin: 0;
-		padding: 0.75rem 1rem;
-		@if ($nested) {
-			padding: 0.75rem 0 0 1rem;
-		}
+	@include listGroupItemPigmentOptions("collapse");
+	&--contrast {
+		@include listGroupItemPigmentOptions("collapse", $contrastPigments);
 	}
 }
 
-@mixin listGroupChildren($modern: false, $toLoop: $listPigments) {
-	@include listGroup($modern);
-
-	& > .dui__list__group__header {
-		@include listGroupHeader($modern, $bgCard, $mainFont);
+.dui__list__group {
+	@include listGroup();
+	&__loader {
+		@include componentLoader();
+	}
+	&__header {
+		@include listGroupHeader();
+	}
+	&__item {
+		@include listGroupItem();
+	}
+	&__collapse {
+		@include listGroupCollapse();
 	}
 
-	& > .dui__list__group__item {
-		@include listGroupItem($modern, $bgCard, $mainFont);
-	}
-	& > .dui__list__group__collapse {
-		@include listGroupCollapse($modern, $bgCard, $mainFont);
-		.dui__list__group__collapse__content {
-			.dui__list__group__collapse {
-				@include listGroupCollapse($modern, $bgCard, $mainFont, true);
-			}
+	&--loading {
+		cursor: progress;
+		& > *:nth-child(2):not(.dui__list__group__loader) {
+			border-radius: $smBorderRadius $smBorderRadius 0 0;
 		}
-		&--no-indent {
-			.dui__list__group__collapse__content {
-				.dui__list__group__collapse {
-					@if ($modern) {
-						margin: 0;
-						padding: 0.75rem 0;
-					} @else {
-						margin: 0;
-						padding: 0.75rem 0;
-					}
-				}
-			}
+		&-disabled {
+			pointer-events: none;
 		}
 	}
-
-	@each $name, $color, $font in $toLoop {
-		&.dui__list__group--pigment-#{$name} {
-			@include listGroup($modern, $color, $font);
-
-			& > .dui__list__group__header {
-				@include listGroupHeader($modern, $color, $font);
-				@each $name, $color, $font in $toLoop {
-					&.dui__list__group__header--pigment-#{$name} {
-						@include listGroupHeader($modern, $color, $font);
-					}
-				}
-			}
-
-			& > .dui__list__group__item {
-				@include listGroupItem($modern, $color, $font);
-				@each $name, $color, $font in $toLoop {
-					&.dui__list__group__item--pigment-#{$name} {
-						@include listGroupItem($modern, $color, $font);
-					}
-				}
-			}
-
-			& > .dui__list__group__collapse {
-				@include listGroupCollapse($modern, $color, $font);
-				.dui__list__group__collapse__content {
-					.dui__list__group__collapse {
-						@include listGroupCollapse($modern, $color, $font, true);
-					}
-				}
-				&--no-indent {
-					.dui__list__group__collapse__content {
-						.dui__list__group__collapse {
-							@if ($modern) {
-								margin: 0;
-								padding: 0.75rem 0;
-							} @else {
-								margin: 0;
-								padding: 0.75rem 0;
-							}
-						}
-					}
-				}
-				@each $name, $color, $font in $toLoop {
-					&.dui__list__group__collapse--pigment-#{$name} {
-						@include listGroupCollapse($modern, $color, $font);
-						.dui__list__group__collapse__content {
-							.dui__list__group__collapse {
-								@include listGroupCollapse($modern, $color, $font, true);
-							}
-						}
-
-						&.dui__list__group__collapse--no-indent {
-							.dui__list__group__collapse__content {
-								.dui__list__group__collapse {
-									@if ($modern) {
-										margin: 0;
-										padding: 0.75rem 0;
-									} @else {
-										margin: 0;
-										padding: 0.75rem 0;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+	&--flat {
+		border-radius: $flatBorderRadius;
+		& > * {
+			border-radius: $flatBorderRadius;
 		}
-	}
-}
-
-.dui__list {
-	&__group {
-		@include listGroupChildren();
-
-		&--modern {
-			@include listGroupChildren(true, $listModernPigments);
+		.dui__list__group__loader {
+			border-radius: $flatBorderRadius;
+		}
+		.dui__list__group__collapse__toggle {
+			border-radius: $flatBorderRadius;
 		}
 	}
 }

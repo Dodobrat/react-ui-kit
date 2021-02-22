@@ -75,17 +75,7 @@
 .dui__card {
 	@include card();
 	&__loader {
-		overflow: hidden;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: $smBorderRadius $smBorderRadius 0 0;
-		z-index: 1;
-		pointer-events: none;
+		@include componentLoader();
 	}
 	&__img {
 		grid-area: card-img;
@@ -104,7 +94,7 @@
 		@include cardFooter();
 	}
 	@include cardPigmentOptions();
-	&.dui__card--contrast {
+	&--contrast {
 		@include cardPigmentOptions($contrastPigments);
 	}
 	&--img {
@@ -158,10 +148,10 @@
 	&--flat {
 		border-radius: $flatBorderRadius;
 		&.dui__card--img > .dui__card__img {
-			border-radius: 0;
+			border-radius: $flatBorderRadius;
 		}
 		.dui__card__loader {
-			border-radius: 0;
+			border-radius: $flatBorderRadius;
 		}
 	}
 	&--loading {

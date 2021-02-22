@@ -7,14 +7,17 @@ import {
 	ListGroupCollapseSubComponentProps,
 	ListGroupHeaderSubComponentProps,
 	ListGroupItemSubComponentProps,
+	ListGroupLoaderSubComponentProps,
 } from "./ListGroupSubcomponents.types";
-import { ListGroupCollapse, ListGroupHeader, ListGroupItem } from "./ListGroupSubcomponents";
-import { PigmentOptions } from "../../helpers/global";
+import { ListGroupCollapse, ListGroupHeader, ListGroupItem, ListGroupLoader } from "./ListGroupSubcomponents";
+import { ElevationOptions, PigmentOptions } from "../../helpers/global";
+import { addElementAttributes, addElementAttributesInObj } from "../../helpers/functions";
 
-interface ListGroupComponent extends React.ForwardRefExoticComponent<ListGroupProps & React.RefAttributes<HTMLDivElement>> {
-	Header: React.ForwardRefExoticComponent<ListGroupHeaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
-	Item: React.ForwardRefExoticComponent<ListGroupItemSubComponentProps & React.RefAttributes<HTMLDivElement>>;
-	Collapse: React.ForwardRefExoticComponent<ListGroupCollapseSubComponentProps & React.RefAttributes<HTMLDivElement>>;
+interface ListGroupComponent extends React.ForwardRefExoticComponent<ListGroupProps & React.RefAttributes<unknown>> {
+	Loader: React.ForwardRefExoticComponent<ListGroupLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
+	Header: React.ForwardRefExoticComponent<ListGroupHeaderSubComponentProps & React.RefAttributes<unknown>>;
+	Item: React.ForwardRefExoticComponent<ListGroupItemSubComponentProps & React.RefAttributes<unknown>>;
+	Collapse: React.ForwardRefExoticComponent<ListGroupCollapseSubComponentProps & React.RefAttributes<unknown>>;
 }
 
 const isSubComponentOfListGroup: (child: JSX.Element) => boolean = (child) => {
@@ -29,52 +32,85 @@ const isSubComponentOfListGroup: (child: JSX.Element) => boolean = (child) => {
 	return isSubComponent;
 };
 
-const ListGroup = forwardRef<HTMLDivElement, ListGroupProps>(
-	({ className, as = "ul", modern = false, pigment, children, ...rest }, ref) => {
-		const childElementType: () => string = () => {
-			let childType = "div";
-			if (as === "ul" || as === "ol") {
-				childType = "li";
+const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
+	const {
+		className,
+		elevation = "subtle",
+		pigment = null,
+		contrast = false,
+		flat = false,
+		allowOverflow = true,
+		disableWhileLoading = true,
+		loading = false,
+		as = "ul",
+		children,
+		...rest
+	} = props;
+
+	const childElementType: (props: Object) => Object = (props) => {
+		const modifiedProps = { ...props };
+
+		if (as === "ul" || as === "ol") {
+			if (modifiedProps["as"]) {
+				return addElementAttributesInObj(modifiedProps);
 			}
-			return childType;
-		};
+			modifiedProps["as"] = "li";
+			return addElementAttributesInObj(modifiedProps);
+		}
+		if (modifiedProps["as"]) {
+			return addElementAttributesInObj(modifiedProps);
+		}
+		modifiedProps["as"] = "div";
+		return addElementAttributesInObj(modifiedProps);
+	};
 
-		const listGroupChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) =>
-			isSubComponentOfListGroup(child)
-				? {
-						...child,
-						props: {
-							...child.props,
-							pigment: child.props.pigment ?? pigment,
-							as: child.props.as ?? childElementType(),
-						},
-				  }
-				: child
-		);
-
-		const ElementType: any = as;
-
-		return (
-			<ElementType
-				data-testid='ListGroup'
-				className={cn(
-					"dui__list__group",
-					{
-						"dui__list__group--modern": modern,
+	const listGroupChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) =>
+		isSubComponentOfListGroup(child)
+			? {
+					...child,
+					props: {
+						...child.props,
+						...childElementType(child.props),
+						contrast: child.props.contrast ?? contrast,
+						pigment: child.props.pigment ?? pigment,
 					},
-					{
-						[`dui__list__group--pigment-${pigment}`]: PigmentOptions.includes(pigment),
-					},
-					className
-				)}
-				{...rest}
-				ref={ref}>
-				{listGroupChildren}
-			</ElementType>
-		);
-	}
-) as ListGroupComponent;
+			  }
+			: child
+	);
 
+	const loader: JSX.Element[] = React.Children.map(children, (child: JSX.Element) =>
+		child?.type?.displayName === "ListGroupLoader" ? child : null
+	);
+
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+
+	return (
+		<ParsedComponent
+			data-testid='ListGroup'
+			className={cn(
+				"dui__list__group",
+				{
+					"dui__list__group--contrast": contrast,
+					"dui__list__group--flat": flat,
+					"dui__list__group--loading": loading,
+					"dui__list__group--loading-disabled": loading && disableWhileLoading,
+					"no-overflow": !allowOverflow,
+				},
+				{
+					[`dui__list__group--${pigment}`]: PigmentOptions.includes(pigment),
+					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
+				},
+				className
+			)}
+			{...rest}
+			ref={ref}>
+			{loading && loader.length === 0 && <ListGroupLoader />}
+			{listGroupChildren}
+		</ParsedComponent>
+	);
+}) as ListGroupComponent;
+
+ListGroup.Loader = ListGroupLoader;
 ListGroup.Header = ListGroupHeader;
 ListGroup.Item = ListGroupItem;
 ListGroup.Collapse = ListGroupCollapse;

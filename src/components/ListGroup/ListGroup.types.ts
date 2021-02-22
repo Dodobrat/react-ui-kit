@@ -1,8 +1,15 @@
+import { ElevationOptions, PigmentOptions } from "../../helpers/global.types";
+
 // Auto-Generated
 export interface ListGroupProps {
 	className?: string;
-	as?: HTMLElementTagNameMap;
-	modern?: boolean;
-	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
+	elevation?: ElevationOptions;
+	pigment?: null | PigmentOptions;
+	contrast?: boolean;
+	flat?: boolean;
+	allowOverflow?: boolean;
+	disableWhileLoading?: boolean;
+	loading?: boolean;
+	as?: React.ElementType;
 	children?: React.ReactNode;
 }

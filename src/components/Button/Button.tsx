@@ -5,6 +5,7 @@ import cn from "classnames";
 import { ButtonProps } from "./Button.types";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 import { ElevationOptions, PigmentOptions, SizeOptions } from "../../helpers/global";
+import { addElementAttributes } from "../../helpers/functions";
 
 const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
 	const {
@@ -34,22 +35,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		...rest
 	} = props;
 
-	let ParsedComponent: React.ElementType = as;
-
-	if (ParsedComponent === "button") {
-		if (rest["href"]) {
-			rest["target"] = "_blank";
-			rest["rel"] = "noopener";
-			rest["role"] = "button";
-			ParsedComponent = "a";
-		}
-	} else {
-		rest["role"] = "button";
-		if (ParsedComponent === "a" && rest["href"]) {
-			rest["target"] = "_blank";
-			rest["rel"] = "noopener";
-		}
-	}
+	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent

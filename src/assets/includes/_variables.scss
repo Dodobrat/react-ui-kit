@@ -102,8 +102,6 @@ $roundBorderRadius: 50% !default;
 //LOOPS
 
 //--hr styling
-// $hrPigments: "primary" $primary, "secondary" $secondary, "success" $success, "warning" $warning, "info" $info, "danger" $danger,
-// 	"light" $light, "dark" $dark;
 
 //--Badges
 
@@ -125,6 +123,12 @@ $portalSizes: (
 	"lg": 50rem,
 	"xl": 65rem,
 	"fullscreen": 100%,
+);
+
+$portalVerticalAlignments: (
+	"start": self-start,
+	"center": center,
+	"end": self-end,
 );
 
 //--Progress

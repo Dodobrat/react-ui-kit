@@ -3,11 +3,12 @@ import cn from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useKeyPress } from "../../../hooks/useKeyPress";
 import { SizeOptions } from "../../../helpers/global";
-
-import { PortalProps } from "./Portal.types";
 import PortalWrapper from "./PortalWrapper";
 import FadePortal from "../animations/FadePortal";
 import ZoomPortal from "../animations/ZoomPortal";
+import { disableScrollAndScrollBar } from "../../../helpers/functions";
+
+import { PortalProps } from "./Portal.types";
 
 const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (props, ref) => {
 	const {
@@ -27,6 +28,15 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 	} = props;
 
 	useKeyPress("Escape", keyboard && backdrop !== "static" ? () => onClose?.() : () => null);
+
+	useEffect(() => {
+		const noScroll = document.body.classList.contains("no-scroll");
+
+		if (!noScroll) {
+			disableScrollAndScrollBar(isOpen);
+		}
+		return () => disableScrollAndScrollBar(false);
+	}, [isOpen]);
 
 	useEffect(() => {
 		const detectClicked = (e: any) => {

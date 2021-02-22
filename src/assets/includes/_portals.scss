@@ -16,12 +16,6 @@
 	}
 }
 
-$portalVerticalAlignments: (
-	"start": self-start,
-	"center": center,
-	"end": self-end,
-);
-
 @mixin portalInner() {
 	position: relative;
 	margin: 0 auto;
