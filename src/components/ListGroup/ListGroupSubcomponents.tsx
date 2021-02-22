@@ -11,6 +11,8 @@ import {
 import { PigmentOptions } from "../../helpers/global";
 import { addElementAttributes } from "../../helpers/functions";
 import LineLoader from "../LineLoader/LineLoader";
+import CollapseFade from "../util/animations/CollapseFade";
+import CollapseShow from "../util/animations/CollapseShow";
 
 export const ListGroupLoader = forwardRef<HTMLDivElement, ListGroupLoaderSubComponentProps>((props, ref) => {
 	const { className, pigment, contrast, children, ...rest } = props;
@@ -108,17 +110,34 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 ListGroupCollapseToggle.displayName = "ListGroupCollapseToggle";
 
 export const ListGroupCollapseContent = forwardRef<HTMLDivElement, ListGroupCollapseContentSubComponentProps>((props, ref) => {
-	const { className, isCollapsed, children, ...rest } = props;
+	const { className, isCollapsed, animation = "collapse-n-fade", children, ...rest } = props;
 
-	if (isCollapsed) return null;
+	const CollapseContent = () => {
+		return (
+			<div>
+				<div className={cn("dui__list__group__collapse__content", className)} {...rest} ref={ref}>
+					{children}
+				</div>
+			</div>
+		);
+	};
 
-	//ADD ANIMATION COMPONENT
-
-	return (
-		<div className={cn("dui__list__group__collapse__content", className)} {...rest} ref={ref}>
-			{children}
-		</div>
-	);
+	switch (animation) {
+		case "collapse-n-fade":
+			return (
+				<CollapseFade in={!isCollapsed}>
+					<CollapseContent />
+				</CollapseFade>
+			);
+		case "collapse":
+			return (
+				<CollapseShow in={!isCollapsed}>
+					<CollapseContent />
+				</CollapseShow>
+			);
+		default:
+			return <>{!isCollapsed && <CollapseContent />}</>;
+	}
 });
 
 ListGroupCollapseContent.displayName = "ListGroupCollapseContent";

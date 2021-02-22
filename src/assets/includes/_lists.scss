@@ -235,8 +235,18 @@
 		.dui__list__group__loader {
 			border-radius: $flatBorderRadius;
 		}
-		.dui__list__group__collapse__toggle {
-			border-radius: $flatBorderRadius;
+		.dui__list__group__collapse {
+			&::before {
+				border-radius: $flatBorderRadius;
+			}
+			&__toggle {
+				border-radius: $flatBorderRadius;
+			}
+		}
+		& > *:last-child {
+			& > .dui__list__group__collapse__toggle {
+				border-radius: $flatBorderRadius;
+			}
 		}
 	}
 }

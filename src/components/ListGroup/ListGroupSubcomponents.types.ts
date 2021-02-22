@@ -37,4 +37,5 @@ export interface ListGroupCollapseToggleSubComponentProps extends ListGroupSubCo
 
 export interface ListGroupCollapseContentSubComponentProps extends ListGroupSubComponentGlobalsProps {
 	isCollapsed?: boolean;
+	animation?: "collapse-n-fade" | "collapse" | null;
 }

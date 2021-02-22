@@ -72,6 +72,69 @@
 	}
 }
 
+@mixin collapseShowAnim() {
+	&-enter {
+		max-height: 0;
+	}
+	&-enter-active {
+		overflow: hidden;
+		transition: max-height $slowTransTime $slowTransEase;
+		max-height: 67.5rem;
+	}
+	&-enter-done {
+		overflow: initial;
+		max-height: unset;
+	}
+	&-exit {
+		max-height: 67.5rem;
+	}
+	&-exit-active {
+		overflow: hidden;
+		transition: max-height $slowTransTime $slowTransEase;
+		max-height: 0;
+	}
+}
+
+@mixin collapseFadeAnim() {
+	&-enter {
+		max-height: 0;
+		& > * {
+			opacity: 0;
+		}
+	}
+	&-enter-active {
+		overflow: hidden;
+		transition: max-height $slowTransTime $slowTransEase;
+		max-height: 67.5rem;
+		& > * {
+			transition: opacity $fastTransTime $fastTransEase;
+			transition-delay: $slowTransTime;
+			opacity: 1;
+		}
+	}
+	&-enter-done {
+		overflow: initial;
+		max-height: unset;
+	}
+	&-exit {
+		max-height: 67.5rem;
+		& > * {
+			opacity: 1;
+		}
+	}
+	&-exit-active {
+		overflow: hidden;
+		transition-delay: $fastTransTime;
+		transition: max-height $slowTransTime $slowTransEase;
+		max-height: 0;
+		pointer-events: none;
+		& > * {
+			transition: opacity $fastTransTime $fastTransEase;
+			opacity: 0;
+		}
+	}
+}
+
 .fade-portal {
 	@include fadePortalAnim();
 }
@@ -80,11 +143,28 @@
 	@include zoomPortalAnim();
 }
 
+.collapse-show {
+	@include collapseShowAnim();
+}
+
+.collapse-fade {
+	@include collapseFadeAnim();
+}
+
 .dui__anim {
 	&--fade-portal {
 		will-change: transform, opacity;
 	}
 	&--zoom-portal {
 		will-change: transform, opacity;
+	}
+	&--collapse-show {
+		will-change: max-height;
+	}
+	&--collapse-fade {
+		will-change: max-height;
+		& > * {
+			will-change: opacity;
+		}
 	}
 }
