@@ -29,7 +29,8 @@ import Switch from "./components/Switch/Switch";
 import TextArea from "./components/TextArea/TextArea";
 
 //Animation
-import FadeInPortal from "./components/util/animations/FadeInPortal";
+import FadePortal from "./components/util/animations/FadePortal";
+import ZoomPortal from "./components/util/animations/ZoomPortal";
 
 //Hooks
 import { useKeyPress } from "./hooks/useKeyPress";
@@ -66,7 +67,8 @@ export {
 	Switch,
 	TextArea,
 	//ANIM
-	FadeInPortal,
+	FadePortal,
+	ZoomPortal,
 	//HOOKS
 	useKeyPress,
 	useWindowResize,

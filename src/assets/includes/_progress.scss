@@ -141,7 +141,7 @@ $progressBarLabelPositions: (
 	user-select: none;
 	& > circle {
 		fill: transparent;
-		transition: stroke-dashoffset $slowTransConfig;
+		transition: stroke-dashoffset $slowTransTime $slowTransEase;
 		transform: rotate(-90deg);
 		transform-origin: 50% 50%;
 		stroke-linecap: round;

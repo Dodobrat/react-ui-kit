@@ -6,8 +6,8 @@ import { SizeOptions } from "../../../helpers/global";
 
 import { PortalProps } from "./Portal.types";
 import PortalWrapper from "./PortalWrapper";
-import FadeInPortal from "../animations/FadeInPortal";
-import ZoomInPortal from "../animations/ZoomInPortal";
+import FadePortal from "../animations/FadePortal";
+import ZoomPortal from "../animations/ZoomPortal";
 
 const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (props, ref) => {
 	const {
@@ -75,23 +75,22 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 		);
 	};
 
-	if (animation === "default") {
-		return (
-			<FadeInPortal in={isOpen}>
-				<PortalContent />
-			</FadeInPortal>
-		);
+	switch (animation) {
+		case "default":
+			return (
+				<FadePortal in={isOpen}>
+					<PortalContent />
+				</FadePortal>
+			);
+		case "zoom":
+			return (
+				<ZoomPortal in={isOpen}>
+					<PortalContent />
+				</ZoomPortal>
+			);
+		default:
+			return <PortalContent />;
 	}
-
-	if (animation === "zoom") {
-		return (
-			<ZoomInPortal in={isOpen}>
-				<PortalContent />
-			</ZoomInPortal>
-		);
-	}
-
-	return <PortalContent />;
 };
 
 export default React.forwardRef<HTMLDivElement, PortalProps>(Portal);

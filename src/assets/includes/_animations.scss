@@ -1,41 +1,90 @@
 @mixin fadePortalAnim() {
 	&-enter {
 		opacity: 0;
+		.dui__portal__inner {
+			opacity: 0;
+			transform: translateY(-5rem);
+		}
 	}
 	&-enter-active {
-		transition: $slowTrans;
+		transition: $fastTrans;
 		opacity: 1;
+		.dui__portal__inner {
+			transition-delay: $fastTransTime;
+			transition: $fastTrans;
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 	&-exit {
 		opacity: 1;
+		.dui__portal__inner {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 	&-exit-active {
-		transition: $slowTrans;
+		transition-delay: $fastTransTime;
+		transition: $fastTrans;
 		opacity: 0;
+		.dui__portal__inner {
+			transition: $fastTrans;
+			opacity: 0;
+			transform: translateY(-5rem);
+		}
 	}
 }
 
 @mixin zoomPortalAnim() {
 	&-enter {
-		transform: scale(0);
+		opacity: 0;
+		.dui__portal__inner {
+			opacity: 0;
+			transform: scale(0.5);
+		}
 	}
 	&-enter-active {
-		transition: $slowTrans;
-		transform: scale(1);
+		transition: $fastTrans;
+		opacity: 1;
+		.dui__portal__inner {
+			transition-delay: $fastTransTime;
+			transition: $fastTrans;
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 	&-exit {
-		transform: scale(1);
+		opacity: 1;
+		.dui__portal__inner {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 	&-exit-active {
-		transition: $slowTrans;
-		transform: scale(0);
+		transition-delay: $fastTransTime;
+		transition: $fastTrans;
+		opacity: 0;
+		.dui__portal__inner {
+			transition: $fastTrans;
+			opacity: 0;
+			transform: scale(0.5);
+		}
 	}
 }
 
-.dui__anim--fade-portal {
+.fade-portal {
 	@include fadePortalAnim();
 }
 
-.dui__anim--zoom-portal {
+.zoom-portal {
 	@include zoomPortalAnim();
+}
+
+.dui__anim {
+	&--fade-portal {
+		will-change: transform, opacity;
+	}
+	&--zoom-portal {
+		will-change: transform, opacity;
+	}
 }

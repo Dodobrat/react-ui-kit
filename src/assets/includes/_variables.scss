@@ -47,12 +47,15 @@ $infoFont: hsla($infoBase, 70%, 40%, 100%) !default;
 $fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
 	"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-$fastTrans: all 0.15s ease;
-$fastTransConfig: 0.15s ease;
-$normalTrans: all 0.225s ease;
-$normalTransConfig: 0.225s ease;
-$slowTrans: all 0.375s ease;
-$slowTransConfig: 0.375s ease;
+$fastTransTime: 0.15s;
+$fastTransEase: ease;
+$fastTrans: all $fastTransTime $fastTransEase;
+$normalTransTime: 0.225s;
+$normalTransEase: ease;
+$normalTrans: all $normalTransTime $normalTransEase;
+$slowTransTime: 0.375s;
+$slowTransEase: ease;
+$slowTrans: all $slowTransTime $slowTransEase;
 
 //SIZING
 //--Global Font size
