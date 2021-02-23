@@ -6,6 +6,7 @@ import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import Button from "./components/Button/Button";
 import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
 import Card from "./components/Card/Card";
+import Collapse from "./components/Collapse/Collapse";
 import Checkbox from "./components/form_elements/Checkbox/Checkbox";
 import Container from "./components/util/Container/Container";
 import File from "./components/form_elements/File/File";
@@ -28,6 +29,8 @@ import TextArea from "./components/form_elements/TextArea/TextArea";
 //Animation
 import FadePortal from "./components/util/animations/FadePortal";
 import ZoomPortal from "./components/util/animations/ZoomPortal";
+import CollapseFade from "./components/util/animations/CollapseFade";
+import CollapseShow from "./components/util/animations/CollapseShow";
 
 //Hooks
 import { useKeyPress } from "./hooks/useKeyPress";
@@ -42,6 +45,7 @@ export {
 	Button,
 	ButtonGroup,
 	Card,
+	Collapse,
 	Checkbox,
 	Container,
 	File,
@@ -63,6 +67,8 @@ export {
 	//ANIM
 	FadePortal,
 	ZoomPortal,
+	CollapseFade,
+	CollapseShow,
 	//HOOKS
 	useKeyPress,
 	useWindowResize,

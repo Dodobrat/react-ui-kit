@@ -23,13 +23,13 @@ export interface ListGroupItemSubComponentProps extends ListGroupSubComponentPro
 }
 
 export interface ListGroupCollapseSubComponentProps extends ListGroupSubComponentProps {
-	onToggle?: ({}) => void;
+	onToggle?: (isCollapsed: boolean) => void;
 	isCollapsed?: boolean;
 	nestedCollapseIndent?: boolean;
 }
 
 export interface ListGroupCollapseToggleSubComponentProps extends ListGroupSubComponentGlobalsProps {
-	onToggle?: ({}) => void;
+	onToggle?: (isCollapsed: boolean) => void;
 	isCollapsed?: boolean;
 	collapseIndicator?: boolean;
 	collapseIndicatorComponent?: React.ReactNode;

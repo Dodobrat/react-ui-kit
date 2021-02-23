@@ -1,0 +1,81 @@
+@mixin collapse() {
+	position: relative;
+	background: $bgCard;
+	border-radius: $smBorderRadius;
+	&__loader {
+		@include componentLoader();
+	}
+	&__toggle {
+		position: relative;
+		padding: 0.625rem 1rem;
+		line-height: 1.5;
+		margin: 0;
+		background-color: inherit;
+		display: flex;
+		align-items: center;
+		user-select: none;
+		cursor: pointer;
+		border-radius: $smBorderRadius $smBorderRadius 0 0;
+		&__title {
+			flex: 1;
+		}
+		&:hover {
+			background-color: darken($bgCard, 1.5%);
+		}
+	}
+	&__content {
+		padding: 1rem;
+		border-radius: 0 0 $smBorderRadius $smBorderRadius;
+		.dui__collapse {
+			background-color: inherit;
+		}
+	}
+}
+
+@mixin collapsePigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+		&.dui__collapse--#{$name} {
+			background-color: $bgColor;
+			color: $fontColor;
+			.dui__collapse__toggle {
+				&:hover {
+					background-color: darken($bgColor, 1.5%);
+				}
+			}
+		}
+	}
+}
+
+.dui__collapse {
+	@include collapse();
+	@include collapsePigmentOptions();
+	&--contrast {
+		@include collapsePigmentOptions($contrastPigments);
+	}
+	&--collapsed {
+		.dui__collapse__toggle {
+			border-radius: $smBorderRadius;
+		}
+	}
+	&--flat {
+		border-radius: $flatBorderRadius;
+		&.dui__collapse--collapsed {
+			.dui__collapse__toggle {
+				border-radius: $flatBorderRadius;
+			}
+		}
+		.dui__collapse__loader {
+			border-radius: $flatBorderRadius;
+		}
+	}
+	&--loading {
+		cursor: progress;
+		&-disabled {
+			pointer-events: none;
+		}
+	}
+}

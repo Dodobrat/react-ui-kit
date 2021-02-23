@@ -93,7 +93,7 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 				className
 			)}
 			{...rest}
-			onClick={onToggle}
+			onClick={() => onToggle(!isCollapsed)}
 			ref={ref}>
 			{collapseIndicator ? (
 				<>
@@ -165,7 +165,7 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 
 	const onCollapseToggle = () => {
 		setCollapseState((prev) => !prev);
-		if (onToggle) onToggle(collapseState);
+		if (onToggle) onToggle(!collapseState);
 	};
 
 	const listGroupCollapseChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) => {
@@ -201,6 +201,7 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 				"dui__list__group__collapse",
 				{
 					"dui__list__group__collapse--no-indent": !nestedCollapseIndent,
+					"dui__list__group__collapse--collapsed": collapseState,
 					"dui__list__group__collapse--contrast": contrast,
 				},
 				{
