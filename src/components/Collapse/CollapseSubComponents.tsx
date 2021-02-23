@@ -22,7 +22,7 @@ export const CollapseLoader = forwardRef<HTMLDivElement, CollapseLoaderSubCompon
 CollapseLoader.displayName = "CollapseLoader";
 
 export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubComponentProps>((props, ref) => {
-	const { className, onToggle, isCollapsed, collapseIndicator = true, collapseIndicatorComponent, children, ...rest } = props;
+	const { className, collapseIndicator = true, collapseIndicatorComponent, children, ...rest } = props;
 
 	return (
 		<div
@@ -34,7 +34,6 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 				className
 			)}
 			{...rest}
-			onClick={() => onToggle(!isCollapsed)}
 			ref={ref}>
 			{collapseIndicator ? (
 				<>

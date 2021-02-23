@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import cn from "classnames";
 
 import { CollapseProps } from "./Collapse.types";
@@ -36,10 +36,12 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 
 	const [collapseState, setCollapseState] = useState<boolean>(isCollapsed);
 
-	const onCollapseToggle = () => {
-		setCollapseState((prev) => !prev);
-		if (onToggle) onToggle(!collapseState);
-	};
+	const onCollapseToggle = () => setCollapseState((prev) => !prev);
+
+	useEffect(() => {
+		setCollapseState(isCollapsed);
+		return () => setCollapseState(true);
+	}, [isCollapsed]);
 
 	const collapseChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) => {
 		if (child.type?.displayName === "CollapseToggle") {
@@ -47,8 +49,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 				...child,
 				props: {
 					...child.props,
-					isCollapsed: collapseState,
-					onToggle: child.props.onClick ?? onCollapseToggle,
+					onClick: onToggle ? () => onToggle(!isCollapsed) : onCollapseToggle,
 				},
 			};
 		}
@@ -58,7 +59,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 				...child,
 				props: {
 					...child.props,
-					isCollapsed: collapseState,
+					isCollapsed: child.props?.isCollapsed ?? collapseState,
 				},
 			};
 		}

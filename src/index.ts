@@ -1,6 +1,8 @@
 // Styles
 import "./assets/app.scss";
 // Components
+import Accordion from "./components/Accordion/Accordion";
+import BackTop from "./components/util/BackTop/BackTop";
 import Badge from "./components/Badge/Badge";
 import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import Button from "./components/Button/Button";
@@ -27,10 +29,11 @@ import Switch from "./components/form_elements/Switch/Switch";
 import TextArea from "./components/form_elements/TextArea/TextArea";
 
 //Animation
-import FadePortal from "./components/util/animations/FadePortal";
-import ZoomPortal from "./components/util/animations/ZoomPortal";
 import CollapseFade from "./components/util/animations/CollapseFade";
 import CollapseShow from "./components/util/animations/CollapseShow";
+import Fade from "./components/util/animations/Fade";
+import FadePortal from "./components/util/animations/FadePortal";
+import ZoomPortal from "./components/util/animations/ZoomPortal";
 
 //Hooks
 import { useKeyPress } from "./hooks/useKeyPress";
@@ -40,6 +43,8 @@ import { useWindowResize } from "./hooks/useWindowResize";
 
 export {
 	//COMPONENTS
+	Accordion,
+	BackTop,
 	Badge,
 	Breadcrumbs,
 	Button,
@@ -65,10 +70,11 @@ export {
 	Switch,
 	TextArea,
 	//ANIM
-	FadePortal,
-	ZoomPortal,
 	CollapseFade,
 	CollapseShow,
+	Fade,
+	FadePortal,
+	ZoomPortal,
 	//HOOKS
 	useKeyPress,
 	useWindowResize,

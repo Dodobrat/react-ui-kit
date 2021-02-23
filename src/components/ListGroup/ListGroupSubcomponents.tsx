@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import cn from "classnames";
 import {
 	ListGroupCollapseSubComponentProps,
@@ -81,7 +81,7 @@ export const ListGroupItem = forwardRef<unknown, ListGroupItemSubComponentProps>
 ListGroupItem.displayName = "ListGroupItem";
 
 export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupCollapseToggleSubComponentProps>((props, ref) => {
-	const { className, onToggle, isCollapsed, collapseIndicator = true, collapseIndicatorComponent, children, ...rest } = props;
+	const { className, collapseIndicator = true, collapseIndicatorComponent, children, ...rest } = props;
 
 	return (
 		<div
@@ -93,7 +93,6 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 				className
 			)}
 			{...rest}
-			onClick={() => onToggle(!isCollapsed)}
 			ref={ref}>
 			{collapseIndicator ? (
 				<>
@@ -163,10 +162,12 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 
 	const [collapseState, setCollapseState] = useState<boolean>(isCollapsed);
 
-	const onCollapseToggle = () => {
-		setCollapseState((prev) => !prev);
-		if (onToggle) onToggle(!collapseState);
-	};
+	const onCollapseToggle = () => setCollapseState((prev) => !prev);
+
+	useEffect(() => {
+		setCollapseState(isCollapsed);
+		return () => setCollapseState(true);
+	}, [isCollapsed]);
 
 	const listGroupCollapseChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) => {
 		if (child.type?.displayName === "ListGroupCollapseToggle") {
@@ -174,8 +175,7 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 				...child,
 				props: {
 					...child.props,
-					isCollapsed: collapseState,
-					onToggle: child.props.onClick ?? onCollapseToggle,
+					onClick: onToggle ? () => onToggle(!isCollapsed) : onCollapseToggle,
 				},
 			};
 		}

@@ -1,3 +1,20 @@
+@mixin fadeAnim() {
+	&-enter {
+		opacity: 0;
+	}
+	&-enter-active {
+		transition: $normalTrans;
+		opacity: 1;
+	}
+	&-exit {
+		opacity: 1;
+	}
+	&-exit-active {
+		transition: $normalTrans;
+		opacity: 0;
+	}
+}
+
 @mixin fadePortalAnim() {
 	&-enter {
 		opacity: 0;
@@ -79,14 +96,14 @@
 	&-enter-active {
 		overflow: hidden;
 		transition: max-height $slowTransTime $slowTransEase;
-		max-height: 67.5rem;
+		max-height: 49rem;
 	}
 	&-enter-done {
 		overflow: initial;
 		max-height: unset;
 	}
 	&-exit {
-		max-height: 67.5rem;
+		max-height: 49rem;
 	}
 	&-exit-active {
 		overflow: hidden;
@@ -135,6 +152,10 @@
 	}
 }
 
+.fade {
+	@include fadeAnim();
+}
+
 .fade-portal {
 	@include fadePortalAnim();
 }
@@ -152,6 +173,9 @@
 }
 
 .dui__anim {
+	&--fade {
+		will-change: opacity;
+	}
 	&--fade-portal {
 		will-change: transform, opacity;
 	}
