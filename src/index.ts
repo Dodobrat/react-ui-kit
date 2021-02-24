@@ -2,6 +2,7 @@
 import "./assets/app.scss";
 // Components
 import Accordion from "./components/Accordion/Accordion";
+import Alert from "./components/Alert/Alert";
 import BackTop from "./components/util/BackTop/BackTop";
 import Badge from "./components/Badge/Badge";
 import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
@@ -13,6 +14,7 @@ import Checkbox from "./components/form_elements/Checkbox/Checkbox";
 import Container from "./components/util/Container/Container";
 import File from "./components/form_elements/File/File";
 import Flex from "./components/util/Flex/Flex";
+import Heading from "./components/typography/Heading/Heading";
 import Input from "./components/form_elements/Input/Input";
 import InputGroup from "./components/form_elements/InputGroup/InputGroup";
 import LineLoader from "./components/LineLoader/LineLoader";
@@ -23,9 +25,11 @@ import PortalWrapper from "./components/util/Portal/PortalWrapper";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import ProgressRing from "./components/ProgressRing/ProgressRing";
 import Radio from "./components/form_elements/Radio/Radio";
+import Skeleton from "./components/Skeleton/Skeleton";
 import Slider from "./components/form_elements/Slider/Slider";
 import SpinnerLoader from "./components/SpinnerLoader/SpinnerLoader";
 import Switch from "./components/form_elements/Switch/Switch";
+import Text from "./components/typography/Text/Text";
 import TextArea from "./components/form_elements/TextArea/TextArea";
 
 //Animation
@@ -44,6 +48,7 @@ import { useWindowResize } from "./hooks/useWindowResize";
 export {
 	//COMPONENTS
 	Accordion,
+	Alert,
 	BackTop,
 	Badge,
 	Breadcrumbs,
@@ -55,6 +60,7 @@ export {
 	Container,
 	File,
 	Flex,
+	Heading,
 	Input,
 	InputGroup,
 	LineLoader,
@@ -65,9 +71,11 @@ export {
 	ProgressBar,
 	ProgressRing,
 	Radio,
+	Skeleton,
 	Slider,
 	SpinnerLoader,
 	Switch,
+	Text,
 	TextArea,
 	//ANIM
 	CollapseFade,
