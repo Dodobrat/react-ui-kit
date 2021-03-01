@@ -4,13 +4,12 @@ import cn from "classnames";
 import { AnimProps } from "./AnimProps.types";
 
 const CollapseShow: React.FC<AnimProps> = (props) => {
-	const { classNames, className, unmountOnExit = true, timeout = 400, children, ...rest } = props;
+	const { classNames, unmountOnExit = true, timeout = 400, children, ...rest } = props;
 	return (
 		<CSSTransition
 			timeout={timeout}
 			unmountOnExit={unmountOnExit}
-			className={cn("dui__anim dui__anim--collapse-show", className)}
-			classNames={cn("collapse-show", classNames)}
+			classNames={cn("dui__anim__collapse-show collapse-show", classNames)}
 			{...rest}>
 			{children}
 		</CSSTransition>

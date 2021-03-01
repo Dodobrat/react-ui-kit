@@ -1,4 +1,4 @@
-import { SizeOptions } from "../../../helpers/global.types";
+import { SizeOptions } from "../../helpers/global.types";
 
 // Auto-Generated
 export interface PortalProps {
@@ -12,6 +12,7 @@ export interface PortalProps {
 	safeZoneSize?: SizeOptions | null;
 	verticalAlign?: "start" | "center" | "end";
 	animation?: "default" | "zoom" | null;
+	bodyScrollDisable?: boolean;
 	isOpen?: boolean;
 	children?: React.ReactNode;
 }

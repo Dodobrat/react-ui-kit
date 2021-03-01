@@ -10,10 +10,6 @@
 	overscroll-behavior: contain;
 	height: 100vh;
 	background-color: transparent;
-
-	&__inner {
-		@include portalInner();
-	}
 }
 
 @mixin portalInner() {
@@ -47,6 +43,59 @@
 
 .dui__portal {
 	@include portal();
+
+	&__inner {
+		@include portalInner();
+	}
+
+	&--backdrop {
+		background-color: rgba($bg, 0.9);
+	}
+}
+
+@mixin drawerInner() {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	min-width: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 0;
+	background-color: $bgCard;
+	overflow: auto;
+	overscroll-behavior: contain;
+
+	$positionKeys: map-keys($drawerPositions);
+	@each $key in $positionKeys {
+		$name: map-deep-get($drawerPositions, $key, "name");
+		$top: map-deep-get($drawerPositions, $key, "top");
+		$left: map-deep-get($drawerPositions, $key, "left");
+		$right: map-deep-get($drawerPositions, $key, "right");
+		$bottom: map-deep-get($drawerPositions, $key, "bottom");
+		&.dui__drawer__inner--position-#{$name} {
+			top: $top;
+			left: $left;
+			bottom: $bottom;
+			right: $right;
+			@each $sizeName, $size in $drawerSizes {
+				&.dui__drawer__inner--#{$sizeName} {
+					@if ($name == "left" or $name == "right") {
+						max-width: $size;
+					} @else {
+						max-height: $size;
+					}
+				}
+			}
+		}
+	}
+}
+
+.dui__drawer {
+	@include portal();
+
+	&__inner {
+		@include drawerInner();
+	}
 
 	&--backdrop {
 		background-color: rgba($bg, 0.9);

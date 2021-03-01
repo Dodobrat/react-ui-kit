@@ -4,13 +4,12 @@ import cn from "classnames";
 import { AnimProps } from "./AnimProps.types";
 
 const FadePortal: React.FC<AnimProps> = (props) => {
-	const { classNames, className, unmountOnExit = true, timeout = 300, children, ...rest } = props;
+	const { classNames, unmountOnExit = true, timeout = 300, children, ...rest } = props;
 	return (
 		<CSSTransition
 			timeout={timeout}
 			unmountOnExit={unmountOnExit}
-			className={cn("dui__anim dui__anim--fade-portal", className)}
-			classNames={cn("fade-portal", classNames)}
+			classNames={cn("dui__anim__fade-portal fade-portal", classNames)}
 			{...rest}>
 			{children}
 		</CSSTransition>

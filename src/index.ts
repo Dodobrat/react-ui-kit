@@ -12,6 +12,7 @@ import Card from "./components/Card/Card";
 import Collapse from "./components/Collapse/Collapse";
 import Checkbox from "./components/form_elements/Checkbox/Checkbox";
 import Container from "./components/util/Container/Container";
+import Drawer from "./components/Drawer/Drawer";
 import File from "./components/form_elements/File/File";
 import Flex from "./components/util/Flex/Flex";
 import Heading from "./components/typography/Heading/Heading";
@@ -20,8 +21,8 @@ import InputGroup from "./components/form_elements/InputGroup/InputGroup";
 import LineLoader from "./components/LineLoader/LineLoader";
 import ListGroup from "./components/ListGroup/ListGroup";
 import Navbar from "./components/Navbar/Navbar";
-import Portal from "./components/util/Portal/Portal";
-import PortalWrapper from "./components/util/Portal/PortalWrapper";
+import Portal from "./components/Portal/Portal";
+import PortalWrapper from "./components/util/PortalWrapper/PortalWrapper";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import ProgressRing from "./components/ProgressRing/ProgressRing";
 import Radio from "./components/form_elements/Radio/Radio";
@@ -38,6 +39,7 @@ import CollapseShow from "./components/util/animations/CollapseShow";
 import Fade from "./components/util/animations/Fade";
 import FadePortal from "./components/util/animations/FadePortal";
 import ZoomPortal from "./components/util/animations/ZoomPortal";
+import SlideIn from "./components/util/animations/SlideIn";
 
 //Hooks
 import { useKeyPress } from "./hooks/useKeyPress";
@@ -58,6 +60,7 @@ export {
 	Collapse,
 	Checkbox,
 	Container,
+	Drawer,
 	File,
 	Flex,
 	Heading,
@@ -83,6 +86,7 @@ export {
 	Fade,
 	FadePortal,
 	ZoomPortal,
+	SlideIn,
 	//HOOKS
 	useKeyPress,
 	useWindowResize,

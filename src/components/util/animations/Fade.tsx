@@ -4,14 +4,9 @@ import cn from "classnames";
 import { AnimProps } from "./AnimProps.types";
 
 const Fade: React.FC<AnimProps> = (props) => {
-	const { classNames, className, unmountOnExit = true, timeout = 250, children, ...rest } = props;
+	const { classNames, unmountOnExit = true, timeout = 250, children, ...rest } = props;
 	return (
-		<CSSTransition
-			timeout={timeout}
-			unmountOnExit={unmountOnExit}
-			className={cn("dui__anim dui__anim--fade", className)}
-			classNames={cn("fade", classNames)}
-			{...rest}>
+		<CSSTransition timeout={timeout} unmountOnExit={unmountOnExit} classNames={cn("dui__anim__fade fade", classNames)} {...rest}>
 			{children}
 		</CSSTransition>
 	);

@@ -116,6 +116,37 @@ $roundBorderRadius: 50% !default;
 //--Loaders
 
 //--Portals
+$drawerSizes: (
+	"xs": 12.5rem,
+	"sm": 15rem,
+	"md": 18rem,
+	"lg": 22rem,
+	"xl": 28rem,
+);
+
+$drawerPositions: (
+	"left": (
+		"name": "left",
+		"left": 0,
+		"top": 0,
+	),
+	"top": (
+		"name": "top",
+		"left": 0,
+		"top": 0,
+	),
+	"right": (
+		"name": "right",
+		"right": 0,
+		"top": 0,
+	),
+	"bottom": (
+		"name": "bottom",
+		"left": 0,
+		"bottom": 0,
+	),
+);
+
 $portalSizes: (
 	"xs": 30rem,
 	"sm": 35rem,

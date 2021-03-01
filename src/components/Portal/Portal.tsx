@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import cn from "classnames";
 import FocusTrap from "focus-trap-react";
-import { useKeyPress } from "../../../hooks/useKeyPress";
-import { SizeOptions } from "../../../helpers/global";
-import PortalWrapper from "./PortalWrapper";
-import FadePortal from "../animations/FadePortal";
-import ZoomPortal from "../animations/ZoomPortal";
-import { disableScrollAndScrollBar } from "../../../helpers/functions";
+import { useKeyPress } from "../../hooks/useKeyPress";
+import { SizeOptions } from "../../helpers/global";
+import PortalWrapper from "../util/PortalWrapper/PortalWrapper";
+import FadePortal from "../util/animations/FadePortal";
+import ZoomPortal from "../util/animations/ZoomPortal";
+import { disableScrollAndScrollBar } from "../../helpers/functions";
 
 import { PortalProps } from "./Portal.types";
 
@@ -22,6 +22,7 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 		safeZoneSize = "md",
 		verticalAlign = "center",
 		animation = "default",
+		bodyScrollDisable = true,
 		isOpen = false,
 		children,
 		...rest
@@ -30,26 +31,28 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 	useKeyPress("Escape", keyboard && backdrop !== "static" ? () => onClose?.() : () => null);
 
 	useEffect(() => {
-		const noScroll = document.body.classList.contains("no-scroll");
+		if (bodyScrollDisable) {
+			const noScroll = document.body.classList.contains("no-scroll");
 
-		if (!noScroll) {
-			disableScrollAndScrollBar(isOpen);
+			if (!noScroll) {
+				disableScrollAndScrollBar(isOpen);
+			}
+			return () => disableScrollAndScrollBar(false);
 		}
-		return () => disableScrollAndScrollBar(false);
 	}, [isOpen]);
 
 	useEffect(() => {
-		const detectClicked = (e: any) => {
-			if (backdrop !== "static") {
+		if (backdrop !== "static") {
+			const detectClicked = (e: any) => {
 				if (e.target.classList.contains("dui__portal") || e.target.classList.contains("dui__portal__inner")) {
 					return onClose?.();
 				}
-			}
-		};
-		document.addEventListener("click", detectClicked);
-		return () => {
-			document.removeEventListener("click", detectClicked);
-		};
+			};
+			document.addEventListener("click", detectClicked);
+			return () => {
+				document.removeEventListener("click", detectClicked);
+			};
+		}
 	});
 
 	const PortalContent = () => {

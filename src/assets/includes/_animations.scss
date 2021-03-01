@@ -122,7 +122,7 @@
 	&-enter-active {
 		overflow: hidden;
 		transition: max-height $slowTransTime $slowTransEase;
-		max-height: 67.5rem;
+		max-height: 49rem;
 		& > * {
 			transition: opacity $fastTransTime $fastTransEase;
 			transition-delay: $slowTransTime;
@@ -134,7 +134,7 @@
 		max-height: unset;
 	}
 	&-exit {
-		max-height: 67.5rem;
+		max-height: 49rem;
 		& > * {
 			opacity: 1;
 		}
@@ -152,43 +152,134 @@
 	}
 }
 
-.fade {
-	@include fadeAnim();
-}
-
-.fade-portal {
-	@include fadePortalAnim();
-}
-
-.zoom-portal {
-	@include zoomPortalAnim();
-}
-
-.collapse-show {
-	@include collapseShowAnim();
-}
-
-.collapse-fade {
-	@include collapseFadeAnim();
+@mixin slideIn($position: "left") {
+	&-enter {
+		overflow: hidden;
+		opacity: 0;
+		.dui__drawer__inner {
+			@if ($position == "left") {
+				transform: translateX(-110%);
+			}
+			@if ($position == "right") {
+				transform: translateX(110%);
+			}
+			@if ($position == "top") {
+				transform: translateY(-110%);
+			}
+			@if ($position == "bottom") {
+				transform: translateY(110%);
+			}
+		}
+	}
+	&-enter-active {
+		overflow: hidden;
+		transition: $fastTrans;
+		opacity: 1;
+		.dui__drawer__inner {
+			transition-delay: $fastTransTime;
+			transition: $slowTrans;
+			@if ($position == "left" or $position == "right") {
+				transform: translateX(0);
+			}
+			@if ($position == "top" or $position == "bottom") {
+				transform: translateY(0);
+			}
+		}
+	}
+	&-enter-done {
+		overflow: initial;
+	}
+	&-exit {
+		overflow: hidden;
+		opacity: 1;
+		.dui__drawer__inner {
+			@if ($position == "left" or $position == "right") {
+				transform: translateX(0);
+			}
+			@if ($position == "top" or $position == "bottom") {
+				transform: translateY(0);
+			}
+		}
+	}
+	&-exit-active {
+		overflow: hidden;
+		transition-delay: $slowTransTime;
+		transition: $fastTrans;
+		opacity: 0;
+		.dui__drawer__inner {
+			transition: $slowTrans;
+			@if ($position == "left") {
+				transform: translateX(-110%);
+			}
+			@if ($position == "right") {
+				transform: translateX(110%);
+			}
+			@if ($position == "top") {
+				transform: translateY(-110%);
+			}
+			@if ($position == "bottom") {
+				transform: translateY(110%);
+			}
+		}
+	}
 }
 
 .dui__anim {
-	&--fade {
+	&__fade {
 		will-change: opacity;
+		&.fade {
+			@include fadeAnim();
+		}
 	}
-	&--fade-portal {
+	&__fade-portal {
 		will-change: transform, opacity;
+		&.fade-portal {
+			@include fadePortalAnim();
+		}
 	}
-	&--zoom-portal {
+	&__zoom-portal {
 		will-change: transform, opacity;
+		&.zoom-portal {
+			@include zoomPortalAnim();
+		}
 	}
-	&--collapse-show {
+	&__collapse-show {
 		will-change: max-height;
+		&.collapse-show {
+			@include collapseShowAnim();
+		}
 	}
-	&--collapse-fade {
+	&__collapse-fade {
 		will-change: max-height;
 		& > * {
 			will-change: opacity;
+		}
+		&.collapse-fade {
+			@include collapseFadeAnim();
+		}
+	}
+	&__slide-left {
+		will-change: transform, opacity;
+		&.slide-left {
+			@include slideIn("left");
+		}
+	}
+	&__slide-top {
+		will-change: transform, opacity;
+		&.slide-top {
+			@include slideIn("top");
+		}
+	}
+	&__slide-right {
+		will-change: transform, opacity;
+		&.slide-right {
+			@include slideIn("right");
+		}
+	}
+	&__slide-bottom {
+		will-change: transform, opacity;
+		&.slide-bottom {
+			@include slideIn("bottom");
 		}
 	}
 }
