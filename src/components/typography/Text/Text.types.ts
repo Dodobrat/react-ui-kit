@@ -1,6 +1,6 @@
+import { CnCh, ElemType } from "../../../helpers/global.types";
+
+type ExtraTextProps = ElemType & CnCh;
+
 // Auto-Generated
-export interface TextProps {
-	className?: string;
-	as?: React.ElementType;
-	children?: React.ReactNode;
-}
+export interface TextProps extends ExtraTextProps {}

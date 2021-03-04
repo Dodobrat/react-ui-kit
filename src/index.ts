@@ -42,6 +42,8 @@ import ZoomPortal from "./components/util/animations/ZoomPortal";
 import SlideIn from "./components/util/animations/SlideIn";
 
 //Hooks
+import { useDebounce } from "./hooks/useDebounce";
+import { useEventListener } from "./hooks/useEventListener";
 import { useKeyPress } from "./hooks/useKeyPress";
 import { useWindowResize } from "./hooks/useWindowResize";
 
@@ -88,6 +90,8 @@ export {
 	ZoomPortal,
 	SlideIn,
 	//HOOKS
+	useDebounce,
+	useEventListener,
 	useKeyPress,
 	useWindowResize,
 	//CONTEXT

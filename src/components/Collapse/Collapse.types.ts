@@ -1,16 +1,12 @@
-import { ElevationOptions, PigmentOptions } from "../../helpers/global.types";
+import { CnCh, EssentialCustomizationProps } from "../../helpers/global.types";
+
+type ExtraCollapseProps = EssentialCustomizationProps & CnCh;
 
 // Auto-Generated
-export interface CollapseProps {
-	className?: string;
+export interface CollapseProps extends ExtraCollapseProps {
 	onToggle?: (isCollapsed: boolean) => void;
 	isCollapsed?: boolean;
-	elevation?: ElevationOptions;
-	pigment?: null | PigmentOptions;
-	contrast?: boolean;
-	flat?: boolean;
 	allowOverflow?: boolean;
 	disableWhileLoading?: boolean;
 	loading?: boolean;
-	children?: React.ReactNode;
 }

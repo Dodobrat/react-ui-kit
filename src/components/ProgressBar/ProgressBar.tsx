@@ -16,6 +16,7 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 		labeled = false,
 		labelValue = "%",
 		labelPosition = "top",
+		labelAlwaysVisible = false,
 		decimals = 0,
 		rounded = false,
 		flat = false,
@@ -49,10 +50,22 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 	const { width } = useWindowResize(250);
 
 	useEffect(() => {
-		const progressBarLength = progressRef?.current?.getBoundingClientRect?.()?.width;
-		setProgressLabelPosition(() => progressBarLength ?? 0);
-		return () => setProgressLabelPosition(0);
-	}, [value, min, max, width]);
+		if (labeled) {
+			const progressBarParentLength: number = progressRef?.current?.parentElement?.getBoundingClientRect?.()?.width;
+			const progressBarLength: number = (progressBarParentLength * Number(parseValueToPercent(min, max, value, decimals))) / 100;
+			const progressBarLabel: HTMLElement = progressRef?.current?.nextSibling;
+			const progressBarLabelDimensions: number = progressBarLabel?.getBoundingClientRect?.()?.width;
+
+			if (progressBarLength < progressBarLabelDimensions / 2) {
+				setProgressLabelPosition(() => progressBarLabelDimensions / 2);
+			} else if (progressBarParentLength - progressBarLength < progressBarLabelDimensions / 2) {
+				setProgressLabelPosition(() => progressBarParentLength - progressBarLabelDimensions / 2);
+			} else {
+				setProgressLabelPosition(() => progressBarLength ?? 0);
+			}
+			return () => setProgressLabelPosition(0);
+		}
+	}, [value, min, max, width, labeled]);
 
 	return (
 		<div
@@ -63,6 +76,7 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 					"dui__progressbar--contrast": contrast,
 					"dui__progressbar--flat": flat,
 					"dui__progressbar--rounded": rounded,
+					"dui__progressbar--label-always": labelAlwaysVisible,
 					"dui__progressbar--no-track": !withTrack,
 				},
 				{

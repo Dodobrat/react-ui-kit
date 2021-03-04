@@ -1,13 +1,5 @@
-import { PigmentOptions, SizeOptions } from "../../helpers/global.types";
+import { CnCh, CustomizationProps, ElemType } from "../../helpers/global.types";
 
+type ExtraBadgeProps = ElemType & CustomizationProps & CnCh;
 // Auto-Generated
-export interface BadgeProps {
-	className?: string;
-	as?: React.ElementType;
-	contrast?: boolean;
-	pigment?: PigmentOptions;
-	size?: SizeOptions;
-	flat?: boolean;
-	rounded?: boolean;
-	children?: React.ReactNode;
-}
+export interface BadgeProps extends ExtraBadgeProps {}

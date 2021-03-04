@@ -4,6 +4,9 @@
 	}
 	&-enter-active {
 		transition: $normalTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		opacity: 1;
 	}
 	&-exit {
@@ -11,6 +14,9 @@
 	}
 	&-exit-active {
 		transition: $normalTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		opacity: 0;
 	}
 }
@@ -25,10 +31,16 @@
 	}
 	&-enter-active {
 		transition: $fastTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		opacity: 1;
 		.dui__portal__inner {
 			transition-delay: $fastTransTime;
 			transition: $fastTrans;
+			@media (prefers-reduced-motion) {
+				transition: none;
+			}
 			opacity: 1;
 			transform: translateY(0);
 		}
@@ -43,9 +55,15 @@
 	&-exit-active {
 		transition-delay: $fastTransTime;
 		transition: $fastTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		opacity: 0;
 		.dui__portal__inner {
 			transition: $fastTrans;
+			@media (prefers-reduced-motion) {
+				transition: none;
+			}
 			opacity: 0;
 			transform: translateY(-5rem);
 		}
@@ -62,10 +80,16 @@
 	}
 	&-enter-active {
 		transition: $fastTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		opacity: 1;
 		.dui__portal__inner {
 			transition-delay: $fastTransTime;
 			transition: $fastTrans;
+			@media (prefers-reduced-motion) {
+				transition: none;
+			}
 			opacity: 1;
 			transform: scale(1);
 		}
@@ -80,9 +104,15 @@
 	&-exit-active {
 		transition-delay: $fastTransTime;
 		transition: $fastTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		opacity: 0;
 		.dui__portal__inner {
 			transition: $fastTrans;
+			@media (prefers-reduced-motion) {
+				transition: none;
+			}
 			opacity: 0;
 			transform: scale(0.5);
 		}
@@ -96,6 +126,9 @@
 	&-enter-active {
 		overflow: hidden;
 		transition: max-height $slowTransTime $slowTransEase;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		max-height: 49rem;
 	}
 	&-enter-done {
@@ -108,6 +141,9 @@
 	&-exit-active {
 		overflow: hidden;
 		transition: max-height $slowTransTime $slowTransEase;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		max-height: 0;
 	}
 }
@@ -122,10 +158,16 @@
 	&-enter-active {
 		overflow: hidden;
 		transition: max-height $slowTransTime $slowTransEase;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		max-height: 49rem;
 		& > * {
 			transition: opacity $fastTransTime $fastTransEase;
 			transition-delay: $slowTransTime;
+			@media (prefers-reduced-motion) {
+				transition: none;
+			}
 			opacity: 1;
 		}
 	}
@@ -143,10 +185,16 @@
 		overflow: hidden;
 		transition-delay: $fastTransTime;
 		transition: max-height $slowTransTime $slowTransEase;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		max-height: 0;
 		pointer-events: none;
 		& > * {
 			transition: opacity $fastTransTime $fastTransEase;
+			@media (prefers-reduced-motion) {
+				transition: none;
+			}
 			opacity: 0;
 		}
 	}
@@ -174,10 +222,16 @@
 	&-enter-active {
 		overflow: hidden;
 		transition: $fastTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		opacity: 1;
 		.dui__drawer__inner {
 			transition-delay: $fastTransTime;
 			transition: $slowTrans;
+			@media (prefers-reduced-motion) {
+				transition: none;
+			}
 			@if ($position == "left" or $position == "right") {
 				transform: translateX(0);
 			}
@@ -205,9 +259,15 @@
 		overflow: hidden;
 		transition-delay: $slowTransTime;
 		transition: $fastTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
 		opacity: 0;
 		.dui__drawer__inner {
 			transition: $slowTrans;
+			@media (prefers-reduced-motion) {
+				transition: none;
+			}
 			@if ($position == "left") {
 				transform: translateX(-110%);
 			}

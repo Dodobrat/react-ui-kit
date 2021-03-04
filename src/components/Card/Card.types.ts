@@ -1,15 +1,11 @@
-import { ElevationOptions, PigmentOptions } from "../../helpers/global.types";
+import { CnCh, EssentialCustomizationProps } from "../../helpers/global.types";
+
+type ExtraCardProps = EssentialCustomizationProps & CnCh;
 
 // Auto-Generated
-export interface CardProps {
+export interface CardProps extends ExtraCardProps {
 	imgPosition?: "top" | "bottom" | "left" | "right";
-	elevation?: ElevationOptions;
-	pigment?: null | PigmentOptions;
-	contrast?: boolean;
-	flat?: boolean;
 	allowOverflow?: boolean;
 	disableWhileLoading?: boolean;
 	loading?: boolean;
-	className?: string;
-	children?: React.ReactNode;
 }

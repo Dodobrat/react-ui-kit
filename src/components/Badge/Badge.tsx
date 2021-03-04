@@ -3,13 +3,14 @@ import React from "react";
 import cn from "classnames";
 
 import { BadgeProps } from "./Badge.types";
-import { PigmentOptions, SizeOptions } from "../../helpers/global";
+import { ElevationOptions, PigmentOptions, SizeOptions } from "../../helpers/global";
 import { addElementAttributes } from "../../helpers/functions";
 
 const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) => {
 	const {
 		className,
 		as = "span",
+		elevation = "none",
 		contrast = false,
 		pigment = "primary",
 		size = "md",
@@ -37,6 +38,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 				},
 				{
 					[`dui__badge--${pigment}`]: PigmentOptions.includes(pigment),
+					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
 				},
 				className
 			)}

@@ -1,5 +1,4 @@
+import { CnCh } from "../../../helpers/global.types";
+
 // Auto-Generated
-export interface TextAreaProps {
-	className?: string;
-	children?: React.ReactNode;
-}
+export interface TextAreaProps extends CnCh {}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import cn from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useKeyPress } from "../../hooks/useKeyPress";
@@ -9,6 +9,7 @@ import ZoomPortal from "../util/animations/ZoomPortal";
 import { disableScrollAndScrollBar } from "../../helpers/functions";
 
 import { PortalProps } from "./Portal.types";
+import { useEventListener } from "../../hooks/useEventListener";
 
 const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (props, ref) => {
 	const {
@@ -41,19 +42,18 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 		}
 	}, [isOpen]);
 
-	useEffect(() => {
-		if (backdrop !== "static") {
-			const detectClicked = (e: any) => {
+	const handler = useCallback(
+		(e) => {
+			if (backdrop !== "static") {
 				if (e.target.classList.contains("dui__portal") || e.target.classList.contains("dui__portal__inner")) {
 					return onClose?.();
 				}
-			};
-			document.addEventListener("click", detectClicked);
-			return () => {
-				document.removeEventListener("click", detectClicked);
-			};
-		}
-	});
+			}
+		},
+		[onClose]
+	);
+
+	useEventListener("click", handler);
 
 	const PortalContent = () => {
 		return (

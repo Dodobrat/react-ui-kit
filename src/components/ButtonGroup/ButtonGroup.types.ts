@@ -1,11 +1,12 @@
+import { CnCh } from "../../helpers/global.types";
 import { ButtonProps } from "../Button/Button.types";
 
+type ExtraButtonGroupProps = ButtonProps & CnCh;
+
 // Auto-Generated
-export interface ButtonGroupProps extends ButtonProps {
-	className?: string;
+export interface ButtonGroupProps extends ExtraButtonGroupProps {
 	ariaLabel?: string;
 	vertical?: boolean;
 	groupProps?: Object;
-	children?: React.ReactNode;
 	disabled?: boolean;
 }

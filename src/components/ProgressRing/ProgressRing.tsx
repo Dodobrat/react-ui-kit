@@ -16,6 +16,7 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 		value = 0,
 		labeled = false,
 		labelValue = "%",
+		labelAlwaysVisible = true,
 		decimals = 0,
 		flat = false,
 		contrast = false,
@@ -58,6 +59,7 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 				{
 					"dui__progressring--contrast": contrast,
 					"dui__progressring--flat": flat,
+					"dui__progressring--label-always": labelAlwaysVisible,
 					"dui__progressring--reversed": counterClockWise,
 				},
 				{
@@ -92,7 +94,7 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 					y='50%'
 					textAnchor='middle'
 					dy='0.35em'
-					fontSize={normalizedRadius / 2.5}>
+					fontSize={normalizedRadius / 2.75}>
 					{parsedValue()}
 				</text>
 			)}

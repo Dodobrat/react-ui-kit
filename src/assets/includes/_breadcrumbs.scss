@@ -40,6 +40,10 @@
 		}
 	}
 
+	&--rounded {
+		border-radius: $xlBorderRadius;
+	}
+
 	&--flat {
 		border-radius: $flatBorderRadius;
 	}

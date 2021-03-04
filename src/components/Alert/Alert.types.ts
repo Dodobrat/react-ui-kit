@@ -1,17 +1,12 @@
-import { ElevationOptions, PigmentOptions } from "../../helpers/global.types";
+import { CnCh, CustomizationProps } from "../../helpers/global.types";
+
+type ExtraAlertProps = CustomizationProps & CnCh;
 
 // Auto-Generated
-export interface AlertProps {
-	className?: string;
-	elevation?: ElevationOptions;
-	pigment?: PigmentOptions;
-	contrast?: boolean;
-	rounded?: boolean;
-	flat?: boolean;
+export interface AlertProps extends ExtraAlertProps {
 	animation?: "collapse-n-fade" | "fade" | null;
 	isVisible?: boolean;
 	isDismissible?: boolean;
 	isDismissibleOnClick?: boolean;
 	dismissibleComponent?: React.ReactNode;
-	children?: React.ReactNode;
 }

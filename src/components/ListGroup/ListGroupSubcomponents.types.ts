@@ -1,17 +1,14 @@
-import { PigmentOptions } from "../../helpers/global.types";
+import { CnCh, ElemType, PigmentOptions } from "../../helpers/global.types";
 import { LineLoaderProps } from "../LineLoader/LineLoader.types";
 
-interface ListGroupSubComponentGlobalsProps {
-	className?: string;
-	children?: React.ReactNode;
-}
-interface ListGroupSubComponentProps extends ListGroupSubComponentGlobalsProps {
-	as?: React.ElementType;
+type ExtraListGroupSubComponentProps = ElemType & CnCh;
+interface ListGroupSubComponentProps extends ExtraListGroupSubComponentProps {
 	contrast?: boolean;
 	pigment?: PigmentOptions;
 }
 
-type ExtendedListGroupLoaderProps = ListGroupSubComponentGlobalsProps & LineLoaderProps;
+type ExtendedListGroupLoaderProps = CnCh & LineLoaderProps;
+
 export interface ListGroupLoaderSubComponentProps extends ExtendedListGroupLoaderProps {}
 
 export interface ListGroupHeaderSubComponentProps extends ListGroupSubComponentProps {
@@ -28,12 +25,12 @@ export interface ListGroupCollapseSubComponentProps extends ListGroupSubComponen
 	nestedCollapseIndent?: boolean;
 }
 
-export interface ListGroupCollapseToggleSubComponentProps extends ListGroupSubComponentGlobalsProps {
+export interface ListGroupCollapseToggleSubComponentProps extends CnCh {
 	collapseIndicator?: boolean;
 	collapseIndicatorComponent?: React.ReactNode;
 }
 
-export interface ListGroupCollapseContentSubComponentProps extends ListGroupSubComponentGlobalsProps {
+export interface ListGroupCollapseContentSubComponentProps extends CnCh {
 	isCollapsed?: boolean;
 	animation?: "collapse-n-fade" | "collapse" | null;
 }

@@ -1,5 +1,4 @@
+import { CnCh } from "../../../helpers/global.types";
+
 // Auto-Generated
-export interface SliderProps {
-	className?: string;
-	children?: React.ReactNode;
-}
+export interface SliderProps extends CnCh {}

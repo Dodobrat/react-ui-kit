@@ -1,20 +1,16 @@
+import { CnCh } from "../../helpers/global.types";
 import { LineLoaderProps } from "../LineLoader/LineLoader.types";
 
-export interface CollapseSubComponentProps {
-	className?: string;
-	children?: React.ReactNode;
-}
+type ExtraCollapseLoaderSubComponentProps = CnCh & LineLoaderProps;
 
-export interface CollapseLoaderSubComponentProps extends LineLoaderProps {
-	children?: React.ReactNode;
-}
+export interface CollapseLoaderSubComponentProps extends ExtraCollapseLoaderSubComponentProps {}
 
-export interface CollapseToggleSubComponentProps extends CollapseSubComponentProps {
+export interface CollapseToggleSubComponentProps extends CnCh {
 	collapseIndicator?: boolean;
 	collapseIndicatorComponent?: React.ReactNode;
 }
 
-export interface CollapseContentSubComponentProps extends CollapseSubComponentProps {
+export interface CollapseContentSubComponentProps extends CnCh {
 	isCollapsed?: boolean;
 	animation?: "collapse-n-fade" | "collapse" | null;
 }

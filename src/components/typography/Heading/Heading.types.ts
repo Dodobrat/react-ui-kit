@@ -1,6 +1,6 @@
+import { CnCh, ElemType } from "../../../helpers/global.types";
+
+type ExtraHeadingProps = ElemType & CnCh;
+
 // Auto-Generated
-export interface HeadingProps {
-	className?: string;
-	as?: React.ElementType;
-	children?: React.ReactNode;
-}
+export interface HeadingProps extends ExtraHeadingProps {}

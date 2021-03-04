@@ -1,15 +1,10 @@
-import { ElevationOptions, PigmentOptions } from "../../helpers/global.types";
+import { CnCh, ElemType, EssentialCustomizationProps } from "../../helpers/global.types";
+
+type ExtraListGroupProps = ElemType & EssentialCustomizationProps & CnCh;
 
 // Auto-Generated
-export interface ListGroupProps {
-	className?: string;
-	elevation?: ElevationOptions;
-	pigment?: null | PigmentOptions;
-	contrast?: boolean;
-	flat?: boolean;
+export interface ListGroupProps extends ExtraListGroupProps {
 	allowOverflow?: boolean;
 	disableWhileLoading?: boolean;
 	loading?: boolean;
-	as?: React.ElementType;
-	children?: React.ReactNode;
 }

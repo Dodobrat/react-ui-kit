@@ -1,4 +1,4 @@
-import { ElevationOptions, PigmentOptions, SizeOptions } from "../../helpers/global.types";
+import { CnCh, CustomizationProps, ElemType, PigmentOptions } from "../../helpers/global.types";
 
 // Auto-Generated
 type HTMLButtonProps = {
@@ -12,30 +12,21 @@ type HTMLAnchorProps = {
 	href?: string;
 };
 
-type ExtraButtonProps = HTMLButtonProps & HTMLAnchorProps;
+type ExtraButtonProps = ElemType & HTMLButtonProps & HTMLAnchorProps & CustomizationProps & CnCh;
 
 export interface ButtonProps extends ExtraButtonProps {
-	className?: string;
 	type?: "button" | "submit" | "reset";
-	as?: React.ElementType;
-	elevation?: ElevationOptions;
-	iconStart?: null | React.ElementType;
-	iconEnd?: null | React.ElementType;
+	iconStart?: null | React.ReactNode;
+	iconEnd?: null | React.ReactNode;
 	leftAlignContent?: boolean;
 	unWrapText?: boolean;
-	pigment?: null | PigmentOptions;
-	pigmentColor?: null | PigmentOptions;
+	pigmentColor?: PigmentOptions;
 	keyboardOnlyFocusRing?: boolean;
 	spongy?: boolean;
-	contrast?: boolean;
-	size?: SizeOptions;
-	rounded?: boolean;
 	round?: boolean;
-	flat?: boolean;
 	wide?: boolean;
 	active?: boolean;
 	disableWhileLoading?: boolean;
 	loading?: boolean;
-	loadingComponent?: boolean | JSX.Element | React.ReactNode | React.ElementType;
-	children?: React.ReactNode;
+	loadingComponent?: boolean | JSX.Element | React.ReactNode;
 }

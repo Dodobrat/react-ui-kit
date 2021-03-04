@@ -16,6 +16,7 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 		className,
 		contained = false,
 		flat = false,
+		rounded = false,
 		elevation = "none",
 		pigment = null,
 		contrast = false,
@@ -50,6 +51,7 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 				{
 					"dui__breadcrumbs--contained": contained,
 					"dui__breadcrumbs--flat": flat,
+					"dui__breadcrumbs--rounded": rounded,
 					"dui__breadcrumbs--contrast": contrast,
 				},
 				{

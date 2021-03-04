@@ -1,4 +1,3 @@
-export interface FlexSubComponentProps {
-	className?: string;
-	children?: React.ReactNode;
-}
+import { CnCh } from "../../../helpers/global.types";
+
+export interface FlexSubComponentProps extends CnCh {}

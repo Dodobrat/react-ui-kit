@@ -1,18 +1,7 @@
-import { PigmentOptions } from "../../helpers/global.types";
+import { Progress } from "../../helpers/global.types";
 
 // Auto-Generated
-export interface ProgressBarProps {
-	className?: string;
-	min?: number;
-	max?: number;
-	value?: number;
-	labeled?: boolean;
-	labelValue?: "%" | "count" | "count + %";
+export interface ProgressBarProps extends Progress {
 	labelPosition?: "top" | "right" | "bottom" | "left";
-	decimals?: number;
-	flat?: boolean;
 	rounded?: boolean;
-	contrast?: boolean;
-	pigment?: PigmentOptions;
-	withTrack?: boolean;
 }

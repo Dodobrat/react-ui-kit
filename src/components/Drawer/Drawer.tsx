@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import cn from "classnames";
 
 import { DrawerProps } from "./Drawer.types";
@@ -9,6 +9,7 @@ import SlideIn from "../util/animations/SlideIn";
 import { ElevationOptions, SizeOptions } from "../../helpers/global";
 import { useKeyPress } from "../../hooks/useKeyPress";
 import { disableScrollAndScrollBar } from "../../helpers/functions";
+import { useEventListener } from "../../hooks/useEventListener";
 
 const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (props, ref) => {
 	const {
@@ -40,19 +41,18 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 		}
 	}, [isOpen]);
 
-	useEffect(() => {
-		if (backdrop !== "static") {
-			const detectClicked = (e: any) => {
+	const handler = useCallback(
+		(e) => {
+			if (backdrop !== "static") {
 				if (e.target.classList.contains("dui__drawer") || e.target.classList.contains("dui__drawer__inner")) {
 					return onClose?.();
 				}
-			};
-			document.addEventListener("click", detectClicked);
-			return () => {
-				document.removeEventListener("click", detectClicked);
-			};
-		}
-	});
+			}
+		},
+		[onClose]
+	);
+
+	useEventListener("click", handler);
 
 	const DrawerContent = () => {
 		return (

@@ -3,6 +3,7 @@
 	display: block;
 	padding-top: 2rem;
 	&__progress {
+		transition: $fastTrans;
 		overflow: hidden;
 		height: 0.5rem;
 		border-radius: $smBorderRadius;
@@ -23,6 +24,7 @@
 		border-radius: $smBorderRadius;
 		padding: 0.25rem 0.4rem;
 		font-size: 80%;
+		white-space: nowrap;
 		line-height: 1;
 		z-index: 999;
 		pointer-events: none;
@@ -127,6 +129,12 @@ $progressBarLabelPositions: (
 		}
 	}
 
+	&--label-always {
+		.dui__progressbar__label {
+			opacity: 1;
+		}
+	}
+
 	&--no-track {
 		.dui__progressbar__progress {
 			&::before {
@@ -147,8 +155,15 @@ $progressBarLabelPositions: (
 		stroke-linecap: round;
 	}
 	.dui__progressring__label {
+		transition: $fastTrans;
 		font-weight: 700;
 		stroke-width: 0;
+		opacity: 0;
+	}
+	&:hover {
+		.dui__progressring__label {
+			opacity: 1;
+		}
 	}
 }
 
@@ -187,6 +202,11 @@ $progressBarLabelPositions: (
 	&--flat {
 		& > circle {
 			stroke-linecap: unset;
+		}
+	}
+	&--label-always {
+		.dui__progressring__label {
+			opacity: 1;
 		}
 	}
 }

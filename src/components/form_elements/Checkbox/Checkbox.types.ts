@@ -1,5 +1,4 @@
+import { CnCh } from "../../../helpers/global.types";
+
 // Auto-Generated
-export interface CheckboxProps {
-	className?: string;
-	children?: React.ReactNode;
-}
+export interface CheckboxProps extends CnCh {}

@@ -1,6 +1,8 @@
+import { CnCh } from "../../../helpers/global.types";
+
+type ExtraInputProps = React.InputHTMLAttributes<HTMLInputElement> & CnCh;
 // Auto-Generated
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-	className?: string;
+export interface InputProps extends ExtraInputProps {
 	labelClassName?: string;
 	fieldClassName?: string;
 	hintClassName?: string;
@@ -13,5 +15,4 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 	pigment?: "primary" | "secondary" | "success" | "warning" | "info" | "danger" | "light" | "dark";
 	modern?: boolean;
 	loading?: boolean;
-	children?: React.ReactNode;
 }

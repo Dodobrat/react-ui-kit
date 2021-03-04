@@ -1,13 +1,8 @@
-import { ElevationOptions, PigmentOptions } from "../../helpers/global.types";
+import { CnCh, CustomizationProps } from "../../helpers/global.types";
 
+type ExtraBreadcrumbsProps = CustomizationProps & CnCh;
 // Auto-Generated
-export interface BreadcrumbsProps {
-	className?: string;
+export interface BreadcrumbsProps extends ExtraBreadcrumbsProps {
 	contained?: boolean;
-	flat?: boolean;
-	elevation?: ElevationOptions;
-	pigment?: null | PigmentOptions;
-	contrast?: boolean;
 	separator?: JSX.Element | string | null;
-	children?: React.ReactNode;
 }
