@@ -1,0 +1,59 @@
+//--Backgrounds
+$bg: #000;
+$bgCard: #111;
+
+//--Font Colors
+$mainFont: #fff;
+$subFont: #eee;
+
+//--Accents
+$primaryBg: hsla($primaryBase, 50%, 20%, 100%);
+$primaryFont: hsla($primaryBase, 100%, 90%, 100%);
+
+$secondaryBg: hsla($secondaryBase, 0%, 20%, 100%);
+$secondaryFont: hsla($secondaryBase, 0%, 90%, 100%);
+
+$successBg: hsla($successBase, 50%, 20%, 100%);
+$successFont: hsla($successBase, 100%, 90%, 100%);
+
+$warningBg: hsla($warningBase, 50%, 20%, 100%);
+$warningFont: hsla($warningBase, 100%, 90%, 100%);
+
+$dangerBg: hsla($dangerBase, 50%, 20%, 100%);
+$dangerFont: hsla($dangerBase, 100%, 90%, 100%);
+
+$infoBg: hsla($infoBase, 50%, 20%, 100%);
+$infoFont: hsla($infoBase, 100%, 90%, 100%);
+
+$pigments: (
+	"primary": (
+		"name": "primary",
+		"bgColor": $primaryBg,
+		"fontColor": $primaryFont,
+	),
+	"secondary": (
+		"name": "secondary",
+		"bgColor": $secondaryBg,
+		"fontColor": $secondaryFont,
+	),
+	"success": (
+		"name": "success",
+		"bgColor": $successBg,
+		"fontColor": $successFont,
+	),
+	"warning": (
+		"name": "warning",
+		"bgColor": $warningBg,
+		"fontColor": $warningFont,
+	),
+	"danger": (
+		"name": "danger",
+		"bgColor": $dangerBg,
+		"fontColor": $dangerFont,
+	),
+	"info": (
+		"name": "info",
+		"bgColor": $infoBg,
+		"fontColor": $infoFont,
+	),
+);

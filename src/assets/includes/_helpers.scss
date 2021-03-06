@@ -1,14 +1,21 @@
 .dui__container {
-	max-width: 71.25rem;
 	min-width: 0;
 	width: 100%;
-	width: clamp(0rem, 100%, 71.25rem);
 	margin: 0 auto;
 	&--fluid {
-		max-width: 100%;
 		min-width: 0;
+		max-width: 100%;
 		width: 100%;
-		width: clamp(0rem, 100%, 100%);
+	}
+	@each $name, $size in $containerSizes {
+		&.dui__container--#{$name} {
+			max-width: $size;
+		}
+	}
+	@each $name, $size in $containerPaddingSizes {
+		&.dui__container--pad-#{$name} {
+			padding: 0 $size;
+		}
 	}
 }
 

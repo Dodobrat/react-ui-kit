@@ -7,12 +7,12 @@ import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import {
 	CollapseContentSubComponentProps,
 	CollapseLoaderSubComponentProps,
-	CollapseSubComponentProps,
 	CollapseToggleSubComponentProps,
 } from "./CollapseSubComponents.types";
 import { CollapseContent, CollapseLoader, CollapseToggle } from "./CollapseSubComponents";
+import { CnCh } from "../../helpers/global.types";
 
-interface CollapseComponent extends React.ForwardRefExoticComponent<CollapseSubComponentProps & React.RefAttributes<HTMLDivElement>> {
+interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CollapseLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Toggle: React.ForwardRefExoticComponent<CollapseToggleSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Content: React.ForwardRefExoticComponent<CollapseContentSubComponentProps & React.RefAttributes<HTMLDivElement>>;

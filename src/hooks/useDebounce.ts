@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
 
-interface useDebounceTypes {
-	value: any;
-}
-
-export const useDebounce: (value: any, delay?: number) => useDebounceTypes = (value, delay = 500) => {
+export const useDebounce: (value: any, delay?: number) => any = (value, delay = 500) => {
 	const [debouncedValue, setDebouncedValue] = useState<any>(value);
 
 	useEffect(() => {

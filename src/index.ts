@@ -1,5 +1,5 @@
 // Styles
-import "./assets/app.scss";
+import "./assets/main.scss";
 // Components
 import Accordion from "./components/Accordion/Accordion";
 import Alert from "./components/Alert/Alert";
@@ -42,9 +42,14 @@ import ZoomPortal from "./components/util/animations/ZoomPortal";
 import SlideIn from "./components/util/animations/SlideIn";
 
 //Hooks
+import { useDarkMode } from "./hooks/useDarkMode";
 import { useDebounce } from "./hooks/useDebounce";
 import { useEventListener } from "./hooks/useEventListener";
 import { useKeyPress } from "./hooks/useKeyPress";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useOnClickOutside } from "./hooks/useOnClickOutside";
+import { usePrefersDarkMode } from "./hooks/usePrefersDarkMode";
+import { useReduceMotion } from "./hooks/useReduceMotion";
 import { useWindowResize } from "./hooks/useWindowResize";
 
 //Context
@@ -90,9 +95,14 @@ export {
 	ZoomPortal,
 	SlideIn,
 	//HOOKS
+	useDarkMode,
 	useDebounce,
 	useEventListener,
 	useKeyPress,
+	useLocalStorage,
+	useOnClickOutside,
+	usePrefersDarkMode,
+	useReduceMotion,
 	useWindowResize,
 	//CONTEXT
 };

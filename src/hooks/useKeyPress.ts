@@ -1,11 +1,7 @@
 import { useEffect, useRef } from "react";
 import { canUseDOM } from "../helpers/functions";
 
-export const useKeyPress: (key: number | string, handler: (e: KeyboardEvent) => void, dir?: "down" | "up") => void = (
-	key,
-	handler,
-	dir = "up"
-) => {
+export const useKeyPress: (key: any, handler: Function, dir?: "down" | "up") => void = (key, handler, dir = "up") => {
 	const onPressRef = useRef(handler);
 
 	useEffect(() => {
@@ -15,7 +11,7 @@ export const useKeyPress: (key: number | string, handler: (e: KeyboardEvent) => 
 	useEffect(() => {
 		if (!canUseDOM) return;
 
-		const handlePress = (e: KeyboardEvent) => {
+		const handlePress: (e: any) => any = (e) => {
 			if (typeof key === "number" && e.keyCode === key) {
 				return onPressRef.current(e);
 			}
@@ -23,7 +19,9 @@ export const useKeyPress: (key: number | string, handler: (e: KeyboardEvent) => 
 				return onPressRef.current(e);
 			}
 		};
+
 		document.addEventListener(`key${dir}`, handlePress);
+
 		return () => {
 			document.removeEventListener(`key${dir}`, handlePress);
 		};

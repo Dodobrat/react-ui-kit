@@ -1,0 +1,13 @@
+html {
+	@import "app.scss";
+
+	&[dark="false"] {
+		@import "./includes/light";
+		@import "app.scss";
+	}
+
+	&[dark="true"] {
+		@import "./includes/dark";
+		@import "app.scss";
+	}
+}

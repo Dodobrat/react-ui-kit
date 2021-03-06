@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { canUseDOM } from "../helpers/functions";
 
-export const useEventListener: (e: string, handler: Function, el?: EventTarget) => void = (e, handler, el = window) => {
+export const useEventListener: (e: any, handler: Function, el?: Window & typeof globalThis) => void = (e, handler, el = window) => {
 	const savedHandler = useRef<Function>();
 
 	useEffect(() => {
@@ -11,7 +11,7 @@ export const useEventListener: (e: string, handler: Function, el?: EventTarget) 
 	useEffect(() => {
 		if (!canUseDOM) return;
 
-		const eventListener: (e: Event) => Function = (event) => savedHandler.current(event);
+		const eventListener: (event: any) => any = (event) => savedHandler.current(event);
 
 		el.addEventListener(e, eventListener);
 

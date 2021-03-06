@@ -1,12 +1,8 @@
 import React, { forwardRef } from "react";
 import cn from "classnames";
 import LineLoader from "../LineLoader/LineLoader";
-import {
-	CardHeaderSubComponentProps,
-	CardImageSubComponentProps,
-	CardLoaderSubComponentProps,
-	CardSubComponentProps,
-} from "./CardSubcomponents.types";
+import { CardHeaderSubComponentProps, CardImageSubComponentProps, CardLoaderSubComponentProps } from "./CardSubcomponents.types";
+import { CnCh } from "../../helpers/global.types";
 
 export const CardLoader = forwardRef<HTMLDivElement, CardLoaderSubComponentProps>((props, ref) => {
 	const { className, pigment, contrast, children, ...rest } = props;
@@ -60,7 +56,7 @@ export const CardHeader = forwardRef<HTMLDivElement, CardHeaderSubComponentProps
 
 CardHeader.displayName = "CardHeader";
 
-export const CardBody = forwardRef<HTMLDivElement, CardSubComponentProps>((props, ref) => {
+export const CardBody = forwardRef<HTMLDivElement, CnCh>((props, ref) => {
 	const { className, children, ...rest } = props;
 
 	return (
@@ -72,7 +68,7 @@ export const CardBody = forwardRef<HTMLDivElement, CardSubComponentProps>((props
 
 CardBody.displayName = "CardBody";
 
-export const CardFooter = forwardRef<HTMLDivElement, CardSubComponentProps>((props, ref) => {
+export const CardFooter = forwardRef<HTMLDivElement, CnCh>((props, ref) => {
 	const { className, children, ...rest } = props;
 
 	return (
