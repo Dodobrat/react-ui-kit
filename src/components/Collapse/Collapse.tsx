@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { CollapseProps } from "./Collapse.types";
@@ -11,7 +11,7 @@ import {
 } from "./CollapseSubComponents.types";
 import { CollapseContent, CollapseLoader, CollapseToggle } from "./CollapseSubComponents";
 import { CnCh } from "../../helpers/global.types";
-
+import { mergeRefs } from "../../helpers/functions";
 interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CollapseLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Toggle: React.ForwardRefExoticComponent<CollapseToggleSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -30,16 +30,19 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		allowOverflow = true,
 		disableWhileLoading = true,
 		loading = false,
+		scrollIntoViewOnToggle = false,
 		children,
 		...rest
 	} = props;
 
+	const collapseRef = useRef(null);
 	const [collapseState, setCollapseState] = useState<boolean>(isCollapsed);
 
 	const onCollapseToggle = () => setCollapseState((prev) => !prev);
 
 	useEffect(() => {
 		setCollapseState(isCollapsed);
+
 		return () => setCollapseState(true);
 	}, [isCollapsed]);
 
@@ -49,6 +52,9 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 				...child,
 				props: {
 					...child.props,
+					isAccordionChild: collapseRef.current?.parentElement?.classList?.contains?.("dui__accordion"),
+					scrollIntoViewOnToggle,
+					isCollapsed: collapseState,
 					onClick: onToggle ? () => onToggle(!isCollapsed) : onCollapseToggle,
 				},
 			};
@@ -91,7 +97,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 				className
 			)}
 			{...rest}
-			ref={ref}>
+			ref={mergeRefs([collapseRef, ref])}>
 			{loading && loader.length === 0 && <CollapseLoader />}
 			{collapseChildren}
 		</div>

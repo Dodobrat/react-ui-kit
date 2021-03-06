@@ -6,6 +6,9 @@ type ExtraCollapseLoaderSubComponentProps = CnCh & LineLoaderProps;
 export interface CollapseLoaderSubComponentProps extends ExtraCollapseLoaderSubComponentProps {}
 
 export interface CollapseToggleSubComponentProps extends CnCh {
+	isCollapsed?: boolean;
+	isAccordionChild?: boolean;
+	scrollIntoViewOnToggle?: boolean;
 	collapseIndicator?: boolean;
 	collapseIndicatorComponent?: React.ReactNode;
 }

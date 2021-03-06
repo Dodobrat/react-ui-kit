@@ -4,8 +4,6 @@ import { useLocalStorage } from "./useLocalStorage";
 import { usePrefersDarkMode } from "./usePrefersDarkMode";
 
 export const useDarkMode: (preference: boolean) => any[] = (systemPreferenceFirst = true) => {
-	const prefersDarkMode = usePrefersDarkMode();
-
 	const determineInitialValue = () => {
 		if (localStorage?.dui_dark_theme) {
 			return localStorage?.dui_dark_theme;
@@ -16,6 +14,7 @@ export const useDarkMode: (preference: boolean) => any[] = (systemPreferenceFirs
 		return false;
 	};
 
+	const prefersDarkMode = usePrefersDarkMode();
 	const [isDark, setIsDark] = useLocalStorage("dui_dark_theme", determineInitialValue());
 
 	useEffect(() => {

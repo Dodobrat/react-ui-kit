@@ -74,4 +74,18 @@ export const addElementAttributesInObj: (props: Object) => Object = (props) => {
 	return extraProps;
 };
 
+// : (refs: Array<React.MutableRefObject<any> | React.LegacyRef<any>>) => React.RefCallback<any>
+
+export const mergeRefs: (refs: Array<React.MutableRefObject<any> | React.LegacyRef<any>>) => React.RefCallback<any> = (refs) => {
+	return (value) => {
+		refs.forEach((ref) => {
+			if (typeof ref === "function") {
+				ref(value);
+			} else if (ref != null) {
+				(ref as React.MutableRefObject<any | null>).current = value;
+			}
+		});
+	};
+};
+
 export const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);

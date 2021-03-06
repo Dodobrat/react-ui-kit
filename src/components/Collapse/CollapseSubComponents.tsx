@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import cn from "classnames";
 import CollapseFade from "../util/animations/CollapseFade";
 import CollapseShow from "../util/animations/CollapseShow";
@@ -8,6 +8,7 @@ import {
 	CollapseToggleSubComponentProps,
 } from "./CollapseSubComponents.types";
 import LineLoader from "../LineLoader/LineLoader";
+import { mergeRefs } from "../../helpers/functions";
 
 export const CollapseLoader = forwardRef<HTMLDivElement, CollapseLoaderSubComponentProps>((props, ref) => {
 	const { className, pigment, contrast, children, ...rest } = props;
@@ -22,7 +23,33 @@ export const CollapseLoader = forwardRef<HTMLDivElement, CollapseLoaderSubCompon
 CollapseLoader.displayName = "CollapseLoader";
 
 export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubComponentProps>((props, ref) => {
-	const { className, collapseIndicator = true, collapseIndicatorComponent, children, ...rest } = props;
+	const {
+		className,
+		isAccordionChild,
+		isCollapsed,
+		scrollIntoViewOnToggle,
+		collapseIndicator = true,
+		collapseIndicatorComponent,
+		children,
+		...rest
+	} = props;
+
+	const toggleRef = useRef(null);
+
+	useEffect(() => {
+		const handler = setTimeout(
+			() => {
+				if (!isCollapsed && toggleRef.current && scrollIntoViewOnToggle) {
+					toggleRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				}
+			},
+			isAccordionChild ? 500 : 1
+		);
+
+		return () => {
+			clearTimeout(handler);
+		};
+	}, [isCollapsed, scrollIntoViewOnToggle, isAccordionChild]);
 
 	return (
 		<div
@@ -30,11 +57,12 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 				"dui__collapse__toggle",
 				{
 					"dui__collapse__toggle--indicated": collapseIndicator,
+					"dui__collapse__toggle--collapsed": isCollapsed,
 				},
 				className
 			)}
 			{...rest}
-			ref={ref}>
+			ref={mergeRefs([toggleRef, ref])}>
 			{collapseIndicator ? (
 				<>
 					<div className='dui__collapse__toggle__title'>{children}</div>

@@ -7,6 +7,7 @@ export interface CollapseProps extends ExtraCollapseProps {
 	onToggle?: (isCollapsed: boolean) => void;
 	isCollapsed?: boolean;
 	allowOverflow?: boolean;
+	scrollIntoViewOnToggle?: boolean;
 	disableWhileLoading?: boolean;
 	loading?: boolean;
 }
