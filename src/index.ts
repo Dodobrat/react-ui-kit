@@ -50,6 +50,7 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 import { useOnClickOutside } from "./hooks/useOnClickOutside";
 import { usePrefersDarkMode } from "./hooks/usePrefersDarkMode";
 import { useReduceMotion } from "./hooks/useReduceMotion";
+import { useStateHistory } from "./hooks/useStateHistory";
 import { useWindowResize } from "./hooks/useWindowResize";
 
 //Context
@@ -103,6 +104,7 @@ export {
 	useOnClickOutside,
 	usePrefersDarkMode,
 	useReduceMotion,
+	useStateHistory,
 	useWindowResize,
 	//CONTEXT
 };
