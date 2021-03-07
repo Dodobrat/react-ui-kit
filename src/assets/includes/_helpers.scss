@@ -19,47 +19,160 @@
 	}
 }
 
-$columns: 12;
-$width: 100% / $columns;
+$gridColumnWidth: 100% / $gridColumns;
+
+@mixin flexGrid() {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	@each $breakpointName, $breakpointSize in $breakpoints {
+		@each $name, $option in $flexSpacingOptions {
+			&.dui__flex--sx-#{$breakpointName}-#{$name} {
+				@media all and (min-width: $breakpointSize) {
+					&:not(.dui__flex--no-negative) {
+						margin-left: -#{$option};
+						margin-right: -#{$option};
+					}
+					& > .dui__flex__col {
+						padding-left: $option;
+						padding-right: $option;
+					}
+				}
+			}
+			&.dui__flex--sy-#{$breakpointName}-#{$name} {
+				@media all and (min-width: $breakpointSize) {
+					&:not(.dui__flex--no-negative) {
+						margin-top: -#{$option};
+						margin-bottom: -#{$option};
+					}
+					& > .dui__flex__col {
+						padding-top: $option;
+						padding-bottom: $option;
+					}
+				}
+			}
+		}
+		@each $name, $option in $flexAlignOptions {
+			&.dui__flex--align-#{$breakpointName}-#{$name} {
+				@media all and (min-width: $breakpointSize) {
+					align-items: $option;
+				}
+			}
+		}
+		@each $name, $option in $flexJustifyOptions {
+			&.dui__flex--justify-#{$breakpointName}-#{$name} {
+				@media all and (min-width: $breakpointSize) {
+					justify-content: $option;
+				}
+			}
+		}
+		@each $name, $option in $flexDirectionOptions {
+			&.dui__flex--direction-#{$breakpointName}-#{$name} {
+				@media all and (min-width: $breakpointSize) {
+					flex-direction: $option;
+				}
+			}
+		}
+		@each $name, $option in $flexWrapOptions {
+			&.dui__flex--wrap-#{$breakpointName}-#{$name} {
+				@media all and (min-width: $breakpointSize) {
+					flex-wrap: $option;
+				}
+			}
+		}
+	}
+
+	@each $name, $option in $flexSpacingOptions {
+		&.dui__flex--sx-#{$name} {
+			&:not(.dui__flex--no-negative) {
+				margin-left: -#{$option};
+				margin-right: -#{$option};
+			}
+			& > .dui__flex__col {
+				padding-left: $option;
+				padding-right: $option;
+			}
+		}
+		&.dui__flex--sy-#{$name} {
+			&:not(.dui__flex--no-negative) {
+				margin-top: -#{$option};
+				margin-bottom: -#{$option};
+			}
+			& > .dui__flex__col {
+				padding-top: $option;
+				padding-bottom: $option;
+			}
+		}
+	}
+	@each $name, $option in $flexAlignOptions {
+		&.dui__flex--align-#{$name} {
+			align-items: $option;
+		}
+	}
+	@each $name, $option in $flexJustifyOptions {
+		&.dui__flex--justify-#{$name} {
+			justify-content: $option;
+		}
+	}
+	@each $name, $option in $flexDirectionOptions {
+		&.dui__flex--direction-#{$name} {
+			flex-direction: $option;
+		}
+	}
+	@each $name, $option in $flexWrapOptions {
+		&.dui__flex--wrap-#{$name} {
+			flex-wrap: $option;
+		}
+	}
+}
+
+@mixin flexGridCol() {
+	box-sizing: border-box;
+	flex: 1 1 auto;
+	max-width: 100%;
+
+	@each $breakpointName, $breakpointSize in $breakpoints {
+		@for $i from 1 through $gridColumns {
+			&.dui__flex__col-#{$i} {
+				flex: 0 0 $gridColumnWidth * $i;
+			}
+			&.dui__flex__col--offset-#{$i} {
+				margin-left: $gridColumnWidth * $i;
+			}
+			&.dui__flex__col-#{$breakpointName}-#{$i} {
+				@media all and (min-width: $breakpointSize) {
+					flex: 0 0 $gridColumnWidth * $i;
+				}
+			}
+			&.dui__flex__col--offset-#{$breakpointName}-#{$i} {
+				@media all and (min-width: $breakpointSize) {
+					margin-left: $gridColumnWidth * $i;
+				}
+			}
+		}
+		&.dui__flex__col--hide-#{$breakpointName} {
+			@media all and (min-width: $breakpointSize) {
+				display: none !important;
+			}
+		}
+	}
+
+	&.dui__flex__col-auto {
+		flex: 0 0 auto;
+	}
+	&.dui__flex__col--hide {
+		display: none !important;
+	}
+}
 
 .dui__flex {
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	flex-direction: row;
-	margin-left: -0.625rem;
-	margin-right: -0.625rem;
-	&--no-margin {
-		margin-left: 0;
-		margin-right: 0;
-	}
-	&--unwrap {
-		flex-wrap: nowrap;
-	}
-	&__col {
-		padding-left: 0.625rem;
-		padding-right: 0.625rem;
-		flex: 1;
-		// @for $i from 1 through $columns {
-		// 	&--col-#{$i} {
-		// 		flex: 0 0 $width * $i;
-		// 	}
-		// 	&--col-hide {
-		// 		display: none;
-		// 	}
-		// 	&--col-lg-#{$i} {
-		// 		@media all and (max-width: 1200px) {
-		// 			flex: 0 0 $width * $i;
-		// 		}
-		// 	}
-		// 	&--col-lg-hide {
-		// 		@media all and (max-width: 1200px) {
-		// 			display: none;
-		// 		}
-		// 	}
+	@include flexGrid();
 
-		// }
+	&__col {
+		@include flexGridCol();
 	}
 }
 

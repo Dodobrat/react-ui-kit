@@ -1,6 +1,11 @@
 export type PigmentOptions = "primary" | "secondary" | "success" | "warning" | "info" | "danger";
 export type ElevationOptions = "none" | "subtle" | "light" | "medium" | "strong" | "interstellar";
 export type SizeOptions = "xs" | "sm" | "md" | "lg" | "xl";
+export type AllSizeOptions = "xs" | "sm" | "md" | "lg" | "xl" | "fhd";
+export type FlexAlign = "stretch" | "flex-start" | "flex-end" | "center" | "baseline";
+export type FlexJustify = "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly";
+export type FlexDirection = "row" | "row-reverse" | "column" | "column-reverse";
+export type FlexWrap = "nowrap" | "wrap" | "wrap-reverse";
 
 export interface CnCh {
 	className?: string;

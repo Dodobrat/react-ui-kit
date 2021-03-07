@@ -1,5 +1,6 @@
 // Styles
-import "./assets/main.scss";
+// Not importing styles here, allowing users to use sass to override variables
+import "./assets/app.scss";
 // Components
 import Accordion from "./components/Accordion/Accordion";
 import Alert from "./components/Alert/Alert";

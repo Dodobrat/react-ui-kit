@@ -1,8 +1,8 @@
-import { CnCh, SizeOptions } from "../../../helpers/global.types";
+import { AllSizeOptions, CnCh, SizeOptions } from "../../../helpers/global.types";
 
 // Auto-Generated
 export interface ContainerProps extends CnCh {
 	fluid?: boolean;
-	size?: SizeOptions | "fhd";
+	size?: AllSizeOptions;
 	paddingSize?: SizeOptions;
 }

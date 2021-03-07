@@ -60,6 +60,8 @@ $slowTrans: all $slowTransTime $slowTransEase !default;
 //--Global Font size
 $fontSize: 16px !default;
 
+$gridColumns: 12 !default;
+
 $xsFont: 0.75rem !default;
 $smFont: 0.875rem !default;
 $mdFont: 1rem !default;
@@ -87,32 +89,6 @@ $roundBorderRadius: 50% !default;
 	}
 	@return $map;
 }
-
-//MIXINS
-@mixin spongy($amount: 0.95) {
-	will-change: transform;
-	transition: $fastTrans;
-	transform: scale(1);
-	&:active {
-		transform: scale($amount);
-	}
-}
-
-//LOOPS
-
-//--hr styling
-
-//--Badges
-
-//--Buttons
-
-//--Inputs
-
-//--Cards
-
-//--List Groups
-
-//--Loaders
 
 //--Portals
 $drawerSizes: (
@@ -164,6 +140,55 @@ $portalVerticalAlignments: (
 //--Progress
 
 // Helpers
+//GRID
+$breakpoints: (
+	"xs": 33.75rem,
+	"sm": 45rem,
+	"md": 60rem,
+	"lg": 71.25rem,
+	"xl": 82.5rem,
+) !default;
+
+$flexAlignOptions: (
+	"stretch": stretch,
+	"flex-start": flex-start,
+	"flex-end": flex-end,
+	"center": center,
+	"baseline": baseline,
+) !default;
+
+$flexJustifyOptions: (
+	"flex-start": flex-start,
+	"flex-end": flex-end,
+	"center": center,
+	"space-between": space-between,
+	"space-around": space-around,
+	"space-evenly": space-evenly,
+) !default;
+
+$flexDirectionOptions: (
+	"row": row,
+	"row-reverse": row-reverse,
+	"column": column,
+	"column-reverse": column-reverse,
+) !default;
+
+$flexWrapOptions: (
+	"nowrap": nowrap,
+	"wrap": wrap,
+	"wrap-reverse": wrap-reverse,
+) !default;
+
+$flexSpacingOptions: (
+	"xs": 0.3125rem,
+	"sm": 0.625rem,
+	"md": 0.9375rem,
+	"lg": 1.25rem,
+	"xl": 1.5625rem,
+) !default;
+
+//GRID END
+
 $containerSizes: (
 	"xs": 33.75rem,
 	"sm": 45rem,

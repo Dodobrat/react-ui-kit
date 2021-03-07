@@ -11,3 +11,12 @@
 	z-index: 1;
 	pointer-events: none;
 }
+
+@mixin spongy($amount: 0.95) {
+	will-change: transform;
+	transition: $fastTrans;
+	transform: scale(1);
+	&:active {
+		transform: scale($amount);
+	}
+}

@@ -74,7 +74,10 @@ export const addElementAttributesInObj: (props: Object) => Object = (props) => {
 	return extraProps;
 };
 
-// : (refs: Array<React.MutableRefObject<any> | React.LegacyRef<any>>) => React.RefCallback<any>
+export const configError: (prop: string, supports: Object) => void = (prop, supports) => {
+	console.warn(`Unsupported (${prop}) config passed to component! Please use one of the following:`);
+	console.table(supports);
+};
 
 export const mergeRefs: (refs: Array<React.MutableRefObject<any> | React.LegacyRef<any>>) => React.RefCallback<any> = (refs) => {
 	return (value) => {

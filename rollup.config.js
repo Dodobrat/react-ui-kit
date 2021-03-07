@@ -1,7 +1,8 @@
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import sass from "rollup-plugin-sass";
+import scss from "rollup-plugin-scss";
+import copy from "rollup-plugin-copy";
 import typescript from "rollup-plugin-typescript2";
 
 import pkg from "./package.json";
@@ -22,6 +23,24 @@ export default {
 			sourcemap: true,
 		},
 	],
-	plugins: [peerDepsExternal(), resolve(), commonjs(), sass({ insert: true }), typescript({ useTsconfigDeclarationDir: true })],
+	plugins: [
+		peerDepsExternal(),
+		resolve(),
+		commonjs(),
+		scss({
+			output: true,
+			outputStyle: "compressed",
+			exclude: ["src/assets/themes", "src/assets/_example_theme.scss"],
+		}),
+		copy({
+			targets: [
+				{
+					src: "src/assets",
+					dest: "build",
+				},
+			],
+		}),
+		typescript({ useTsconfigDeclarationDir: true }),
+	],
 	external: ["react", "react-dom"],
 };
