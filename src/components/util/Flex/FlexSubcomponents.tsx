@@ -5,7 +5,7 @@ import { SizeOptions } from "../../../helpers/global";
 import { configError } from "../../../helpers/functions";
 
 export const FlexCol = forwardRef<HTMLDivElement, FlexSubComponentProps>((props, ref) => {
-	const { className, order, alignSelf, col, offset, hide, children, style, ...rest } = props;
+	const { className, order, col, keepGridOnSmallest = !!col, offset, hide, children, style, ...rest } = props;
 
 	const generateColClasses: () => string = () => {
 		if (col) {
@@ -71,7 +71,7 @@ export const FlexCol = forwardRef<HTMLDivElement, FlexSubComponentProps>((props,
 			className={cn(
 				"dui__flex__col",
 				{
-					[`dui__flex__col--align-${alignSelf}`]: alignSelf,
+					"dui__flex__col--contain": keepGridOnSmallest,
 				},
 				generateColClasses(),
 				generateOffsetClasses(),

@@ -1,5 +1,5 @@
 import React from "react";
-import { CnCh, FlexAlign, SizeOptions } from "../../../helpers/global.types";
+import { CnCh, SizeOptions } from "../../../helpers/global.types";
 
 interface FlexGridColConfig {
 	xs?: number;
@@ -11,9 +11,9 @@ interface FlexGridColConfig {
 
 export interface FlexSubComponentProps extends CnCh {
 	order?: number;
-	alignSelf?: FlexAlign | "auto";
 	style?: React.CSSProperties;
 	col?: FlexGridColConfig | number | "auto";
+	keepGridOnSmallest?: boolean;
 	offset?: FlexGridColConfig | number;
 	hide?: SizeOptions | boolean;
 }

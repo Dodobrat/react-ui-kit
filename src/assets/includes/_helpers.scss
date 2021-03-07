@@ -160,6 +160,10 @@ $gridColumnWidth: 100% / $gridColumns;
 		}
 	}
 
+	&--contain {
+		flex: 0 0 100%;
+	}
+
 	&.dui__flex__col-auto {
 		flex: 0 0 auto;
 	}
