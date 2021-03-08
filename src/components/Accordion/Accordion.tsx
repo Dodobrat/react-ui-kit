@@ -54,8 +54,8 @@ const Accordion: React.ForwardRefRenderFunction<HTMLDivElement, AccordionProps> 
 					...child.props,
 					isCollapsed: collapseState[`collapse_${idx}`],
 					onToggle: (isCollapsed: boolean) => {
-						child.props?.onToggle?.(isCollapsed);
-						collapseAllExceptForActive(idx, isCollapsed);
+						child.props?.onToggle?.(!isCollapsed);
+						collapseAllExceptForActive(idx, !isCollapsed);
 					},
 				},
 			};

@@ -31,6 +31,8 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 		collapseIndicator = true,
 		collapseIndicatorComponent,
 		children,
+		onKeyDown,
+		onKeyboardToggle,
 		...rest
 	} = props;
 
@@ -61,6 +63,18 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 				},
 				className
 			)}
+			role='collapse'
+			aria-hidden={isCollapsed}
+			tabIndex={rest["disabled"] ? -1 : 0}
+			onKeyDown={(e) => {
+				if (onKeyDown) {
+					onKeyDown(e);
+				}
+				if (toggleRef.current === document.activeElement && e.code === "Space") {
+					e.preventDefault();
+					onKeyboardToggle(isCollapsed);
+				}
+			}}
 			{...rest}
 			ref={mergeRefs([toggleRef, ref])}>
 			{collapseIndicator ? (

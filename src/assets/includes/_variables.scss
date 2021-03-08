@@ -60,8 +60,6 @@ $slowTrans: all $slowTransTime $slowTransEase !default;
 //--Global Font size
 $fontSize: 16px !default;
 
-$gridColumns: 12 !default;
-
 $xsFont: 0.75rem !default;
 $smFont: 0.875rem !default;
 $mdFont: 1rem !default;
@@ -137,10 +135,11 @@ $portalVerticalAlignments: (
 	"end": self-end,
 ) !default;
 
-//--Progress
-
 // Helpers
 //GRID
+$gridColumns: 12 !default;
+$gridColumnWidth: 100% / $gridColumns !default;
+
 $breakpoints: (
 	"xs": 33.75rem,
 	"sm": 45rem,

@@ -16,6 +16,10 @@ export interface ElemType {
 	as?: React.ElementType;
 }
 
+export interface SyntheticKeyboardControls {
+	onKeyDown?: React.KeyboardEventHandler<unknown>;
+}
+
 export interface EssentialCustomizationProps {
 	pigment?: PigmentOptions;
 	elevation?: ElevationOptions;

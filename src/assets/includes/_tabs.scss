@@ -1,0 +1,7 @@
+@mixin tabs() {
+	position: relative;
+}
+
+.dui__tabs {
+	@include tabs();
+}

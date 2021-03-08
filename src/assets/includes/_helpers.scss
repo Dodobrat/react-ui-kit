@@ -19,8 +19,6 @@
 	}
 }
 
-$gridColumnWidth: 100% / $gridColumns;
-
 @mixin flexGrid() {
 	display: flex;
 	align-items: flex-start;

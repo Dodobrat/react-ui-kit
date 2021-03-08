@@ -1,16 +1,18 @@
-import { CnCh } from "../../helpers/global.types";
+import { CnCh, SyntheticKeyboardControls } from "../../helpers/global.types";
 import { LineLoaderProps } from "../LineLoader/LineLoader.types";
 
 type ExtraCollapseLoaderSubComponentProps = CnCh & LineLoaderProps;
 
 export interface CollapseLoaderSubComponentProps extends ExtraCollapseLoaderSubComponentProps {}
 
-export interface CollapseToggleSubComponentProps extends CnCh {
+type ExtraCollapseToggleSubComponentProps = CnCh & SyntheticKeyboardControls;
+export interface CollapseToggleSubComponentProps extends ExtraCollapseToggleSubComponentProps {
 	isCollapsed?: boolean;
 	isAccordionChild?: boolean;
 	scrollIntoViewOnToggle?: boolean;
 	collapseIndicator?: boolean;
 	collapseIndicatorComponent?: React.ReactNode;
+	onKeyboardToggle?: (isCollapsed: boolean) => void;
 }
 
 export interface CollapseContentSubComponentProps extends CnCh {

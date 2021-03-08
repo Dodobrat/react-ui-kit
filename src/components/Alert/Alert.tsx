@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { AlertProps } from "./Alert.types";
@@ -7,6 +7,7 @@ import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import CollapseFade from "../util/animations/CollapseFade";
 import Fade from "../util/animations/Fade";
 import Button from "../Button/Button";
+import { mergeRefs } from "../../helpers/functions";
 
 const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props, ref) => {
 	const {
@@ -22,6 +23,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		isDismissibleOnClick = true,
 		dismissibleComponent = null,
 		children,
+		onKeyDown,
 		...rest
 	} = props;
 
@@ -33,6 +35,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		flat,
 	};
 
+	const alertRef = useRef(null);
 	const [isVisibleState, setIsVisbleState] = useState<boolean>(isVisible);
 
 	const removeAlert = () => setIsVisbleState(false);
@@ -61,8 +64,21 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 					className
 				)}
 				onClick={isDismissibleOnClick ? removeAlert : props?.["onClick"]}
+				role='alert'
+				tabIndex={0}
+				onKeyDown={(e) => {
+					if (onKeyDown) {
+						onKeyDown(e);
+					}
+					if (alertRef.current === document.activeElement && e.code === "Space") {
+						e.preventDefault();
+						if (isDismissibleOnClick) {
+							removeAlert();
+						}
+					}
+				}}
 				{...rest}
-				ref={ref}>
+				ref={mergeRefs([alertRef, ref])}>
 				{isDismissible ? (
 					<>
 						<div className='dui__alert__title'>{children}</div>

@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import {
 	ListGroupCollapseSubComponentProps,
@@ -9,7 +9,7 @@ import {
 	ListGroupLoaderSubComponentProps,
 } from "./ListGroupSubcomponents.types";
 import { PigmentOptions } from "../../helpers/global";
-import { addElementAttributes } from "../../helpers/functions";
+import { addElementAttributes, mergeRefs } from "../../helpers/functions";
 import LineLoader from "../LineLoader/LineLoader";
 import CollapseFade from "../util/animations/CollapseFade";
 import CollapseShow from "../util/animations/CollapseShow";
@@ -81,7 +81,18 @@ export const ListGroupItem = forwardRef<unknown, ListGroupItemSubComponentProps>
 ListGroupItem.displayName = "ListGroupItem";
 
 export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupCollapseToggleSubComponentProps>((props, ref) => {
-	const { className, collapseIndicator = true, collapseIndicatorComponent, children, ...rest } = props;
+	const {
+		className,
+		collapseIndicator = true,
+		isCollapsed,
+		onKeyboardToggle,
+		collapseIndicatorComponent,
+		onKeyDown,
+		children,
+		...rest
+	} = props;
+
+	const listGroupCollapseToggleRef = useRef(null);
 
 	return (
 		<div
@@ -92,8 +103,20 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 				},
 				className
 			)}
+			role='collapse'
+			aria-hidden={isCollapsed}
+			tabIndex={rest["disabled"] ? -1 : 0}
+			onKeyDown={(e) => {
+				if (onKeyDown) {
+					onKeyDown(e);
+				}
+				if (listGroupCollapseToggleRef.current === document.activeElement && e.code === "Space") {
+					e.preventDefault();
+					onKeyboardToggle(isCollapsed);
+				}
+			}}
 			{...rest}
-			ref={ref}>
+			ref={mergeRefs([listGroupCollapseToggleRef, ref])}>
 			{collapseIndicator ? (
 				<>
 					<div className='dui__list__group__collapse__toggle__title'>{children}</div>
@@ -175,7 +198,9 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 				...child,
 				props: {
 					...child.props,
-					onClick: onToggle ? () => onToggle(!isCollapsed) : onCollapseToggle,
+					isCollapsed: collapseState,
+					onKeyboardToggle: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,
+					onClick: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,
 				},
 			};
 		}

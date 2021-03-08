@@ -22,6 +22,12 @@
 		&:hover {
 			background-color: darken($bgCard, 1.5%);
 		}
+		&:focus {
+			outline: none;
+		}
+		&:focus-visible {
+			box-shadow: 0 0 0 0.25rem rgba($bg, 0.5), 0 0 0 0.1rem rgba($mainFont, 0.25);
+		}
 	}
 	&__content {
 		padding: 1rem;
@@ -44,6 +50,9 @@
 			.dui__collapse__toggle {
 				&:hover {
 					background-color: darken($bgColor, 1.5%);
+				}
+				&:focus-visible {
+					box-shadow: 0 0 0 0.25rem rgba($bgColor, 0.5), 0 0 0 0.1rem rgba($fontColor, 0.25);
 				}
 			}
 		}

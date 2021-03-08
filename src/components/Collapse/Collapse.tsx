@@ -46,16 +46,20 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		return () => setCollapseState(true);
 	}, [isCollapsed]);
 
+	const isAccordionChild = collapseRef.current?.parentElement?.classList?.contains?.("dui__accordion");
+
 	const collapseChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) => {
 		if (child.type?.displayName === "CollapseToggle") {
 			return {
 				...child,
 				props: {
 					...child.props,
-					isAccordionChild: collapseRef.current?.parentElement?.classList?.contains?.("dui__accordion"),
+					isAccordionChild,
 					scrollIntoViewOnToggle,
 					isCollapsed: collapseState,
-					onClick: onToggle ? () => onToggle(!isCollapsed) : onCollapseToggle,
+					disabled: (disableWhileLoading && loading) || rest["disabled"],
+					onKeyboardToggle: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,
+					onClick: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,
 				},
 			};
 		}

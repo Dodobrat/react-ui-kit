@@ -1,5 +1,6 @@
 // Styles
-// Not importing styles here, allowing users to use sass to override variables
+// Not injecting styles, allowing users to use sass to override variables
+// Otherwise generating minified css file f
 import "./assets/app.scss";
 // Components
 import Accordion from "./components/Accordion/Accordion";
@@ -31,6 +32,7 @@ import Skeleton from "./components/Skeleton/Skeleton";
 import Slider from "./components/form_elements/Slider/Slider";
 import SpinnerLoader from "./components/SpinnerLoader/SpinnerLoader";
 import Switch from "./components/form_elements/Switch/Switch";
+import Tabs from "./components/Tabs/Tabs";
 import Text from "./components/typography/Text/Text";
 import TextArea from "./components/form_elements/TextArea/TextArea";
 
@@ -87,6 +89,7 @@ export {
 	Slider,
 	SpinnerLoader,
 	Switch,
+	Tabs,
 	Text,
 	TextArea,
 	//ANIM
