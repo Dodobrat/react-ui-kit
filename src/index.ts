@@ -14,6 +14,7 @@ import Card from "./components/Card/Card";
 import Collapse from "./components/Collapse/Collapse";
 import Checkbox from "./components/form_elements/Checkbox/Checkbox";
 import Container from "./components/util/Container/Container";
+import DragScrollContainer from "./components/util/DragScrollContainer/DragScrollContainer";
 import Drawer from "./components/Drawer/Drawer";
 import File from "./components/form_elements/File/File";
 import Flex from "./components/util/Flex/Flex";
@@ -71,6 +72,7 @@ export {
 	Collapse,
 	Checkbox,
 	Container,
+	DragScrollContainer,
 	Drawer,
 	File,
 	Flex,

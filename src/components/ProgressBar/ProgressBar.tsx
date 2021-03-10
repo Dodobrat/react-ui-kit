@@ -90,6 +90,12 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 				className={cn("dui__progressbar__progress")}
 				style={{ width: `${parseValueToPercent(min, max, value, decimals)}%` }}
 				role='progressbar'
+				aria-label={`current progress is ${value} from range (${min} to ${max}), amounting to ${parseValueToPercent(
+					min,
+					max,
+					value,
+					decimals
+				)}%`}
 				aria-valuenow={value}
 				aria-valuemin={min}
 				aria-valuemax={max}

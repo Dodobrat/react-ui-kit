@@ -67,6 +67,16 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 				},
 				className
 			)}
+			role='progressbar'
+			aria-label={`current progress is ${value} from range (${min} to ${max}), amounting to ${parseValueToPercent(
+				min,
+				max,
+				value,
+				decimals
+			)}%`}
+			aria-valuenow={value}
+			aria-valuemin={min}
+			aria-valuemax={max}
 			{...rest}
 			style={{
 				...rest?.["style"],

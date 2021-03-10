@@ -173,6 +173,81 @@ $headingOptions: (
 	}
 }
 
+// DRAGSCROLL
+.indiana-scroll-container {
+	&--dragging {
+		* {
+			user-select: none;
+		}
+		& > * {
+			cursor: grabbing;
+		}
+	}
+}
+
+.indiana-dragging {
+	cursor: grabbing !important;
+}
+
+@mixin dragIndicatorBg($deg) {
+	background: linear-gradient(#{$deg}, rgba($bgCard, 0.975) 75%, rgba($bgCard, 0) 100%);
+}
+
+@mixin dragIndicatorPosition($position, $dir: "horizontal") {
+	@if ($dir == "horizontal") {
+		top: 0;
+		bottom: 0;
+		height: 100%;
+		@if ($position == "startX") {
+			left: 0;
+			@include dragIndicatorBg(90deg);
+		}
+		@if ($position == "endX") {
+			right: 0;
+			@include dragIndicatorBg(270deg);
+		}
+	}
+	@if ($dir == "vertical") {
+		left: 0;
+		right: 0;
+		width: 100%;
+		@if ($position == "startY") {
+			top: 0;
+			@include dragIndicatorBg(180deg);
+		}
+		@if ($position == "endY") {
+			bottom: 0;
+			@include dragIndicatorBg(0deg);
+		}
+	}
+}
+
+.dui__dragscroll__container {
+	position: relative;
+	&__indicator {
+		position: absolute;
+		background: $bgCard;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		user-select: none;
+		padding: 1.625rem;
+		&--startX {
+			@include dragIndicatorPosition("startX");
+		}
+		&--endX {
+			@include dragIndicatorPosition("endX");
+		}
+		&--startY {
+			@include dragIndicatorPosition("startY", "vertical");
+		}
+		&--endY {
+			@include dragIndicatorPosition("endY", "vertical");
+		}
+	}
+}
+
 // BACK TO TOP
 
 $backTopPositions: (

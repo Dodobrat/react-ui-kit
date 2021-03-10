@@ -79,6 +79,10 @@ export const configError: (prop: string, supports: Object) => void = (prop, supp
 	console.table(supports);
 };
 
+export const isTouchDevice: () => boolean = () => {
+	return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+};
+
 export const mergeRefs: (refs: Array<React.MutableRefObject<any> | React.LegacyRef<any>>) => React.RefCallback<any> = (refs) => {
 	return (value) => {
 		refs.forEach((ref) => {
@@ -88,6 +92,20 @@ export const mergeRefs: (refs: Array<React.MutableRefObject<any> | React.LegacyR
 				(ref as React.MutableRefObject<any | null>).current = value;
 			}
 		});
+	};
+};
+
+export const debounce: (func: any, wait: number) => (...args: any[]) => void = (func, wait) => {
+	let timeout: any;
+
+	return (...args) => {
+		const later = () => {
+			clearTimeout(timeout);
+			func(...args);
+		};
+
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
 	};
 };
 

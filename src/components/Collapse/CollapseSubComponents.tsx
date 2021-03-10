@@ -63,8 +63,7 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 				},
 				className
 			)}
-			role='collapse'
-			aria-hidden={isCollapsed}
+			aria-expanded={!isCollapsed}
 			tabIndex={rest["disabled"] ? -1 : 0}
 			onKeyDown={(e) => {
 				if (onKeyDown) {

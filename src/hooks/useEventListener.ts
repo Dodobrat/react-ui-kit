@@ -11,12 +11,14 @@ export const useEventListener: (e: any, handler: Function, el?: Window & typeof 
 	useEffect(() => {
 		if (!canUseDOM) return;
 
-		const eventListener: (event: any) => any = (event) => savedHandler.current(event);
+		if (el) {
+			const eventListener: (event: any) => any = (event) => savedHandler.current(event);
 
-		el.addEventListener(e, eventListener);
+			el.addEventListener(e, eventListener);
 
-		return () => {
-			el.removeEventListener(e, eventListener);
-		};
+			return () => {
+				el.removeEventListener(e, eventListener);
+			};
+		}
 	}, [e, el]);
 };
