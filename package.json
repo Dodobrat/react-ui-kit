@@ -12,10 +12,11 @@
 	"types": "build/index.d.ts",
 	"description": "Reusable ReactJS Component Library",
 	"scripts": {
-		"build": "rollup -c",
+		"build": "npm run mkicons && rollup -c",
 		"start": "rollup -c -w",
 		"test": "jest",
 		"test:watch": "jest --watch",
+		"mkicons": "npx @svgr/cli -d src/components/icons src/components/icons --ref --memo --icon --replace-attr-values #000=currentColor --typescript",
 		"mkc": "node ./commands/create-component",
 		"mkfc": "node ./commands/create-forwardRef-component",
 		"mkcon": "node ./commands/create-context",
@@ -45,6 +46,7 @@
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^17.1.0",
 		"@rollup/plugin-node-resolve": "^11.2.0",
+		"@svgr/cli": "^5.5.0",
 		"@testing-library/jest-dom": "^5.11.9",
 		"@testing-library/react": "^11.2.5",
 		"@types/classnames": "^2.2.11",

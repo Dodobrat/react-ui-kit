@@ -19,6 +19,12 @@
 		&__title {
 			flex: 1;
 		}
+		&__indicator {
+			flex: 0 0 1rem;
+			margin-left: 0.625rem;
+			transition: $normalTrans;
+			transform: rotateX(180deg);
+		}
 		&:hover {
 			background-color: darken($bgCard, 1.5%);
 		}
@@ -68,6 +74,9 @@
 	&--collapsed {
 		.dui__collapse__toggle {
 			border-radius: $smBorderRadius;
+			&__indicator {
+				transform: rotateX(0deg);
+			}
 		}
 	}
 	&--flat {

@@ -9,6 +9,7 @@ import {
 } from "./CollapseSubComponents.types";
 import LineLoader from "../LineLoader/LineLoader";
 import { mergeRefs } from "../../helpers/functions";
+import { CaretDown } from "../icons";
 
 export const CollapseLoader = forwardRef<HTMLDivElement, CollapseLoaderSubComponentProps>((props, ref) => {
 	const { className, pigment, contrast, children, ...rest } = props;
@@ -79,7 +80,7 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 			{collapseIndicator ? (
 				<>
 					<div className='dui__collapse__toggle__title'>{children}</div>
-					{!!collapseIndicatorComponent ? collapseIndicatorComponent : "loll"}
+					{!!collapseIndicatorComponent ? collapseIndicatorComponent : <CaretDown className='dui__collapse__toggle__indicator' />}
 				</>
 			) : (
 				children

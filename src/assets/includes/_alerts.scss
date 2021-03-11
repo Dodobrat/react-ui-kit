@@ -5,6 +5,12 @@
 	background-color: $bgCard;
 	color: $subFont;
 	line-height: 1.5;
+	&__icon {
+		flex: 0 0 1.5rem;
+		height: 1.5em;
+		width: 1.5em;
+		margin-right: 0.625rem;
+	}
 	&:focus {
 		outline: none;
 	}
@@ -36,7 +42,7 @@
 	&--contrast {
 		@include alertPigmentOptions($contrastPigments);
 	}
-	&--dismissible {
+	&--flex {
 		display: flex;
 		align-items: flex-start;
 		.dui__alert__title {

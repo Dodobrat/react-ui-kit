@@ -2,11 +2,12 @@
 import React, { useRef, useState } from "react";
 import cn from "classnames";
 
-import { DragScrollContainerProps } from "./DragScrollContainer.types";
+import { DragScrollProps } from "./DragScroll.types";
 import ScrollContainer from "react-indiana-drag-scroll";
 import Fade from "../animations/Fade";
+import { CaretDown, CaretLeft, CaretRight, CaretUp } from "../../icons";
 
-const DragScrollContainer: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollContainerProps> = (props, ref) => {
+const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps> = (props, ref) => {
 	const {
 		className,
 		activationDistance = 10,
@@ -14,6 +15,7 @@ const DragScrollContainer: React.ForwardRefRenderFunction<HTMLDivElement, DragSc
 		vertical = false,
 		onScroll,
 		indicatorClassName,
+		indicatorComponent,
 		children,
 		...rest
 	} = props;
@@ -66,7 +68,22 @@ const DragScrollContainer: React.ForwardRefRenderFunction<HTMLDivElement, DragSc
 		}
 	};
 
-	const DragScrollIndicator = ({ position = "start" }) => {
+	const showIndicator: (position: string) => string | React.ReactNode = (position) => {
+		switch (position) {
+			case "startX":
+				return <CaretLeft />;
+			case "startY":
+				return <CaretUp />;
+			case "endX":
+				return <CaretRight />;
+			case "endY":
+				return <CaretDown />;
+			default:
+				return position;
+		}
+	};
+
+	const DragScrollIndicator = ({ position }) => {
 		return (
 			<div
 				role='button'
@@ -116,7 +133,7 @@ const DragScrollContainer: React.ForwardRefRenderFunction<HTMLDivElement, DragSc
 							break;
 					}
 				}}>
-				{position}
+				{indicatorComponent ?? showIndicator(position)}
 			</div>
 		);
 	};
@@ -149,4 +166,4 @@ const DragScrollContainer: React.ForwardRefRenderFunction<HTMLDivElement, DragSc
 	);
 };
 
-export default React.forwardRef<HTMLDivElement, DragScrollContainerProps>(DragScrollContainer);
+export default React.forwardRef<HTMLDivElement, DragScrollProps>(DragScroll);

@@ -6,6 +6,8 @@ type ExtraAlertProps = CustomizationProps & CnCh & SyntheticKeyboardControls;
 export interface AlertProps extends ExtraAlertProps {
 	animation?: "collapse-n-fade" | "fade" | null;
 	isVisible?: boolean;
+	withIcon?: boolean;
+	iconComponent?: React.ReactNode;
 	isDismissible?: boolean;
 	isDismissibleOnClick?: boolean;
 	dismissibleComponent?: React.ReactNode;

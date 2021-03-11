@@ -30,7 +30,6 @@ export default {
 		scss({
 			output: true,
 			outputStyle: "compressed",
-			exclude: ["src/assets/themes", "src/assets/_example_theme.scss"],
 		}),
 		copy({
 			targets: [

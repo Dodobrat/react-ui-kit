@@ -49,6 +49,12 @@
 		.dui__card__header__actions {
 			padding-left: 1rem;
 			flex: 0 0 auto;
+			& > * {
+				margin-right: 0.3125rem;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
 		}
 	}
 }

@@ -8,6 +8,7 @@ import CollapseFade from "../util/animations/CollapseFade";
 import Fade from "../util/animations/Fade";
 import Button from "../Button/Button";
 import { mergeRefs } from "../../helpers/functions";
+import { Completed, Danger, Info } from "../icons";
 
 const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props, ref) => {
 	const {
@@ -19,6 +20,8 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		flat = false,
 		animation = "collapse-n-fade",
 		isVisible = true,
+		withIcon = true,
+		iconComponent,
 		isDismissible = false,
 		isDismissibleOnClick = true,
 		dismissibleComponent = null,
@@ -40,6 +43,21 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 
 	const removeAlert = () => setIsVisbleState(false);
 
+	const alertIcon: (type: string) => null | React.ReactNode = (type) => {
+		if (!iconComponent) {
+			switch (type) {
+				case "danger":
+				case "warning":
+					return <Danger className='dui__alert__icon' />;
+				case "success":
+					return <Completed className='dui__alert__icon' />;
+				default:
+					return <Info className='dui__alert__icon' />;
+			}
+		}
+		return iconComponent;
+	};
+
 	useEffect(() => {
 		setIsVisbleState(isVisible);
 		return removeAlert;
@@ -55,7 +73,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 						"dui__alert--contrast": contrast,
 						"dui__alert--rounded": rounded,
 						"dui__alert--flat": flat,
-						"dui__alert--dismissible": isDismissible,
+						"dui__alert--flex": isDismissible || withIcon,
 					},
 					{
 						[`dui__alert--${pigment}`]: PigmentOptions.includes(pigment),
@@ -79,6 +97,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 				}}
 				{...rest}
 				ref={mergeRefs([alertRef, ref])}>
+				{withIcon && alertIcon(pigment)}
 				{isDismissible ? (
 					<>
 						<div className='dui__alert__title'>{children}</div>

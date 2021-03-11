@@ -13,6 +13,7 @@ import { addElementAttributes, mergeRefs } from "../../helpers/functions";
 import LineLoader from "../LineLoader/LineLoader";
 import CollapseFade from "../util/animations/CollapseFade";
 import CollapseShow from "../util/animations/CollapseShow";
+import { CaretDown } from "../icons";
 
 export const ListGroupLoader = forwardRef<HTMLDivElement, ListGroupLoaderSubComponentProps>((props, ref) => {
 	const { className, pigment, contrast, children, ...rest } = props;
@@ -99,6 +100,7 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 			className={cn(
 				"dui__list__group__collapse__toggle",
 				{
+					"dui__list__group__collapse__toggle--collapsed": isCollapsed,
 					"dui__list__group__collapse__toggle--indicated": collapseIndicator,
 				},
 				className
@@ -119,7 +121,11 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 			{collapseIndicator ? (
 				<>
 					<div className='dui__list__group__collapse__toggle__title'>{children}</div>
-					{!!collapseIndicatorComponent ? collapseIndicatorComponent : "loll"}
+					{!!collapseIndicatorComponent ? (
+						collapseIndicatorComponent
+					) : (
+						<CaretDown className='dui__list__group__collapse__toggle__indicator' />
+					)}
 				</>
 			) : (
 				children

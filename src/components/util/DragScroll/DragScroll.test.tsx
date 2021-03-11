@@ -2,11 +2,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import DragScrollContainer from "./DragScrollContainer";
-import { DragScrollContainerProps } from "./DragScrollContainer.types";
+import DragScroll from "./DragScroll";
+import { DragScrollProps } from "./DragScroll.types";
 
 describe("Test Component", () => {
-  let props: DragScrollContainerProps;
+  let props: DragScrollProps;
 
   beforeEach(() => {
     props = {
@@ -14,13 +14,13 @@ describe("Test Component", () => {
     };
   });
 
-  const renderComponent = () => render(<DragScrollContainer {...props} />);
+  const renderComponent = () => render(<DragScroll {...props} />);
 
   it("should render children correctly", () => {
     props.children = "Dodo was here";
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId("DragScrollContainer");
+    const component = getByTestId("DragScroll");
 
     expect(component).toHaveTextContent("Dodo was here");
   });
