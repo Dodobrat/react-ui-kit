@@ -8,7 +8,7 @@ import CollapseFade from "../util/animations/CollapseFade";
 import Fade from "../util/animations/Fade";
 import Button from "../Button/Button";
 import { mergeRefs } from "../../helpers/functions";
-import { Completed, Danger, Info } from "../icons";
+import { Close, Completed, Danger, Info } from "../icons";
 
 const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props, ref) => {
 	const {
@@ -103,7 +103,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 						<div className='dui__alert__title'>{children}</div>
 						{dismissibleComponent ?? (
 							<Button onClick={removeAlert} size='xs' {...passThroughBtnProps}>
-								Close
+								<Close className='btn__icon' />
 							</Button>
 						)}
 					</>

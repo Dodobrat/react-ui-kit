@@ -7,6 +7,7 @@ import { useEventListener } from "../../../hooks/useEventListener";
 
 import { BackTopProps } from "./BackTop.types";
 import { ButtonProps } from "../../Button/Button.types";
+import { ArrowUp } from "../../icons";
 
 const BackTop: React.ForwardRefRenderFunction<ButtonProps, BackTopProps> = (props, ref) => {
 	const { className, round = true, size = "lg", position = "bottom-right", scrollDistanceTrigger = 400, children, ...rest } = props;
@@ -38,7 +39,7 @@ const BackTop: React.ForwardRefRenderFunction<ButtonProps, BackTopProps> = (prop
 					className
 				)}>
 				<Button round={round} size={size} data-testid='BackTop' onClick={scrollTop} {...rest} ref={ref}>
-					{children}
+					{children ?? <ArrowUp className='btn__icon' />}
 				</Button>
 			</div>
 		</Fade>

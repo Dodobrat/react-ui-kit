@@ -1,7 +1,11 @@
 import * as React from "react";
+interface SVGRProps {
+  title?: string;
+  titleId?: string;
+}
 
 function SvgMoreVertical(
-  props: React.SVGProps<SVGSVGElement>,
+  { title, titleId, ...props }: React.SVGProps<SVGSVGElement> & SVGRProps,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
@@ -10,9 +14,12 @@ function SvgMoreVertical(
       width="1em"
       height="1em"
       viewBox="0 0 30 30"
+      aria-label="icon"
       ref={svgRef}
+      aria-labelledby={titleId}
       {...props}
     >
+      {title ? <title id={titleId}>{title}</title> : null}
       <path fill="none" d="M30 0v30H0V0z" />
       <g transform="rotate(90 76 31.5)" stroke="currentColor">
         <circle cx={1.5} cy={1.5} r={1.5} transform="translate(49.5 91)" />

@@ -1,7 +1,11 @@
 import * as React from "react";
+interface SVGRProps {
+  title?: string;
+  titleId?: string;
+}
 
 function SvgDblCaretUp(
-  props: React.SVGProps<SVGSVGElement>,
+  { title, titleId, ...props }: React.SVGProps<SVGSVGElement> & SVGRProps,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
   return (
@@ -10,9 +14,12 @@ function SvgDblCaretUp(
       width="1em"
       height="1em"
       viewBox="0 0 30 30"
+      aria-label="icon"
       ref={svgRef}
+      aria-labelledby={titleId}
       {...props}
     >
+      {title ? <title id={titleId}>{title}</title> : null}
       <g fill="none">
         <path d="M30 30H0V0h30z" />
         <g

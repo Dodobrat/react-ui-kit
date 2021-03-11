@@ -83,6 +83,43 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 		}
 	};
 
+	const scrollInDirection: (position: string) => void = (position) => {
+		const container = scrollListRef.current.container.current;
+		const containerWidth = container.offsetWidth;
+		const containerHeight = container.offsetHeight;
+		let scrolledX = container.scrollLeft;
+		let scrolledY = container.scrollTop;
+
+		switch (position) {
+			case "startX":
+				container.scrollTo({
+					left: (scrolledX -= containerWidth / 2),
+					behavior: "smooth",
+				});
+				break;
+			case "startY":
+				container.scrollTo({
+					top: (scrolledY -= containerHeight / 2),
+					behavior: "smooth",
+				});
+				break;
+			case "endX":
+				container.scrollTo({
+					left: (scrolledX += containerWidth / 2),
+					behavior: "smooth",
+				});
+				break;
+			case "endY":
+				container.scrollTo({
+					top: (scrolledY += containerHeight / 2),
+					behavior: "smooth",
+				});
+				break;
+			default:
+				break;
+		}
+	};
+
 	const DragScrollIndicator = ({ position }) => {
 		return (
 			<div
@@ -97,42 +134,8 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 					},
 					indicatorClassName
 				)}
-				onClick={() => {
-					const container = scrollListRef.current.container.current;
-					const containerWidth = container.offsetWidth;
-					const containerHeight = container.offsetHeight;
-					let scrolledX = container.scrollLeft;
-					let scrolledY = container.scrollTop;
-
-					switch (position) {
-						case "startX":
-							container.scrollTo({
-								left: (scrolledX -= containerWidth / 2),
-								behavior: "smooth",
-							});
-							break;
-						case "startY":
-							container.scrollTo({
-								top: (scrolledY -= containerHeight / 2),
-								behavior: "smooth",
-							});
-							break;
-						case "endX":
-							container.scrollTo({
-								left: (scrolledX += containerWidth / 2),
-								behavior: "smooth",
-							});
-							break;
-						case "endY":
-							container.scrollTo({
-								top: (scrolledY += containerHeight / 2),
-								behavior: "smooth",
-							});
-							break;
-						default:
-							break;
-					}
-				}}>
+				onClick={() => scrollInDirection(position)}
+				tabIndex={-1}>
 				{indicatorComponent ?? showIndicator(position)}
 			</div>
 		);
