@@ -42,10 +42,16 @@ export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>(
 		<DragScroll vertical={orientation === "vertical"} horizontal={orientation === "horizontal"} ref={ref}>
 			<div role='tablist' aria-orientation={orientation} className={cn("dui__tabs__items", className)} {...rest} ref={dragScrollRef}>
 				{options.map((option, idx) => {
-					const { component, componentProps, isSelected } = option;
+					const { component, componentProps, disabled, isSelected } = option;
 
 					return (
-						<div key={idx} role='tab' aria-selected={isSelected} tabIndex={idx === activeOption ? 0 : -1} {...componentProps}>
+						<div
+							key={idx}
+							role='tab'
+							aria-disabled={disabled}
+							aria-selected={isSelected}
+							tabIndex={idx === activeOption || disabled ? 0 : -1}
+							{...componentProps}>
 							{component}
 						</div>
 					);

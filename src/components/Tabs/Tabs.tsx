@@ -41,18 +41,22 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		child?.type?.displayName === "TabsPanel" && child?.props?.tab
 			? {
 					isSelected: idx === activeTabIndex,
+					tabIndex: idx,
+					disabled: child?.props?.disabled,
 					component: child?.props?.tab,
 					componentProps: {
 						...child?.props?.tabProps,
 						onClick: (e: any) => {
-							if (onTabSelect) {
-								onTabSelect(idx);
-							} else {
-								setActiveTabIndex(idx);
-							}
+							if (!child?.props?.disabled) {
+								if (onTabSelect) {
+									onTabSelect(idx);
+								} else {
+									setActiveTabIndex(idx);
+								}
 
-							if (child?.props?.tabProps?.onClick) {
-								child?.props?.tabProps?.onClick?.(e);
+								if (child?.props?.tabProps?.onClick) {
+									child?.props?.tabProps?.onClick?.(e);
+								}
 							}
 						},
 					},
@@ -71,16 +75,22 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 	);
 
 	const handleKeyPress = (e: any) => {
-		const tabCount = tabs.length;
+		const availableTabs = tabs.filter((tab) => !tab.disabled);
 
-		if (e.code === "Space") {
-			e.preventDefault();
-		}
-		if (e.key === "ArrowLeft") {
-			setActiveTabIndex(Math.max(0, activeTabIndex - 1));
-		}
-		if (e.key === "ArrowRight") {
-			setActiveTabIndex(Math.min(tabCount - 1, activeTabIndex + 1));
+		if (availableTabs.length > 0) {
+			if (e.code === "Space") {
+				e.preventDefault();
+			}
+			if (e.key === "ArrowLeft") {
+				const prevTab = availableTabs.reverse().find((tab) => tab.tabIndex < activeTabIndex)?.tabIndex ?? availableTabs[0].tabIndex;
+
+				setActiveTabIndex(prevTab);
+			}
+			if (e.key === "ArrowRight") {
+				const nextTab = availableTabs.find((tab) => tab.tabIndex > activeTabIndex)?.tabIndex ?? availableTabs[0].tabIndex;
+
+				setActiveTabIndex(nextTab);
+			}
 		}
 	};
 

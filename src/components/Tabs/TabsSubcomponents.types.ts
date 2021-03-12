@@ -8,6 +8,8 @@ export interface TabsPanelSubComponentProps extends CnCh {
 
 export type TabItemType = {
 	isSelected: boolean;
+	tabIndex: number;
+	disabled: boolean;
 	component: React.ReactNode;
 	componentProps: Object;
 };
