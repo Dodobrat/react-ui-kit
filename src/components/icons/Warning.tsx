@@ -4,7 +4,7 @@ interface SVGRProps {
   titleId?: string;
 }
 
-function SvgInfo(
+function SvgWarning(
   { title, titleId, ...props }: React.SVGProps<SVGSVGElement> & SVGRProps,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
@@ -21,32 +21,28 @@ function SvgInfo(
     >
       {title ? <title id={titleId}>{title}</title> : null}
       <g fill="none">
-        <path data-name="Rectangle 9" d="M30 30H0V0h30z" />
+        <path data-name="Rectangle 8" d="M0 0h30v30H0z" />
         <g
-          data-name="Group 13"
+          data-name="Group 35"
           stroke="currentColor"
           strokeLinecap="round"
           strokeWidth={2}
-          transform="rotate(180 91.5 54)"
         >
-          <g data-name="Group 9">
-            <path data-name="Path 10" d="M168 88.5v6" />
-            <path data-name="Path 11" d="M168 97.5v.5" />
-          </g>
-          <circle
-            data-name="Ellipse 4"
-            cx={10}
-            cy={10}
-            r={10}
-            transform="translate(158 83)"
+          <path
+            data-name="Polygon 1"
+            d="M15 5l10 20H5z"
             strokeLinejoin="round"
           />
+          <g data-name="Group 34">
+            <path data-name="Path 10" d="M15 13.327v4" />
+            <path data-name="Path 11" d="M15 20.463v.5" />
+          </g>
         </g>
       </g>
     </svg>
   );
 }
 
-const ForwardRef = React.forwardRef(SvgInfo);
+const ForwardRef = React.forwardRef(SvgWarning);
 const MemoForwardRef = React.memo(ForwardRef);
 export default MemoForwardRef;

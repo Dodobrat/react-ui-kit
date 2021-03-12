@@ -21,20 +21,27 @@ function SvgDanger(
     >
       {title ? <title id={titleId}>{title}</title> : null}
       <g fill="none">
-        <path d="M0 0h30v30H0z" />
-        <path
-          d="M15 5l10 20H5z"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-        />
-        <path
-          d="M15 13.327v4M15 20.463v.5"
+        <path data-name="Rectangle 9" d="M0 0h30v30H0z" />
+        <g
+          data-name="Group 13"
           stroke="currentColor"
           strokeLinecap="round"
           strokeWidth={2}
-        />
+          transform="translate(-153 -78)"
+        >
+          <g data-name="Group 9">
+            <path data-name="Path 10" d="M168 88.5v6" />
+            <path data-name="Path 11" d="M168 97.5v.5" />
+          </g>
+          <circle
+            data-name="Ellipse 4"
+            cx={10}
+            cy={10}
+            r={10}
+            transform="translate(158 83)"
+            strokeLinejoin="round"
+          />
+        </g>
       </g>
     </svg>
   );

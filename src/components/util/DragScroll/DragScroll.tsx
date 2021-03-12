@@ -1,11 +1,12 @@
 // Auto-Generated
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { DragScrollProps } from "./DragScroll.types";
 import ScrollContainer from "react-indiana-drag-scroll";
 import Fade from "../animations/Fade";
 import { CaretDown, CaretLeft, CaretRight, CaretUp } from "../../icons";
+import { useWindowResize } from "../../../hooks/useWindowResize";
 
 const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps> = (props, ref) => {
 	const {
@@ -20,11 +21,29 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 		...rest
 	} = props;
 
+	const { width } = useWindowResize(500);
+
 	const scrollListRef = useRef(null);
+	const [isScrollable, setIsScrollable] = useState<boolean>(false);
 	const [isAtStartX, setIsAtStartX] = useState<boolean>(true);
 	const [isAtStartY, setIsAtStartY] = useState<boolean>(true);
 	const [isAtEndX, setIsAtEndX] = useState<boolean>(false);
 	const [isAtEndY, setIsAtEndY] = useState<boolean>(false);
+
+	const isOverflowing = () => {
+		const container = scrollListRef.current?.container?.current;
+
+		if (container) {
+			return container.scrollWidth > container.clientWidth || container.scrollHeight > container.clientHeight;
+		}
+	};
+
+	useEffect(() => {
+		setIsScrollable(isOverflowing());
+		return () => {
+			setIsScrollable(false);
+		};
+	}, [width]);
 
 	const manageIndicatorVisibility: (scrollLeft: number, scrollTop: number, scrollWidth: number, scrollHeight: number) => void = (
 		scrollLeft,
@@ -143,10 +162,10 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 
 	return (
 		<div data-testid='DragScrollContainer' className={cn("dui__dragscroll__container", className)} {...rest} ref={ref}>
-			<Fade in={!isAtStartX && horizontal}>
+			<Fade in={!isAtStartX && isScrollable && horizontal}>
 				<DragScrollIndicator position='startX' />
 			</Fade>
-			<Fade in={!isAtStartY && vertical}>
+			<Fade in={!isAtStartY && isScrollable && vertical}>
 				<DragScrollIndicator position='startY' />
 			</Fade>
 
@@ -159,10 +178,10 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 				{children}
 			</ScrollContainer>
 
-			<Fade in={!isAtEndX && horizontal}>
+			<Fade in={!isAtEndX && isScrollable && horizontal}>
 				<DragScrollIndicator position='endX' />
 			</Fade>
-			<Fade in={!isAtEndY && vertical}>
+			<Fade in={!isAtEndY && isScrollable && vertical}>
 				<DragScrollIndicator position='endY' />
 			</Fade>
 		</div>

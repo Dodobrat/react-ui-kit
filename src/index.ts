@@ -38,25 +38,7 @@ export { default as Text } from "./components/typography/Text/Text";
 export { default as TextArea } from "./components/form_elements/TextArea/TextArea";
 
 //Icons
-export { default as ArrowDown } from "./components/icons/ArrowDown";
-export { default as ArrowLeft } from "./components/icons/ArrowLeft";
-export { default as ArrowRight } from "./components/icons/ArrowRight";
-export { default as ArrowUp } from "./components/icons/ArrowUp";
-export { default as CaretDown } from "./components/icons/CaretDown";
-export { default as CaretLeft } from "./components/icons/CaretLeft";
-export { default as CaretRight } from "./components/icons/CaretRight";
-export { default as CaretUp } from "./components/icons/CaretUp";
-export { default as Close } from "./components/icons/Close";
-export { default as Completed } from "./components/icons/Completed";
-export { default as Danger } from "./components/icons/Danger";
-export { default as DblCaretDown } from "./components/icons/DblCaretDown";
-export { default as DblCaretLeft } from "./components/icons/DblCaretLeft";
-export { default as DblCaretRight } from "./components/icons/DblCaretRight";
-export { default as DblCaretUp } from "./components/icons/DblCaretUp";
-export { default as Hamburger } from "./components/icons/Hamburger";
-export { default as Info } from "./components/icons/Info";
-export { default as More } from "./components/icons/More";
-export { default as MoreVertical } from "./components/icons/MoreVertical";
+export * from "./components/icons/index";
 
 //Animation
 export { default as CollapseFade } from "./components/util/animations/CollapseFade";

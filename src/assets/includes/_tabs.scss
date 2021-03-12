@@ -1,7 +1,190 @@
 @mixin tabs() {
+	@include card();
+}
+
+@mixin tabItems($orientation: "horizontal") {
 	position: relative;
+	display: flex;
+	line-height: 1.5;
+	background-color: inherit;
+	& > * {
+		white-space: nowrap;
+		padding: 0 0.3125rem;
+		user-select: none;
+		cursor: pointer;
+		opacity: 0.6;
+		&:focus {
+			outline: none;
+		}
+		&:focus-visible {
+			box-shadow: none;
+		}
+		&[aria-selected="true"] {
+			opacity: 1;
+			&:focus-visible {
+				box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.1), 0 0 0 0.1rem rgba(0, 0, 0, 0.25);
+			}
+		}
+	}
+	@if ($orientation == "horizontal") {
+		padding: 0.875rem 0;
+		margin: 0 1rem;
+		& > * {
+			margin-right: 1rem;
+			margin-bottom: 0;
+		}
+	} @else {
+		flex-direction: column;
+		padding: 0 0.875rem;
+		margin: 1rem 0;
+		& > * {
+			margin-right: 0;
+			margin-bottom: 1rem;
+			&:nth-last-child(2) {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+@mixin tabIndicator($orientation: "horizontal") {
+	position: absolute;
+	transition: $normalTrans;
+	background: $mainFont;
+	border-radius: $smBorderRadius;
+	padding: 0;
+	opacity: 1;
+	@if ($orientation == "horizontal") {
+		top: unset;
+		right: unset;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 0.125rem;
+	} @else {
+		bottom: unset;
+		left: unset;
+		width: 0.125rem;
+		right: 0;
+		height: 0;
+		top: 0;
+	}
+}
+
+@mixin tabPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+		&.dui__tabs--#{$name} {
+			background-color: $bgColor;
+			color: $fontColor;
+			.indiana-scroll-container {
+				&::after {
+					background: rgba($fontColor, 0.1);
+				}
+			}
+			.dui__tabs__items {
+				& > * {
+					&:focus-visible {
+						box-shadow: none;
+					}
+					&[aria-selected="true"] {
+						&:focus-visible {
+							box-shadow: 0 0 0 0.25rem rgba($bgColor, 0.5), 0 0 0 0.1rem rgba($fontColor, 0.25);
+						}
+					}
+				}
+				&__indicator {
+					background-color: $fontColor;
+				}
+			}
+		}
+	}
 }
 
 .dui__tabs {
 	@include tabs();
+	.dui__dragscroll__container {
+		border-radius: $smBorderRadius $smBorderRadius 0 0;
+		&__indicator {
+			border-radius: $smBorderRadius $smBorderRadius 0 0;
+			height: calc(100% - 0.0625rem);
+		}
+	}
+	.indiana-scroll-container {
+		margin-right: 1rem;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 1rem;
+			right: 0;
+			width: calc(100% - 2rem);
+			height: 0.0625rem;
+			background: rgba($subFont, 0.1);
+			z-index: 1;
+		}
+	}
+	&__items {
+		@include tabItems();
+		&__indicator {
+			@include tabIndicator();
+		}
+	}
+	&__content {
+		padding: 1rem;
+	}
+	&--vertical {
+		flex-direction: row;
+		max-height: 25rem;
+		overflow-y: auto;
+		.dui__dragscroll__container {
+			position: sticky;
+			top: 0;
+			&__indicator {
+				border-radius: $smBorderRadius 0 0 $smBorderRadius;
+				height: unset;
+				width: calc(100% - 0.0625rem);
+			}
+		}
+		.indiana-scroll-container {
+			max-height: 25rem;
+			margin-right: 0;
+			&::after {
+				top: 1rem;
+				bottom: 0;
+				right: 0;
+				left: unset;
+				height: calc(100% - 2rem);
+				width: 0.0625rem;
+			}
+		}
+		.dui__tabs__items {
+			@include tabItems("vertical");
+			&__indicator {
+				@include tabIndicator("vertical");
+			}
+		}
+	}
+	@include tabPigmentOptions();
+	&--contrast {
+		@include tabPigmentOptions($contrastPigments);
+	}
+	&--flat {
+		border-radius: $flatBorderRadius;
+		.dui__dragscroll__container {
+			border-radius: $flatBorderRadius $flatBorderRadius 0 0;
+			&__indicator {
+				border-radius: $flatBorderRadius $flatBorderRadius 0 0;
+			}
+		}
+	}
+	&--loading {
+		cursor: progress;
+		&-disabled {
+			pointer-events: none;
+		}
+	}
 }

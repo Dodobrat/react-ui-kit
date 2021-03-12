@@ -8,7 +8,7 @@ import CollapseFade from "../util/animations/CollapseFade";
 import Fade from "../util/animations/Fade";
 import Button from "../Button/Button";
 import { mergeRefs } from "../../helpers/functions";
-import { Close, Completed, Danger, Info } from "../icons";
+import { Close, Completed, Danger, Info, Warning } from "../icons";
 
 const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props, ref) => {
 	const {
@@ -47,8 +47,9 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		if (!iconComponent) {
 			switch (type) {
 				case "danger":
-				case "warning":
 					return <Danger className='dui__alert__icon' />;
+				case "warning":
+					return <Warning className='dui__alert__icon' />;
 				case "success":
 					return <Completed className='dui__alert__icon' />;
 				default:
