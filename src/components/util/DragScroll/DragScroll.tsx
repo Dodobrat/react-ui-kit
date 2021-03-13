@@ -21,7 +21,7 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 		...rest
 	} = props;
 
-	const { width } = useWindowResize(500);
+	const { width } = useWindowResize();
 
 	const scrollListRef = useRef(null);
 	const [isScrollable, setIsScrollable] = useState<boolean>(false);
@@ -39,11 +39,14 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 	};
 
 	useEffect(() => {
-		setIsScrollable(isOverflowing());
+		const handler = setTimeout(() => {
+			setIsScrollable(isOverflowing());
+		}, 500);
+
 		return () => {
-			setIsScrollable(false);
+			clearTimeout(handler);
 		};
-	}, [width]);
+	}, [width, horizontal, vertical]);
 
 	const manageIndicatorVisibility: (scrollLeft: number, scrollTop: number, scrollWidth: number, scrollHeight: number) => void = (
 		scrollLeft,

@@ -83,11 +83,6 @@
 		&.dui__tabs--#{$name} {
 			background-color: $bgColor;
 			color: $fontColor;
-			.indiana-scroll-container {
-				&::after {
-					background: rgba($fontColor, 0.1);
-				}
-			}
 			.dui__tabs__items {
 				& > * {
 					&:focus-visible {
@@ -102,6 +97,11 @@
 				&__indicator {
 					background-color: $fontColor;
 				}
+				&__content {
+					&::after {
+						background: rgba($fontColor, 0.1);
+					}
+				}
 			}
 		}
 	}
@@ -110,6 +110,8 @@
 .dui__tabs {
 	@include tabs();
 	.dui__dragscroll__container {
+		flex: 1;
+		overflow: hidden;
 		border-radius: $smBorderRadius $smBorderRadius 0 0;
 		&__indicator {
 			border-radius: $smBorderRadius $smBorderRadius 0 0;
@@ -118,20 +120,29 @@
 	}
 	.indiana-scroll-container {
 		margin-right: 1rem;
-		&::after {
-			content: "";
-			position: absolute;
-			bottom: 0;
-			left: 1rem;
-			right: 0;
-			width: calc(100% - 2rem);
-			height: 0.0625rem;
-			background: rgba($subFont, 0.1);
-			z-index: 1;
-		}
 	}
 	&__items {
 		@include tabItems();
+		&__content {
+			position: relative;
+			display: flex;
+			align-items: center;
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 1rem;
+				right: 0;
+				width: calc(100% - 2rem);
+				height: 0.0625rem;
+				background: rgba($subFont, 0.1);
+				z-index: 1;
+			}
+			&__actions {
+				flex: 0 0 auto;
+				padding-right: 1rem;
+			}
+		}
 		&__indicator {
 			@include tabIndicator();
 		}
@@ -144,8 +155,6 @@
 		max-height: 25rem;
 		overflow-y: auto;
 		.dui__dragscroll__container {
-			position: sticky;
-			top: 0;
 			&__indicator {
 				border-radius: $smBorderRadius 0 0 $smBorderRadius;
 				height: unset;
@@ -155,17 +164,27 @@
 		.indiana-scroll-container {
 			max-height: 25rem;
 			margin-right: 0;
-			&::after {
-				top: 1rem;
-				bottom: 0;
-				right: 0;
-				left: unset;
-				height: calc(100% - 2rem);
-				width: 0.0625rem;
-			}
+			height: 100%;
 		}
 		.dui__tabs__items {
 			@include tabItems("vertical");
+			&__content {
+				position: sticky;
+				top: 0;
+				flex-direction: column;
+				&::after {
+					top: 1rem;
+					bottom: 0;
+					right: 0;
+					left: unset;
+					height: calc(100% - 2rem);
+					width: 0.0625rem;
+				}
+				&__actions {
+					padding-right: 0;
+					padding-bottom: 1rem;
+				}
+			}
 			&__indicator {
 				@include tabIndicator("vertical");
 			}

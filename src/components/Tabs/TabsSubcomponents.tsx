@@ -6,7 +6,7 @@ import DragScroll from "../util/DragScroll/DragScroll";
 import { useWindowResize } from "../../hooks/useWindowResize";
 
 export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>((props, ref) => {
-	const { className, activeOption, orientation, options = [], children, ...rest } = props;
+	const { className, activeOption, orientation, tabActions, options = [], children, ...rest } = props;
 
 	const { width } = useWindowResize(500);
 
@@ -25,40 +25,58 @@ export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>(
 				if (orientation === "horizontal") {
 					const left = tab.offsetLeft;
 					tab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+					indicator.style.top = "unset";
+					indicator.style.height = "0.125rem";
 					indicator.style.left = `${left}px`;
 					indicator.style.width = `${width}px`;
 				}
 				if (orientation === "vertical") {
 					const top = tab.offsetTop;
 					scrollContainer.scrollTop = top;
+					indicator.style.left = "unset";
+					indicator.style.width = "0.125rem";
 					indicator.style.top = `${top}px`;
 					indicator.style.height = `${height}px`;
 				}
 			}
 		}
-	}, [activeOption, width]);
+	}, [activeOption, width, orientation]);
 
 	return (
-		<DragScroll vertical={orientation === "vertical"} horizontal={orientation === "horizontal"} ref={ref}>
-			<div role='tablist' aria-orientation={orientation} className={cn("dui__tabs__items", className)} {...rest} ref={dragScrollRef}>
-				{options.map((option, idx) => {
-					const { component, componentProps, disabled, isSelected } = option;
+		<div className='dui__tabs__items__content'>
+			<DragScroll vertical={orientation === "vertical"} horizontal={orientation === "horizontal"} ref={ref}>
+				<div
+					role='tablist'
+					aria-orientation={orientation}
+					className={cn("dui__tabs__items", className)}
+					{...rest}
+					ref={dragScrollRef}>
+					{options.map((option, idx) => {
+						const { component, componentProps, disabled, isSelected } = option;
 
-					return (
-						<div
-							key={idx}
-							role='tab'
-							aria-disabled={disabled}
-							aria-selected={isSelected}
-							tabIndex={idx === activeOption || disabled ? 0 : -1}
-							{...componentProps}>
-							{component}
-						</div>
-					);
-				})}
-				<div className='dui__tabs__items__indicator' tabIndex={-1} ref={tabIndicatorRef} />
-			</div>
-		</DragScroll>
+						return (
+							<div
+								key={idx}
+								role='tab'
+								aria-disabled={disabled}
+								aria-selected={isSelected}
+								tabIndex={idx === activeOption || disabled ? 0 : -1}
+								{...componentProps}>
+								{component}
+							</div>
+						);
+					})}
+					<div
+						className={cn("dui__tabs__items__indicator", {
+							"dui__tabs__items__indicator--vertical": orientation === "vertical",
+						})}
+						tabIndex={-1}
+						ref={tabIndicatorRef}
+					/>
+				</div>
+			</DragScroll>
+			<div className='dui__tabs__items__content__actions'>{tabActions}</div>
+		</div>
 	);
 });
 

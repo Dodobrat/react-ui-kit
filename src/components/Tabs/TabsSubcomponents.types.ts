@@ -25,6 +25,7 @@ type ExtraTabsItemsSubComponentProps = CnCh & SyntheticKeyboardControls;
 export interface TabsItemsSubComponentProps extends ExtraTabsItemsSubComponentProps {
 	activeOption?: number;
 	orientation?: "horizontal" | "vertical";
+	tabActions?: React.ReactNode;
 	options: Array<TabItemType>;
 }
 export interface TabContentSubComponentProps extends CnCh {

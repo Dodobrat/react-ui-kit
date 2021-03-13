@@ -1,3 +1,4 @@
+import React from "react";
 import { CnCh, EssentialCustomizationProps } from "../../helpers/global.types";
 
 type ExtraTabsProps = CnCh & EssentialCustomizationProps;
@@ -9,4 +10,5 @@ export interface TabsProps extends ExtraTabsProps {
 	activeTab?: number;
 	onTabSelect?: (tab: number) => void;
 	orientation?: "horizontal" | "vertical";
+	tabActions?: React.ReactNode;
 }
