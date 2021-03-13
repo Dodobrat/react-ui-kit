@@ -13,28 +13,23 @@ function SvgDanger(
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 30 30"
-      aria-label="icon"
+      viewBox="0 0 24 24"
+      aria-label="dui_icon"
       ref={svgRef}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
       <g fill="none">
-        <path data-name="Rectangle 9" d="M0 0h30v30H0z" />
+        <path d="M0 0h24v24H0z" />
         <g
-          data-name="Group 13"
+          transform="translate(-156 -81)"
           stroke="currentColor"
           strokeLinecap="round"
           strokeWidth={2}
-          transform="translate(-153 -78)"
         >
-          <g data-name="Group 9">
-            <path data-name="Path 10" d="M168 88.5v6" />
-            <path data-name="Path 11" d="M168 97.5v.5" />
-          </g>
+          <path d="M168 88.5v6M168 97.5v.5" />
           <circle
-            data-name="Ellipse 4"
             cx={10}
             cy={10}
             r={10}

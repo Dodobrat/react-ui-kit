@@ -13,17 +13,17 @@ function SvgCaretRight(
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 30 30"
-      aria-label="icon"
+      viewBox="0 0 24 24"
+      aria-label="dui_icon"
       ref={svgRef}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
       <g fill="none">
-        <path d="M0 30V0h30v30z" />
+        <path d="M0 24V0h24v24z" />
         <path
-          d="M10 25l10-10L10 5"
+          d="M7 22l10-10L7 2"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"

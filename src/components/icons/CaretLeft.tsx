@@ -13,17 +13,17 @@ function SvgCaretLeft(
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 30 30"
-      aria-label="icon"
+      viewBox="0 0 24 24"
+      aria-label="dui_icon"
       ref={svgRef}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
       <g fill="none">
-        <path d="M30 0v30H0V0z" />
+        <path d="M24 0v24H0V0z" />
         <path
-          d="M20 5L10 15l10 10"
+          d="M17 2L7 12l10 10"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"

@@ -16,7 +16,7 @@
 		"start": "rollup -c -w",
 		"test": "jest",
 		"test:watch": "jest --watch",
-		"mkicons": "npx @svgr/cli -d src/components/icons src/components/icons --ref --memo --title-prop --svg-props aria-label=icon --icon --replace-attr-values #000=currentColor --typescript",
+		"mkicons": "npx @svgr/cli -d src/components/icons src/components/icons --ref --memo --title-prop --svg-props aria-label=dui_icon --icon --replace-attr-values #000=currentColor --typescript",
 		"mkc": "node ./commands/create-component",
 		"mkfc": "node ./commands/create-forwardRef-component",
 		"mkcon": "node ./commands/create-context",

@@ -109,10 +109,6 @@ $headingOptions: (
 	line-height: 1.4;
 }
 
-svg[aria-label="icon"] {
-	fill: currentColor;
-}
-
 // SKELETON
 
 @mixin skeletonPigmentOptions($options: $pigments) {

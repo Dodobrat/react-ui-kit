@@ -13,23 +13,23 @@ function SvgCompleted(
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 30 30"
-      aria-label="icon"
+      viewBox="0 0 24 24"
+      aria-label="dui_icon"
       ref={svgRef}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
       <g fill="none">
-        <path d="M0 0h30v30H0z" />
+        <path d="M0 0h24v24H0z" />
         <g
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
         >
-          <path d="M25.5 14.947V25h-20V5h14.971" />
-          <path d="M25.5 5l-9.75 13.473-4.6-4.6" />
+          <path d="M22 11.947V22H2V2h14.971" />
+          <path d="M22 2l-9.75 13.473-4.6-4.6" />
         </g>
       </g>
     </svg>

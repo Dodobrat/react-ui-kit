@@ -4,7 +4,7 @@ interface SVGRProps {
   titleId?: string;
 }
 
-function SvgMoreVertical(
+function SvgMinus(
   { title, titleId, ...props }: React.SVGProps<SVGSVGElement> & SVGRProps,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
@@ -20,16 +20,19 @@ function SvgMoreVertical(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <path fill="none" d="M24 0v24H0V0z" />
-      <g transform="rotate(90 76 28.5)" stroke="currentColor">
-        <circle cx={1.5} cy={1.5} r={1.5} transform="translate(49.5 91)" />
-        <circle cx={1.5} cy={1.5} r={1.5} transform="translate(58 91)" />
-        <circle cx={1.5} cy={1.5} r={1.5} transform="translate(66.5 91)" />
+      <g fill="none">
+        <path d="M0 0h24v24H0z" />
+        <path
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth={2}
+          d="M22 12H2"
+        />
       </g>
     </svg>
   );
 }
 
-const ForwardRef = React.forwardRef(SvgMoreVertical);
+const ForwardRef = React.forwardRef(SvgMinus);
 const MemoForwardRef = React.memo(ForwardRef);
 export default MemoForwardRef;

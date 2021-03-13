@@ -13,15 +13,15 @@ function SvgMore(
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 30 30"
-      aria-label="icon"
+      viewBox="0 0 24 24"
+      aria-label="dui_icon"
       ref={svgRef}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <path fill="none" d="M0 0h30v30H0z" />
-      <g transform="translate(-44.5 -77.5)" stroke="currentColor">
+      <path fill="none" d="M0 0h24v24H0z" />
+      <g transform="translate(-47.5 -80.5)" stroke="currentColor">
         <circle cx={1.5} cy={1.5} r={1.5} transform="translate(49.5 91)" />
         <circle cx={1.5} cy={1.5} r={1.5} transform="translate(58 91)" />
         <circle cx={1.5} cy={1.5} r={1.5} transform="translate(66.5 91)" />

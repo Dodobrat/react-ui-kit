@@ -13,17 +13,17 @@ function SvgHamburger(
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 30 30"
-      aria-label="icon"
+      viewBox="0 0 24 24"
+      aria-label="dui_icon"
       ref={svgRef}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
       <g fill="none">
-        <path d="M0 0h30v30H0z" />
+        <path d="M0 0h24v24H0z" />
         <g stroke="currentColor" strokeLinecap="round" strokeWidth={2}>
-          <path d="M5 7h20M5 15h20M5 23h20" />
+          <path d="M2 4h20M2 12h20M2 20h20" />
         </g>
       </g>
     </svg>

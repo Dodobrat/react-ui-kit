@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-  <g id="Moon" transform="translate(-96 -231)">
-    <rect id="Rectangle_6" data-name="Rectangle 6" width="30" height="30" transform="translate(126 231) rotate(90)" fill="none"/>
-    <path id="Subtraction_1" data-name="Subtraction 1" d="M10,20a10.007,10.007,0,0,1-4.856-1.256A5.182,5.182,0,0,0,6.75,19c3.722,0,6.75-4.037,6.75-9S10.472,1,6.75,1a5.182,5.182,0,0,0-1.606.256A10,10,0,1,1,10,20Z" transform="translate(98.356 236.5)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g transform="translate(-207 -84)"><rect width="24" height="24" transform="translate(231 84) rotate(90)" fill="none"/><path d="M11.356,20a10,10,0,0,1-9.965-9.158,6,6,0,1,0,5.476-9.78A9.9,9.9,0,0,1,11.356,0a10,10,0,1,1,0,20Z" transform="translate(207.626 86)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g></svg>

@@ -13,21 +13,23 @@ function SvgMoon(
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 30 30"
-      aria-label="icon"
+      viewBox="0 0 24 24"
+      aria-label="dui_icon"
       ref={svgRef}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <path data-name="Rectangle 6" fill="none" d="M30 0v30H0V0z" />
-      <path
-        data-name="Subtraction 1"
-        d="M12.356 25.5A10.007 10.007 0 017.5 24.244a5.182 5.182 0 001.606.256c3.722 0 6.75-4.037 6.75-9s-3.028-9-6.75-9a5.182 5.182 0 00-1.606.256A10 10 0 1112.356 25.5z"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <g fill="none">
+        <path d="M24 0v24H0V0z" />
+        <path
+          d="M11.982 22a10 10 0 01-9.965-9.158 6 6 0 105.476-9.78A9.9 9.9 0 0111.982 2a10 10 0 110 20z"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+      </g>
     </svg>
   );
 }

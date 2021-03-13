@@ -4,7 +4,7 @@ interface SVGRProps {
   titleId?: string;
 }
 
-function SvgMoreVertical(
+function SvgSearch(
   { title, titleId, ...props }: React.SVGProps<SVGSVGElement> & SVGRProps,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
@@ -20,16 +20,19 @@ function SvgMoreVertical(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <path fill="none" d="M24 0v24H0V0z" />
-      <g transform="rotate(90 76 28.5)" stroke="currentColor">
-        <circle cx={1.5} cy={1.5} r={1.5} transform="translate(49.5 91)" />
-        <circle cx={1.5} cy={1.5} r={1.5} transform="translate(58 91)" />
-        <circle cx={1.5} cy={1.5} r={1.5} transform="translate(66.5 91)" />
+      <g fill="none">
+        <path
+          d="M15 15l7 7zm-10.7-.09a7.5 7.5 0 115.3 2.2 7.5 7.5 0 01-5.3-2.2z"
+          stroke="currentColor"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+        <path d="M0 0h24v24H0z" />
       </g>
     </svg>
   );
 }
 
-const ForwardRef = React.forwardRef(SvgMoreVertical);
+const ForwardRef = React.forwardRef(SvgSearch);
 const MemoForwardRef = React.memo(ForwardRef);
 export default MemoForwardRef;

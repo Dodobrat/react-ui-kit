@@ -4,7 +4,7 @@ interface SVGRProps {
   titleId?: string;
 }
 
-function SvgInfo(
+function SvgEye(
   { title, titleId, ...props }: React.SVGProps<SVGSVGElement> & SVGRProps,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
@@ -20,28 +20,29 @@ function SvgInfo(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g fill="none">
-        <path d="M24 24H0V0h24z" />
-        <g
-          transform="rotate(180 90 52.5)"
+      <g transform="translate(-315 -84)" fill="none">
+        <path
+          d="M332.627 91.657l4.349 4.349h0l-4.35 4.348a8 8 0 01-11.313 0l-4.349-4.348h0l4.35-4.35a8 8 0 0111.313 0z"
           stroke="currentColor"
           strokeLinecap="round"
+          strokeLinejoin="round"
           strokeWidth={2}
-        >
-          <path d="M168 88.5v6M168 97.5v.5" />
-          <circle
-            cx={10}
-            cy={10}
-            r={10}
-            transform="translate(158 83)"
-            strokeLinejoin="round"
-          />
-        </g>
+        />
+        <circle
+          cx={1.5}
+          cy={1.5}
+          r={1.5}
+          transform="translate(325.5 94.5)"
+          stroke="currentColor"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+        <path d="M339 84v24h-24V84z" />
       </g>
     </svg>
   );
 }
 
-const ForwardRef = React.forwardRef(SvgInfo);
+const ForwardRef = React.forwardRef(SvgEye);
 const MemoForwardRef = React.memo(ForwardRef);
 export default MemoForwardRef;

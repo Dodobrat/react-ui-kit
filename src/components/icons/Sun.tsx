@@ -13,33 +13,27 @@ function SvgSun(
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 30 30"
-      aria-label="icon"
+      viewBox="0 0 24 24"
+      aria-label="dui_icon"
       ref={svgRef}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <path data-name="Rectangle 6" fill="none" d="M30 0v30H0V0z" />
-      <g data-name="Group 37" stroke="currentColor">
-        <g data-name="Ellipse 7" transform="translate(8 8)">
-          <circle cx={7} cy={7} r={7} stroke="none" />
-          <circle cx={7} cy={7} r={6.5} fill="none" />
-        </g>
-        <g data-name="Group 36" fill="none" strokeLinecap="round">
-          <path data-name="Line 4" d="M15 5v2" />
-          <path data-name="Line 5" d="M20 6l-1 2" />
-          <path data-name="Line 7" d="M24 10l-2 1" />
-          <path data-name="Line 5" d="M10 6l1 2" />
-          <path data-name="Line 7" d="M6 10l2 1" />
-          <path data-name="Line 6" d="M25 15h-2" />
-          <path data-name="Line 4" d="M15 25v-2" />
-          <path data-name="Line 5" d="M10 24l1-2" />
-          <path data-name="Line 7" d="M6 20l2-1" />
-          <path data-name="Line 5" d="M20 24l-1-2" />
-          <path data-name="Line 7" d="M24 20l-2-1" />
-          <path data-name="Line 6" d="M5 15h2" />
-        </g>
+      <g fill="none">
+        <path
+          d="M9.64 19.646a8.019 8.019 0 01-5.287-5.287L2 12.005l2.348-2.348a8.018 8.018 0 015.309-5.309L12.005 2l2.354 2.353a8.019 8.019 0 015.287 5.287l2.365 2.365-2.37 2.37a8.018 8.018 0 01-5.266 5.266l-2.37 2.37z"
+          stroke="currentColor"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+        <path
+          d="M8.282 19.075H4.93V15.73a8.02 8.02 0 010-7.477V4.925h3.325a8.018 8.018 0 017.507 0h3.321V8.25a8.02 8.02 0 010 7.477v3.344h-3.354a8.017 8.017 0 01-7.448 0z"
+          stroke="currentColor"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+        <path d="M0 0h24v24H0z" />
       </g>
     </svg>
   );

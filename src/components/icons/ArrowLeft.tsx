@@ -13,18 +13,18 @@ function SvgArrowLeft(
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 30 30"
-      aria-label="icon"
+      viewBox="0 0 24 24"
+      aria-label="dui_icon"
       ref={svgRef}
       aria-labelledby={titleId}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
       <g fill="none">
-        <path d="M30 0v30H0V0z" />
+        <path d="M24 0v24H0V0z" />
         <g stroke="currentColor" strokeLinecap="round" strokeWidth={2}>
-          <path d="M15.086 5L5 15l10.086 10" strokeLinejoin="round" />
-          <path d="M5 15h20" />
+          <path d="M12.086 2L2 12l10.086 10" strokeLinejoin="round" />
+          <path d="M2 12h20" />
         </g>
       </g>
     </svg>

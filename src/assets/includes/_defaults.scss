@@ -29,7 +29,7 @@ body,
 		box-sizing: inherit;
 	}
 	&::-moz-focus-inner {
-		border: 0 !important;
+		border: 0;
 	}
 }
 
@@ -82,6 +82,12 @@ hr {
 		border-top: 1px solid rgba($subFont, 0.75);
 		@include hrPigmentOptions($contrastPigments);
 	}
+}
+
+[aria-label="dui_icon"] {
+	height: 0.75em;
+	width: 0.75em;
+	transform: translateY(0.025em);
 }
 
 // abbr[title] {
