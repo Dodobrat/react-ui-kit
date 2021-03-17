@@ -12,9 +12,6 @@
 	color: $mainFont;
 	list-style-type: none;
 	@include listGroupPigmentOptions();
-	&--contrast {
-		@include listGroupPigmentOptions($contrastPigments);
-	}
 	& > *:first-child {
 		border-radius: $smBorderRadius $smBorderRadius 0 0;
 	}
@@ -127,9 +124,6 @@
 		}
 	}
 	@include listGroupItemPigmentOptions();
-	&--contrast {
-		@include listGroupItemPigmentOptions("header", $contrastPigments);
-	}
 }
 
 @mixin listGroupItem() {
@@ -143,9 +137,6 @@
 		background-color: darken($bgCard, 3.5%);
 	}
 	@include listGroupItemPigmentOptions("item");
-	&--contrast {
-		@include listGroupItemPigmentOptions("item", $contrastPigments);
-	}
 }
 
 @mixin listGroupCollapse {
@@ -221,9 +212,6 @@
 		}
 	}
 	@include listGroupItemPigmentOptions("collapse");
-	&--contrast {
-		@include listGroupItemPigmentOptions("collapse", $contrastPigments);
-	}
 }
 
 .dui__list__group {

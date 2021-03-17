@@ -24,7 +24,6 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		onToggle,
 		isCollapsed = true,
 		pigment = null,
-		contrast = false,
 		flat = false,
 		elevation = "subtle",
 		allowOverflow = true,
@@ -87,7 +86,6 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 			className={cn(
 				"dui__collapse",
 				{
-					"dui__collapse--contrast": contrast,
 					"dui__collapse--flat": flat,
 					"dui__collapse--collapsed": collapseState,
 					"dui__collapse--loading": loading,

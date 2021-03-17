@@ -101,9 +101,6 @@ $progressBarLabelPositions: (
 	@include progressBar();
 
 	@include progressBarPigmentOptions();
-	&--contrast {
-		@include progressBarPigmentOptions($contrastPigments);
-	}
 
 	&--flat {
 		.dui__progressbar__progress {
@@ -191,9 +188,7 @@ $progressBarLabelPositions: (
 .dui__progressring {
 	@include progressRing();
 	@include progressRingPigmentOptions();
-	&--contrast {
-		@include progressRingPigmentOptions($contrastPigments);
-	}
+
 	&--reversed {
 		& > circle {
 			transform: rotate(-90deg) rotateX(180deg);

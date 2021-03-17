@@ -11,7 +11,6 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		className,
 		as = "span",
 		elevation = "none",
-		contrast = false,
 		pigment = "primary",
 		size = "md",
 		flat = false,
@@ -34,7 +33,6 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 					[`dui__badge--${size}`]: SizeOptions.includes(size),
 				},
 				{
-					"dui__badge--contrast": contrast,
 					"dui__badge--rounded": rounded,
 					"dui__badge--flat": flat,
 					"dui__badge--clickable": rest["onClick"],

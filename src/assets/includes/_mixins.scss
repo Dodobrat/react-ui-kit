@@ -20,3 +20,9 @@
 		transform: scale($amount);
 	}
 }
+
+@mixin focusVisible($bgColor: black, $fontColor: black) {
+	&:focus-visible {
+		box-shadow: 0 0 0 0.25rem rgba($bgColor, 0.1), 0 0 0 0.1rem rgba($fontColor, 0.25);
+	}
+}

@@ -68,9 +68,6 @@
 .dui__collapse {
 	@include collapse();
 	@include collapsePigmentOptions();
-	&--contrast {
-		@include collapsePigmentOptions($contrastPigments);
-	}
 	&--collapsed {
 		.dui__collapse__toggle {
 			border-radius: $smBorderRadius;

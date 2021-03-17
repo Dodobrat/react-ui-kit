@@ -37,7 +37,6 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 		className,
 		elevation = "subtle",
 		pigment = null,
-		contrast = false,
 		flat = false,
 		allowOverflow = true,
 		disableWhileLoading = true,
@@ -71,7 +70,6 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 					props: {
 						...child.props,
 						...childElementType(child.props),
-						contrast: child.props.contrast ?? contrast,
 						pigment: child.props.pigment ?? pigment,
 					},
 			  }
@@ -90,7 +88,6 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 			className={cn(
 				"dui__list__group",
 				{
-					"dui__list__group--contrast": contrast,
 					"dui__list__group--flat": flat,
 					"dui__list__group--loading": loading,
 					"dui__list__group--loading-disabled": loading && disableWhileLoading,

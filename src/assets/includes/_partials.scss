@@ -71,9 +71,6 @@ $headingOptions: (
 	}
 
 	@include skeletonPigmentOptions();
-	&--contrast {
-		@include skeletonPigmentOptions($contrastPigments);
-	}
 
 	&--rounded {
 		border-radius: $roundedBorderRadius;

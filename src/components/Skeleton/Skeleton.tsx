@@ -6,7 +6,7 @@ import { SkeletonProps } from "./Skeleton.types";
 import { PigmentOptions } from "../../helpers/global";
 
 const Skeleton: React.ForwardRefRenderFunction<HTMLDivElement, SkeletonProps> = (props, ref) => {
-	const { className, pigment = null, contrast = false, rounded = false, flat = false, children, ...rest } = props;
+	const { className, pigment = null, rounded = false, flat = false, children, ...rest } = props;
 
 	return (
 		<div
@@ -14,7 +14,6 @@ const Skeleton: React.ForwardRefRenderFunction<HTMLDivElement, SkeletonProps> = 
 			className={cn(
 				"dui__skeleton",
 				{
-					"dui__skeleton--contrast": contrast,
 					"dui__skeleton--rounded": rounded,
 					"dui__skeleton--flat": flat,
 				},

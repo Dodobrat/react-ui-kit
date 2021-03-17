@@ -12,11 +12,11 @@ import { mergeRefs } from "../../helpers/functions";
 import { CaretDown } from "../icons";
 
 export const CollapseLoader = forwardRef<HTMLDivElement, CollapseLoaderSubComponentProps>((props, ref) => {
-	const { className, pigment, contrast, children, ...rest } = props;
+	const { className, pigment, children, ...rest } = props;
 
 	return (
 		<div className={cn("dui__collapse__loader", className)} {...rest} ref={ref}>
-			{!!children ? children : <LineLoader pigment={pigment} contrast={contrast} />}
+			{!!children ? children : <LineLoader pigment={pigment} />}
 		</div>
 	);
 });
@@ -92,7 +92,7 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 CollapseToggle.displayName = "CollapseToggle";
 
 export const CollapseContent = forwardRef<HTMLDivElement, CollapseContentSubComponentProps>((props, ref) => {
-	const { className, isCollapsed, animation = "collapse-n-fade", children, ...rest } = props;
+	const { className, isCollapsed, animation = "collapse", children, ...rest } = props;
 
 	const CollapseContent = () => {
 		return (

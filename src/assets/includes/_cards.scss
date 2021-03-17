@@ -100,9 +100,6 @@
 		@include cardFooter();
 	}
 	@include cardPigmentOptions();
-	&--contrast {
-		@include cardPigmentOptions($contrastPigments);
-	}
 	&--img {
 		display: grid;
 		gap: 0;

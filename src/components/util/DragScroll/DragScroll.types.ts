@@ -11,4 +11,5 @@ export interface DragScrollProps extends ExtraDragScrollProps {
 	activationDistance?: number;
 	indicatorClassName?: string;
 	indicatorComponent?: React.ReactNode;
+	innerRef?: React.MutableRefObject<any> | React.LegacyRef<any>;
 }

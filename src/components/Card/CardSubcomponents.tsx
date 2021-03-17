@@ -5,11 +5,11 @@ import { CardHeaderSubComponentProps, CardImageSubComponentProps, CardLoaderSubC
 import { CnCh } from "../../helpers/global.types";
 
 export const CardLoader = forwardRef<HTMLDivElement, CardLoaderSubComponentProps>((props, ref) => {
-	const { className, pigment, contrast, children, ...rest } = props;
+	const { className, pigment, children, ...rest } = props;
 
 	return (
 		<div className={cn("dui__card__loader", className)} {...rest} ref={ref}>
-			{!!children ? children : <LineLoader pigment={pigment} contrast={contrast} />}
+			{!!children ? children : <LineLoader pigment={pigment} />}
 		</div>
 	);
 });

@@ -30,11 +30,16 @@
 	$pigmentKeys: map-keys($options);
 	@each $key in $pigmentKeys {
 		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
 		$fontColor: map-deep-get($options, $key, "fontColor");
 
 		&.dui__spinner--#{$name} {
 			border-color: rgba($fontColor, 0.25);
 			border-top-color: $fontColor;
+		}
+		&.dui__spinner--color-#{$name} {
+			border-color: rgba($bgColor, 0.25);
+			border-top-color: $bgColor;
 		}
 	}
 }
@@ -53,18 +58,14 @@
 		}
 	}
 
-	@include spinnerPigmentOptions();
+	border-color: rgba($subFont, 0.25);
+	border-top-color: $subFont;
 
-	&--contrast {
-		@include spinnerPigmentOptions($contrastPigments);
-	}
+	@include spinnerPigmentOptions();
 
 	&--btn {
 		animation: btnSpin 1s linear infinite;
 		@include spinnerPigmentBtnOptions();
-		&.dui__spinner--contrast {
-			@include spinnerPigmentBtnOptions($contrastPigments);
-		}
 	}
 }
 
@@ -102,10 +103,6 @@
 	}
 
 	@include lineLoaderPigmentOptions();
-
-	&--contrast {
-		@include lineLoaderPigmentOptions($contrastPigments);
-	}
 }
 
 @keyframes indeterminate {

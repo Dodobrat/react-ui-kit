@@ -7,6 +7,7 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import Fade from "../animations/Fade";
 import { CaretDown, CaretLeft, CaretRight, CaretUp } from "../../icons";
 import { useWindowResize } from "../../../hooks/useWindowResize";
+import { mergeRefs } from "../../../helpers/functions";
 
 const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps> = (props, ref) => {
 	const {
@@ -17,6 +18,7 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 		onScroll,
 		indicatorClassName,
 		indicatorComponent,
+		innerRef,
 		children,
 		...rest
 	} = props;
@@ -173,7 +175,7 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 			</Fade>
 
 			<ScrollContainer
-				ref={scrollListRef}
+				ref={mergeRefs([innerRef, scrollListRef])}
 				activationDistance={activationDistance}
 				horizontal={horizontal}
 				vertical={vertical}

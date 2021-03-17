@@ -6,16 +6,13 @@ import { LineLoaderProps } from "./LineLoader.types";
 import { PigmentOptions } from "../../helpers/global";
 
 const LineLoader: React.ForwardRefRenderFunction<HTMLDivElement, LineLoaderProps> = (props, ref) => {
-	const { className, contrast = false, pigment = "primary", ...rest } = props;
+	const { className, pigment = "primary", ...rest } = props;
 
 	return (
 		<div
 			data-testid='LineLoader'
 			className={cn(
 				"dui__line-loader",
-				{
-					"dui__line-loader--contrast": contrast,
-				},
 				{
 					[`dui__line-loader--${pigment}`]: PigmentOptions.includes(pigment),
 				},

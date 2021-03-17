@@ -16,11 +16,11 @@ import CollapseShow from "../util/animations/CollapseShow";
 import { CaretDown } from "../icons";
 
 export const ListGroupLoader = forwardRef<HTMLDivElement, ListGroupLoaderSubComponentProps>((props, ref) => {
-	const { className, pigment, contrast, children, ...rest } = props;
+	const { className, pigment, children, ...rest } = props;
 
 	return (
 		<div className={cn("dui__list__group__loader", className)} {...rest} ref={ref}>
-			{!!children ? children : <LineLoader pigment={pigment} contrast={contrast} />}
+			{!!children ? children : <LineLoader pigment={pigment} />}
 		</div>
 	);
 });
@@ -28,7 +28,7 @@ export const ListGroupLoader = forwardRef<HTMLDivElement, ListGroupLoaderSubComp
 ListGroupLoader.displayName = "ListGroupLoader";
 
 export const ListGroupHeader = forwardRef<unknown, ListGroupHeaderSubComponentProps>((props, ref) => {
-	const { className, as, align = "left", contrast, pigment, children, ...rest } = props;
+	const { className, as, align = "left", pigment, children, ...rest } = props;
 
 	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
@@ -36,9 +36,7 @@ export const ListGroupHeader = forwardRef<unknown, ListGroupHeaderSubComponentPr
 		<ParsedComponent
 			className={cn(
 				"dui__list__group__header",
-				{
-					"dui__list__group__header--contrast": contrast,
-				},
+				{},
 				{
 					[`dui__list__group__header--align-${align}`]: align !== "left",
 					[`dui__list__group__header--${pigment}`]: PigmentOptions.includes(pigment),
@@ -55,7 +53,7 @@ export const ListGroupHeader = forwardRef<unknown, ListGroupHeaderSubComponentPr
 ListGroupHeader.displayName = "ListGroupHeader";
 
 export const ListGroupItem = forwardRef<unknown, ListGroupItemSubComponentProps>((props, ref) => {
-	const { className, as, active = false, contrast, pigment, children, ...rest } = props;
+	const { className, as, active = false, pigment, children, ...rest } = props;
 
 	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
@@ -65,7 +63,6 @@ export const ListGroupItem = forwardRef<unknown, ListGroupItemSubComponentProps>
 				"dui__list__group__item",
 				{
 					"dui__list__group__item--active": active,
-					"dui__list__group__item--contrast": contrast,
 				},
 				{
 					[`dui__list__group__item--${pigment}`]: PigmentOptions.includes(pigment),
@@ -137,7 +134,7 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 ListGroupCollapseToggle.displayName = "ListGroupCollapseToggle";
 
 export const ListGroupCollapseContent = forwardRef<HTMLDivElement, ListGroupCollapseContentSubComponentProps>((props, ref) => {
-	const { className, isCollapsed, animation = "collapse-n-fade", children, ...rest } = props;
+	const { className, isCollapsed, animation = "collapse", children, ...rest } = props;
 
 	const CollapseContent = () => {
 		return (
@@ -176,17 +173,7 @@ interface ListGroupCollapseComponent
 }
 
 export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubComponentProps>((props, ref) => {
-	const {
-		className,
-		as = "div",
-		onToggle,
-		isCollapsed = true,
-		nestedCollapseIndent = true,
-		contrast,
-		pigment,
-		children,
-		...rest
-	} = props;
+	const { className, as = "div", onToggle, isCollapsed = true, nestedCollapseIndent = true, pigment, children, ...rest } = props;
 
 	const [collapseState, setCollapseState] = useState<boolean>(isCollapsed);
 
@@ -232,7 +219,6 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 				{
 					"dui__list__group__collapse--no-indent": !nestedCollapseIndent,
 					"dui__list__group__collapse--collapsed": collapseState,
-					"dui__list__group__collapse--contrast": contrast,
 				},
 				{
 					[`dui__list__group__collapse--${pigment}`]: PigmentOptions.includes(pigment),

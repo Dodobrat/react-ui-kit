@@ -20,7 +20,6 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 		decimals = 0,
 		rounded = false,
 		flat = false,
-		contrast = false,
 		pigment = "primary",
 		withTrack = true,
 		...rest
@@ -73,7 +72,6 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 			className={cn(
 				"dui__progressbar",
 				{
-					"dui__progressbar--contrast": contrast,
 					"dui__progressbar--flat": flat,
 					"dui__progressbar--rounded": rounded,
 					"dui__progressbar--label-always": labelAlwaysVisible,

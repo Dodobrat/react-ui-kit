@@ -3,7 +3,6 @@ import { LineLoaderProps } from "../LineLoader/LineLoader.types";
 
 type ExtraListGroupSubComponentProps = ElemType & CnCh;
 interface ListGroupSubComponentProps extends ExtraListGroupSubComponentProps {
-	contrast?: boolean;
 	pigment?: PigmentOptions;
 }
 

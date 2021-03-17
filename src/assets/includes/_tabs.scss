@@ -21,12 +21,10 @@
 		}
 		&[aria-selected="true"] {
 			opacity: 1;
-			&:focus-visible {
-				box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.1), 0 0 0 0.1rem rgba(0, 0, 0, 0.25);
-			}
 		}
 		&[aria-disabled="true"] {
 			cursor: not-allowed;
+			@include focusVisible();
 		}
 	}
 	@if ($orientation == "horizontal") {
@@ -85,13 +83,8 @@
 			color: $fontColor;
 			.dui__tabs__items {
 				& > * {
-					&:focus-visible {
-						box-shadow: none;
-					}
 					&[aria-selected="true"] {
-						&:focus-visible {
-							box-shadow: 0 0 0 0.25rem rgba($bgColor, 0.5), 0 0 0 0.1rem rgba($fontColor, 0.25);
-						}
+						@include focusVisible($bgColor, $fontColor);
 					}
 				}
 				&__indicator {
@@ -110,12 +103,21 @@
 .dui__tabs {
 	@include tabs();
 	.dui__dragscroll__container {
-		flex: 1;
-		overflow: hidden;
 		border-radius: $smBorderRadius $smBorderRadius 0 0;
 		&__indicator {
 			border-radius: $smBorderRadius $smBorderRadius 0 0;
 			height: calc(100% - 0.0625rem);
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 1rem;
+			right: 0;
+			width: calc(100% - 2rem);
+			height: 0.0625rem;
+			background: rgba($subFont, 0.1);
+			z-index: 1;
 		}
 	}
 	.indiana-scroll-container {
@@ -123,26 +125,6 @@
 	}
 	&__items {
 		@include tabItems();
-		&__content {
-			position: relative;
-			display: flex;
-			align-items: center;
-			&::after {
-				content: "";
-				position: absolute;
-				bottom: 0;
-				left: 1rem;
-				right: 0;
-				width: calc(100% - 2rem);
-				height: 0.0625rem;
-				background: rgba($subFont, 0.1);
-				z-index: 1;
-			}
-			&__actions {
-				flex: 0 0 auto;
-				padding-right: 1rem;
-			}
-		}
 		&__indicator {
 			@include tabIndicator();
 		}
@@ -155,6 +137,16 @@
 		max-height: 25rem;
 		overflow-y: auto;
 		.dui__dragscroll__container {
+			position: sticky;
+			top: 0;
+			&::after {
+				top: 1rem;
+				bottom: 0;
+				right: 0;
+				left: unset;
+				height: calc(100% - 2rem);
+				width: 0.0625rem;
+			}
 			&__indicator {
 				border-radius: $smBorderRadius 0 0 $smBorderRadius;
 				height: unset;
@@ -162,38 +154,18 @@
 			}
 		}
 		.indiana-scroll-container {
-			max-height: 25rem;
+			max-height: inherit;
 			margin-right: 0;
 			height: 100%;
 		}
 		.dui__tabs__items {
 			@include tabItems("vertical");
-			&__content {
-				position: sticky;
-				top: 0;
-				flex-direction: column;
-				&::after {
-					top: 1rem;
-					bottom: 0;
-					right: 0;
-					left: unset;
-					height: calc(100% - 2rem);
-					width: 0.0625rem;
-				}
-				&__actions {
-					padding-right: 0;
-					padding-bottom: 1rem;
-				}
-			}
 			&__indicator {
 				@include tabIndicator("vertical");
 			}
 		}
 	}
 	@include tabPigmentOptions();
-	&--contrast {
-		@include tabPigmentOptions($contrastPigments);
-	}
 	&--flat {
 		border-radius: $flatBorderRadius;
 		.dui__dragscroll__container {

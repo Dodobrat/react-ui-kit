@@ -50,9 +50,6 @@
 		}
 	}
 	@include badgePigmentOptions();
-	&.dui__badge--contrast {
-		@include badgePigmentOptions($contrastPigments);
-	}
 	&--flat {
 		border-radius: $flatBorderRadius;
 	}

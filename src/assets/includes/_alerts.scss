@@ -39,9 +39,6 @@
 .dui__alert {
 	@include alert();
 	@include alertPigmentOptions();
-	&--contrast {
-		@include alertPigmentOptions($contrastPigments);
-	}
 	&--flex {
 		display: flex;
 		align-items: flex-start;

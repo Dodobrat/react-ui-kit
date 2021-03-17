@@ -78,10 +78,6 @@ hr {
 	height: 0;
 	border-top: 1px solid rgba($subFont, 0.2);
 	@include hrPigmentOptions();
-	&[contrast="true"] {
-		border-top: 1px solid rgba($subFont, 0.75);
-		@include hrPigmentOptions($contrastPigments);
-	}
 }
 
 [aria-label="dui_icon"] {

@@ -21,7 +21,6 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 		imgPosition = "top",
 		elevation = "subtle",
 		pigment = null,
-		contrast = false,
 		flat = false,
 		allowOverflow = true,
 		disableWhileLoading = true,
@@ -45,7 +44,6 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 			className={cn(
 				"dui__card",
 				{
-					"dui__card--contrast": contrast,
 					"dui__card--flat": flat,
 					"dui__card--loading": loading,
 					"dui__card--loading-disabled": loading && disableWhileLoading,

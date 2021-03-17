@@ -23,7 +23,6 @@ export interface SyntheticKeyboardControls {
 export interface EssentialCustomizationProps {
 	pigment?: PigmentOptions;
 	elevation?: ElevationOptions;
-	contrast?: boolean;
 	flat?: boolean;
 }
 
@@ -42,7 +41,6 @@ export interface Progress {
 	labelAlwaysVisible?: boolean;
 	decimals?: number;
 	flat?: boolean;
-	contrast?: boolean;
 	pigment?: PigmentOptions;
 	withTrack?: boolean;
 }

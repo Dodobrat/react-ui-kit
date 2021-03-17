@@ -8,40 +8,28 @@ $subFont: #4f4f4f !default;
 
 //--Accents
 $primaryBase: 242 !default;
-$primaryContrastBg: hsla($primaryBase, 70%, 60%, 100%) !default;
-$primaryContrastFont: hsla($primaryBase, 100%, 100%, 100%) !default;
-$primaryBg: hsla($primaryBase, 100%, 93.5%, 100%) !default;
-$primaryFont: hsla($primaryBase, 60%, 55%, 100%) !default;
+$primaryBg: hsla($primaryBase, 70%, 60%, 100%) !default;
+$primaryFont: hsla($primaryBase, 100%, 100%, 100%) !default;
 
 $secondaryBase: 360 !default;
-$secondaryContrastBg: hsla($secondaryBase, 0%, 45%, 100%) !default;
-$secondaryContrastFont: hsla($secondaryBase, 100%, 100%, 100%) !default;
-$secondaryBg: hsla($secondaryBase, 0%, 90%, 100%) !default;
-$secondaryFont: hsla($secondaryBase, 0%, 40%, 100%) !default;
+$secondaryBg: hsla($secondaryBase, 0%, 45%, 100%) !default;
+$secondaryFont: hsla($secondaryBase, 100%, 100%, 100%) !default;
 
 $successBase: 147 !default;
-$successContrastBg: hsla($successBase, 80%, 35%, 100%) !default;
-$successContrastFont: hsla($successBase, 100%, 100%, 100%) !default;
-$successBg: hsla($successBase, 70%, 90%, 100%) !default;
-$successFont: hsla($successBase, 85%, 30%, 100%) !default;
+$successBg: hsla($successBase, 80%, 35%, 100%) !default;
+$successFont: hsla($successBase, 100%, 100%, 100%) !default;
 
 $warningBase: 45 !default;
-$warningContrastBg: hsla($warningBase, 100%, 60%, 100%) !default;
-$warningContrastFont: hsla($warningBase, 100%, 0%, 100%) !default;
-$warningBg: hsla($warningBase, 100%, 90%, 100%) !default;
-$warningFont: hsla($warningBase, 70%, 40%, 100%) !default;
+$warningBg: hsla($warningBase, 100%, 60%, 100%) !default;
+$warningFont: hsla($warningBase, 100%, 0%, 100%) !default;
 
 $dangerBase: 0 !default;
-$dangerContrastBg: hsla($dangerBase, 70%, 55%, 100%) !default;
-$dangerContrastFont: hsla($dangerBase, 100%, 100%, 100%) !default;
-$dangerBg: hsla($dangerBase, 100%, 90%, 100%) !default;
-$dangerFont: hsla($dangerBase, 70%, 40%, 100%) !default;
+$dangerBg: hsla($dangerBase, 70%, 55%, 100%) !default;
+$dangerFont: hsla($dangerBase, 100%, 100%, 100%) !default;
 
 $infoBase: 197 !default;
-$infoContrastBg: hsla($infoBase, 70%, 47.5%, 100%) !default;
-$infoContrastFont: hsla($infoBase, 100%, 100%, 100%) !default;
-$infoBg: hsla($infoBase, 100%, 90%, 100%) !default;
-$infoFont: hsla($infoBase, 70%, 40%, 100%) !default;
+$infoBg: hsla($infoBase, 70%, 47.5%, 100%) !default;
+$infoFont: hsla($infoBase, 100%, 100%, 100%) !default;
 
 $fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
 	"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
@@ -243,39 +231,6 @@ $pigments: (
 		"name": "info",
 		"bgColor": $infoBg,
 		"fontColor": $infoFont,
-	),
-) !default;
-
-$contrastPigments: (
-	"primary": (
-		"name": "primary",
-		"bgColor": $primaryContrastBg,
-		"fontColor": $primaryContrastFont,
-	),
-	"secondary": (
-		"name": "secondary",
-		"bgColor": $secondaryContrastBg,
-		"fontColor": $secondaryContrastFont,
-	),
-	"success": (
-		"name": "success",
-		"bgColor": $successContrastBg,
-		"fontColor": $successContrastFont,
-	),
-	"warning": (
-		"name": "warning",
-		"bgColor": $warningContrastBg,
-		"fontColor": $warningContrastFont,
-	),
-	"danger": (
-		"name": "danger",
-		"bgColor": $dangerContrastBg,
-		"fontColor": $dangerContrastFont,
-	),
-	"info": (
-		"name": "info",
-		"bgColor": $infoContrastBg,
-		"fontColor": $infoContrastFont,
 	),
 ) !default;
 

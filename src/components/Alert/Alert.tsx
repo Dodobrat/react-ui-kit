@@ -15,7 +15,6 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		className,
 		elevation = "none",
 		pigment = "danger",
-		contrast = false,
 		rounded = false,
 		flat = false,
 		animation = "collapse-n-fade",
@@ -33,7 +32,6 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 	const passThroughBtnProps = {
 		elevation,
 		pigment,
-		contrast,
 		rounded,
 		flat,
 	};
@@ -71,7 +69,6 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 				className={cn(
 					"dui__alert",
 					{
-						"dui__alert--contrast": contrast,
 						"dui__alert--rounded": rounded,
 						"dui__alert--flat": flat,
 						"dui__alert--flex": isDismissible || withIcon,

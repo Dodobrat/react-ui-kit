@@ -23,9 +23,9 @@ export type TabPanelType = {
 type ExtraTabsItemsSubComponentProps = CnCh & SyntheticKeyboardControls;
 
 export interface TabsItemsSubComponentProps extends ExtraTabsItemsSubComponentProps {
+	innerRef?: React.MutableRefObject<any> | React.LegacyRef<any>;
 	activeOption?: number;
 	orientation?: "horizontal" | "vertical";
-	tabActions?: React.ReactNode;
 	options: Array<TabItemType>;
 }
 export interface TabContentSubComponentProps extends CnCh {

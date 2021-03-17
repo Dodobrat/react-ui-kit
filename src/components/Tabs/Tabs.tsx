@@ -16,7 +16,6 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		className,
 		elevation = "subtle",
 		pigment = null,
-		contrast = false,
 		flat = false,
 		allowOverflow = true,
 		disableWhileLoading = true,
@@ -24,7 +23,6 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		activeTab = 0,
 		onTabSelect,
 		orientation = "horizontal",
-		tabActions,
 		children,
 		...rest
 	} = props;
@@ -102,7 +100,6 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 				"dui__tabs",
 				{
 					"dui__tabs--vertical": orientation === "vertical",
-					"dui__tabs--contrast": contrast,
 					"dui__tabs--flat": flat,
 					"dui__tabs--loading": loading,
 					"dui__tabs--loading-disabled": loading && disableWhileLoading,
@@ -116,13 +113,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 			)}
 			{...rest}
 			ref={ref}>
-			<TabsItems
-				options={tabs}
-				orientation={orientation}
-				activeOption={activeTabIndex}
-				onKeyDown={handleKeyPress}
-				tabActions={tabActions}
-			/>
+			<TabsItems options={tabs} orientation={orientation} activeOption={activeTabIndex} onKeyDown={handleKeyPress} />
 			<TabContent options={panels} />
 		</div>
 	);

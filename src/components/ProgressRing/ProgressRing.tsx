@@ -19,7 +19,6 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 		labelAlwaysVisible = true,
 		decimals = 0,
 		flat = false,
-		contrast = false,
 		pigment = "primary",
 		withTrack = true,
 		counterClockWise = false,
@@ -57,7 +56,6 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 			className={cn(
 				"dui__progressring",
 				{
-					"dui__progressring--contrast": contrast,
 					"dui__progressring--flat": flat,
 					"dui__progressring--label-always": labelAlwaysVisible,
 					"dui__progressring--reversed": counterClockWise,

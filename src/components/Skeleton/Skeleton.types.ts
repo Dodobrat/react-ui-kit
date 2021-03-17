@@ -4,7 +4,6 @@ import { PigmentOptions } from "../../helpers/global.types";
 export interface SkeletonProps {
 	className?: string;
 	pigment?: PigmentOptions;
-	contrast?: boolean;
 	rounded?: boolean;
 	flat?: boolean;
 }

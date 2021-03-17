@@ -21,7 +21,6 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		pigmentColor = null,
 		keyboardOnlyFocusRing = true,
 		spongy = true,
-		contrast = false,
 		size = "md",
 		rounded = false,
 		round = false,
@@ -30,7 +29,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		active = false,
 		disableWhileLoading = true,
 		loading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment ?? pigmentColor} contrast={contrast} btnLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={pigment} pigmentColor={pigmentColor} btnLoader />,
 		children,
 		...rest
 	} = props;
@@ -49,7 +48,6 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 				{
 					"dui__btn--icon-start": iconStart,
 					"dui__btn--icon-end": iconEnd,
-					"dui__btn--contrast": contrast,
 					"dui__btn--rounded": rounded,
 					"dui__btn--round": round,
 					"dui__btn--flat": flat,
