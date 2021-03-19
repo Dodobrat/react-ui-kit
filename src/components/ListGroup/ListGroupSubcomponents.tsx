@@ -92,6 +92,16 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 
 	const listGroupCollapseToggleRef = useRef(null);
 
+	const handleKeyDown = (e: React.KeyboardEvent) => {
+		if (onKeyDown) {
+			onKeyDown(e);
+		}
+		if (listGroupCollapseToggleRef.current === document.activeElement && e.code === "Space") {
+			e.preventDefault();
+			onKeyboardToggle(isCollapsed);
+		}
+	};
+
 	return (
 		<div
 			className={cn(
@@ -104,15 +114,7 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 			)}
 			aria-expanded={!isCollapsed}
 			tabIndex={rest["disabled"] ? -1 : 0}
-			onKeyDown={(e) => {
-				if (onKeyDown) {
-					onKeyDown(e);
-				}
-				if (listGroupCollapseToggleRef.current === document.activeElement && e.code === "Space") {
-					e.preventDefault();
-					onKeyboardToggle(isCollapsed);
-				}
-			}}
+			onKeyDown={handleKeyDown}
 			{...rest}
 			ref={mergeRefs([listGroupCollapseToggleRef, ref])}>
 			{collapseIndicator ? (

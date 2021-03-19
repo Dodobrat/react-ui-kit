@@ -12,15 +12,11 @@ export { default as Button } from "./components/Button/Button";
 export { default as ButtonGroup } from "./components/ButtonGroup/ButtonGroup";
 export { default as Card } from "./components/Card/Card";
 export { default as Collapse } from "./components/Collapse/Collapse";
-export { default as Checkbox } from "./components/form_elements/Checkbox/Checkbox";
 export { default as Container } from "./components/util/Container/Container";
 export { default as DragScroll } from "./components/util/DragScroll/DragScroll";
 export { default as Drawer } from "./components/Drawer/Drawer";
-export { default as File } from "./components/form_elements/File/File";
 export { default as Flex } from "./components/util/Flex/Flex";
 export { default as Heading } from "./components/typography/Heading/Heading";
-export { default as Input } from "./components/form_elements/Input/Input";
-export { default as InputGroup } from "./components/form_elements/InputGroup/InputGroup";
 export { default as LineLoader } from "./components/LineLoader/LineLoader";
 export { default as ListGroup } from "./components/ListGroup/ListGroup";
 export { default as Navbar } from "./components/Navbar/Navbar";
@@ -28,14 +24,22 @@ export { default as Portal } from "./components/Portal/Portal";
 export { default as PortalWrapper } from "./components/util/PortalWrapper/PortalWrapper";
 export { default as ProgressBar } from "./components/ProgressBar/ProgressBar";
 export { default as ProgressRing } from "./components/ProgressRing/ProgressRing";
-export { default as Radio } from "./components/form_elements/Radio/Radio";
 export { default as Skeleton } from "./components/Skeleton/Skeleton";
-export { default as Slider } from "./components/form_elements/Slider/Slider";
 export { default as SpinnerLoader } from "./components/SpinnerLoader/SpinnerLoader";
-export { default as Switch } from "./components/form_elements/Switch/Switch";
 export { default as Tabs } from "./components/Tabs/Tabs";
 export { default as Text } from "./components/typography/Text/Text";
+
+//Form Elements
+export { default as Checkbox } from "./components/form_elements/Checkbox/Checkbox";
+export { default as File } from "./components/form_elements/File/File";
+export { default as FormControl } from "./components/form_elements/FormControl/FormControl";
+export { default as Input } from "./components/form_elements/Input/Input";
+export { default as Radio } from "./components/form_elements/Radio/Radio";
+export { default as Slider } from "./components/form_elements/Slider/Slider";
+export { default as Switch } from "./components/form_elements/Switch/Switch";
 export { default as TextArea } from "./components/form_elements/TextArea/TextArea";
+
+export { InputComponent } from "./components/form_elements/Input/Input";
 
 //Icons
 export * from "./components/icons/index";

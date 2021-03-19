@@ -57,6 +57,18 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		return iconComponent;
 	};
 
+	const handleKeyDown = (e: React.KeyboardEvent) => {
+		if (onKeyDown) {
+			onKeyDown(e);
+		}
+		if (alertRef.current === document.activeElement && e.code === "Space") {
+			e.preventDefault();
+			if (isDismissibleOnClick) {
+				removeAlert();
+			}
+		}
+	};
+
 	useEffect(() => {
 		setIsVisbleState(isVisible);
 		return removeAlert;
@@ -82,17 +94,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 				onClick={isDismissibleOnClick ? removeAlert : props?.["onClick"]}
 				role='alert'
 				tabIndex={0}
-				onKeyDown={(e) => {
-					if (onKeyDown) {
-						onKeyDown(e);
-					}
-					if (alertRef.current === document.activeElement && e.code === "Space") {
-						e.preventDefault();
-						if (isDismissibleOnClick) {
-							removeAlert();
-						}
-					}
-				}}
+				onKeyDown={handleKeyDown}
 				{...rest}
 				ref={mergeRefs([alertRef, ref])}>
 				{withIcon && alertIcon(pigment)}
@@ -101,7 +103,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 						<div className='dui__alert__title'>{children}</div>
 						{dismissibleComponent ?? (
 							<Button onClick={removeAlert} size='xs' {...passThroughBtnProps}>
-								<Close className='btn__icon' />
+								<Close className='dui__icon' />
 							</Button>
 						)}
 					</>

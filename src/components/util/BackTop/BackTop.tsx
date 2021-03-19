@@ -39,7 +39,7 @@ const BackTop: React.ForwardRefRenderFunction<ButtonProps, BackTopProps> = (prop
 					className
 				)}>
 				<Button round={round} size={size} data-testid='BackTop' onClick={scrollTop} {...rest} ref={ref}>
-					{children ?? <ArrowUp className='btn__icon' />}
+					{children ?? <ArrowUp className='dui__icon' />}
 				</Button>
 			</div>
 		</Fade>

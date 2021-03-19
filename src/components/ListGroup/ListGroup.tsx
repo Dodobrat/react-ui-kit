@@ -40,7 +40,7 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 		flat = false,
 		allowOverflow = true,
 		disableWhileLoading = true,
-		loading = false,
+		isLoading = false,
 		as = "ul",
 		children,
 		...rest
@@ -89,8 +89,8 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 				"dui__list__group",
 				{
 					"dui__list__group--flat": flat,
-					"dui__list__group--loading": loading,
-					"dui__list__group--loading-disabled": loading && disableWhileLoading,
+					"dui__list__group--loading": isLoading,
+					"dui__list__group--loading-disabled": isLoading && disableWhileLoading,
 					"no-overflow": !allowOverflow,
 				},
 				{
@@ -101,7 +101,7 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 			)}
 			{...rest}
 			ref={ref}>
-			{loading && loader.length === 0 && <ListGroupLoader />}
+			{isLoading && loader.length === 0 && <ListGroupLoader />}
 			{listGroupChildren}
 		</ParsedComponent>
 	);

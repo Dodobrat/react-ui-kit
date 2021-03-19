@@ -16,15 +16,15 @@
 		&:focus {
 			outline: none;
 		}
-		&:focus-visible {
-			box-shadow: none;
-		}
+		@include focusVisible();
 		&[aria-selected="true"] {
 			opacity: 1;
+			&:focus-visible {
+				box-shadow: none;
+			}
 		}
 		&[aria-disabled="true"] {
 			cursor: not-allowed;
-			@include focusVisible();
 		}
 	}
 	@if ($orientation == "horizontal") {
@@ -51,7 +51,7 @@
 @mixin tabIndicator($orientation: "horizontal") {
 	position: absolute;
 	transition: $normalTrans;
-	background: $mainFont;
+	background-color: $mainFont;
 	border-radius: $smBorderRadius;
 	padding: 0;
 	opacity: 1;
@@ -83,8 +83,11 @@
 			color: $fontColor;
 			.dui__tabs__items {
 				& > * {
+					@include focusVisible($bgColor, $fontColor);
 					&[aria-selected="true"] {
-						@include focusVisible($bgColor, $fontColor);
+						&:focus-visible {
+							box-shadow: none;
+						}
 					}
 				}
 				&__indicator {
@@ -92,7 +95,7 @@
 				}
 				&__content {
 					&::after {
-						background: rgba($fontColor, 0.1);
+						background-color: rgba($fontColor, 0.1);
 					}
 				}
 			}
@@ -116,7 +119,7 @@
 			right: 0;
 			width: calc(100% - 2rem);
 			height: 0.0625rem;
-			background: rgba($subFont, 0.1);
+			background-color: rgba($subFont, 0.1);
 			z-index: 1;
 		}
 	}

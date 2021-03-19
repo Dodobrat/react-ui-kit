@@ -39,11 +39,11 @@ export const addElementAttributes: (component: React.ElementType, props: Object)
 		}
 		return component;
 	} else {
-		if (props["onClick"] || props["to"]) {
+		if (props?.["onClick"] || props?.["to"]) {
 			props["role"] = "button";
 			return component;
 		}
-		if (props["href"]) {
+		if (props?.["href"]) {
 			props["target"] = "_blank";
 			props["rel"] = "noopener";
 			return "a";
@@ -54,7 +54,7 @@ export const addElementAttributes: (component: React.ElementType, props: Object)
 
 export const addElementAttributesInObj: (props: Object) => Object = (props) => {
 	const extraProps = { ...props };
-	if (extraProps["as"] === "button") {
+	if (extraProps?.["as"] === "button") {
 		if (extraProps["href"]) {
 			extraProps["target"] = "_blank";
 			extraProps["rel"] = "noopener";
@@ -62,10 +62,10 @@ export const addElementAttributesInObj: (props: Object) => Object = (props) => {
 			extraProps["as"] = "a";
 		}
 	} else {
-		if (extraProps["onClick"] || extraProps["to"]) {
+		if (extraProps?.["onClick"] || extraProps?.["to"]) {
 			extraProps["role"] = "button";
 		}
-		if (extraProps["href"]) {
+		if (extraProps?.["href"]) {
 			extraProps["target"] = "_blank";
 			extraProps["rel"] = "noopener";
 			extraProps["as"] = "a";

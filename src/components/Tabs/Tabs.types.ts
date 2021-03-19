@@ -1,11 +1,9 @@
-import { CnCh, EssentialCustomizationProps } from "../../helpers/global.types";
+import { CnCh, EssentialCustomizationProps, EssentialLoadingProps } from "../../helpers/global.types";
 
-type ExtraTabsProps = CnCh & EssentialCustomizationProps;
+type ExtraTabsProps = CnCh & EssentialCustomizationProps & EssentialLoadingProps;
 // Auto-Generated
 export interface TabsProps extends ExtraTabsProps {
 	allowOverflow?: boolean;
-	disableWhileLoading?: boolean;
-	loading?: boolean;
 	activeTab?: number;
 	onTabSelect?: (tab: number) => void;
 	orientation?: "horizontal" | "vertical";

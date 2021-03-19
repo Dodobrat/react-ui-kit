@@ -6,7 +6,7 @@ import DragScroll from "../util/DragScroll/DragScroll";
 import { useWindowResize } from "../../hooks/useWindowResize";
 
 export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>((props, ref) => {
-	const { className, activeOption, orientation, options = [], children, innerRef, ...rest } = props;
+	const { className, activeOption, orientation, options = [], children, onKeyDown, innerRef, ...rest } = props;
 
 	const { width } = useWindowResize(500);
 
@@ -36,6 +36,8 @@ export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>(
 					indicator.style.top = `${top}px`;
 					indicator.style.height = `${height}px`;
 				}
+
+				tab.focus();
 			}
 		}
 	}, [activeOption, width, orientation]);
@@ -49,10 +51,12 @@ export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>(
 					return (
 						<div
 							key={idx}
+							data-tabindex={idx}
 							role='tab'
 							aria-disabled={disabled}
 							aria-selected={isSelected}
-							tabIndex={idx === activeOption || disabled ? 0 : -1}
+							tabIndex={!disabled ? 0 : -1}
+							onKeyDown={onKeyDown}
 							{...componentProps}>
 							{component}
 						</div>

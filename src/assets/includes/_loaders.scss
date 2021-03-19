@@ -7,7 +7,7 @@
 		&.dui__line-loader--#{$name} {
 			background-color: rgba($bgColor, 0.25);
 			.dui__line-loader__line {
-				background: $bgColor;
+				background-color: $bgColor;
 			}
 		}
 	}
@@ -66,6 +66,11 @@
 	&--btn {
 		animation: btnSpin 1s linear infinite;
 		@include spinnerPigmentBtnOptions();
+	}
+
+	&--input {
+		animation: btnSpin 1s linear infinite;
+		@include spinnerPigmentOptions();
 	}
 }
 

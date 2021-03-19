@@ -1,4 +1,5 @@
-import { CnCh, CustomizationProps, ElemType, PigmentOptions } from "../../helpers/global.types";
+import React from "react";
+import { CnCh, CustomizationProps, ElemType, LoadingProps, PigmentOptions } from "../../helpers/global.types";
 
 // Auto-Generated
 type HTMLButtonProps = {
@@ -12,7 +13,7 @@ type HTMLAnchorProps = {
 	href?: string;
 };
 
-type ExtraButtonProps = ElemType & HTMLButtonProps & HTMLAnchorProps & CustomizationProps & CnCh;
+type ExtraButtonProps = ElemType & HTMLButtonProps & HTMLAnchorProps & CustomizationProps & CnCh & LoadingProps;
 
 export interface ButtonProps extends ExtraButtonProps {
 	type?: "button" | "submit" | "reset";
@@ -26,7 +27,4 @@ export interface ButtonProps extends ExtraButtonProps {
 	round?: boolean;
 	wide?: boolean;
 	active?: boolean;
-	disableWhileLoading?: boolean;
-	loading?: boolean;
-	loadingComponent?: boolean | JSX.Element | React.ReactNode;
 }

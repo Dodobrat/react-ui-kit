@@ -2,11 +2,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import InputGroup from "./InputGroup";
-import { InputGroupProps } from "./InputGroup.types";
+import FormControl from "./FormControl";
+import { FormControlProps } from "./FormControl.types";
 
 describe("Test Component", () => {
-  let props: InputGroupProps;
+  let props: FormControlProps;
 
   beforeEach(() => {
     props = {
@@ -14,13 +14,13 @@ describe("Test Component", () => {
     };
   });
 
-  const renderComponent = () => render(<InputGroup {...props} />);
+  const renderComponent = () => render(<FormControl {...props} />);
 
   it("should render children correctly", () => {
     props.children = "Dodo was here";
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId("InputGroup");
+    const component = getByTestId("FormControl");
 
     expect(component).toHaveTextContent("Dodo was here");
   });

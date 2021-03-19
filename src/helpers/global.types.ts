@@ -31,6 +31,15 @@ export interface CustomizationProps extends EssentialCustomizationProps {
 	rounded?: boolean;
 }
 
+export interface EssentialLoadingProps {
+	disableWhileLoading?: boolean;
+	isLoading?: boolean;
+}
+
+export interface LoadingProps extends EssentialLoadingProps {
+	loadingComponent?: boolean | JSX.Element | React.ReactNode;
+}
+
 export interface Progress {
 	className?: string;
 	min?: number;

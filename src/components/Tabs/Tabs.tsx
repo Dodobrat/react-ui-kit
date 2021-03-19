@@ -19,7 +19,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		flat = false,
 		allowOverflow = true,
 		disableWhileLoading = true,
-		loading = false,
+		isLoading = false,
 		activeTab = 0,
 		onTabSelect,
 		orientation = "horizontal",
@@ -79,6 +79,8 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		if (availableTabs.length > 0) {
 			if (e.code === "Space") {
 				e.preventDefault();
+
+				setActiveTabIndex(Number(e.target.getAttribute("data-tabindex")));
 			}
 			if (e.key === "ArrowLeft") {
 				const prevTab = availableTabs.reverse().find((tab) => tab.tabIndex < activeTabIndex)?.tabIndex ?? availableTabs[0].tabIndex;
@@ -101,8 +103,8 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 				{
 					"dui__tabs--vertical": orientation === "vertical",
 					"dui__tabs--flat": flat,
-					"dui__tabs--loading": loading,
-					"dui__tabs--loading-disabled": loading && disableWhileLoading,
+					"dui__tabs--loading": isLoading,
+					"dui__tabs--loading-disabled": isLoading && disableWhileLoading,
 					"no-overflow": !allowOverflow,
 				},
 				{

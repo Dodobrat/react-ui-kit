@@ -39,6 +39,16 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 
 	const toggleRef = useRef(null);
 
+	const handleKeyDown = (e: React.KeyboardEvent) => {
+		if (onKeyDown) {
+			onKeyDown(e);
+		}
+		if (toggleRef.current === document.activeElement && e.code === "Space") {
+			e.preventDefault();
+			onKeyboardToggle(isCollapsed);
+		}
+	};
+
 	useEffect(() => {
 		const handler = setTimeout(
 			() => {
@@ -66,15 +76,7 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 			)}
 			aria-expanded={!isCollapsed}
 			tabIndex={rest["disabled"] ? -1 : 0}
-			onKeyDown={(e) => {
-				if (onKeyDown) {
-					onKeyDown(e);
-				}
-				if (toggleRef.current === document.activeElement && e.code === "Space") {
-					e.preventDefault();
-					onKeyboardToggle(isCollapsed);
-				}
-			}}
+			onKeyDown={handleKeyDown}
 			{...rest}
 			ref={mergeRefs([toggleRef, ref])}>
 			{collapseIndicator ? (

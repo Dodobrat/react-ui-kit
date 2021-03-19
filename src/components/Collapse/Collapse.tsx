@@ -28,7 +28,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		elevation = "subtle",
 		allowOverflow = true,
 		disableWhileLoading = true,
-		loading = false,
+		isLoading = false,
 		scrollIntoViewOnToggle = false,
 		children,
 		...rest
@@ -56,7 +56,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 					isAccordionChild,
 					scrollIntoViewOnToggle,
 					isCollapsed: collapseState,
-					disabled: (disableWhileLoading && loading) || rest["disabled"],
+					disabled: (disableWhileLoading && isLoading) || rest["disabled"],
 					onKeyboardToggle: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,
 					onClick: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,
 				},
@@ -88,8 +88,8 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 				{
 					"dui__collapse--flat": flat,
 					"dui__collapse--collapsed": collapseState,
-					"dui__collapse--loading": loading,
-					"dui__collapse--loading-disabled": loading && disableWhileLoading,
+					"dui__collapse--loading": isLoading,
+					"dui__collapse--loading-disabled": isLoading && disableWhileLoading,
 					"no-overflow": !allowOverflow,
 				},
 				{
@@ -100,7 +100,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 			)}
 			{...rest}
 			ref={mergeRefs([collapseRef, ref])}>
-			{loading && loader.length === 0 && <CollapseLoader />}
+			{isLoading && loader.length === 0 && <CollapseLoader />}
 			{collapseChildren}
 		</div>
 	);

@@ -182,6 +182,12 @@
 	overflow: hidden;
 }
 
+.dui__icon {
+	height: 1.15em;
+	width: 1.15em;
+	transform: translateY(0.15em);
+}
+
 @each $name, $shadow in $elevations {
 	.dui__elevation--#{$name} {
 		box-shadow: $shadow;

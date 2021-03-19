@@ -22,6 +22,16 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 
 	const badgeRef = useRef(null);
 
+	const handleKeyDown = (e: React.KeyboardEvent) => {
+		if (onKeyDown) {
+			onKeyDown(e);
+		}
+		if (badgeRef.current === document.activeElement && e.code === "Space") {
+			e.preventDefault();
+			rest["onClick"](e);
+		}
+	};
+
 	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
@@ -44,15 +54,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 				className
 			)}
 			tabIndex={rest["onClick"] && !rest["disabled"] ? 0 : -1}
-			onKeyDown={(e: any) => {
-				if (onKeyDown) {
-					onKeyDown(e);
-				}
-				if (badgeRef.current === document.activeElement && e.code === "Space") {
-					e.preventDefault();
-					rest["onClick"](e);
-				}
-			}}
+			onKeyDown={handleKeyDown}
 			{...rest}
 			ref={mergeRefs([badgeRef, ref])}>
 			{children}

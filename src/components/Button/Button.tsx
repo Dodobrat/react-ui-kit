@@ -28,7 +28,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		wide = false,
 		active = false,
 		disableWhileLoading = true,
-		loading = false,
+		isLoading = false,
 		loadingComponent = <SpinnerLoader size={size} pigment={pigment} pigmentColor={pigmentColor} btnLoader />,
 		children,
 		...rest
@@ -42,9 +42,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 			tabIndex={rest["disabled"] ? -1 : 0}
 			className={cn(
 				"dui__btn",
-				{
-					[`dui__btn--${size}`]: SizeOptions.includes(size) && size !== "md",
-				},
+
 				{
 					"dui__btn--icon-start": iconStart,
 					"dui__btn--icon-end": iconEnd,
@@ -58,13 +56,14 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 					"dui__btn--still": !spongy,
 				},
 				{
+					[`dui__btn--${size}`]: SizeOptions.includes(size) && size !== "md",
 					[`dui__btn--${pigment}`]: PigmentOptions.includes(pigment),
 					[`dui__btn--color-${pigmentColor}`]: pigmentColor && PigmentOptions.includes(pigmentColor),
 					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
 				},
 				{
-					"dui__btn--loading": loading,
-					"dui__btn--loading-disabled": loading && disableWhileLoading,
+					"dui__btn--loading": isLoading,
+					"dui__btn--loading-disabled": isLoading && disableWhileLoading,
 					"dui__btn--active": active,
 				},
 				className
@@ -74,7 +73,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 			{iconStart && iconStart}
 			{children}
 			{iconEnd && iconEnd}
-			{loading && <div className='dui__btn--loading__overlay'>{loadingComponent}</div>}
+			{isLoading && <div className='dui__btn--loading__overlay'>{loadingComponent}</div>}
 		</ParsedComponent>
 	);
 };

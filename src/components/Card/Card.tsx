@@ -24,7 +24,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 		flat = false,
 		allowOverflow = true,
 		disableWhileLoading = true,
-		loading = false,
+		isLoading = false,
 		className,
 		children,
 		...rest
@@ -45,8 +45,8 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 				"dui__card",
 				{
 					"dui__card--flat": flat,
-					"dui__card--loading": loading,
-					"dui__card--loading-disabled": loading && disableWhileLoading,
+					"dui__card--loading": isLoading,
+					"dui__card--loading-disabled": isLoading && disableWhileLoading,
 					"no-overflow": !allowOverflow,
 				},
 				{
@@ -58,7 +58,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 			)}
 			{...rest}
 			ref={ref}>
-			{loading && loader.length === 0 && <CardLoader />}
+			{isLoading && loader.length === 0 && <CardLoader />}
 			{children}
 		</div>
 	);

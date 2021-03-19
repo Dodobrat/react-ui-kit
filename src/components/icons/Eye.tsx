@@ -20,24 +20,20 @@ function SvgEye(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g transform="translate(-315 -84)" fill="none">
-        <path
-          d="M332.627 91.657l4.349 4.349h0l-4.35 4.348a8 8 0 01-11.313 0l-4.349-4.348h0l4.35-4.35a8 8 0 0111.313 0z"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-        />
-        <circle
-          cx={1.5}
-          cy={1.5}
-          r={1.5}
-          transform="translate(325.5 94.5)"
+      <g fill="none">
+        <g
+          transform="translate(-314.965 -84)"
           stroke="currentColor"
           strokeLinejoin="round"
           strokeWidth={2}
-        />
-        <path d="M339 84v24h-24V84z" />
+        >
+          <path
+            d="M332.627 91.657l4.349 4.349h0l-4.35 4.348a8 8 0 01-11.313 0l-4.349-4.348h0l4.35-4.35a8 8 0 0111.313 0z"
+            strokeLinecap="round"
+          />
+          <circle cx={1.5} cy={1.5} r={1.5} transform="translate(325.5 94.5)" />
+        </g>
+        <path d="M24 0v24H0V0z" />
       </g>
     </svg>
   );

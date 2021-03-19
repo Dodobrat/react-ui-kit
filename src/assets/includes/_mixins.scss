@@ -21,8 +21,20 @@
 	}
 }
 
-@mixin focusVisible($bgColor: black, $fontColor: black) {
+@mixin crossBrowser($property, $css) {
+	-webkit-#{$property}: $css;
+	-moz-#{$property}: $css;
+	-o-#{$property}: $css;
+	#{$property}: $css;
+}
+
+@mixin focusVisibleStyles($outer: $subFont, $inner: $mainFont) {
+	z-index: 99;
+	box-shadow: 0 0 0 0.25rem rgba($outer, 0.4), 0 0 0 0.0875rem rgba($inner, 0.75);
+}
+
+@mixin focusVisible($outer: $subFont, $inner: $mainFont) {
 	&:focus-visible {
-		box-shadow: 0 0 0 0.25rem rgba($bgColor, 0.1), 0 0 0 0.1rem rgba($fontColor, 0.25);
+		@include focusVisibleStyles($outer, $inner);
 	}
 }
