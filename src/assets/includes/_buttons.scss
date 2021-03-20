@@ -191,11 +191,10 @@
 		align-items: center;
 		outline: none;
 
-		@include focusVisible();
-
 		& > * {
 			border-radius: 0;
-			&:focus {
+			&:focus,
+			&:hover {
 				z-index: 2;
 			}
 		}

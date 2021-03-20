@@ -5,8 +5,6 @@ type ExtraButtonGroupProps = ButtonProps & CnCh;
 
 // Auto-Generated
 export interface ButtonGroupProps extends ExtraButtonGroupProps {
-	ariaLabel?: string;
 	vertical?: boolean;
 	groupProps?: Object;
-	disabled?: boolean;
 }

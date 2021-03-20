@@ -30,6 +30,8 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		scrollOnFocus = false,
 		value,
 		onChange,
+		onFocus,
+		onBlur,
 		disabled = false,
 		innerRef,
 		withPasswordReveal = type === "password",
@@ -46,21 +48,32 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 	const [showClearIndicator, setShowClearIndicator] = useState(false);
 	const [inputType, setInputType] = useState(type);
 
-	const changeInputType = () => (inputType === "password" ? setInputType("text") : setInputType("password"));
-
-	const onFocus = (e: any) => {
-		if (!e.currentTarget.contains(e.relatedTarget)) {
-			inputRef.current.focus();
-			if (scrollOnFocus && inputRef.current) {
-				inputRef.current.scrollIntoView();
-			}
-			setIsFocused(() => true);
+	const changeInputType = () => {
+		inputRef.current.focus();
+		if (inputType === "password") {
+			return setInputType("text");
+		} else {
+			return setInputType("password");
 		}
 	};
 
-	const onBlur = (e: any) => {
-		if (!e.currentTarget.contains(e.relatedTarget)) {
-			setIsFocused(() => false);
+	const handleOnFocus = (e: any) => {
+		setIsFocused(() => true);
+
+		if (scrollOnFocus && inputRef.current) {
+			inputRef.current.scrollIntoView();
+		}
+
+		if (onFocus) {
+			onFocus(e);
+		}
+	};
+
+	const handleOnBlur = (e: any) => {
+		setIsFocused(() => false);
+
+		if (onBlur) {
+			onBlur(e);
 		}
 	};
 
@@ -118,8 +131,6 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				className
 			)}
 			tabIndex={-1}
-			onFocus={onFocus}
-			onBlur={onBlur}
 			ref={mergeRefs([ref])}>
 			{preffix && <span className='dui__input__wrapper__attachment dui__input__wrapper__preffix'>{preffix}</span>}
 			<InputComponent
@@ -132,6 +143,8 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				pigment={pigment}
 				elevation={elevation}
 				value={inputValue}
+				onFocus={handleOnFocus}
+				onBlur={handleOnBlur}
 				onChange={(e: any) => {
 					if (onChange) {
 						return onChange(e);

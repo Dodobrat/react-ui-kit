@@ -9,6 +9,8 @@ export interface InputProps extends ExtraInputProps {
 	inputClassName?: string;
 	value?: string;
 	onChange?: React.ChangeEventHandler<HTMLInputElement>;
+	onFocus?: React.FocusEventHandler<HTMLInputElement>;
+	onBlur?: React.FocusEventHandler<HTMLInputElement>;
 	isClearable?: boolean;
 	clearableComponent?: React.ReactNode;
 	suffix?: React.ReactNode;
@@ -20,8 +22,5 @@ export interface InputProps extends ExtraInputProps {
 }
 
 export interface InputComponentProps extends ExtraInputComponentProps {
-	className?: string;
-	scrollOnFocus?: boolean;
-	ref?: React.MutableRefObject<any> | Function;
 	[key: string]: any;
 }

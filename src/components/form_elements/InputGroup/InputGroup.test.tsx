@@ -2,11 +2,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Slider from "./Slider";
-import { SliderProps } from "./Slider.types";
+import InputGroup from "./InputGroup";
+import { InputGroupProps } from "./InputGroup.types";
 
 describe("Test Component", () => {
-  let props: SliderProps;
+  let props: InputGroupProps;
 
   beforeEach(() => {
     props = {
@@ -14,13 +14,13 @@ describe("Test Component", () => {
     };
   });
 
-  const renderComponent = () => render(<Slider {...props} />);
+  const renderComponent = () => render(<InputGroup {...props} />);
 
   it("should render children correctly", () => {
     props.children = "Dodo was here";
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId("Slider");
+    const component = getByTestId("InputGroup");
 
     expect(component).toHaveTextContent("Dodo was here");
   });

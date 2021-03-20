@@ -31,14 +31,14 @@ export { default as Text } from "./components/typography/Text/Text";
 
 //Form Elements
 export { default as Checkbox } from "./components/form_elements/Checkbox/Checkbox";
-export { default as File } from "./components/form_elements/File/File";
 export { default as FormControl } from "./components/form_elements/FormControl/FormControl";
 export { default as Input } from "./components/form_elements/Input/Input";
+export { default as InputGroup } from "./components/form_elements/InputGroup/InputGroup";
 export { default as Radio } from "./components/form_elements/Radio/Radio";
-export { default as Slider } from "./components/form_elements/Slider/Slider";
 export { default as Switch } from "./components/form_elements/Switch/Switch";
 export { default as TextArea } from "./components/form_elements/TextArea/TextArea";
 
+//Pure Form Element
 export { InputComponent } from "./components/form_elements/Input/Input";
 
 //Icons
