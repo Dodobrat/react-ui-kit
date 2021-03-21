@@ -1,3 +1,6 @@
+import cn from "classnames";
+import { ElevationOptions, PigmentOptions, SizeOptions } from "./global";
+
 export const parseValueToPercent: (min: number, max: number, value: number, decimals?: number) => number | string = (
 	min,
 	max,
@@ -107,6 +110,46 @@ export const debounce: (func: any, wait: number) => (...args: any[]) => void = (
 		clearTimeout(timeout);
 		timeout = setTimeout(later, wait);
 	};
+};
+
+export const generateInputClasses: (props: any) => string = (props) => {
+	const { rounded, seamless, flat, size, pigment, elevation } = props;
+
+	return cn(
+		"dui__input",
+		{
+			"dui__input--rounded": rounded && !seamless,
+			"dui__input--flat": flat && !seamless,
+			"dui__input--seamless": seamless,
+		},
+		{
+			[`dui__input--${size}`]: SizeOptions.includes(size) && size !== "md",
+			[`dui__input--${pigment}`]: PigmentOptions.includes(pigment) && !seamless,
+			[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none" && !seamless,
+		}
+	);
+};
+
+export const generateInputWrapperClasses: (props: any) => string = (props) => {
+	const { rounded, flat, size, pigment, elevation, disabled, isLoading, disableWhileLoading } = props;
+
+	return cn(
+		"dui__input__wrapper",
+		{
+			"dui__input__wrapper--rounded": rounded,
+			"dui__input__wrapper--flat": flat,
+		},
+		{
+			[`dui__input__wrapper--${size}`]: SizeOptions.includes(size) && size !== "md",
+			[`dui__input__wrapper--${pigment}`]: PigmentOptions.includes(pigment),
+			[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
+		},
+		{
+			"dui__input__wrapper--disabled": disabled,
+			"dui__input__wrapper--loading": isLoading,
+			"dui__input__wrapper--loading-disabled": isLoading && disableWhileLoading,
+		}
+	);
 };
 
 export const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);

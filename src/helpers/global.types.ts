@@ -31,6 +31,12 @@ export interface CustomizationProps extends EssentialCustomizationProps {
 	rounded?: boolean;
 }
 
+type EssentialInputPropsExtensions = CustomizationProps & CnCh;
+export interface EssentialInputProps extends EssentialInputPropsExtensions {
+	seamless?: boolean;
+	scrollOnFocus?: boolean;
+}
+
 export interface EssentialLoadingProps {
 	disableWhileLoading?: boolean;
 	isLoading?: boolean;

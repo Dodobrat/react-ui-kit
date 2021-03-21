@@ -3,10 +3,9 @@ import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { InputComponentProps, InputProps } from "./Input.types";
-import { ElevationOptions, PigmentOptions, SizeOptions } from "../../../helpers/global";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { Close, Eye, EyeCrossed } from "../../icons";
-import { mergeRefs } from "../../../helpers/functions";
+import { generateInputClasses, generateInputWrapperClasses, mergeRefs } from "../../../helpers/functions";
 
 const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props, ref) => {
 	const {
@@ -40,6 +39,17 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		children,
 		...rest
 	} = props;
+
+	const wrapperClassDefaults = {
+		size,
+		rounded,
+		flat,
+		pigment,
+		elevation,
+		isLoading,
+		disableWhileLoading,
+		disabled,
+	};
 
 	const inputRef = useRef(null);
 
@@ -79,14 +89,16 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 
 	const resetInput = () => {
 		if (value || onChange) {
-			return setInputValue("");
+			setInputValue("");
+			inputRef.current.focus();
+			return setShowClearIndicator(false);
 		}
 		inputRef.current.value = "";
 		inputRef.current.focus();
 		return setShowClearIndicator(false);
 	};
 
-	const onUncontrolledChange = (e: React.FormEvent<HTMLInputElement>) => {
+	const onUncontrolledChange = (e: any) => {
 		const newestValue = e.currentTarget.value;
 		setShowClearIndicator(newestValue.length > 0);
 	};
@@ -112,30 +124,19 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 	return (
 		<div
 			className={cn(
-				"dui__input__wrapper",
 				{
 					"dui__input__wrapper--focused": isFocused,
-					"dui__input__wrapper--rounded": rounded,
-					"dui__input__wrapper--flat": flat,
 				},
-				{
-					[`dui__input__wrapper--${size}`]: SizeOptions.includes(size) && size !== "md",
-					[`dui__input__wrapper--${pigment}`]: PigmentOptions.includes(pigment),
-					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
-				},
-				{
-					"dui__input__wrapper--disabled": disabled,
-					"dui__input__wrapper--loading": isLoading,
-					"dui__input__wrapper--loading-disabled": isLoading && disableWhileLoading,
-				},
+				generateInputWrapperClasses(wrapperClassDefaults),
 				className
 			)}
 			tabIndex={-1}
 			ref={mergeRefs([ref])}>
-			{preffix && <span className='dui__input__wrapper__attachment dui__input__wrapper__preffix'>{preffix}</span>}
+			{preffix && <div className='dui__input__wrapper__attachment dui__input__wrapper__preffix'>{preffix}</div>}
 			<InputComponent
+				className={inputClassName}
 				type={inputType}
-				name={id}
+				name={name}
 				id={id}
 				flat={flat}
 				size={size}
@@ -155,18 +156,18 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				{...rest}
 				ref={mergeRefs([inputRef, innerRef])}
 			/>
-			{isLoading && <span className='dui__input__wrapper__attachment dui__input__wrapper__loader'>{loadingComponent}</span>}
+			{isLoading && <div className='dui__input__wrapper__attachment dui__input__wrapper__loader'>{loadingComponent}</div>}
 			{isClearable && (inputValue?.length > 0 || showClearIndicator) && (
-				<span className='dui__input__wrapper__attachment dui__input__wrapper__clear' onClick={resetInput}>
+				<div className='dui__input__wrapper__attachment dui__input__wrapper__clear' onClick={resetInput}>
 					{clearableComponent ?? <Close className='dui__icon' />}
-				</span>
+				</div>
 			)}
 			{withPasswordReveal && (
-				<span className='dui__input__wrapper__attachment dui__input__wrapper__password' onClick={changeInputType}>
+				<div className='dui__input__wrapper__attachment dui__input__wrapper__password' onClick={changeInputType}>
 					{passwordRevealComponent(inputType === "text")}
-				</span>
+				</div>
 			)}
-			{suffix && <span className='dui__input__wrapper__attachment dui__input__wrapper__suffix'>{suffix}</span>}
+			{suffix && <div className='dui__input__wrapper__attachment dui__input__wrapper__suffix'>{suffix}</div>}
 		</div>
 	);
 };
@@ -175,19 +176,31 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 	const {
 		className,
 		type,
-		id,
+		name,
+		id = name,
 		value,
 		size = "md",
 		rounded = false,
 		flat = false,
 		pigment = "primary",
 		elevation = "none",
+		seamless = false,
 		onChange,
 		onFocus,
 		scrollOnFocus = false,
 		disabled,
+		children,
 		...rest
 	} = props;
+
+	const classDefaults = {
+		size,
+		rounded,
+		flat,
+		pigment,
+		elevation,
+		seamless,
+	};
 
 	const inputComponentRef = useRef(null);
 
@@ -204,21 +217,9 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 		<input
 			data-testid='Input'
 			type={type}
-			name={id}
+			name={name}
 			id={id}
-			className={cn(
-				"dui__input",
-				{
-					"dui__input--rounded": rounded,
-					"dui__input--flat": flat,
-				},
-				{
-					[`dui__input--${size}`]: SizeOptions.includes(size) && size !== "md",
-					[`dui__input--${pigment}`]: PigmentOptions.includes(pigment),
-					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
-				},
-				className
-			)}
+			className={cn(generateInputClasses(classDefaults), className)}
 			value={value}
 			onChange={onChange}
 			onFocus={handleOnFocus}

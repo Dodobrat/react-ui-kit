@@ -40,6 +40,7 @@ export { default as TextArea } from "./components/form_elements/TextArea/TextAre
 
 //Pure Form Element
 export { InputComponent } from "./components/form_elements/Input/Input";
+export { TextAreaComponent } from "./components/form_elements/TextArea/TextArea";
 
 //Icons
 export * from "./components/icons/index";

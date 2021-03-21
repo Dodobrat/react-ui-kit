@@ -52,11 +52,8 @@
 	&[type="time"] {
 		text-indent: $mdFont / 2.5;
 		&::-webkit-calendar-picker-indicator {
-			opacity: 0.75;
+			opacity: 0;
 			padding-right: $mdFont / 1.25;
-			&:hover {
-				opacity: 1;
-			}
 		}
 	}
 
@@ -201,6 +198,11 @@
 					text-indent: $size / 1.25;
 				}
 			}
+
+			&.dui__input__textarea {
+				text-indent: calc(#{$size} * 0.4375);
+				padding: calc(#{$size} * 0.4375);
+			}
 		}
 	}
 	@include inputPigmentOptions();
@@ -228,6 +230,16 @@
 		}
 	}
 
+	&--seamless {
+		background-color: transparent;
+		border-radius: 0;
+		&.dui__input:hover,
+		&.dui__input:focus,
+		&.dui__input:focus-visible {
+			box-shadow: none;
+		}
+	}
+
 	&__wrapper {
 		@include inputWrapper();
 		@each $name, $size in $sizes {
@@ -248,12 +260,22 @@
 						padding-left: $size / 1.25;
 						padding-right: 0;
 					}
+					&.dui__input__wrapper__clear {
+						& > span {
+							margin-right: $size / 2;
+						}
+					}
 				}
 			}
 		}
 		@include inputWrapperPigmentOptions();
 
 		&__attachment {
+			&__container {
+				display: flex;
+				align-items: stretch;
+				justify-content: flex-end;
+			}
 			white-space: nowrap;
 			line-height: 1.5;
 			opacity: 0.75;
@@ -269,6 +291,13 @@
 			}
 			&.dui__input__wrapper__loader {
 				padding: 0;
+			}
+			&.dui__input__wrapper__clear {
+				cursor: pointer;
+				display: inline-flex;
+				& > span {
+					margin-right: $mdFont / 2;
+				}
 			}
 			[class^="dui__icon"] {
 				width: 1em;
@@ -298,6 +327,10 @@
 			&-disabled {
 				pointer-events: none;
 			}
+		}
+
+		&--textarea {
+			flex-direction: column;
 		}
 	}
 
@@ -334,9 +367,9 @@
 	}
 
 	&__textarea {
-		display: block;
-		width: 100%;
-		resize: vertical;
+		text-indent: calc(#{$mdFont} * 0.4375);
+		padding: calc(#{$mdFont} * 0.4375);
+		min-height: 10em;
 	}
 	// &__checkbox {
 	// }
