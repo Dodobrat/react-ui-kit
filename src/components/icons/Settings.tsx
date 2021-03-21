@@ -22,20 +22,30 @@ function SvgSettings(
       {title ? <title id={titleId}>{title}</title> : null}
       <g transform="translate(-207 -134)" fill="none">
         <path d="M231 134v24h-24v-24z" />
-        <circle
-          cx={6}
-          cy={6}
-          r={6}
-          transform="translate(213 140)"
-          stroke="currentColor"
-          strokeLinejoin="round"
-          strokeWidth={4}
-        />
         <path
           stroke="currentColor"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M218 136h2v3h-2zM218 153h2v3h-2zM209 145h3v2h-3zM226 145h3v2h-3zM225.586 138l1.414 1.414-2.121 2.122-1.414-1.415zM213.121 150.464l1.414 1.414-2.121 2.122-1.414-1.415zM212.414 138l2.121 2.121-1.414 1.415-2.121-2.122zM224.879 150.464l2.121 2.121-1.414 1.415-2.121-2.122z"
+          d="M218 136h2v2h-2zM218 154h2v2h-2zM209 145h2v2h-2zM227 145h2v2h-2zM225.586 138l1.414 1.414-1.414 1.414-1.414-1.414zM212.414 151.172l1.414 1.414-1.414 1.414-1.414-1.414zM212.414 138l1.414 1.414-1.414 1.414-1.414-1.414zM225.586 151.172l1.414 1.414-1.414 1.414-1.414-1.414z"
+        />
+        <circle
+          cx={8}
+          cy={8}
+          r={8}
+          transform="translate(211 138)"
+          stroke="currentColor"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+        <circle
+          cx={2.5}
+          cy={2.5}
+          r={2.5}
+          transform="translate(216.5 143.5)"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
         />
       </g>
     </svg>

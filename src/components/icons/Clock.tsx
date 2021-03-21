@@ -20,20 +20,18 @@ function SvgClock(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g transform="translate(-315 -134)">
-        <path fill="none" d="M315 134h24v24h-24z" />
+      <g transform="translate(-315 -134)" fill="none">
+        <path d="M315 134h24v24h-24z" />
         <circle
           cx={10}
           cy={10}
           r={10}
           transform="translate(317 136)"
-          fill="#fff"
           stroke="currentColor"
           strokeLinejoin="round"
           strokeWidth={2}
         />
         <path
-          fill="none"
           stroke="currentColor"
           strokeLinecap="round"
           strokeWidth={2}

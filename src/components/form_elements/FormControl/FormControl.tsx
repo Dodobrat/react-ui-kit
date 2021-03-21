@@ -9,6 +9,7 @@ const FormControl: React.ForwardRefRenderFunction<HTMLDivElement, FormControlPro
 	const {
 		className,
 		htmlFor = "",
+		labelClassName,
 		withLabel = true,
 		labelAs = "span",
 		label,
@@ -24,7 +25,11 @@ const FormControl: React.ForwardRefRenderFunction<HTMLDivElement, FormControlPro
 	return (
 		<div data-testid='FormControl' className={cn("dui__form__control", className)} {...rest} ref={ref}>
 			<label htmlFor={htmlFor}>
-				{withLabel && <ParsedLabel>{label}</ParsedLabel>}
+				{withLabel && (
+					<ParsedLabel className={cn("dui__form__control__label", labelClassName)} {...labelProps}>
+						{label}&nbsp;
+					</ParsedLabel>
+				)}
 				{children}
 			</label>
 			{hintMsg && <small className={cn("dui__form__control__hint", hintClassName)}>{hintMsg}</small>}

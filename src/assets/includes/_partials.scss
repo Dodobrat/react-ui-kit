@@ -1,18 +1,13 @@
 // HEADING
-
-$headingOptions: (
-	"h1": clamp(3.5rem, 6.5vw, 5rem),
-	"h2": clamp(3rem, 6vw, 4.5rem),
-	"h3": clamp(2.5rem, 5.5vw, 4rem),
-	"h4": clamp(2rem, 5vw, 3.5rem),
-	"h5": clamp(1.5rem, 4.5vw, 3rem),
-	"h6": clamp(1rem, 4vw, 2.5rem),
-);
-
 .dui__heading {
 	font-size: clamp(1rem, 2vw, 1.5rem);
 	line-height: 1.2;
 	font-weight: 300;
+	&--centered {
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 @each $elem, $fontSize in $headingOptions {
@@ -168,31 +163,6 @@ $headingOptions: (
 }
 
 // BACK TO TOP
-
-$backTopPositions: (
-	"bottom-left": (
-		"name": "bottom-left",
-		"bottom": 2rem,
-		"left": 2rem,
-		"right": unset,
-		"transform": unset,
-	),
-	"bottom": (
-		"name": "bottom",
-		"bottom": 2rem,
-		"left": 50%,
-		"right": unset,
-		"transform": translateX(-50%),
-	),
-	"bottom-right": (
-		"name": "bottom-right",
-		"bottom": 2rem,
-		"left": unset,
-		"right": 2rem,
-		"transform": unset,
-	),
-);
-
 @mixin backTopPositionOptions($options: $backTopPositions) {
 	$positionKeys: map-keys($options);
 	@each $key in $positionKeys {

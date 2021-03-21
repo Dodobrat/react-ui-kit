@@ -37,6 +37,7 @@ export { default as InputGroup } from "./components/form_elements/InputGroup/Inp
 export { default as Radio } from "./components/form_elements/Radio/Radio";
 export { default as Switch } from "./components/form_elements/Switch/Switch";
 export { default as TextArea } from "./components/form_elements/TextArea/TextArea";
+export { default as Form } from "./components/form_elements/Form/Form";
 
 //Pure Form Element
 export { InputComponent } from "./components/form_elements/Input/Input";

@@ -4,7 +4,7 @@ interface SVGRProps {
   titleId?: string;
 }
 
-function SvgMoreVertical(
+function SvgMailOpened(
   { title, titleId, ...props }: React.SVGProps<SVGSVGElement> & SVGRProps,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
@@ -20,43 +20,27 @@ function SvgMoreVertical(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g transform="translate(-63 -234)" fill="none">
-        <path d="M87 234v24H63v-24z" />
-        <circle
-          cx={1.5}
-          cy={1.5}
-          r={1.5}
-          transform="rotate(90 -80 156.5)"
+      <g fill="none">
+        <path
+          d="M2 8.001h0v-.02l9.984-5.98 10.016 6h0v.027l-9.984 7.973z"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={3}
+          strokeWidth={2}
         />
-        <circle
-          cx={1.5}
-          cy={1.5}
-          r={1.5}
-          transform="rotate(90 -84 160.5)"
+        <path
+          d="M22 22H2V8l10.016 8L22 8.026V22z"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={3}
+          strokeWidth={2}
         />
-        <circle
-          cx={1.5}
-          cy={1.5}
-          r={1.5}
-          transform="rotate(90 -88 164.5)"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={3}
-        />
+        <path d="M24 0v24H0V0z" />
       </g>
     </svg>
   );
 }
 
-const ForwardRef = React.forwardRef(SvgMoreVertical);
+const ForwardRef = React.forwardRef(SvgMailOpened);
 const MemoForwardRef = React.memo(ForwardRef);
 export default MemoForwardRef;

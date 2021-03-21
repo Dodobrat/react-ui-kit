@@ -3,7 +3,7 @@
 	display: block;
 	transition: $fastTrans;
 	caret-color: $mainFont;
-	background-color: darken($bg, 5%);
+	background-color: darken($bgCard, 7.5%);
 	line-height: 1.5;
 	padding: calc(#{$mdFont} * 0.4375) 0;
 	text-indent: $mdFont / 1.25;
@@ -15,7 +15,7 @@
 	@include crossBrowser(appearance, none);
 
 	&:disabled {
-		background-color: darken($bg, 10%);
+		background-color: darken($bgCard, 12.5%);
 	}
 
 	&:hover {
@@ -85,7 +85,7 @@
 	position: relative;
 	display: flex;
 	width: 100%;
-	background-color: darken($bg, 5%);
+	background-color: darken($bgCard, 7.5%);
 	border-radius: $smBorderRadius;
 	.dui__input {
 		background-color: transparent;
@@ -292,8 +292,11 @@
 			&.dui__input__wrapper__loader {
 				padding: 0;
 			}
-			&.dui__input__wrapper__clear {
+			&.dui__input__wrapper__clear,
+			&.dui__input__wrapper__password {
 				cursor: pointer;
+			}
+			&.dui__input__wrapper__clear {
 				display: inline-flex;
 				& > span {
 					margin-right: $mdFont / 2;
@@ -319,7 +322,7 @@
 
 		&--disabled {
 			cursor: not-allowed;
-			background-color: darken($bg, 10%);
+			background-color: darken($bgCard, 12.5%);
 		}
 
 		&--loading {
@@ -381,4 +384,19 @@
 	// }
 	// &__switch {
 	// }
+}
+
+.dui__form__control {
+	position: relative;
+	display: block;
+	&__label {
+		display: block;
+		margin-bottom: 0.3125rem;
+		margin-left: 0.625rem;
+	}
+	&__hint {
+		display: block;
+		margin-top: 0.3125rem;
+		margin-left: 0.625rem;
+	}
 }

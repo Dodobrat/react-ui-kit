@@ -6,12 +6,22 @@ import { HeadingProps } from "./Heading.types";
 import { addElementAttributes } from "../../../helpers/functions";
 
 const Heading: React.ForwardRefRenderFunction<HTMLDivElement, HeadingProps> = (props, ref) => {
-	const { className, as = "h1", children, ...rest } = props;
+	const { className, as = "h1", centered = false, children, ...rest } = props;
 
 	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
-		<ParsedComponent data-testid='Heading' className={cn("dui__heading", className)} {...rest} ref={ref}>
+		<ParsedComponent
+			data-testid='Heading'
+			className={cn(
+				"dui__heading",
+				{
+					"dui__heading--centered": centered,
+				},
+				className
+			)}
+			{...rest}
+			ref={ref}>
 			{children}
 		</ParsedComponent>
 	);

@@ -5,7 +5,7 @@ import cn from "classnames";
 import { TextAreaProps, TextAreaComponentProps } from "./TextArea.types";
 import { generateInputClasses, generateInputWrapperClasses, mergeRefs } from "../../../helpers/functions";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
-import { Close } from "../../icons";
+import { CloseOutlined } from "../../icons";
 
 const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = (props, ref) => {
 	const {
@@ -161,7 +161,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 					<div className='dui__input__wrapper__attachment dui__input__wrapper__clear' onClick={resetInput}>
 						{clearableComponent ?? (
 							<>
-								<span>{clearableComponentLabel}</span> <Close className='dui__icon' />
+								<span>{clearableComponentLabel}</span> <CloseOutlined className='dui__icon' />
 							</>
 						)}
 					</div>

@@ -4,7 +4,7 @@ interface SVGRProps {
   titleId?: string;
 }
 
-function SvgCalendar(
+function SvgCloseOutlined(
   { title, titleId, ...props }: React.SVGProps<SVGSVGElement> & SVGRProps,
   svgRef?: React.Ref<SVGSVGElement>
 ) {
@@ -20,21 +20,25 @@ function SvgCalendar(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <g fill="none">
-        <path d="M0 0h24v24H0z" />
-        <path
-          d="M2 22V4h20v18zM17 3V2h1v1zM6 3V2h1v1z"
+      <g transform="translate(-99 -234)" fill="none">
+        <path d="M123 234v24H99v-24z" />
+        <circle
+          cx={10}
+          cy={10}
+          r={10}
+          transform="translate(101 236)"
           stroke="currentColor"
-          strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
         />
-        <path stroke="currentColor" strokeWidth={2} d="M2 9.5h20" />
+        <g stroke="currentColor" strokeLinecap="round" strokeWidth={2}>
+          <path d="M107 242l8 8M107 250l8-8" />
+        </g>
       </g>
     </svg>
   );
 }
 
-const ForwardRef = React.forwardRef(SvgCalendar);
+const ForwardRef = React.forwardRef(SvgCloseOutlined);
 const MemoForwardRef = React.memo(ForwardRef);
 export default MemoForwardRef;

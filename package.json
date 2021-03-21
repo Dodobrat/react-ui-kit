@@ -10,7 +10,8 @@
 		"README.md"
 	],
 	"types": "build/index.d.ts",
-	"description": "Reusable ReactJS Component Library",
+	"title": "Dodo UI",
+	"description": "Simple React Component Library",
 	"scripts": {
 		"build": "npm run mkicons && rollup -c",
 		"start": "rollup -c -w",
@@ -27,10 +28,16 @@
 		"url": "git+https://github.com/Dodobrat/react-ui-kit.git"
 	},
 	"keywords": [
-		"react",
-		"framework",
+		"dui",
+		"ui",
 		"ui-kit",
-		"react-ui-framework"
+		"component",
+		"components",
+		"design",
+		"framework",
+		"frontend",
+		"react",
+		"react-component"
 	],
 	"author": "Deyan Bozhilov",
 	"license": "MIT",

@@ -20,11 +20,38 @@ function SvgMore(
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      <path fill="none" d="M0 0h24v24H0z" />
-      <g transform="translate(-47.5 -80.5)" stroke="currentColor">
-        <circle cx={1.5} cy={1.5} r={1.5} transform="translate(49.5 91)" />
-        <circle cx={1.5} cy={1.5} r={1.5} transform="translate(58 91)" />
-        <circle cx={1.5} cy={1.5} r={1.5} transform="translate(66.5 91)" />
+      <g transform="rotate(90 160.5 97.5)" fill="none">
+        <path d="M87 234v24H63v-24z" />
+        <circle
+          cx={1.5}
+          cy={1.5}
+          r={1.5}
+          transform="rotate(90 -80 156.5)"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={3}
+        />
+        <circle
+          cx={1.5}
+          cy={1.5}
+          r={1.5}
+          transform="rotate(90 -84 160.5)"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={3}
+        />
+        <circle
+          cx={1.5}
+          cy={1.5}
+          r={1.5}
+          transform="rotate(90 -88 164.5)"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={3}
+        />
       </g>
     </svg>
   );

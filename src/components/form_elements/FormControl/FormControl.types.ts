@@ -6,6 +6,7 @@ type ExtraFormControlProps = CnCh;
 export interface FormControlProps extends ExtraFormControlProps {
 	htmlFor?: string;
 	withLabel?: boolean;
+	labelClassName?: string;
 	labelAs?: React.ElementType;
 	label?: React.ReactNode;
 	labelProps?: Object;

@@ -65,16 +65,46 @@ $roundedBorderRadius: 1.875rem !default;
 $roundBorderRadius: 50% !default;
 
 //FUNCTIONS
-// @function rgbaToRgb($rgba, $background: $bgCard) {
-// 	@return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%);
-// }
-
 @function map-deep-get($map, $keys...) {
 	@each $key in $keys {
 		$map: map-get($map, $key);
 	}
 	@return $map;
 }
+
+//Partials
+$headingOptions: (
+	"h1": clamp(2.75rem, 6.5vw, 5rem),
+	"h2": clamp(2.5rem, 6vw, 4.5rem),
+	"h3": clamp(2.25rem, 5.5vw, 4rem),
+	"h4": clamp(2rem, 5vw, 3.5rem),
+	"h5": clamp(1.75rem, 4.5vw, 3rem),
+	"h6": clamp(1.5rem, 4vw, 2.5rem),
+) !default;
+
+$backTopPositions: (
+	"bottom-left": (
+		"name": "bottom-left",
+		"bottom": 2rem,
+		"left": 2rem,
+		"right": unset,
+		"transform": unset,
+	),
+	"bottom": (
+		"name": "bottom",
+		"bottom": 2rem,
+		"left": 50%,
+		"right": unset,
+		"transform": translateX(-50%),
+	),
+	"bottom-right": (
+		"name": "bottom-right",
+		"bottom": 2rem,
+		"left": unset,
+		"right": 2rem,
+		"transform": unset,
+	),
+) !default;
 
 //--Portals
 $drawerSizes: (

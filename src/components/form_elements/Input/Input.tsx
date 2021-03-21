@@ -4,7 +4,7 @@ import cn from "classnames";
 
 import { InputComponentProps, InputProps } from "./Input.types";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
-import { Close, Eye, EyeCrossed } from "../../icons";
+import { CloseOutlined, Eye, EyeCrossed } from "../../icons";
 import { generateInputClasses, generateInputWrapperClasses, mergeRefs } from "../../../helpers/functions";
 
 const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props, ref) => {
@@ -159,7 +159,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 			{isLoading && <div className='dui__input__wrapper__attachment dui__input__wrapper__loader'>{loadingComponent}</div>}
 			{isClearable && (inputValue?.length > 0 || showClearIndicator) && (
 				<div className='dui__input__wrapper__attachment dui__input__wrapper__clear' onClick={resetInput}>
-					{clearableComponent ?? <Close className='dui__icon' />}
+					{clearableComponent ?? <CloseOutlined className='dui__icon' />}
 				</div>
 			)}
 			{withPasswordReveal && (
