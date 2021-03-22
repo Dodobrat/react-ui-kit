@@ -83,7 +83,8 @@ hr {
 	transform: translateY(0.025em);
 }
 
-::-moz-focus-inner {
+::-moz-focus-inner,
+::-moz-focus-outer {
 	border: none;
 	padding: 0;
 	border-style: none;
@@ -407,7 +408,6 @@ input[type="number"] {
 	-webkit-appearance: button;
 }
 
-// File input button removal
 ::-webkit-file-upload-button,
 ::file-selector-button {
 	display: none;

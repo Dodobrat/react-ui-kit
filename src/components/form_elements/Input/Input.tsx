@@ -187,7 +187,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 		flat = false,
 		pigment = "primary",
 		elevation = "none",
-		seamless = false,
+		seamless = type === "range",
 		onChange,
 		onFocus,
 		scrollOnFocus = false,
@@ -221,7 +221,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 			type={type}
 			name={name}
 			id={id}
-			className={cn(generateInputClasses(classDefaults), className)}
+			className={cn(generateInputClasses(classDefaults, true), className)}
 			value={value}
 			onChange={onChange}
 			onFocus={handleOnFocus}

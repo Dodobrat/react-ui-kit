@@ -66,6 +66,46 @@
 			text-indent: $mdFont / 1.25;
 		}
 	}
+
+	&[type="range"] {
+		margin: auto 0;
+		padding: calc(#{$mdFont} * 1.1875) $mdFont / 2.5;
+		width: 100%;
+		height: 1em;
+		&:hover {
+			@include rangeHover();
+		}
+		&:focus-visible {
+			@include rangeFocusVisible();
+		}
+		&:disabled {
+			cursor: not-allowed;
+		}
+	}
+
+	&[type="range"]::-webkit-slider-runnable-track {
+		@include rangeTrack();
+	}
+
+	&[type="range"]::-moz-range-track {
+		@include rangeTrack();
+	}
+
+	&[type="range"]::-ms-track {
+		@include rangeTrack();
+	}
+
+	&[type="range"]::-webkit-slider-thumb {
+		@include rangeThumb();
+	}
+
+	&[type="range"]::-moz-range-thumb {
+		@include rangeThumb();
+	}
+
+	&[type="range"]::-ms-thumb {
+		@include rangeThumb();
+	}
 }
 
 @mixin mozColorSwatchDimensions($arg: $mdFont) {
@@ -78,6 +118,57 @@
 	left: calc(#{$arg} * 0.4375);
 	right: calc(#{$arg} * 0.4375);
 	bottom: calc(#{$arg} * 0.4375);
+}
+
+@mixin rangeHover($shadow: $subFont) {
+	&[type="range"]::-webkit-slider-thumb {
+		box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+	}
+	&[type="range"]::-moz-range-thumb {
+		box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+	}
+	&[type="range"]::-ms-thumb {
+		box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+	}
+}
+
+@mixin rangeFocusVisible($outer: $subFont, $inner: $mainFont) {
+	&[type="range"]::-webkit-slider-thumb {
+		@include focusVisibleStyles($outer, $inner);
+	}
+	&[type="range"]::-moz-range-thumb {
+		@include focusVisibleStyles($outer, $inner);
+	}
+	&[type="range"]::-ms-thumb {
+		@include focusVisibleStyles($outer, $inner);
+	}
+}
+
+@mixin rangeTrack() {
+	cursor: default;
+	height: 0.5em;
+	transition: $fastTrans;
+	width: 100%;
+	box-shadow: none;
+	background-color: rgba($subFont, 0.2);
+	border: none;
+	border-radius: $smBorderRadius;
+}
+
+@mixin rangeThumb($bg: $subFont, $border: $mainFont) {
+	box-shadow: none;
+	background: $bg;
+	border: 0.0625rem solid $border;
+	border-radius: $roundBorderRadius;
+	box-sizing: border-box;
+	cursor: grab;
+	height: 1em;
+	width: 1em;
+	-webkit-appearance: none;
+	margin-top: -0.25em;
+	&:active {
+		cursor: grabbing;
+	}
 }
 
 @mixin inputWrapper() {
@@ -121,6 +212,23 @@
 				box-shadow: 0 0 0 0.0625rem rgba($bgColor, 0.2);
 			}
 			@include focusVisible($bgColor, $bgColor);
+			&[type="range"]::-webkit-slider-thumb {
+				@include rangeThumb($bgColor, darken($bgColor, 10%));
+			}
+			&[type="range"]::-moz-range-thumb {
+				@include rangeThumb($bgColor, darken($bgColor, 10%));
+			}
+			&[type="range"]::-ms-thumb {
+				@include rangeThumb($bgColor, darken($bgColor, 10%));
+			}
+			&[type="range"] {
+				&:hover {
+					@include rangeHover($bgColor);
+				}
+				&:focus-visible {
+					@include rangeFocusVisible($bgColor, $bgColor);
+				}
+			}
 			&.dui__input__checkbox {
 				.dui__input__checkbox__input:checked + .dui__input__checkbox__value {
 					background-color: $bgColor;
@@ -250,13 +358,17 @@
 				}
 			}
 
+			&[type="range"] {
+				padding: calc(#{$size} * 1.1875) $size / 2.5;
+			}
+
 			&.dui__input__textarea {
 				text-indent: calc(#{$size} * 0.4375);
 				padding: calc(#{$size} * 0.4375);
 			}
 
 			&.dui__input__checkbox {
-				padding: calc(#{$size} * 0.4375) 0;
+				padding: calc(#{$size} * 0.4375) $size / 1.25;
 			}
 		}
 	}
@@ -540,6 +652,7 @@
 				}
 			}
 			&:disabled + .dui__input__checkbox__value {
+				cursor: not-allowed;
 				opacity: 0.5;
 				background-color: rgba($subFont, 0.2);
 			}
@@ -566,10 +679,6 @@
 	}
 	// &__radio {
 	// }
-	// &__file {
-	// }
-	// &__slider {
-	// }
 	// &__switch {
 	// }
 }
@@ -579,12 +688,13 @@
 	display: block;
 	&__label {
 		display: block;
-		margin-bottom: 0.3125rem;
+		margin-bottom: 0.125rem;
 		margin-left: 0.625rem;
+		font-size: 0.9rem;
 	}
 	&__hint {
 		display: block;
-		margin-top: 0.3125rem;
+		margin-top: 0.125rem;
 		margin-left: 0.625rem;
 	}
 }
