@@ -25,7 +25,7 @@ const Form: React.ForwardRefRenderFunction<HTMLFormElement, FormProps> = (props,
 		const parsedValues = validInputs.reduce(
 			(acc, curr) => ({
 				...acc,
-				[`${curr.getAttribute("name")}`]: curr.value,
+				[`${curr.getAttribute("name")}`]: curr.getAttribute("type") === "checkbox" ? curr.checked : curr.value,
 			}),
 			{}
 		);

@@ -16,6 +16,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		id = name,
 		size = "md",
 		rounded = false,
+		seamless = false,
 		flat = false,
 		pigment = "primary",
 		elevation = "none",
@@ -45,6 +46,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		rounded,
 		flat,
 		pigment,
+		seamless,
 		elevation,
 		isLoading,
 		disableWhileLoading,
@@ -71,7 +73,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		setIsFocused(() => true);
 
 		if (scrollOnFocus && inputRef.current) {
-			inputRef.current.scrollIntoView();
+			inputRef.current.scrollIntoView({ block: "center" });
 		}
 
 		if (onFocus) {
@@ -142,6 +144,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				size={size}
 				rounded={rounded}
 				pigment={pigment}
+				seamless={seamless}
 				elevation={elevation}
 				value={inputValue}
 				onFocus={handleOnFocus}
@@ -206,7 +209,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 
 	const handleOnFocus = (e: any) => {
 		if (scrollOnFocus && inputComponentRef.current) {
-			inputComponentRef.current.scrollIntoView();
+			inputComponentRef.current.scrollIntoView({ block: "center" });
 		}
 		if (onFocus) {
 			onFocus(e);
@@ -215,7 +218,6 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 
 	return (
 		<input
-			data-testid='Input'
 			type={type}
 			name={name}
 			id={id}

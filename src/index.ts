@@ -40,6 +40,7 @@ export { default as TextArea } from "./components/form_elements/TextArea/TextAre
 export { default as Form } from "./components/form_elements/Form/Form";
 
 //Pure Form Element
+export { CheckboxComponent } from "./components/form_elements/Checkbox/Checkbox";
 export { InputComponent } from "./components/form_elements/Input/Input";
 export { TextAreaComponent } from "./components/form_elements/TextArea/TextArea";
 

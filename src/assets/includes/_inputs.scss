@@ -121,6 +121,23 @@
 				box-shadow: 0 0 0 0.0625rem rgba($bgColor, 0.2);
 			}
 			@include focusVisible($bgColor, $bgColor);
+			&.dui__input__checkbox {
+				.dui__input__checkbox__input:checked + .dui__input__checkbox__value {
+					background-color: $bgColor;
+					border-color: $bgColor;
+					&::after {
+						border-color: $fontColor;
+					}
+				}
+				&:hover {
+					.dui__input__checkbox__value {
+						box-shadow: 0 0 0 0.125rem rgba($bgColor, 0.2);
+					}
+				}
+				.dui__input__checkbox__input:focus-visible + .dui__input__checkbox__value {
+					@include focusVisibleStyles($bgColor, $bgColor);
+				}
+			}
 		}
 	}
 }
@@ -139,6 +156,40 @@
 				@include focusVisibleStyles($bgColor, $bgColor);
 				&:hover {
 					@include focusVisibleStyles($bgColor, $bgColor);
+				}
+				&.dui__input__wrapper--seamless {
+					box-shadow: none;
+					&.dui__input__wrapper:hover,
+					&.dui__input__wrapper:focus,
+					&.dui__input__wrapper:focus-visible {
+						box-shadow: none;
+					}
+				}
+			}
+			&.dui__input__wrapper--checkbox {
+				&.dui__input__wrapper {
+					&:hover {
+						.dui__input__checkbox__value {
+							box-shadow: 0 0 0 0.125rem rgba($bgColor, 0.2);
+						}
+					}
+					&--focused {
+						.dui__input__checkbox__value {
+							@include focusVisibleStyles($bgColor, $bgColor);
+						}
+						&:hover {
+							.dui__input__checkbox__value {
+								@include focusVisibleStyles($bgColor, $bgColor);
+							}
+						}
+					}
+					.dui__input__checkbox__input:checked + .dui__input__checkbox__value {
+						background-color: $bgColor;
+						border-color: $bgColor;
+						&::after {
+							border-color: $fontColor;
+						}
+					}
 				}
 			}
 		}
@@ -203,6 +254,10 @@
 				text-indent: calc(#{$size} * 0.4375);
 				padding: calc(#{$size} * 0.4375);
 			}
+
+			&.dui__input__checkbox {
+				padding: calc(#{$size} * 0.4375) 0;
+			}
 		}
 	}
 	@include inputPigmentOptions();
@@ -228,6 +283,11 @@
 				border-radius: $flatBorderRadius / 2;
 			}
 		}
+		&.dui__input__checkbox {
+			.dui__input__checkbox__value {
+				border-radius: $flatBorderRadius;
+			}
+		}
 	}
 
 	&--seamless {
@@ -237,6 +297,9 @@
 		&.dui__input:focus,
 		&.dui__input:focus-visible {
 			box-shadow: none;
+		}
+		&.dui__input__checkbox {
+			padding: calc(#{$mdFont} * 0.4375) 0;
 		}
 	}
 
@@ -264,6 +327,18 @@
 						& > span {
 							margin-right: $size / 2;
 						}
+					}
+					&.dui__input__wrapper__loader {
+						padding: 0;
+					}
+				}
+
+				&.dui__input__wrapper--checkbox {
+					.dui__input__checkbox__value {
+						margin-left: $size / 1.25;
+					}
+					.dui__input__checkbox {
+						padding: calc(#{$size} * 0.4375) 0;
 					}
 				}
 			}
@@ -318,6 +393,19 @@
 
 		&--flat {
 			border-radius: $flatBorderRadius;
+			.dui__input__checkbox__value {
+				border-radius: $flatBorderRadius;
+			}
+		}
+
+		&--seamless {
+			background-color: transparent;
+			border-radius: 0;
+			&.dui__input__wrapper:hover,
+			&.dui__input__wrapper:focus,
+			&.dui__input__wrapper:focus-visible {
+				box-shadow: none;
+			}
 		}
 
 		&--disabled {
@@ -334,6 +422,32 @@
 
 		&--textarea {
 			flex-direction: column;
+		}
+
+		&--checkbox {
+			&.dui__input__wrapper {
+				.dui__input__checkbox {
+					padding: calc(#{$mdFont} * 0.4375) 0;
+				}
+				.dui__input__checkbox__value {
+					margin-left: $mdFont / 1.25;
+				}
+				&:hover {
+					.dui__input__checkbox__value {
+						box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+					}
+				}
+				&--focused {
+					.dui__input__checkbox__value {
+						@include focusVisibleStyles();
+					}
+					&:hover {
+						.dui__input__checkbox__value {
+							@include focusVisibleStyles();
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -374,8 +488,82 @@
 		padding: calc(#{$mdFont} * 0.4375);
 		min-height: 10em;
 	}
-	// &__checkbox {
-	// }
+
+	&__checkbox {
+		display: flex;
+		width: 100%;
+		user-select: none;
+		line-height: 1.5;
+		padding: calc(#{$mdFont} * 0.4375) $mdFont / 1.25;
+		cursor: pointer;
+		&__input {
+			position: absolute;
+			opacity: 0;
+			pointer-events: none;
+			margin: 0;
+			width: 0;
+			height: 0;
+			& + .dui__input__checkbox__value {
+				user-select: none;
+				position: relative;
+				width: 1em;
+				height: 1em;
+				border-radius: calc(1em / 5);
+				margin-top: auto;
+				margin-bottom: auto;
+				margin-right: calc(1em / 2.5);
+				border: 0.15em solid $subFont;
+				&::after {
+					transition: opacity $normalTransTime $normalTransEase;
+					opacity: 0;
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -65%) rotate(45deg);
+					width: 40%;
+					height: 70%;
+					border: solid $subFont;
+					border-width: 0 0.125em 0.125em 0;
+				}
+				&::before {
+					transition: opacity $normalTransTime $normalTransEase;
+					opacity: 0;
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 50%;
+					height: 0.15em;
+					background-color: $subFont;
+				}
+			}
+			&:disabled + .dui__input__checkbox__value {
+				opacity: 0.5;
+				background-color: rgba($subFont, 0.2);
+			}
+			&:checked + .dui__input__checkbox__value {
+				&::after {
+					opacity: 1;
+					border-color: $mainFont;
+				}
+			}
+			&:indeterminate + .dui__input__checkbox__value {
+				&::before {
+					opacity: 1;
+				}
+			}
+			&:focus-visible + .dui__input__checkbox__value {
+				box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+			}
+		}
+		&:hover {
+			.dui__input__checkbox__value {
+				box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+			}
+		}
+	}
 	// &__radio {
 	// }
 	// &__file {

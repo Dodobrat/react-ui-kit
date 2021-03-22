@@ -38,3 +38,14 @@
 		@include focusVisibleStyles($outer, $inner);
 	}
 }
+
+@mixin focusVisibleFilterStyles($outer: $subFont, $inner: $mainFont) {
+	z-index: 99;
+	filter: drop-shadow(0 0 0 0.25rem rgba($outer, 0.35), 0 0 0 0.0875rem rgba($inner, 0.75));
+}
+
+@mixin focusVisibleFilter($outer: $subFont, $inner: $mainFont) {
+	&:focus-visible {
+		@include focusVisibleFilterStyles($outer, $inner);
+	}
+}

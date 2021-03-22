@@ -16,6 +16,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 		size = "md",
 		rounded = false,
 		flat = false,
+		seamless = false,
 		pigment = "primary",
 		elevation = "none",
 		disableWhileLoading = true,
@@ -46,6 +47,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 		size,
 		rounded,
 		flat,
+		seamless,
 		pigment,
 		elevation,
 		isLoading,
@@ -64,7 +66,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 		setIsFocused(() => true);
 
 		if (scrollOnFocus && textAreaRef.current) {
-			textAreaRef.current.scrollIntoView();
+			textAreaRef.current.scrollIntoView({ block: "center" });
 		}
 
 		if (onFocus) {
@@ -140,6 +142,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 				flat={flat}
 				size={size}
 				rounded={rounded}
+				seamless={seamless}
 				pigment={pigment}
 				elevation={elevation}
 				value={inputValue}
@@ -215,7 +218,7 @@ export const TextAreaComponent = React.forwardRef<HTMLTextAreaElement, TextAreaC
 
 	const handleOnFocus = (e: any) => {
 		if (scrollOnFocus && textAreaComponentRef.current) {
-			textAreaComponentRef.current.scrollIntoView();
+			textAreaComponentRef.current.scrollIntoView({ block: "center" });
 		}
 		if (onFocus) {
 			onFocus(e);
