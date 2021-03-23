@@ -98,6 +98,11 @@
 	&__footer {
 		grid-area: card-footer;
 		@include cardFooter();
+		@each $name, $size in $flexJustifyOptions {
+			&.dui__card__footer--#{$name} {
+				justify-content: $size;
+			}
+		}
 	}
 	@include cardPigmentOptions();
 	&--img {

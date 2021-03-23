@@ -13,7 +13,7 @@
 		}
 	}
 	@each $name, $size in $containerPaddingSizes {
-		&.dui__container--pad-#{$name} {
+		&.dui__container--px-#{$name} {
 			padding: 0 $size;
 		}
 	}
@@ -132,6 +132,10 @@
 	flex: 1 1 auto;
 	max-width: 100%;
 
+	&--contain {
+		flex: 0 0 100%;
+	}
+
 	@each $breakpointName, $breakpointSize in $breakpoints {
 		@for $i from 1 through $gridColumns {
 			&.dui__flex__col-#{$i} {
@@ -158,10 +162,6 @@
 		}
 	}
 
-	&--contain {
-		flex: 0 0 100%;
-	}
-
 	&.dui__flex__col-auto {
 		flex: 0 0 auto;
 	}
@@ -175,6 +175,49 @@
 
 	&__col {
 		@include flexGridCol();
+	}
+}
+
+$axes: (
+	"x": (
+		"name": "x",
+		"prop1": left,
+		"prop2": right,
+	),
+	"y": (
+		"name": "y",
+		"prop1": top,
+		"prop2": bottom,
+	),
+);
+
+@mixin spacingClass($name, $dir, $sizeCode, $size, $classKey: "p", $rule: padding) {
+	.#{$classKey}#{$sizeCode} {
+		#{$rule}: $size;
+	}
+
+	$axesKeys: map-keys($axes);
+	@each $key in $axesKeys {
+		$axisName: map-deep-get($axes, $key, "name");
+		$prop1: map-deep-get($axes, $key, "prop1");
+		$prop2: map-deep-get($axes, $key, "prop2");
+		.#{$classKey}#{$axisName}#{$sizeCode} {
+			#{$rule}-#{$prop1}: $size;
+			#{$rule}-#{$prop2}: $size;
+		}
+	}
+
+	.#{$classKey}#{$name}#{$sizeCode} {
+		#{$rule}-#{$dir}: $size;
+	}
+}
+
+@each $name, $dir in $spacingDir {
+	@each $sizeCode, $size in $spacingSize {
+		//padding
+		@include spacingClass($name, $dir, $sizeCode, $size);
+		//margin
+		@include spacingClass($name, $dir, $sizeCode, $size, "m", margin);
 	}
 }
 

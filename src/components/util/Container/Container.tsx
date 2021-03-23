@@ -6,7 +6,7 @@ import { ContainerProps } from "./Container.types";
 import { AllSizeOptions, SizeOptions } from "../../../helpers/global";
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => {
-	const { fluid = false, size = "lg", paddingSize = "sm", className, children, ...rest } = props;
+	const { fluid = false, size = "lg", spacingX = "sm", className, children, ...rest } = props;
 
 	return (
 		<div
@@ -18,7 +18,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => {
 				},
 				{
 					[`dui__container--${size}`]: AllSizeOptions.includes(size) && size !== "md" && !fluid,
-					[`dui__container--pad-${paddingSize}`]: SizeOptions.includes(paddingSize),
+					[`dui__container--px-${spacingX}`]: SizeOptions.includes(spacingX),
 				},
 				className
 			)}

@@ -65,6 +65,10 @@ $roundedBorderRadius: 1.875rem !default;
 $roundBorderRadius: 50% !default;
 
 //FUNCTIONS
+@function rgba-to-rgb($rgba, $background: $bgCard) {
+	@return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%);
+}
+
 @function map-deep-get($map, $keys...) {
 	@each $key in $keys {
 		$map: map-get($map, $key);
@@ -154,11 +158,28 @@ $portalVerticalAlignments: (
 ) !default;
 
 // Helpers
+//SPACING
+$spacingDir: (
+	"t": top,
+	"r": right,
+	"b": bottom,
+	"l": left,
+) !default;
+
+$spacingSize: (
+	"0": 0,
+	"1": 0.325rem,
+	"2": 0.625rem,
+	"3": 1rem,
+	"4": 1.5rem,
+	"auto": auto,
+) !default;
 //GRID
 $gridColumns: 12 !default;
 $gridColumnWidth: 100% / $gridColumns !default;
 
 $breakpoints: (
+	"base": 0,
 	"xs": 33.75rem,
 	"sm": 45rem,
 	"md": 60rem,

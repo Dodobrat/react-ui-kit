@@ -1,0 +1,224 @@
+// COLOR PICKER
+@mixin mozColorSwatchDimensions($arg: $mdFont) {
+	width: calc(100% - calc(#{$arg} * 0.4375) * 2);
+	height: calc(100% - calc(#{$arg} * 0.4375) * 2);
+}
+
+@mixin colorSwatchPosition($arg: $mdFont) {
+	top: calc(#{$arg} * 0.4375);
+	left: calc(#{$arg} * 0.4375);
+	right: calc(#{$arg} * 0.4375);
+	bottom: calc(#{$arg} * 0.4375);
+}
+
+@mixin colorSwatchStyles($arg: $mdFont) {
+	position: absolute;
+	box-sizing: border-box;
+	border: none;
+	border-radius: $smBorderRadius / 2;
+	@include colorSwatchPosition($arg);
+}
+
+// CHECKBOX / SWITCH STYLES
+@mixin checkboxInnerIndicator() {
+	transition: opacity $normalTransTime $normalTransEase;
+	opacity: 0;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border: solid $subFont;
+}
+// *cs - checkbox / switch
+@mixin csComponentDuplicates() {
+	display: inline-flex;
+	width: auto;
+	user-select: none;
+	line-height: 1.5;
+	padding: calc(#{$mdFont} * 0.4375) $mdFont / 1.25;
+	cursor: pointer;
+	&__input {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+		margin: 0;
+		width: 0;
+		height: 0;
+		& + [class*="__value"] {
+			flex: 0 0 auto;
+		}
+		&:disabled + [class*="__value"] {
+			cursor: not-allowed;
+			opacity: 0.5;
+			background-color: rgba($subFont, 0.2);
+		}
+		&:focus-visible + [class*="__value"] {
+			box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+		}
+	}
+	&:hover {
+		[class*="__value"] {
+			box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+		}
+	}
+}
+
+@mixin csInputDuplicates() {
+	user-select: none;
+	position: relative;
+	height: 1em;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: calc(1em / 2.5);
+}
+
+@mixin csPigmentStates($bgColor) {
+	&:hover {
+		[class*="__value"] {
+			box-shadow: 0 0 0 0.125rem rgba($bgColor, 0.2);
+		}
+	}
+	[class*="__input"]:focus-visible + [class*="__value"] {
+		@include focusVisibleStyles($bgColor, $bgColor);
+	}
+}
+
+@mixin csInputWrapperPigmentState($elem, $bgColor) {
+	&:hover {
+		.dui__input__#{$elem}__value {
+			box-shadow: 0 0 0 0.125rem rgba($bgColor, 0.2);
+		}
+	}
+	&--focused {
+		.dui__input__#{$elem}__value {
+			@include focusVisibleStyles($bgColor, $bgColor);
+		}
+		&:hover {
+			.dui__input__#{$elem}__value {
+				@include focusVisibleStyles($bgColor, $bgColor);
+			}
+		}
+	}
+}
+
+@mixin csInputWrapperState($elem) {
+	&.dui__input__wrapper {
+		.dui__input__#{$elem} {
+			display: flex;
+			width: 100%;
+			padding: calc(#{$mdFont} * 0.4375) 0;
+		}
+		.dui__input__#{$elem}__value {
+			margin-left: $mdFont / 1.25;
+		}
+		&:hover {
+			.dui__input__#{$elem}__value {
+				box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+			}
+		}
+		&--focused {
+			.dui__input__#{$elem}__value {
+				@include focusVisibleStyles();
+			}
+			&:hover {
+				.dui__input__#{$elem}__value {
+					@include focusVisibleStyles();
+				}
+			}
+		}
+	}
+}
+
+// INPUT RANGE
+@mixin rangeTrack() {
+	cursor: default;
+	height: 0.5em;
+	transition: $fastTrans;
+	width: 100%;
+	box-shadow: none;
+	background-color: rgba($subFont, 0.2);
+	border: none;
+	border-radius: $smBorderRadius;
+}
+
+@mixin rangeThumb($bg: $subFont, $border: $mainFont) {
+	box-shadow: none;
+	background: $bg;
+	border: 0.0625rem solid $border;
+	border-radius: $roundBorderRadius;
+	box-sizing: border-box;
+	cursor: grab;
+	height: 1em;
+	width: 1em;
+	-webkit-appearance: none;
+	margin-top: -0.25em;
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+@mixin rangeHover($shadow: $subFont) {
+	&[type="range"] {
+		&::-webkit-slider-thumb {
+			box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+		}
+		&::-moz-range-thumb {
+			box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+		}
+		&::-ms-thumb {
+			box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+		}
+	}
+}
+
+@mixin rangeFocusVisible($outer: $subFont, $inner: $mainFont) {
+	&[type="range"] {
+		&::-webkit-slider-thumb {
+			@include focusVisibleStyles($outer, $inner);
+		}
+		&::-moz-range-thumb {
+			@include focusVisibleStyles($outer, $inner);
+		}
+		&::-ms-thumb {
+			@include focusVisibleStyles($outer, $inner);
+		}
+	}
+}
+
+@mixin rangeDefaults() {
+	&::-webkit-slider-runnable-track {
+		@include rangeTrack();
+	}
+
+	&::-moz-range-track {
+		@include rangeTrack();
+	}
+
+	&::-ms-track {
+		@include rangeTrack();
+	}
+
+	&::-webkit-slider-thumb {
+		@include rangeThumb();
+	}
+
+	&::-moz-range-thumb {
+		@include rangeThumb();
+	}
+
+	&::-ms-thumb {
+		@include rangeThumb();
+	}
+}
+
+@mixin rangeThumbPigments($outer, $inner) {
+	&::-webkit-slider-thumb {
+		@include rangeThumb($outer, $inner);
+	}
+	&::-moz-range-thumb {
+		@include rangeThumb($outer, $inner);
+	}
+	&::-ms-thumb {
+		@include rangeThumb($outer, $inner);
+	}
+}

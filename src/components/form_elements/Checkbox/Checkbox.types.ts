@@ -10,7 +10,6 @@ export interface CheckboxProps extends ExtraCheckboxProps {
 	preffix?: React.ReactNode;
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
-	onChange?: React.ChangeEventHandler<HTMLInputElement>;
 	innerRef?: React.MutableRefObject<any>;
 }
 

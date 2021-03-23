@@ -27,7 +27,6 @@ const Checkbox: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxProps> = 
 		checked,
 		onFocus,
 		onBlur,
-		onChange,
 		disabled = false,
 		innerRef,
 		children,
@@ -104,7 +103,6 @@ const Checkbox: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxProps> = 
 				checked={inputChecked}
 				onFocus={handleOnFocus}
 				onBlur={handleOnBlur}
-				onChange={onChange}
 				disabled={(isLoading && disableWhileLoading) || disabled}
 				children={children}
 				{...rest}
@@ -129,7 +127,6 @@ export const CheckboxComponent = React.forwardRef<HTMLInputElement, CheckboxComp
 		pigment = "primary",
 		elevation = "none",
 		seamless = true,
-		onChange,
 		onFocus,
 		scrollOnFocus = false,
 		disabled,
@@ -166,7 +163,6 @@ export const CheckboxComponent = React.forwardRef<HTMLInputElement, CheckboxComp
 				className={cn("dui__input__checkbox__input")}
 				checked={checked}
 				onFocus={handleOnFocus}
-				onChange={onChange}
 				disabled={disabled}
 				{...rest}
 				ref={mergeRefs([checkboxComponentRef, ref])}

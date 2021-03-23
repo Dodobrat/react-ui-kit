@@ -2,6 +2,7 @@ import React from "react";
 import { CnCh, SizeOptions } from "../../../helpers/global.types";
 
 interface FlexGridColConfig {
+	base?: number;
 	xs?: number;
 	sm?: number;
 	md?: number;

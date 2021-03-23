@@ -1,4 +1,4 @@
-import { CnCh } from "../../helpers/global.types";
+import { CnCh, FlexJustify } from "../../helpers/global.types";
 import { LineLoaderProps } from "../LineLoader/LineLoader.types";
 
 type ExtendedCardLoaderProps = CnCh & LineLoaderProps;
@@ -6,6 +6,9 @@ export interface CardLoaderSubComponentProps extends ExtendedCardLoaderProps {}
 
 export interface CardHeaderSubComponentProps extends CnCh {
 	actions?: React.ReactNode;
+}
+export interface CardFooterSubComponentProps extends CnCh {
+	justify?: FlexJustify;
 }
 
 export interface CardImageSubComponentProps extends CnCh {

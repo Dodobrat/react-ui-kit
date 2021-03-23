@@ -1,6 +1,7 @@
 import { CnCh, SizeOptions, FlexAlign, FlexJustify, FlexDirection, FlexWrap } from "../../../helpers/global.types";
 
 interface FlexSpacingConfig {
+	base?: SizeOptions;
 	xs?: SizeOptions;
 	sm?: SizeOptions;
 	md?: SizeOptions;
@@ -8,6 +9,7 @@ interface FlexSpacingConfig {
 	xl?: SizeOptions;
 }
 interface FlexAlignConfig {
+	base?: FlexAlign;
 	xs?: FlexAlign;
 	sm?: FlexAlign;
 	md?: FlexAlign;
@@ -15,6 +17,7 @@ interface FlexAlignConfig {
 	xl?: FlexAlign;
 }
 interface FlexJustifyConfig {
+	base?: FlexJustify;
 	xs?: FlexJustify;
 	sm?: FlexJustify;
 	md?: FlexJustify;
@@ -22,6 +25,7 @@ interface FlexJustifyConfig {
 	xl?: FlexJustify;
 }
 interface FlexDirectionConfig {
+	base?: FlexDirection;
 	xs?: FlexDirection;
 	sm?: FlexDirection;
 	md?: FlexDirection;
@@ -29,6 +33,7 @@ interface FlexDirectionConfig {
 	xl?: FlexDirection;
 }
 interface FlexWrapConfig {
+	base?: FlexWrap;
 	xs?: FlexWrap;
 	sm?: FlexWrap;
 	md?: FlexWrap;
@@ -38,8 +43,8 @@ interface FlexWrapConfig {
 
 // Auto-Generated
 export interface FlexProps extends CnCh {
-	spacingX?: FlexSpacingConfig | SizeOptions | "none";
-	spacingY?: FlexSpacingConfig | SizeOptions | "none";
+	spacingX?: FlexSpacingConfig | SizeOptions;
+	spacingY?: FlexSpacingConfig | SizeOptions;
 	align?: FlexAlignConfig | FlexAlign;
 	justify?: FlexJustifyConfig | FlexJustify;
 	direction?: FlexDirectionConfig | FlexDirection;

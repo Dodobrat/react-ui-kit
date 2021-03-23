@@ -4,5 +4,5 @@ import { AllSizeOptions, CnCh, SizeOptions } from "../../../helpers/global.types
 export interface ContainerProps extends CnCh {
 	fluid?: boolean;
 	size?: AllSizeOptions;
-	paddingSize?: SizeOptions;
+	spacingX?: SizeOptions;
 }
