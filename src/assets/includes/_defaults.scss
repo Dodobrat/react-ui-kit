@@ -269,33 +269,14 @@ hr {
 // 	border-width: 0;
 // }
 
-// label {
-// 	display: inline-block;
-// }
+button,
+select {
+	text-transform: none;
+}
 
-// input,
-// button,
-// select,
-// optgroup,
-// textarea {
-// 	margin: 0;
-// 	font-family: inherit;
-// 	@include font-size(inherit);
-// 	line-height: inherit;
-// }
-
-// button,
-// select {
-// 	text-transform: none;
-// }
-
-// [role="button"] {
-// 	cursor: pointer;
-// }
-
-// select {
-// 	word-wrap: normal;
-// }
+select {
+	word-wrap: normal;
+}
 
 [list]::-webkit-calendar-picker-indicator {
 	display: none;

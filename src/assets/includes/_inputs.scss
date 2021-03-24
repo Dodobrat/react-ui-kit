@@ -52,7 +52,8 @@
 	}
 
 	@-moz-document url-prefix() {
-		&[type="file"] {
+		&[type="file"],
+		&.dui__input__select {
 			text-indent: $mdFont / 2.5;
 		}
 		&[type="date"],
@@ -88,7 +89,7 @@
 	background-color: darken($bgCard, 7.5%);
 	border-radius: $smBorderRadius;
 	.dui__input {
-		background-color: transparent;
+		background-color: inherit;
 		&:hover {
 			box-shadow: none;
 		}
@@ -272,7 +273,8 @@
 			}
 
 			@-moz-document url-prefix() {
-				&.dui__input[type="file"] {
+				&.dui__input[type="file"],
+				&.dui__input__select {
 					text-indent: $size / 2.5;
 				}
 				&.dui__input[type="date"],
@@ -337,7 +339,7 @@
 	}
 
 	&--seamless {
-		background-color: transparent;
+		background-color: inherit;
 		border-radius: 0;
 		&.dui__input:hover,
 		&.dui__input:focus,
@@ -477,7 +479,7 @@
 		}
 
 		&--seamless {
-			background-color: transparent;
+			background-color: inherit;
 			border-radius: 0;
 			&.dui__input__wrapper:hover,
 			&.dui__input__wrapper:focus,
@@ -653,8 +655,30 @@
 			}
 		}
 	}
-	// &__select {
-	// }
+
+	&__select {
+		&__wrapper {
+			position: relative;
+			display: block;
+			width: 100%;
+			background-color: inherit;
+			border-radius: inherit;
+			outline: none;
+			&::after {
+				content: "";
+				z-index: 100;
+				position: absolute;
+				top: 50%;
+				right: calc(1em / 1.25);
+				transform: translate(-50%, -20%);
+				height: 0;
+				width: 0;
+				border: 0.3125em solid transparent;
+				border-top: 0.3125em solid rgba($subFont, 0.5);
+				border-radius: calc(1em / 5);
+			}
+		}
+	}
 
 	&-group {
 		position: relative;

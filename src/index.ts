@@ -35,6 +35,7 @@ export { default as FormControl } from "./components/form_elements/FormControl/F
 export { default as Input } from "./components/form_elements/Input/Input";
 export { default as InputGroup } from "./components/form_elements/InputGroup/InputGroup";
 export { default as Radio } from "./components/form_elements/Radio/Radio";
+export { default as Select } from "./components/form_elements/Select/Select";
 export { default as Switch } from "./components/form_elements/Switch/Switch";
 export { default as TextArea } from "./components/form_elements/TextArea/TextArea";
 export { default as Form } from "./components/form_elements/Form/Form";
@@ -43,6 +44,7 @@ export { default as Form } from "./components/form_elements/Form/Form";
 export { CheckboxComponent } from "./components/form_elements/Checkbox/Checkbox";
 export { InputComponent } from "./components/form_elements/Input/Input";
 export { RadioComponent } from "./components/form_elements/Radio/Radio";
+export { SelectComponent } from "./components/form_elements/Select/Select";
 export { SwitchComponent } from "./components/form_elements/Switch/Switch";
 export { TextAreaComponent } from "./components/form_elements/TextArea/TextArea";
 
