@@ -23,25 +23,30 @@ const Form: React.ForwardRefRenderFunction<HTMLFormElement, FormProps> = (props,
 		}
 
 		const parsedValues = validInputs.reduce((acc, curr) => {
-			const extractValue = (curr: any) => {
-				switch (curr.getAttribute("type")) {
-					case "checkbox":
-					case "radio": {
-						return curr.checked;
-					}
-					case "file": {
-						return curr.files;
-					}
-					default: {
-						return curr.value;
-					}
-				}
-			};
+			const type = curr.getAttribute("type");
+			const name = curr.getAttribute("name");
 
-			return {
-				...acc,
-				[`${curr.getAttribute("name")}`]: extractValue(curr),
-			};
+			switch (type) {
+				case "checkbox": {
+					acc[`${name}`] = curr.checked;
+					break;
+				}
+				case "file": {
+					acc[`${name}`] = curr.files;
+					break;
+				}
+				case "radio": {
+					if (!curr.checked) break;
+					acc[`${name}`] = curr.value;
+					break;
+				}
+				default: {
+					acc[`${name}`] = curr.value;
+					break;
+				}
+			}
+
+			return acc;
 		}, {});
 
 		return onFormSubmit({

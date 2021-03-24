@@ -1,18 +1,10 @@
-import { EssentialInputProps, LoadingProps } from "../../../helpers/global.types";
+import { CheckableComponentProps, EssentialCheckablesProps } from "../Checkable/Checkable.types";
 
-type ExtraCheckboxComponentProps = React.InputHTMLAttributes<HTMLInputElement> & EssentialInputProps;
-
-type ExtraCheckboxProps = ExtraCheckboxComponentProps & LoadingProps;
 // Auto-Generated
-export interface CheckboxProps extends ExtraCheckboxProps {
-	inputClassName?: string;
-	suffix?: React.ReactNode;
-	preffix?: React.ReactNode;
-	onFocus?: React.FocusEventHandler<HTMLInputElement>;
-	onBlur?: React.FocusEventHandler<HTMLInputElement>;
-	innerRef?: React.MutableRefObject<any>;
+export interface CheckboxProps extends EssentialCheckablesProps {
+	[key: string]: any;
 }
 
-export interface CheckboxComponentProps extends ExtraCheckboxComponentProps {
+export interface CheckboxComponentProps extends CheckableComponentProps {
 	[key: string]: any;
 }

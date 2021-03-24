@@ -1,6 +1,6 @@
 // Styles
 // Not injecting styles, allowing users to use sass to override variables
-// Otherwise generating minified css file f
+// Importing styles to generate minified css file for basic usage
 import "./assets/app.scss";
 // Components
 export { default as Accordion } from "./components/Accordion/Accordion";
@@ -42,6 +42,7 @@ export { default as Form } from "./components/form_elements/Form/Form";
 //Pure Form Element
 export { CheckboxComponent } from "./components/form_elements/Checkbox/Checkbox";
 export { InputComponent } from "./components/form_elements/Input/Input";
+export { RadioComponent } from "./components/form_elements/Radio/Radio";
 export { SwitchComponent } from "./components/form_elements/Switch/Switch";
 export { TextAreaComponent } from "./components/form_elements/TextArea/TextArea";
 

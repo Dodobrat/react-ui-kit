@@ -1,17 +1,19 @@
 // Auto-Generated
-import React, { forwardRef } from "react";
-import cn from "classnames";
+import React from "react";
 
-import { RadioProps } from "./Radio.types";
+import { RadioComponentProps, RadioProps } from "./Radio.types";
+import Checkable, { CheckableComponent } from "../Checkable/Checkable";
 
-const Radio = forwardRef<HTMLDivElement, RadioProps>((props, ref) => {
-	const { className, children, ...rest } = props;
+const Radio: React.ForwardRefRenderFunction<HTMLDivElement, RadioProps> = (props, ref) => {
+	const { type, ...rest } = props;
 
-	return (
-		<div data-testid='Radio' className={cn("", className)} {...rest} ref={ref}>
-			{children}
-		</div>
-	);
+	return <Checkable type='radio' typeClass='radio' {...rest} ref={ref} />;
+};
+
+export const RadioComponent = React.forwardRef<HTMLInputElement, RadioComponentProps>((props, ref) => {
+	const { type, ...rest } = props;
+
+	return <CheckableComponent type='radio' typeClass='radio' {...rest} ref={ref} />;
 });
 
-export default Radio;
+export default React.forwardRef<HTMLDivElement, RadioProps>(Radio);

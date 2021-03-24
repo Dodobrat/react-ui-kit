@@ -1,18 +1,9 @@
-import { EssentialInputProps, LoadingProps } from "../../../helpers/global.types";
-
-type ExtraSwitchComponentProps = React.InputHTMLAttributes<HTMLInputElement> & EssentialInputProps;
-
-type ExtraSwitchProps = ExtraSwitchComponentProps & LoadingProps;
+import { CheckableComponentProps, EssentialCheckablesProps } from "../Checkable/Checkable.types";
 // Auto-Generated
-export interface SwitchProps extends ExtraSwitchProps {
-	inputClassName?: string;
-	suffix?: React.ReactNode;
-	preffix?: React.ReactNode;
-	onFocus?: React.FocusEventHandler<HTMLInputElement>;
-	onBlur?: React.FocusEventHandler<HTMLInputElement>;
-	innerRef?: React.MutableRefObject<any>;
+export interface SwitchProps extends EssentialCheckablesProps {
+	[key: string]: any;
 }
 
-export interface SwitchComponentProps extends ExtraSwitchComponentProps {
+export interface SwitchComponentProps extends CheckableComponentProps {
 	[key: string]: any;
 }

@@ -130,25 +130,34 @@
 				}
 				@include rangeThumbPigments($bgColor, darken($bgColor, 10%));
 			}
-			&.dui__input__checkbox {
-				.dui__input__checkbox__input:checked + .dui__input__checkbox__value {
+			&.dui__input__checkable {
+				.dui__input__checkable__input:checked + .dui__input__checkable__value {
 					background-color: $bgColor;
 					border-color: $bgColor;
+				}
+				.dui__input__checkable__input:focus-visible + .dui__input__checkable__value {
+					@include focusVisibleStyles($bgColor, $bgColor);
+				}
+				.dui__input__checkbox__input:checked + .dui__input__checkbox__value {
 					&::after {
 						border-color: $fontColor;
 					}
 				}
-				@include csPigmentStates($bgColor);
-			}
-			&.dui__input__switch {
 				.dui__input__switch__input:checked + .dui__input__switch__value {
-					background-color: $bgColor;
-					border-color: $bgColor;
 					&::after {
 						background-color: $fontColor;
 					}
 				}
-				@include csPigmentStates($bgColor);
+				.dui__input__radio__input:checked + .dui__input__radio__value {
+					&::after {
+						background-color: $fontColor;
+					}
+				}
+				&:hover {
+					.dui__input__checkable__value {
+						box-shadow: 0 0 0 0.125rem rgba($bgColor, 0.2);
+					}
+				}
 			}
 		}
 	}
@@ -178,26 +187,38 @@
 					}
 				}
 			}
-			&.dui__input__wrapper--checkbox {
-				&.dui__input__wrapper {
-					@include csInputWrapperPigmentState("checkbox", $bgColor);
-					.dui__input__checkbox__input:checked + .dui__input__checkbox__value {
-						background-color: $bgColor;
-						border-color: $bgColor;
-						&::after {
-							border-color: $fontColor;
-						}
+			&.dui__input__wrapper__checkable {
+				.dui__input__checkable__input:checked + .dui__input__checkable__value {
+					background-color: $bgColor;
+					border-color: $bgColor;
+				}
+				.dui__input__checkbox__input:checked + .dui__input__checkbox__value {
+					&::after {
+						border-color: $fontColor;
 					}
 				}
-			}
-			&.dui__input__wrapper--switch {
-				&.dui__input__wrapper {
-					@include csInputWrapperPigmentState("switch", $bgColor);
-					.dui__input__switch__input:checked + .dui__input__switch__value {
-						background-color: $bgColor;
-						border-color: $bgColor;
-						&::after {
-							background-color: $fontColor;
+				.dui__input__switch__input:checked + .dui__input__switch__value {
+					&::after {
+						background-color: $fontColor;
+					}
+				}
+				.dui__input__radio__input:checked + .dui__input__radio__value {
+					&::after {
+						background-color: $fontColor;
+					}
+				}
+				&:hover {
+					.dui__input__checkable__value {
+						box-shadow: 0 0 0 0.125rem rgba($bgColor, 0.2);
+					}
+				}
+				&--focused {
+					.dui__input__checkable__value {
+						@include focusVisibleStyles($bgColor, $bgColor);
+					}
+					&:hover {
+						.dui__input__checkable__value {
+							@include focusVisibleStyles($bgColor, $bgColor);
 						}
 					}
 				}
@@ -269,8 +290,7 @@
 				padding: calc(#{$size} * 0.4375);
 			}
 
-			&.dui__input__checkbox,
-			&.dui__input__switch {
+			&.dui__input__checkable {
 				padding: calc(#{$size} * 0.4375) $size / 1.25;
 				&.dui__input--seamless {
 					padding: calc(#{$size} * 0.4375) 0;
@@ -309,7 +329,7 @@
 		&.dui__input__switch {
 			.dui__input__switch__value {
 				border-radius: $flatBorderRadius;
-				&:after {
+				&::after {
 					border-radius: $flatBorderRadius;
 				}
 			}
@@ -324,8 +344,7 @@
 		&.dui__input:focus-visible {
 			box-shadow: none;
 		}
-		&.dui__input__checkbox,
-		&.dui__input__switch {
+		&.dui__input__checkable {
 			padding: calc(#{$mdFont} * 0.4375) 0;
 		}
 	}
@@ -360,25 +379,43 @@
 					}
 				}
 
-				&.dui__input__wrapper--checkbox {
-					.dui__input__checkbox__value {
+				&.dui__input__wrapper__checkable {
+					.dui__input__checkable__value {
 						margin-left: $size / 1.25;
 					}
-					.dui__input__checkbox {
-						padding: calc(#{$size} * 0.4375) 0;
-					}
-				}
-				&.dui__input__wrapper--switch {
-					.dui__input__switch__value {
-						margin-left: $size / 1.25;
-					}
-					.dui__input__switch {
+					.dui__input__checkable {
 						padding: calc(#{$size} * 0.4375) 0;
 					}
 				}
 			}
 		}
 		@include inputWrapperPigmentOptions();
+
+		&__checkable {
+			.dui__input__checkable {
+				display: flex;
+				width: 100%;
+				padding: calc(#{$mdFont} * 0.4375) 0;
+			}
+			.dui__input__checkable__value {
+				margin-left: $mdFont / 1.25;
+			}
+			&:hover {
+				.dui__input__checkable__value {
+					box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+				}
+			}
+			&--focused {
+				.dui__input__checkable__value {
+					@include focusVisibleStyles();
+				}
+				&:hover {
+					.dui__input__checkable__value {
+						@include focusVisibleStyles();
+					}
+				}
+			}
+		}
 
 		&__attachment {
 			&__container {
@@ -464,15 +501,160 @@
 		&--textarea {
 			flex-direction: column;
 		}
+	}
 
-		&--checkbox {
-			@include csInputWrapperState("checkbox");
+	&__textarea {
+		text-indent: calc(#{$mdFont} * 0.4375);
+		padding: calc(#{$mdFont} * 0.4375);
+		min-height: 10em;
+	}
+
+	&__checkable {
+		display: inline-flex;
+		width: auto;
+		user-select: none;
+		line-height: 1.5;
+		padding: calc(#{$mdFont} * 0.4375) $mdFont / 1.25;
+		cursor: pointer;
+		&__input {
+			position: absolute;
+			opacity: 0;
+			pointer-events: none;
+			margin: 0;
+			width: 0;
+			height: 0;
+			& + .dui__input__checkable__value {
+				flex: 0 0 auto;
+				user-select: none;
+				position: relative;
+				height: 1em;
+				margin-top: auto;
+				margin-bottom: auto;
+				margin-right: calc(1em / 2.5);
+			}
+			&:disabled + .dui__input__checkable__value {
+				cursor: not-allowed;
+				opacity: 0.5;
+				background-color: rgba($subFont, 0.2);
+			}
+			&:focus-visible + .dui__input__checkable__value {
+				box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+			}
 		}
-
-		&--switch {
-			@include csInputWrapperState("switch");
+		&:hover {
+			.dui__input__checkable__value {
+				box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+			}
 		}
 	}
+
+	&__checkbox {
+		&__input {
+			& + .dui__input__checkbox__value {
+				width: 1em;
+				border-radius: calc(1em / 5);
+				border: 0.15em solid $subFont;
+				&::before,
+				&::after {
+					transition: opacity $normalTransTime $normalTransEase;
+					opacity: 0;
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					border: solid $subFont;
+				}
+				&::after {
+					transform: translate(-50%, -65%) rotate(45deg);
+					width: 40%;
+					height: 70%;
+					border-width: 0 0.125em 0.125em 0;
+				}
+				&::before {
+					transform: translate(-50%, -50%);
+					width: 50%;
+					height: 0.15em;
+				}
+			}
+			&:checked + .dui__input__checkbox__value {
+				&::after {
+					opacity: 1;
+					border-color: $mainFont;
+				}
+			}
+			&:indeterminate + .dui__input__checkbox__value {
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__switch {
+		&__input {
+			& + .dui__input__switch__value {
+				width: 2em;
+				border-radius: $roundedBorderRadius * 5;
+				border: 0.0625em solid $subFont;
+				background-color: transparent;
+				&::after {
+					transition: $fastTrans;
+					content: "";
+					position: absolute;
+					top: 0.1em;
+					left: 0.1em;
+					height: 0.675em;
+					width: 0.675em;
+					border-radius: $roundBorderRadius;
+					background-color: $subFont;
+					box-shadow: map-get($elevations, "subtle");
+				}
+			}
+			&:checked + .dui__input__switch__value {
+				&::after {
+					left: calc(100% - 0.775em);
+				}
+			}
+			&:indeterminate + .dui__input__switch__value {
+				&::after {
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+		}
+	}
+
+	&__radio {
+		&__input {
+			& + .dui__input__radio__value {
+				width: 1em;
+				border-radius: $roundBorderRadius;
+				border: 0.15em solid $subFont;
+				&::after {
+					transition: opacity $normalTransTime $normalTransEase;
+					opacity: 0;
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					background-color: $subFont;
+					border-radius: $roundBorderRadius;
+				}
+				&::after {
+					transform: translate(-50%, -50%);
+					width: 60%;
+					height: 60%;
+				}
+			}
+			&:checked + .dui__input__radio__value {
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	// &__select {
+	// }
 
 	&-group {
 		position: relative;
@@ -505,86 +687,6 @@
 			@include inputGroupCornerRoudness($flatBorderRadius);
 		}
 	}
-
-	&__textarea {
-		text-indent: calc(#{$mdFont} * 0.4375);
-		padding: calc(#{$mdFont} * 0.4375);
-		min-height: 10em;
-	}
-
-	&__checkbox {
-		@include csComponentDuplicates();
-		&__input {
-			& + .dui__input__checkbox__value {
-				@include csInputDuplicates();
-				width: 1em;
-				border-radius: calc(1em / 5);
-				border: 0.15em solid $subFont;
-				&::after {
-					@include checkboxInnerIndicator();
-					transform: translate(-50%, -65%) rotate(45deg);
-					width: 40%;
-					height: 70%;
-					border-width: 0 0.125em 0.125em 0;
-				}
-				&::before {
-					@include checkboxInnerIndicator();
-					transform: translate(-50%, -50%);
-					width: 50%;
-					height: 0.15em;
-				}
-			}
-			&:checked + .dui__input__checkbox__value {
-				&::after {
-					opacity: 1;
-					border-color: $mainFont;
-				}
-			}
-			&:indeterminate + .dui__input__checkbox__value {
-				&::before {
-					opacity: 1;
-				}
-			}
-		}
-	}
-
-	&__switch {
-		@include csComponentDuplicates();
-		&__input {
-			& + .dui__input__switch__value {
-				@include csInputDuplicates();
-				width: 2em;
-				border-radius: $roundedBorderRadius * 5;
-				border: 0.0625em solid $subFont;
-				background-color: transparent;
-				&::after {
-					transition: $fastTrans;
-					content: "";
-					position: absolute;
-					top: 0.1em;
-					left: 0.1em;
-					height: 0.675em;
-					width: 0.675em;
-					border-radius: $roundBorderRadius;
-					background-color: $subFont;
-					box-shadow: map-get($elevations, "subtle");
-				}
-			}
-			&:checked + .dui__input__switch__value {
-				&::after {
-					left: calc(100% - 0.775em);
-				}
-			}
-			&:indeterminate + .dui__input__switch__value {
-				&::after {
-					left: 50%;
-					transform: translateX(-50%);
-				}
-			}
-		}
-	}
-	// &__radio {
-	// }
 }
 
 .dui__form__control {
