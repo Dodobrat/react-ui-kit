@@ -143,7 +143,7 @@ $progressBarLabelPositions: (
 
 @mixin progressRing() {
 	position: relative;
-	user-select: none;
+	@include crossBrowser(user-select, none);
 	& > circle {
 		fill: transparent;
 		transition: stroke-dashoffset $slowTransTime $slowTransEase;

@@ -428,8 +428,9 @@
 			white-space: nowrap;
 			line-height: 1.5;
 			opacity: 0.75;
-			user-select: none;
 			padding: calc(#{$mdFont} * 0.4375 - 0.015em) 0.3125rem;
+			@include crossBrowser(user-select, none);
+
 			&.dui__input__wrapper__preffix {
 				padding-left: $mdFont / 1.25;
 				padding-right: 0;
@@ -514,10 +515,10 @@
 	&__checkable {
 		display: inline-flex;
 		width: auto;
-		user-select: none;
 		line-height: 1.5;
 		padding: calc(#{$mdFont} * 0.4375) $mdFont / 1.25;
 		cursor: pointer;
+		@include crossBrowser(user-select, none);
 		&__input {
 			position: absolute;
 			opacity: 0;
@@ -527,7 +528,6 @@
 			height: 0;
 			& + .dui__input__checkable__value {
 				flex: 0 0 auto;
-				user-select: none;
 				position: relative;
 				height: 1em;
 				margin-top: auto;

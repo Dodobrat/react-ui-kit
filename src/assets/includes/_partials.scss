@@ -86,7 +86,7 @@
 .indiana-scroll-container {
 	&--dragging {
 		* {
-			user-select: none;
+			@include crossBrowser(user-select, none);
 		}
 		& > * {
 			cursor: grabbing;
@@ -140,9 +140,10 @@
 		justify-content: center;
 		align-items: center;
 		cursor: pointer;
-		user-select: none;
 		padding: 1rem;
 		z-index: 2;
+		@include crossBrowser(user-select, none);
+
 		&:focus {
 			outline: none;
 		}

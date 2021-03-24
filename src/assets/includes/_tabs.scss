@@ -7,12 +7,14 @@
 	display: flex;
 	line-height: 1.5;
 	background-color: inherit;
-	& > * {
+	&__item {
+		flex: 0 0 auto;
+		position: relative;
 		white-space: nowrap;
-		padding: 0 0.3125rem;
-		user-select: none;
 		cursor: pointer;
 		opacity: 0.6;
+		@include crossBrowser(user-select, none);
+
 		&:focus {
 			outline: none;
 		}
@@ -28,22 +30,15 @@
 		}
 	}
 	@if ($orientation == "horizontal") {
-		padding: 0.875rem 0;
 		margin: 0 1rem;
-		& > * {
-			margin-right: 1rem;
-			margin-bottom: 0;
+		&__item {
+			padding: calc(1em * 0.75) 1em;
 		}
 	} @else {
 		flex-direction: column;
-		padding: 0 0.875rem;
 		margin: 1rem 0;
-		& > * {
-			margin-right: 0;
-			margin-bottom: 1rem;
-			&:nth-last-child(2) {
-				margin-bottom: 0;
-			}
+		&__item {
+			padding: calc(1em * 0.5) 1em;
 		}
 	}
 }
@@ -82,7 +77,7 @@
 			background-color: $bgColor;
 			color: $fontColor;
 			.dui__tabs__items {
-				& > * {
+				&__item {
 					@include focusVisible($bgColor, $fontColor);
 					&[aria-selected="true"] {
 						&:focus-visible {

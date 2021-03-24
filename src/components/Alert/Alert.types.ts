@@ -1,6 +1,6 @@
-import { CnCh, CustomizationProps, SyntheticKeyboardControls } from "../../helpers/global.types";
+import { CnCh, CustomizationProps, RippleEffect, SyntheticKeyboardControls } from "../../helpers/global.types";
 
-type ExtraAlertProps = CustomizationProps & CnCh & SyntheticKeyboardControls;
+type ExtraAlertProps = CustomizationProps & CnCh & SyntheticKeyboardControls & RippleEffect;
 
 // Auto-Generated
 export interface AlertProps extends ExtraAlertProps {

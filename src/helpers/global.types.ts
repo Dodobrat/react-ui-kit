@@ -1,3 +1,5 @@
+import React from "react";
+
 export type PigmentOptions = "primary" | "secondary" | "success" | "warning" | "info" | "danger";
 export type ElevationOptions = "none" | "subtle" | "light" | "medium" | "strong" | "interstellar";
 export type SizeOptions = "xs" | "sm" | "md" | "lg" | "xl";
@@ -14,6 +16,11 @@ export interface CnCh {
 
 export interface ElemType {
 	as?: React.ElementType;
+}
+
+export interface RippleEffect {
+	withRipple?: boolean;
+	onPointerDown?: React.PointerEventHandler;
 }
 
 export interface SyntheticKeyboardControls {

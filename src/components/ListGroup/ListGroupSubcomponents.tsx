@@ -9,7 +9,7 @@ import {
 	ListGroupLoaderSubComponentProps,
 } from "./ListGroupSubcomponents.types";
 import { PigmentOptions } from "../../helpers/global";
-import { addElementAttributes, mergeRefs } from "../../helpers/functions";
+import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
 import LineLoader from "../LineLoader/LineLoader";
 import CollapseFade from "../util/animations/CollapseFade";
 import CollapseShow from "../util/animations/CollapseShow";
@@ -81,11 +81,14 @@ ListGroupItem.displayName = "ListGroupItem";
 export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupCollapseToggleSubComponentProps>((props, ref) => {
 	const {
 		className,
+		pigment,
 		collapseIndicator = true,
 		isCollapsed,
 		onKeyboardToggle,
 		collapseIndicatorComponent,
 		onKeyDown,
+		withRipple = true,
+		onPointerDown,
 		children,
 		...rest
 	} = props;
@@ -102,6 +105,16 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 		}
 	};
 
+	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
+		if (withRipple) {
+			createRipple({ e, elem: listGroupCollapseToggleRef, pigment });
+		}
+
+		if (onPointerDown) {
+			onPointerDown(e);
+		}
+	};
+
 	return (
 		<div
 			className={cn(
@@ -115,6 +128,7 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 			aria-expanded={!isCollapsed}
 			tabIndex={rest["disabled"] ? -1 : 0}
 			onKeyDown={handleKeyDown}
+			onPointerDown={handleOnPointerDown}
 			{...rest}
 			ref={mergeRefs([listGroupCollapseToggleRef, ref])}>
 			{collapseIndicator ? (
@@ -192,6 +206,7 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 				...child,
 				props: {
 					...child.props,
+					pigment,
 					isCollapsed: collapseState,
 					onKeyboardToggle: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,
 					onClick: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,

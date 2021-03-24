@@ -23,6 +23,8 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		activeTab = 0,
 		onTabSelect,
 		orientation = "horizontal",
+		withRipple = true,
+		onTabPointerDown,
 		children,
 		...rest
 	} = props;
@@ -115,7 +117,15 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 			)}
 			{...rest}
 			ref={ref}>
-			<TabsItems options={tabs} orientation={orientation} activeOption={activeTabIndex} onKeyDown={handleKeyPress} />
+			<TabsItems
+				options={tabs}
+				withRipple={withRipple}
+				onPointerDown={onTabPointerDown}
+				pigment={pigment}
+				orientation={orientation}
+				activeOption={activeTabIndex}
+				onKeyDown={handleKeyPress}
+			/>
 			<TabContent options={panels} />
 		</div>
 	);

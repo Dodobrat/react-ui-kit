@@ -53,6 +53,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 				...child,
 				props: {
 					...child.props,
+					pigment,
 					isAccordionChild,
 					scrollIntoViewOnToggle,
 					isCollapsed: collapseState,

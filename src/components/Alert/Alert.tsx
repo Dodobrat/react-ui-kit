@@ -7,7 +7,7 @@ import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import CollapseFade from "../util/animations/CollapseFade";
 import Fade from "../util/animations/Fade";
 import Button from "../Button/Button";
-import { mergeRefs } from "../../helpers/functions";
+import { createRipple, mergeRefs } from "../../helpers/functions";
 import { Close, Completed, Danger, Info, Warning } from "../icons";
 
 const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props, ref) => {
@@ -25,6 +25,8 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		isDismissibleOnClick = true,
 		dismissibleComponent = null,
 		children,
+		withRipple = isDismissibleOnClick,
+		onPointerDown,
 		onKeyDown,
 		...rest
 	} = props;
@@ -69,6 +71,16 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		}
 	};
 
+	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
+		if (withRipple) {
+			createRipple({ e, elem: alertRef, pigment });
+		}
+
+		if (onPointerDown) {
+			onPointerDown(e);
+		}
+	};
+
 	useEffect(() => {
 		setIsVisbleState(isVisible);
 		return removeAlert;
@@ -95,6 +107,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 				role='alert'
 				tabIndex={0}
 				onKeyDown={handleKeyDown}
+				onPointerDown={handleOnPointerDown}
 				{...rest}
 				ref={mergeRefs([alertRef, ref])}>
 				{withIcon && alertIcon(pigment)}

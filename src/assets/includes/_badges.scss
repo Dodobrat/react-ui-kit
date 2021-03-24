@@ -1,12 +1,15 @@
 @mixin badge() {
+	all: unset;
+	position: relative;
+	overflow: hidden;
 	display: inline-block;
 	font-weight: 600;
 	line-height: 1;
 	text-align: center;
 	white-space: nowrap;
-	vertical-align: baseline;
+	vertical-align: bottom;
 	border-radius: $smBorderRadius;
-	user-select: none;
+	@include crossBrowser(user-select, none);
 	&:focus {
 		outline: none;
 	}

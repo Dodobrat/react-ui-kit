@@ -1,4 +1,4 @@
-import { CnCh, ElemType, PigmentOptions, SyntheticKeyboardControls } from "../../helpers/global.types";
+import { CnCh, ElemType, PigmentOptions, RippleEffect, SyntheticKeyboardControls } from "../../helpers/global.types";
 import { LineLoaderProps } from "../LineLoader/LineLoader.types";
 
 type ExtraListGroupSubComponentProps = ElemType & CnCh;
@@ -24,9 +24,10 @@ export interface ListGroupCollapseSubComponentProps extends ListGroupSubComponen
 	nestedCollapseIndent?: boolean;
 }
 
-type ExtraListGroupCollapseToggleSubComponentProps = CnCh & SyntheticKeyboardControls;
+type ExtraListGroupCollapseToggleSubComponentProps = CnCh & SyntheticKeyboardControls & RippleEffect;
 
 export interface ListGroupCollapseToggleSubComponentProps extends ExtraListGroupCollapseToggleSubComponentProps {
+	pigment?: PigmentOptions;
 	isCollapsed?: boolean;
 	onKeyboardToggle?: (isCollapsed: boolean) => void;
 	collapseIndicator?: boolean;

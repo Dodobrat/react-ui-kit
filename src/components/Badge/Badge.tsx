@@ -4,7 +4,7 @@ import cn from "classnames";
 
 import { BadgeProps } from "./Badge.types";
 import { ElevationOptions, PigmentOptions, SizeOptions } from "../../helpers/global";
-import { addElementAttributes, mergeRefs } from "../../helpers/functions";
+import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
 
 const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) => {
 	const {
@@ -16,19 +16,32 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		flat = false,
 		rounded = false,
 		children,
+		onClick,
+		withRipple = !!onClick,
+		onPointerDown,
 		onKeyDown,
 		...rest
 	} = props;
 
 	const badgeRef = useRef(null);
 
-	const handleKeyDown = (e: React.KeyboardEvent) => {
+	const handleKeyDown = (e: any) => {
 		if (onKeyDown) {
 			onKeyDown(e);
 		}
 		if (badgeRef.current === document.activeElement && e.code === "Space") {
 			e.preventDefault();
-			rest["onClick"](e);
+			onClick(e);
+		}
+	};
+
+	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
+		if (withRipple) {
+			createRipple({ e, elem: badgeRef, pigment });
+		}
+
+		if (onPointerDown) {
+			onPointerDown(e);
 		}
 	};
 
@@ -45,7 +58,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 				{
 					"dui__badge--rounded": rounded,
 					"dui__badge--flat": flat,
-					"dui__badge--clickable": rest["onClick"],
+					"dui__badge--clickable": onClick,
 				},
 				{
 					[`dui__badge--${pigment}`]: PigmentOptions.includes(pigment),
@@ -53,8 +66,9 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 				},
 				className
 			)}
-			tabIndex={rest["onClick"] && !rest["disabled"] ? 0 : -1}
+			tabIndex={onClick && !rest["disabled"] ? 0 : -1}
 			onKeyDown={handleKeyDown}
+			onPointerDown={handleOnPointerDown}
 			{...rest}
 			ref={mergeRefs([badgeRef, ref])}>
 			{children}

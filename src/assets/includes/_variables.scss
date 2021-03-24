@@ -44,6 +44,10 @@ $slowTransTime: 0.375s !default;
 $slowTransEase: ease !default;
 $slowTrans: all $slowTransTime $slowTransEase !default;
 
+//Ripple
+$rippleTransTime: 0.5s !default;
+$rippleTransEase: linear !default;
+
 //SIZING
 //--Global Font size
 $fontSize: 16px !default;

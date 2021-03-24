@@ -11,12 +11,12 @@
 	font-weight: 400;
 	color: $mainFont;
 	overflow: hidden;
-	user-select: none;
 	line-height: 1.5;
 	outline: none;
 	text-decoration: none;
 	border: none;
 	vertical-align: middle;
+	@include crossBrowser(user-select, none);
 
 	& > * {
 		font-size: $mdFont;
@@ -99,6 +99,9 @@
 			@include focusVisible($bgColor, $fontColor);
 			.dui__btn--loading__overlay {
 				background-color: rgba($bgColor, 0.1);
+			}
+			.dui__ripple {
+				background-color: rgba($bgColor, 0.5);
 			}
 		}
 	}

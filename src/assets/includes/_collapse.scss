@@ -13,9 +13,10 @@
 		background-color: inherit;
 		display: flex;
 		align-items: center;
-		user-select: none;
 		cursor: pointer;
 		border-radius: $smBorderRadius $smBorderRadius 0 0;
+		@include crossBrowser(user-select, none);
+
 		&__title {
 			flex: 1;
 		}

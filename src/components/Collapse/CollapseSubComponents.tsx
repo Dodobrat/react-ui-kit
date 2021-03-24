@@ -8,7 +8,7 @@ import {
 	CollapseToggleSubComponentProps,
 } from "./CollapseSubComponents.types";
 import LineLoader from "../LineLoader/LineLoader";
-import { mergeRefs } from "../../helpers/functions";
+import { createRipple, mergeRefs } from "../../helpers/functions";
 import { CaretDown } from "../icons";
 
 export const CollapseLoader = forwardRef<HTMLDivElement, CollapseLoaderSubComponentProps>((props, ref) => {
@@ -26,6 +26,7 @@ CollapseLoader.displayName = "CollapseLoader";
 export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubComponentProps>((props, ref) => {
 	const {
 		className,
+		pigment,
 		isAccordionChild,
 		isCollapsed,
 		scrollIntoViewOnToggle,
@@ -34,6 +35,8 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 		children,
 		onKeyDown,
 		onKeyboardToggle,
+		withRipple = true,
+		onPointerDown,
 		...rest
 	} = props;
 
@@ -46,6 +49,16 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 		if (toggleRef.current === document.activeElement && e.code === "Space") {
 			e.preventDefault();
 			onKeyboardToggle(isCollapsed);
+		}
+	};
+
+	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
+		if (withRipple) {
+			createRipple({ e, elem: toggleRef, pigment });
+		}
+
+		if (onPointerDown) {
+			onPointerDown(e);
 		}
 	};
 
@@ -77,6 +90,7 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 			aria-expanded={!isCollapsed}
 			tabIndex={rest["disabled"] ? -1 : 0}
 			onKeyDown={handleKeyDown}
+			onPointerDown={handleOnPointerDown}
 			{...rest}
 			ref={mergeRefs([toggleRef, ref])}>
 			{collapseIndicator ? (

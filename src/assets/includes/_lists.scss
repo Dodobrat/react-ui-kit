@@ -149,8 +149,9 @@
 		background-color: inherit;
 		display: flex;
 		align-items: center;
-		user-select: none;
 		cursor: pointer;
+		@include crossBrowser(user-select, none);
+
 		&__title {
 			flex: 1;
 		}

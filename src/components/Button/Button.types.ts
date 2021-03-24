@@ -1,5 +1,5 @@
 import React from "react";
-import { CnCh, CustomizationProps, ElemType, LoadingProps, PigmentOptions } from "../../helpers/global.types";
+import { CnCh, CustomizationProps, ElemType, LoadingProps, PigmentOptions, RippleEffect } from "../../helpers/global.types";
 
 // Auto-Generated
 type HTMLButtonProps = {
@@ -13,7 +13,7 @@ type HTMLAnchorProps = {
 	href?: string;
 };
 
-type ExtraButtonProps = ElemType & HTMLButtonProps & HTMLAnchorProps & CustomizationProps & CnCh & LoadingProps;
+type ExtraButtonProps = ElemType & RippleEffect & HTMLButtonProps & HTMLAnchorProps & CustomizationProps & CnCh & LoadingProps;
 
 export interface ButtonProps extends ExtraButtonProps {
 	type?: "button" | "submit" | "reset";

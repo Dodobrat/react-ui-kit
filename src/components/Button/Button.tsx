@@ -1,11 +1,11 @@
 // Auto-Generated
-import React from "react";
+import React, { useRef } from "react";
 import cn from "classnames";
 
 import { ButtonProps } from "./Button.types";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 import { ElevationOptions, PigmentOptions, SizeOptions } from "../../helpers/global";
-import { addElementAttributes } from "../../helpers/functions";
+import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
 
 const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
 	const {
@@ -30,9 +30,23 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		disableWhileLoading = true,
 		isLoading = false,
 		loadingComponent = <SpinnerLoader size={size} pigment={pigment} pigmentColor={pigmentColor} btnLoader />,
+		withRipple = true,
+		onPointerDown,
 		children,
 		...rest
 	} = props;
+
+	const btnRef = useRef(null);
+
+	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
+		if (withRipple) {
+			createRipple({ e, elem: btnRef, pigment });
+		}
+
+		if (onPointerDown) {
+			onPointerDown(e);
+		}
+	};
 
 	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
@@ -42,7 +56,6 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 			tabIndex={rest["disabled"] ? -1 : 0}
 			className={cn(
 				"dui__btn",
-
 				{
 					"dui__btn--icon-start": iconStart,
 					"dui__btn--icon-end": iconEnd,
@@ -68,8 +81,9 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 				},
 				className
 			)}
+			onPointerDown={handleOnPointerDown}
 			{...rest}
-			ref={ref}>
+			ref={mergeRefs([btnRef, ref])}>
 			{iconStart && iconStart}
 			{children}
 			{iconEnd && iconEnd}

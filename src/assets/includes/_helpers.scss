@@ -225,6 +225,36 @@ $axes: (
 	overflow: hidden;
 }
 
+@mixin ripplePigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+		&.dui__ripple--#{$name} {
+			background-color: rgba($fontColor, 0.5);
+		}
+	}
+}
+
+.dui__ripple {
+	position: absolute;
+	pointer-events: none;
+	border-radius: 50%;
+	transform: scale(0);
+	animation: ripple $rippleTransTime $rippleTransEase;
+	background-color: rgba($subFont, 0.2);
+	@include crossBrowser(user-select, none);
+	@include ripplePigmentOptions();
+}
+
+@keyframes ripple {
+	to {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+
 .dui__icon {
 	height: 1.15em;
 	width: 1.15em;

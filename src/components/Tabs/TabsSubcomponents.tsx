@@ -4,14 +4,32 @@ import cn from "classnames";
 import { TabsItemsSubComponentProps, TabsPanelSubComponentProps, TabContentSubComponentProps } from "./TabsSubcomponents.types";
 import DragScroll from "../util/DragScroll/DragScroll";
 import { useWindowResize } from "../../hooks/useWindowResize";
+import { createRipple } from "../../helpers/functions";
 
 export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>((props, ref) => {
-	const { className, activeOption, orientation, options = [], children, onKeyDown, innerRef, ...rest } = props;
+	const {
+		className,
+		pigment,
+		withRipple,
+		onPointerDown,
+		activeOption,
+		orientation,
+		options = [],
+		children,
+		onKeyDown,
+		innerRef,
+		...rest
+	} = props;
 
 	const { width } = useWindowResize(500);
 
 	const tabIndicatorRef = useRef(null);
 	const tabListRef = useRef(null);
+	const itemsRef = useRef([]);
+
+	useEffect(() => {
+		itemsRef.current = itemsRef.current.slice(0, options.length);
+	}, [options]);
 
 	useEffect(() => {
 		const indicator = tabIndicatorRef.current;
@@ -23,7 +41,7 @@ export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>(
 
 				if (orientation === "horizontal") {
 					const left = tab.offsetLeft;
-					tab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+					tab.scrollIntoView({ block: "nearest", inline: "center" });
 					indicator.style.top = "unset";
 					indicator.style.height = "0.125rem";
 					indicator.style.left = `${left}px`;
@@ -42,6 +60,16 @@ export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>(
 		}
 	}, [activeOption, width, orientation]);
 
+	const handleOnPointerDown: (e: React.PointerEvent, idx: number) => void = (e, idx) => {
+		if (withRipple) {
+			createRipple({ e, elem: itemsRef.current[idx], pigment });
+		}
+
+		if (onPointerDown) {
+			onPointerDown(e);
+		}
+	};
+
 	return (
 		<DragScroll vertical={orientation === "vertical"} horizontal={orientation === "horizontal"} innerRef={innerRef} ref={ref}>
 			<div role='tablist' aria-orientation={orientation} className={cn("dui__tabs__items", className)} {...rest} ref={tabListRef}>
@@ -51,12 +79,15 @@ export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>(
 					return (
 						<div
 							key={idx}
+							className='dui__tabs__items__item'
 							data-tabindex={idx}
 							role='tab'
 							aria-disabled={disabled}
 							aria-selected={isSelected}
 							tabIndex={!disabled ? 0 : -1}
 							onKeyDown={onKeyDown}
+							onPointerDown={(e) => handleOnPointerDown(e, idx)}
+							ref={(el) => (itemsRef.current[idx] = el)}
 							{...componentProps}>
 							{component}
 						</div>

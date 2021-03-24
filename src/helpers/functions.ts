@@ -156,4 +156,35 @@ export const generateInputWrapperClasses: (props: any) => string = (props) => {
 	);
 };
 
+export const createRipple = ({ e, elem, pigment = null }) => {
+	const element = elem.current ?? elem;
+
+	if (element) {
+		const rect = element.getBoundingClientRect();
+
+		const circle = document.createElement("div");
+		const diameter = Math.max(element.clientWidth, element.clientHeight);
+		const radius = diameter / 2;
+		const x = e.clientX - rect.left - radius;
+		const y = e.clientY - rect.top - radius;
+
+		element.style.overflow = "hidden";
+		circle.style.width = circle.style.height = `${diameter}px`;
+		circle.style.left = `${x}px`;
+		circle.style.top = `${y}px`;
+		circle.classList.add("dui__ripple");
+		if (pigment) {
+			circle.classList.add(`dui__ripple--${pigment}`);
+		}
+
+		const ripple = element.getElementsByClassName("dui__ripple")[0];
+
+		if (ripple) {
+			ripple.remove();
+		}
+
+		element.appendChild(circle);
+	}
+};
+
 export const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
