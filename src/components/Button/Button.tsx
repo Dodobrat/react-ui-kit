@@ -1,36 +1,41 @@
 // Auto-Generated
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import cn from "classnames";
 
 import { ButtonProps } from "./Button.types";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 import { ElevationOptions, PigmentOptions, SizeOptions } from "../../helpers/global";
 import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
 	const {
 		className,
 		type = "button",
 		as = "button",
-		elevation = "none",
+		elevation = config.btnElevation ?? "none",
 		iconStart = null,
 		iconEnd = null,
 		leftAlignContent = false,
 		unWrapText = false,
-		pigment = "primary",
-		pigmentColor = null,
-		keyboardOnlyFocusRing = true,
-		spongy = true,
-		size = "md",
-		rounded = false,
+		pigment = config.pigment ?? "primary",
+		pigmentColor = config.pigmentColor ?? null,
+		keyboardOnlyFocusRing = config.btnKeyboardOnlyFocusRing ?? true,
+		spongy = config.btnSpongy ?? true,
+		size = config.size ?? "md",
+		rounded = config.rounded ?? false,
 		round = false,
-		flat = false,
+		flat = config.flat ?? false,
 		wide = false,
 		active = false,
 		disableWhileLoading = true,
 		isLoading = false,
 		loadingComponent = <SpinnerLoader size={size} pigment={pigment} pigmentColor={pigmentColor} btnLoader />,
-		withRipple = true,
+		withRipple = config.withRipple ?? true,
 		onPointerDown,
 		children,
 		...rest

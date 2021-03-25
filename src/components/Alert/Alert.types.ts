@@ -2,9 +2,11 @@ import { CnCh, CustomizationProps, RippleEffect, SyntheticKeyboardControls } fro
 
 type ExtraAlertProps = CustomizationProps & CnCh & SyntheticKeyboardControls & RippleEffect;
 
+export type AlertAnimation = "collapse-n-fade" | "fade" | null;
+
 // Auto-Generated
 export interface AlertProps extends ExtraAlertProps {
-	animation?: "collapse-n-fade" | "fade" | null;
+	animation?: AlertAnimation;
 	isVisible?: boolean;
 	withIcon?: boolean;
 	iconComponent?: React.ReactNode;

@@ -1,11 +1,12 @@
 // Auto-Generated
-import React, { forwardRef } from "react";
+import React, { forwardRef, useContext } from "react";
 import cn from "classnames";
 
 import { BreadcrumbsProps } from "./Breadcrumbs.types";
 import { BreadcrumbsSubComponentProps } from "./BreadcrumbsSubcomponents.types";
 import { BreadcrumbItem } from "./BreadcrumbsSubcomponents";
 import { ElevationOptions, PigmentOptions } from "../../helpers/global";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 interface BreadcrumbComponent extends React.ForwardRefExoticComponent<BreadcrumbsProps & React.RefAttributes<HTMLOListElement>> {
 	Item: React.ForwardRefExoticComponent<BreadcrumbsSubComponentProps & React.RefAttributes<HTMLLIElement>>;
@@ -13,13 +14,17 @@ interface BreadcrumbComponent extends React.ForwardRefExoticComponent<Breadcrumb
 
 const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
-		contained = false,
-		flat = false,
-		rounded = false,
-		elevation = "none",
-		pigment = null,
-		separator = "/",
+		contained = config.breadcrumbsContained ?? false,
+		flat = config.flat ?? false,
+		rounded = config.rounded ?? false,
+		elevation = config.breadcrumbsElevation ?? "none",
+		pigment = config.breadcrumbsPigment ?? null,
+		separator = config.breadcrumbsSeparator ?? "/",
 		children,
 		...rest
 	} = props;

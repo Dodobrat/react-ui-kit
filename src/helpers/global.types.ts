@@ -1,32 +1,33 @@
 import React from "react";
 
+//Customization Types
 export type PigmentOptions = "primary" | "secondary" | "success" | "warning" | "info" | "danger";
 export type ElevationOptions = "none" | "subtle" | "light" | "medium" | "strong" | "interstellar";
 export type SizeOptions = "xs" | "sm" | "md" | "lg" | "xl";
 export type AllSizeOptions = "xs" | "sm" | "md" | "lg" | "xl" | "fhd";
+//Flex
 export type FlexAlign = "stretch" | "flex-start" | "flex-end" | "center" | "baseline";
 export type FlexJustify = "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly";
 export type FlexDirection = "row" | "row-reverse" | "column" | "column-reverse";
 export type FlexWrap = "nowrap" | "wrap" | "wrap-reverse";
+//Other
+export type Directions = "top" | "bottom" | "left" | "right";
+export type HorizontalAlign = "left" | "center" | "right";
+export type ProgressLabelValue = "%" | "count" | "count + %";
+type EssentialInputPropsExtensions = CustomizationProps & CnCh;
 
+//Render As
+export interface ElemType {
+	as?: React.ElementType;
+}
+
+// General
 export interface CnCh {
 	className?: string;
 	children?: React.ReactNode;
 }
 
-export interface ElemType {
-	as?: React.ElementType;
-}
-
-export interface RippleEffect {
-	withRipple?: boolean;
-	onPointerDown?: React.PointerEventHandler;
-}
-
-export interface SyntheticKeyboardControls {
-	onKeyDown?: React.KeyboardEventHandler<unknown>;
-}
-
+//Customization Interfaces
 export interface EssentialCustomizationProps {
 	pigment?: PigmentOptions;
 	elevation?: ElevationOptions;
@@ -37,8 +38,11 @@ export interface CustomizationProps extends EssentialCustomizationProps {
 	size?: SizeOptions;
 	rounded?: boolean;
 }
+export interface RippleEffect {
+	withRipple?: boolean;
+	onPointerDown?: React.PointerEventHandler;
+}
 
-type EssentialInputPropsExtensions = CustomizationProps & CnCh;
 export interface EssentialInputProps extends EssentialInputPropsExtensions {
 	seamless?: boolean;
 	scrollOnFocus?: boolean;
@@ -53,13 +57,19 @@ export interface LoadingProps extends EssentialLoadingProps {
 	loadingComponent?: boolean | JSX.Element | React.ReactNode;
 }
 
+//Accessability
+export interface SyntheticKeyboardControls {
+	onKeyDown?: React.KeyboardEventHandler<unknown>;
+}
+
+//Component specific duplicates
 export interface Progress {
 	className?: string;
 	min?: number;
 	max?: number;
 	value?: number;
 	labeled?: boolean;
-	labelValue?: "%" | "count" | "count + %";
+	labelValue?: ProgressLabelValue;
 	labelAlwaysVisible?: boolean;
 	decimals?: number;
 	flat?: boolean;

@@ -1,5 +1,7 @@
 import cn from "classnames";
+import React from "react";
 import { ElevationOptions, PigmentOptions, SizeOptions } from "./global";
+import { PigmentOptions as PigmentOptionTypes } from "./global.types";
 
 export const parseValueToPercent: (min: number, max: number, value: number, decimals?: number) => number | string = (
 	min,
@@ -156,7 +158,15 @@ export const generateInputWrapperClasses: (props: any) => string = (props) => {
 	);
 };
 
-export const createRipple = ({ e, elem, pigment = null }) => {
+export const createRipple: ({
+	e,
+	elem,
+	pigment,
+}: {
+	e: React.PointerEvent;
+	elem: HTMLElement | React.MutableRefObject<any> | any;
+	pigment?: PigmentOptionTypes;
+}) => void = ({ e, elem, pigment = null }) => {
 	const element = elem.current ?? elem;
 
 	if (element) {

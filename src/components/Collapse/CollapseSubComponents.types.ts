@@ -16,7 +16,8 @@ export interface CollapseToggleSubComponentProps extends ExtraCollapseToggleSubC
 	onKeyboardToggle?: (isCollapsed: boolean) => void;
 }
 
+export type CollapseAnimation = "collapse-n-fade" | "collapse" | null;
 export interface CollapseContentSubComponentProps extends CnCh {
 	isCollapsed?: boolean;
-	animation?: "collapse-n-fade" | "collapse" | null;
+	animation?: CollapseAnimation;
 }

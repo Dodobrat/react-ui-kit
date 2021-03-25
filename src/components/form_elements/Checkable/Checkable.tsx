@@ -1,12 +1,17 @@
 // Auto-Generated
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { CheckableComponentProps, CheckableProps } from "./Checkable.types";
 import { generateInputClasses, generateInputWrapperClasses, mergeRefs } from "../../../helpers/functions";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
+import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
 
 const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> = (props, ref) => {
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
 	const {
 		className,
 		inputClassName,
@@ -14,11 +19,11 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 		typeClass = "checkbox",
 		name = Math.random().toString(36).substr(2, 10),
 		id = name,
-		size = "md",
-		rounded = false,
-		flat = false,
+		size = config.size ?? "md",
+		rounded = config.rounded ?? false,
+		flat = config.flat ?? false,
 		seamless = false,
-		pigment = "primary",
+		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		scrollOnFocus = false,
 		disableWhileLoading = true,
@@ -123,16 +128,20 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 
 export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableComponentProps>((props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
 		type,
 		typeClass,
 		name,
 		id = name,
 		checked,
-		size = "md",
-		rounded = false,
-		flat = false,
-		pigment = "primary",
+		size = config.size ?? "md",
+		rounded = config.rounded ?? false,
+		flat = config.flat ?? false,
+		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		seamless = true,
 		onFocus,

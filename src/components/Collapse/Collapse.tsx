@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { CollapseProps } from "./Collapse.types";
@@ -12,6 +12,7 @@ import {
 import { CollapseContent, CollapseLoader, CollapseToggle } from "./CollapseSubComponents";
 import { CnCh } from "../../helpers/global.types";
 import { mergeRefs } from "../../helpers/functions";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CollapseLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Toggle: React.ForwardRefExoticComponent<CollapseToggleSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -20,16 +21,20 @@ interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React
 
 const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
 		onToggle,
 		isCollapsed = true,
 		pigment = null,
-		flat = false,
-		elevation = "subtle",
+		flat = config.flat ?? false,
+		elevation = config.elevation ?? "subtle",
 		allowOverflow = true,
 		disableWhileLoading = true,
 		isLoading = false,
-		scrollIntoViewOnToggle = false,
+		scrollIntoViewOnToggle = config.collapseScrollIntoViewOnToggle ?? false,
 		children,
 		...rest
 	} = props;

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import cn from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useKeyPress } from "../../hooks/useKeyPress";
@@ -10,20 +10,25 @@ import { disableScrollAndScrollBar } from "../../helpers/functions";
 
 import { PortalProps } from "./Portal.types";
 import { useEventListener } from "../../hooks/useEventListener";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (props, ref) => {
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
 	const {
 		className,
 		innerClassName,
 		onClose,
 		withFocusLock = false,
-		keyboard = true,
+		keyboard = config.portalKeyboard ?? true,
 		backdrop = true,
-		size = "md",
-		safeZoneSize = "md",
-		verticalAlign = "center",
-		animation = "default",
-		bodyScrollDisable = true,
+		size = config.size ?? "md",
+		safeZoneSize = config.portalSafeZoneSize ?? "md",
+		verticalAlign = config.portalVerticalAlign ?? "center",
+		animation = config.portalAnimation ?? "default",
+		bodyScrollDisable = config.portalBodyScrollDisable ?? true,
 		isOpen = false,
 		children,
 		...rest

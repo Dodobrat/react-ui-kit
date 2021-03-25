@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef } from "react";
+import React, { forwardRef, useContext, useEffect, useRef } from "react";
 import cn from "classnames";
 import CollapseFade from "../util/animations/CollapseFade";
 import CollapseShow from "../util/animations/CollapseShow";
@@ -10,6 +10,7 @@ import {
 import LineLoader from "../LineLoader/LineLoader";
 import { createRipple, mergeRefs } from "../../helpers/functions";
 import { CaretDown } from "../icons";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 export const CollapseLoader = forwardRef<HTMLDivElement, CollapseLoaderSubComponentProps>((props, ref) => {
 	const { className, pigment, children, ...rest } = props;
@@ -25,17 +26,21 @@ CollapseLoader.displayName = "CollapseLoader";
 
 export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubComponentProps>((props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
 		pigment,
 		isAccordionChild,
 		isCollapsed,
 		scrollIntoViewOnToggle,
-		collapseIndicator = true,
-		collapseIndicatorComponent,
+		collapseIndicator = config.collapseIndicator ?? true,
+		collapseIndicatorComponent = config.collapseIndicatorComponent ?? null,
 		children,
 		onKeyDown,
 		onKeyboardToggle,
-		withRipple = true,
+		withRipple = config.withRipple ?? true,
 		onPointerDown,
 		...rest
 	} = props;

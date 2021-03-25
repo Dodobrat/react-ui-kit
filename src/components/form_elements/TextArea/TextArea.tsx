@@ -1,23 +1,28 @@
 // Auto-Generated
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { TextAreaProps, TextAreaComponentProps } from "./TextArea.types";
 import { generateInputClasses, generateInputWrapperClasses, mergeRefs } from "../../../helpers/functions";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { CloseOutlined } from "../../icons";
+import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
 
 const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = (props, ref) => {
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
 	const {
 		className,
 		inputClassName,
 		name,
 		id = name,
-		size = "md",
-		rounded = false,
-		flat = false,
+		size = config.size ?? "md",
+		rounded = config.rounded ?? false,
+		flat = config.flat ?? false,
 		seamless = false,
-		pigment = "primary",
+		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
@@ -181,14 +186,18 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 
 export const TextAreaComponent = React.forwardRef<HTMLTextAreaElement, TextAreaComponentProps>((props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
 		name,
 		id = name,
 		value,
-		size = "md",
-		rounded = false,
-		flat = false,
-		pigment = "primary",
+		size = config.size ?? "md",
+		rounded = config.rounded ?? false,
+		flat = config.flat ?? false,
+		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		seamless = false,
 		onChange,

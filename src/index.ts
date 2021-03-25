@@ -72,3 +72,5 @@ export { useStateHistory } from "./hooks/useStateHistory";
 export { useWindowResize } from "./hooks/useWindowResize";
 
 //Context
+export { GlobalContext } from "./context/GlobalContext/GlobalContext";
+export { default as GlobalContextProvider } from "./context/GlobalContext/GlobalContext";

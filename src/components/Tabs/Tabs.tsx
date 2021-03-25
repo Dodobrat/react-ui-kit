@@ -1,11 +1,12 @@
 // Auto-Generated
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useContext, useEffect, useState } from "react";
 import cn from "classnames";
 
 import { TabsProps } from "./Tabs.types";
 import { TabContent, TabsItems, TabsPanel } from "./TabsSubcomponents";
 import { TabItemType, TabPanelType, TabsPanelSubComponentProps } from "./TabsSubcomponents.types";
 import { ElevationOptions, PigmentOptions } from "../../helpers/global";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 interface TabsComponent extends React.ForwardRefExoticComponent<TabsProps & React.RefAttributes<HTMLDivElement>> {
 	Panel: React.ForwardRefExoticComponent<TabsPanelSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -13,17 +14,21 @@ interface TabsComponent extends React.ForwardRefExoticComponent<TabsProps & Reac
 
 const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
-		elevation = "subtle",
+		elevation = config.elevation ?? "subtle",
 		pigment = null,
-		flat = false,
+		flat = config.flat ?? false,
 		allowOverflow = true,
 		disableWhileLoading = true,
 		isLoading = false,
 		activeTab = 0,
 		onTabSelect,
 		orientation = "horizontal",
-		withRipple = true,
+		withRipple = config.withRipple ?? true,
 		onTabPointerDown,
 		children,
 		...rest

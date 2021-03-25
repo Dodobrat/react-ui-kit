@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { forwardRef } from "react";
+import React, { forwardRef, useContext } from "react";
 import cn from "classnames";
 
 import { ListGroupProps } from "./ListGroup.types";
@@ -12,6 +12,7 @@ import {
 import { ListGroupCollapse, ListGroupHeader, ListGroupItem, ListGroupLoader } from "./ListGroupSubcomponents";
 import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import { addElementAttributes, addElementAttributesInObj } from "../../helpers/functions";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 interface ListGroupComponent extends React.ForwardRefExoticComponent<ListGroupProps & React.RefAttributes<unknown>> {
 	Loader: React.ForwardRefExoticComponent<ListGroupLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -34,10 +35,14 @@ const isSubComponentOfListGroup: (child: JSX.Element) => boolean = (child) => {
 
 const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
-		elevation = "subtle",
+		elevation = config.elevation ?? "subtle",
 		pigment = null,
-		flat = false,
+		flat = config.flat ?? false,
 		allowOverflow = true,
 		disableWhileLoading = true,
 		isLoading = false,

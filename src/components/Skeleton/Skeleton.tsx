@@ -1,12 +1,24 @@
 // Auto-Generated
-import React from "react";
+import React, { useContext } from "react";
 import cn from "classnames";
 
 import { SkeletonProps } from "./Skeleton.types";
 import { PigmentOptions } from "../../helpers/global";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 const Skeleton: React.ForwardRefRenderFunction<HTMLDivElement, SkeletonProps> = (props, ref) => {
-	const { className, pigment = null, rounded = false, flat = false, children, ...rest } = props;
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
+		className,
+		pigment = config.skeletonPigment ?? null,
+		rounded = config.rounded ?? false,
+		flat = config.flat ?? false,
+		children,
+		...rest
+	} = props;
 
 	return (
 		<div

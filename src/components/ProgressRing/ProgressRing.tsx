@@ -1,12 +1,17 @@
 // Auto-Generated
-import React from "react";
+import React, { useContext } from "react";
 import cn from "classnames";
 
 import { ProgressRingProps } from "./ProgressRing.types";
 import { PigmentOptions } from "../../helpers/global";
 import { parseValueToPercent } from "../../helpers/functions";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingProps> = (props, ref) => {
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
 	const {
 		className,
 		size = 60,
@@ -14,14 +19,14 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 		min = 0,
 		max = 100,
 		value = 0,
-		labeled = false,
-		labelValue = "%",
+		labeled = config.progressRingLabeled ?? false,
+		labelValue = config.progressRingLabeleValue ?? "%",
 		labelAlwaysVisible = true,
 		decimals = 0,
-		flat = false,
-		pigment = "primary",
+		flat = config.flat ?? false,
+		pigment = config.pigment ?? "primary",
 		withTrack = true,
-		counterClockWise = false,
+		counterClockWise = config.progressRingCounterClockWise ?? false,
 		...rest
 	} = props;
 

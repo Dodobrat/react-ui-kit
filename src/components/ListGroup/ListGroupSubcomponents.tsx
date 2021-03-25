@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import {
 	ListGroupCollapseSubComponentProps,
@@ -14,6 +14,7 @@ import LineLoader from "../LineLoader/LineLoader";
 import CollapseFade from "../util/animations/CollapseFade";
 import CollapseShow from "../util/animations/CollapseShow";
 import { CaretDown } from "../icons";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 export const ListGroupLoader = forwardRef<HTMLDivElement, ListGroupLoaderSubComponentProps>((props, ref) => {
 	const { className, pigment, children, ...rest } = props;
@@ -80,14 +81,18 @@ ListGroupItem.displayName = "ListGroupItem";
 
 export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupCollapseToggleSubComponentProps>((props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
 		pigment,
-		collapseIndicator = true,
+		collapseIndicator = config.listGroupCollapseIndicator ?? true,
+		collapseIndicatorComponent = config.listGroupCollapseIndicatorComponent ?? null,
 		isCollapsed,
 		onKeyboardToggle,
-		collapseIndicatorComponent,
 		onKeyDown,
-		withRipple = true,
+		withRipple = config.withRipple ?? true,
 		onPointerDown,
 		children,
 		...rest
@@ -150,7 +155,11 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 ListGroupCollapseToggle.displayName = "ListGroupCollapseToggle";
 
 export const ListGroupCollapseContent = forwardRef<HTMLDivElement, ListGroupCollapseContentSubComponentProps>((props, ref) => {
-	const { className, isCollapsed, animation = "collapse", children, ...rest } = props;
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const { className, isCollapsed, animation = (config.listGroupAnimation = "collapse"), children, ...rest } = props;
 
 	const CollapseContent = () => {
 		return (
@@ -189,7 +198,20 @@ interface ListGroupCollapseComponent
 }
 
 export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubComponentProps>((props, ref) => {
-	const { className, as = "div", onToggle, isCollapsed = true, nestedCollapseIndent = true, pigment, children, ...rest } = props;
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
+		className,
+		as = "div",
+		onToggle,
+		isCollapsed = true,
+		nestedCollapseIndent = config.listGroupNestedCollapseIndent ?? true,
+		pigment,
+		children,
+		...rest
+	} = props;
 
 	const [collapseState, setCollapseState] = useState<boolean>(isCollapsed);
 

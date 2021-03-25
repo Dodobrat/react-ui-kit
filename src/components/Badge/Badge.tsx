@@ -1,23 +1,28 @@
 // Auto-Generated
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import cn from "classnames";
 
 import { BadgeProps } from "./Badge.types";
 import { ElevationOptions, PigmentOptions, SizeOptions } from "../../helpers/global";
 import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
 		as = "span",
-		elevation = "none",
-		pigment = "primary",
-		size = "md",
-		flat = false,
-		rounded = false,
+		elevation = config.badgeElevation ?? "none",
+		pigment = config.pigment ?? "primary",
+		size = config.size ?? "md",
+		flat = config.flat ?? false,
+		rounded = config.rounded ?? false,
 		children,
 		onClick,
-		withRipple = !!onClick,
+		withRipple = config.withRipple ?? !!onClick,
 		onPointerDown,
 		onKeyDown,
 		...rest

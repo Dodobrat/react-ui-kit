@@ -1,26 +1,31 @@
 // Auto-Generated
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { ProgressBarProps } from "./ProgressBar.types";
 import { PigmentOptions } from "../../helpers/global";
 import { useWindowResize } from "../../hooks/useWindowResize";
 import { parseValueToPercent } from "../../helpers/functions";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarProps> = (props, ref) => {
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
 	const {
 		className,
 		min = 0,
 		max = 100,
 		value = 0,
-		labeled = false,
-		labelValue = "%",
-		labelPosition = "top",
+		labeled = config.progressBarLabeled ?? false,
+		labelValue = config.progressBarLabelValue ?? "%",
+		labelPosition = config.progressBarLabelPosition ?? "top",
 		labelAlwaysVisible = false,
 		decimals = 0,
-		rounded = false,
-		flat = false,
-		pigment = "primary",
+		rounded = config.rounded ?? false,
+		flat = config.flat ?? false,
+		pigment = config.pigment ?? "primary",
 		withTrack = true,
 		...rest
 	} = props;

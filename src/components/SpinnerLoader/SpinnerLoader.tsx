@@ -1,12 +1,24 @@
 // Auto-Generated
-import React from "react";
+import React, { useContext } from "react";
 import cn from "classnames";
 
 import { SpinnerLoaderProps } from "./SpinnerLoader.types";
 import { PigmentOptions, SizeOptions } from "../../helpers/global";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 const SpinnerLoader: React.ForwardRefRenderFunction<HTMLDivElement, SpinnerLoaderProps> = (props, ref) => {
-	const { size = "md", btnLoader = false, inputLoader = false, pigment = "primary", pigmentColor, ...rest } = props;
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
+		size = config.size ?? "md",
+		btnLoader = false,
+		inputLoader = false,
+		pigment = config.pigment ?? "primary",
+		pigmentColor = config.pigmentColor ?? null,
+		...rest
+	} = props;
 
 	return (
 		<div

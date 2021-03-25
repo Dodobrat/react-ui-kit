@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { forwardRef } from "react";
+import React, { forwardRef, useContext } from "react";
 import cn from "classnames";
 
 import { CardProps } from "./Card.types";
@@ -7,6 +7,7 @@ import { CardBody, CardFooter, CardHeader, CardImage, CardLoader } from "./CardS
 import { CardHeaderSubComponentProps, CardImageSubComponentProps, CardLoaderSubComponentProps } from "./CardSubcomponents.types";
 import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import { CnCh } from "../../helpers/global.types";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 interface CardComponent extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CardLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -18,10 +19,14 @@ interface CardComponent extends React.ForwardRefExoticComponent<CardProps & Reac
 
 const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 	const {
-		imgPosition = "top",
-		elevation = "subtle",
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
+		imgPosition = config.cardImgPosition ?? "top",
+		elevation = config.elevation ?? "subtle",
 		pigment = null,
-		flat = false,
+		flat = config.flat ?? false,
 		allowOverflow = true,
 		disableWhileLoading = true,
 		isLoading = false,

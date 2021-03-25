@@ -1,12 +1,17 @@
 // Auto-Generated
-import React from "react";
+import React, { useContext } from "react";
 import cn from "classnames";
 
 import { HeadingProps } from "./Heading.types";
 import { addElementAttributes } from "../../../helpers/functions";
+import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
 
 const Heading: React.ForwardRefRenderFunction<HTMLDivElement, HeadingProps> = (props, ref) => {
-	const { className, as = "h1", centered = false, children, ...rest } = props;
+	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const { className, as = config.headingAs ?? "h1", centered = false, children, ...rest } = props;
 
 	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 

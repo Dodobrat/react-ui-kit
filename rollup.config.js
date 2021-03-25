@@ -1,6 +1,8 @@
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import { terser } from "rollup-plugin-terser";
+import visualizer from "rollup-plugin-visualizer";
 import scss from "rollup-plugin-scss";
 import copy from "rollup-plugin-copy";
 import typescript from "rollup-plugin-typescript2";
@@ -24,6 +26,10 @@ export default {
 		},
 	],
 	plugins: [
+		terser(),
+		visualizer({
+			gzipSize: true,
+		}),
 		peerDepsExternal(),
 		resolve(),
 		commonjs(),

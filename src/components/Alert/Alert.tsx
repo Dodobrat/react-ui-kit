@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { AlertProps } from "./Alert.types";
@@ -9,23 +9,28 @@ import Fade from "../util/animations/Fade";
 import Button from "../Button/Button";
 import { createRipple, mergeRefs } from "../../helpers/functions";
 import { Close, Completed, Danger, Info, Warning } from "../icons";
+import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
 
 const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props, ref) => {
 	const {
+		appConfig: { config },
+	} = useContext(GlobalContext);
+
+	const {
 		className,
-		elevation = "none",
-		pigment = "danger",
-		rounded = false,
-		flat = false,
-		animation = "collapse-n-fade",
+		elevation = config.alertElevation ?? "none",
+		pigment = config.alertPigment ?? "danger",
+		rounded = config.rounded ?? false,
+		flat = config.flat ?? false,
+		animation = config.alertAnimation ?? "collapse-n-fade",
 		isVisible = true,
-		withIcon = true,
+		withIcon = config.alertWithIcon ?? true,
 		iconComponent,
-		isDismissible = false,
-		isDismissibleOnClick = true,
-		dismissibleComponent = null,
+		isDismissible = config.alertIsDismissible ?? false,
+		isDismissibleOnClick = config.alertIsDismissibleOnClick ?? true,
+		dismissibleComponent = config.alertDismissibleComponent ?? null,
 		children,
-		withRipple = isDismissibleOnClick,
+		withRipple = config.withRipple ?? isDismissibleOnClick,
 		onPointerDown,
 		onKeyDown,
 		...rest
