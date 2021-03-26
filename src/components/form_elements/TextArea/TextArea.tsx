@@ -3,10 +3,16 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { TextAreaProps, TextAreaComponentProps } from "./TextArea.types";
-import { generateInputClasses, generateInputWrapperClasses, mergeRefs } from "../../../helpers/functions";
+import { mergeRefs } from "../../../helpers/functions";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { CloseOutlined } from "../../icons";
 import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
+import {
+	generateCustomizationClasses,
+	generateDisabledClasses,
+	generateLoadingClasses,
+	generateSeamlessClasses,
+} from "../../../helpers/classnameGenerator";
 
 const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = (props, ref) => {
 	const {
@@ -59,6 +65,8 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 		disableWhileLoading,
 		disabled,
 	};
+
+	const wrapperClassBase = "dui__input__wrapper";
 
 	const textAreaRef = useRef(null);
 
@@ -131,11 +139,15 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 	return (
 		<div
 			className={cn(
-				"dui__input__wrapper--textarea",
+				wrapperClassBase,
+				`${wrapperClassBase}--textarea`,
 				{
-					"dui__input__wrapper--focused": isFocused,
+					[`${wrapperClassBase}--focused`]: isFocused,
 				},
-				generateInputWrapperClasses(wrapperClassDefaults),
+				generateCustomizationClasses(wrapperClassBase, wrapperClassDefaults),
+				generateLoadingClasses(wrapperClassBase, wrapperClassDefaults),
+				generateDisabledClasses(wrapperClassBase, wrapperClassDefaults),
+				generateSeamlessClasses(wrapperClassBase, wrapperClassDefaults),
 				className
 			)}
 			tabIndex={-1}
@@ -163,10 +175,12 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 				{...rest}
 				ref={mergeRefs([textAreaRef, innerRef])}
 			/>
-			<div className='dui__input__wrapper__attachment__container'>
-				{isLoading && <div className='dui__input__wrapper__attachment dui__input__wrapper__loader'>{loadingComponent}</div>}
+			<div className={cn(`${wrapperClassBase}__attachment__container`)}>
+				{isLoading && (
+					<div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__loader`)}>{loadingComponent}</div>
+				)}
 				{isClearable && (inputValue?.length > 0 || showClearIndicator) && (
-					<div className='dui__input__wrapper__attachment dui__input__wrapper__clear' onClick={resetInput}>
+					<div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__clear`)} onClick={resetInput}>
 						{clearableComponent ?? (
 							<>
 								<span>{clearableComponentLabel}</span> <CloseOutlined className='dui__icon' />
@@ -175,7 +189,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 					</div>
 				)}
 				{withCharacterCount && showCharacterCount && (
-					<div className='dui__input__wrapper__attachment dui__input__wrapper__characters'>
+					<div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__characters`)}>
 						{charactersComponent(inputValue?.length ?? textAreaRef.current?.value?.length, Number(rest["maxLength"]))}
 					</div>
 				)}
@@ -217,6 +231,8 @@ export const TextAreaComponent = React.forwardRef<HTMLTextAreaElement, TextAreaC
 		seamless,
 	};
 
+	const classBase = "dui__input";
+
 	const textAreaComponentRef = useRef(null);
 
 	const handleOnChange = (e: any) => {
@@ -238,7 +254,13 @@ export const TextAreaComponent = React.forwardRef<HTMLTextAreaElement, TextAreaC
 		<textarea
 			name={name}
 			id={id}
-			className={cn("dui__input__textarea", generateInputClasses(classDefaults), className)}
+			className={cn(
+				classBase,
+				`${classBase}__textarea`,
+				generateCustomizationClasses(classBase, classDefaults),
+				generateSeamlessClasses(classBase, classDefaults),
+				className
+			)}
 			value={value}
 			onChange={handleOnChange}
 			onFocus={handleOnFocus}

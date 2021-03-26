@@ -22,6 +22,8 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) =>
 		...rest
 	} = props;
 
+	const btnGroupClassBase = "dui__btn-group";
+
 	return (
 		<div
 			data-testid='ButtonGroup'
@@ -29,12 +31,12 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) =>
 			aria-label={"button group"}
 			tabIndex={-1}
 			className={cn(
-				"dui__btn-group",
+				btnGroupClassBase,
 				{
-					"dui__btn-group--rounded": rounded,
-					"dui__btn-group--flat": flat,
-					"dui__btn-group--wide": wide,
-					"dui__btn-group--vertical": vertical,
+					[`${btnGroupClassBase}--rounded`]: rounded,
+					[`${btnGroupClassBase}--flat`]: flat,
+					[`${btnGroupClassBase}--wide`]: wide,
+					[`${btnGroupClassBase}--vertical`]: vertical,
 				},
 				className
 			)}

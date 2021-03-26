@@ -5,8 +5,8 @@ import cn from "classnames";
 import { BreadcrumbsProps } from "./Breadcrumbs.types";
 import { BreadcrumbsSubComponentProps } from "./BreadcrumbsSubcomponents.types";
 import { BreadcrumbItem } from "./BreadcrumbsSubcomponents";
-import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
 
 interface BreadcrumbComponent extends React.ForwardRefExoticComponent<BreadcrumbsProps & React.RefAttributes<HTMLOListElement>> {
 	Item: React.ForwardRefExoticComponent<BreadcrumbsSubComponentProps & React.RefAttributes<HTMLLIElement>>;
@@ -24,10 +24,21 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 		rounded = config.rounded ?? false,
 		elevation = config.breadcrumbsElevation ?? "none",
 		pigment = config.breadcrumbsPigment ?? null,
+		size = config.size ?? "md",
 		separator = config.breadcrumbsSeparator ?? "/",
 		children,
 		...rest
 	} = props;
+
+	const breadcrumbsClassDefaults = {
+		pigment,
+		size,
+		flat,
+		rounded,
+		elevation,
+	};
+
+	const breadcrumbsClassBase = "dui__breadcrumbs";
 
 	const item: JSX.Element[] = React.Children.map(children, (child: JSX.Element, index: number) => {
 		if (child.type.displayName === "BreadcrumbItem" && index === React.Children.count(children) - 1) {
@@ -51,16 +62,11 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 		<ol
 			data-testid='Breadcrumbs'
 			className={cn(
-				"dui__breadcrumbs",
+				breadcrumbsClassBase,
 				{
-					"dui__breadcrumbs--contained": contained,
-					"dui__breadcrumbs--flat": flat,
-					"dui__breadcrumbs--rounded": rounded,
+					[`${breadcrumbsClassBase}--contained`]: contained,
 				},
-				{
-					[`dui__breadcrumbs--${pigment}`]: PigmentOptions.includes(pigment),
-					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none" && contained,
-				},
+				generateCustomizationClasses(breadcrumbsClassBase, breadcrumbsClassDefaults),
 				className
 			)}
 			{...rest}

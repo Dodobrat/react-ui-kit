@@ -5,9 +5,9 @@ import cn from "classnames";
 import { CardProps } from "./Card.types";
 import { CardBody, CardFooter, CardHeader, CardImage, CardLoader } from "./CardSubcomponents";
 import { CardHeaderSubComponentProps, CardImageSubComponentProps, CardLoaderSubComponentProps } from "./CardSubcomponents.types";
-import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import { CnCh } from "../../helpers/global.types";
 import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
 
 interface CardComponent extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CardLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -35,6 +35,16 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 		...rest
 	} = props;
 
+	const cardClassDefaults = {
+		elevation,
+		pigment,
+		flat,
+		isLoading,
+		disableWhileLoading,
+	};
+
+	const cardClassBase = "dui__card";
+
 	const loader: JSX.Element[] = React.Children.map(children, (child: JSX.Element) =>
 		child?.type?.displayName === "CardLoader" ? child : null
 	);
@@ -47,18 +57,13 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 		<div
 			data-testid='Card'
 			className={cn(
-				"dui__card",
+				cardClassBase,
 				{
-					"dui__card--flat": flat,
-					"dui__card--loading": isLoading,
-					"dui__card--loading-disabled": isLoading && disableWhileLoading,
 					"no-overflow": !allowOverflow,
+					[`${cardClassBase}--img img-${imgPosition}`]: image.length > 0,
 				},
-				{
-					[`dui__card--${pigment}`]: PigmentOptions.includes(pigment),
-					[`dui__card--img img-${imgPosition}`]: image.length > 0,
-					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
-				},
+				generateLoadingClasses(cardClassBase, cardClassDefaults),
+				generateEssentialCustomizationClasses(cardClassBase, cardClassDefaults),
 				className
 			)}
 			{...rest}

@@ -10,9 +10,9 @@ import {
 	ListGroupLoaderSubComponentProps,
 } from "./ListGroupSubcomponents.types";
 import { ListGroupCollapse, ListGroupHeader, ListGroupItem, ListGroupLoader } from "./ListGroupSubcomponents";
-import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import { addElementAttributes, addElementAttributesInObj } from "../../helpers/functions";
 import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
 
 interface ListGroupComponent extends React.ForwardRefExoticComponent<ListGroupProps & React.RefAttributes<unknown>> {
 	Loader: React.ForwardRefExoticComponent<ListGroupLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -50,6 +50,16 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 		children,
 		...rest
 	} = props;
+
+	const listClassDefaults = {
+		elevation,
+		pigment,
+		flat,
+		isLoading,
+		disableWhileLoading,
+	};
+
+	const listClassBase = "dui__list__group";
 
 	const childElementType: (props: Object) => Object = (props) => {
 		const modifiedProps = { ...props };
@@ -91,17 +101,12 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 		<ParsedComponent
 			data-testid='ListGroup'
 			className={cn(
-				"dui__list__group",
+				listClassBase,
 				{
-					"dui__list__group--flat": flat,
-					"dui__list__group--loading": isLoading,
-					"dui__list__group--loading-disabled": isLoading && disableWhileLoading,
 					"no-overflow": !allowOverflow,
 				},
-				{
-					[`dui__list__group--${pigment}`]: PigmentOptions.includes(pigment),
-					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
-				},
+				generateLoadingClasses(listClassBase, listClassDefaults),
+				generateEssentialCustomizationClasses(listClassBase, listClassDefaults),
 				className
 			)}
 			{...rest}

@@ -5,8 +5,14 @@ import cn from "classnames";
 import { InputComponentProps, InputProps } from "./Input.types";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { CloseOutlined, Eye, EyeCrossed } from "../../icons";
-import { generateInputClasses, generateInputWrapperClasses, mergeRefs } from "../../../helpers/functions";
+import { mergeRefs } from "../../../helpers/functions";
 import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
+import {
+	generateCustomizationClasses,
+	generateDisabledClasses,
+	generateLoadingClasses,
+	generateSeamlessClasses,
+} from "../../../helpers/classnameGenerator";
 
 const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props, ref) => {
 	const {
@@ -57,6 +63,8 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		disableWhileLoading,
 		disabled,
 	};
+
+	const wrapperClassBase = "dui__input__wrapper";
 
 	const inputRef = useRef(null);
 
@@ -131,15 +139,19 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 	return (
 		<div
 			className={cn(
+				wrapperClassBase,
 				{
-					"dui__input__wrapper--focused": isFocused,
+					[`${wrapperClassBase}--focused`]: isFocused,
 				},
-				generateInputWrapperClasses(wrapperClassDefaults),
+				generateCustomizationClasses(wrapperClassBase, wrapperClassDefaults),
+				generateLoadingClasses(wrapperClassBase, wrapperClassDefaults),
+				generateDisabledClasses(wrapperClassBase, wrapperClassDefaults),
+				generateSeamlessClasses(wrapperClassBase, wrapperClassDefaults),
 				className
 			)}
 			tabIndex={-1}
 			ref={mergeRefs([ref])}>
-			{preffix && <div className='dui__input__wrapper__attachment dui__input__wrapper__preffix'>{preffix}</div>}
+			{preffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__preffix`)}>{preffix}</div>}
 			<InputComponent
 				className={inputClassName}
 				type={inputType}
@@ -164,18 +176,18 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				{...rest}
 				ref={mergeRefs([inputRef, innerRef])}
 			/>
-			{isLoading && <div className='dui__input__wrapper__attachment dui__input__wrapper__loader'>{loadingComponent}</div>}
+			{isLoading && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__loader`)}>{loadingComponent}</div>}
 			{isClearable && (inputValue?.length > 0 || showClearIndicator) && (
-				<div className='dui__input__wrapper__attachment dui__input__wrapper__clear' onClick={resetInput}>
+				<div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__clear`)} onClick={resetInput}>
 					{clearableComponent ?? <CloseOutlined className='dui__icon' />}
 				</div>
 			)}
 			{withPasswordReveal && (
-				<div className='dui__input__wrapper__attachment dui__input__wrapper__password' onClick={changeInputType}>
+				<div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__password`)} onClick={changeInputType}>
 					{passwordRevealComponent(inputType === "text")}
 				</div>
 			)}
-			{suffix && <div className='dui__input__wrapper__attachment dui__input__wrapper__suffix'>{suffix}</div>}
+			{suffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__suffix`)}>{suffix}</div>}
 		</div>
 	);
 };
@@ -214,6 +226,8 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 		seamless,
 	};
 
+	const classBase = "dui__input";
+
 	const inputComponentRef = useRef(null);
 
 	const handleOnFocus = (e: any) => {
@@ -230,7 +244,12 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 			type={type}
 			name={name}
 			id={id}
-			className={cn(generateInputClasses(classDefaults, true), className)}
+			className={cn(
+				classBase,
+				generateCustomizationClasses(classBase, classDefaults),
+				generateSeamlessClasses(classBase, classDefaults),
+				className
+			)}
 			value={value}
 			onChange={onChange}
 			onFocus={handleOnFocus}

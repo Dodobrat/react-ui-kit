@@ -5,8 +5,8 @@ import cn from "classnames";
 import { TabsProps } from "./Tabs.types";
 import { TabContent, TabsItems, TabsPanel } from "./TabsSubcomponents";
 import { TabItemType, TabPanelType, TabsPanelSubComponentProps } from "./TabsSubcomponents.types";
-import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
 
 interface TabsComponent extends React.ForwardRefExoticComponent<TabsProps & React.RefAttributes<HTMLDivElement>> {
 	Panel: React.ForwardRefExoticComponent<TabsPanelSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -33,6 +33,16 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		children,
 		...rest
 	} = props;
+
+	const tabsClassDefaults = {
+		elevation,
+		pigment,
+		flat,
+		isLoading,
+		disableWhileLoading,
+	};
+
+	const tabsClassBase = "dui__tabs";
 
 	const [activeTabIndex, setActiveTabIndex] = useState(activeTab);
 
@@ -106,18 +116,13 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		<div
 			data-testid='Tabs'
 			className={cn(
-				"dui__tabs",
+				tabsClassBase,
 				{
-					"dui__tabs--vertical": orientation === "vertical",
-					"dui__tabs--flat": flat,
-					"dui__tabs--loading": isLoading,
-					"dui__tabs--loading-disabled": isLoading && disableWhileLoading,
+					[`${tabsClassBase}--vertical`]: orientation === "vertical",
 					"no-overflow": !allowOverflow,
 				},
-				{
-					[`dui__tabs--${pigment}`]: PigmentOptions.includes(pigment),
-					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
-				},
+				generateLoadingClasses(tabsClassBase, tabsClassDefaults),
+				generateEssentialCustomizationClasses(tabsClassBase, tabsClassDefaults),
 				className
 			)}
 			{...rest}

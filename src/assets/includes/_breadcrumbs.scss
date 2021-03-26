@@ -14,7 +14,7 @@
 .dui__breadcrumbs {
 	list-style-type: none;
 	margin: 0;
-	padding: 0;
+	padding: $mdFont * 0.75 $mdFont;
 	display: flex;
 	flex-wrap: wrap;
 
@@ -33,8 +33,21 @@
 	&--contained {
 		padding: 0.75rem 1rem;
 		border-radius: $smBorderRadius;
-		background-color: rgba(0, 0, 0, 0.1);
+		background-color: rgba-to-rgb(rgba($mainFont, 0.1));
 		@include breadcrumbsPigmentOptions();
+	}
+
+	@each $name, $size in $sizes {
+		&.dui__breadcrumbs--#{$name} {
+			padding: $size * 0.75 $size;
+			font-size: $size;
+
+			.dui__breadcrumbs__item {
+				& > span {
+					margin: 0 $size / 2;
+				}
+			}
+		}
 	}
 
 	&--rounded {

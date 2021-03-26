@@ -599,6 +599,7 @@
 				border-radius: $roundedBorderRadius * 5;
 				border: 0.0625em solid $subFont;
 				background-color: transparent;
+				overflow: hidden;
 				&::after {
 					transition: $fastTrans;
 					content: "";

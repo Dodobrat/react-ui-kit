@@ -1,6 +1,4 @@
-import cn from "classnames";
 import React from "react";
-import { ElevationOptions, PigmentOptions, SizeOptions } from "./global";
 import { PigmentOptions as PigmentOptionTypes } from "./global.types";
 
 export const parseValueToPercent: (min: number, max: number, value: number, decimals?: number) => number | string = (
@@ -112,50 +110,6 @@ export const debounce: (func: any, wait: number) => (...args: any[]) => void = (
 		clearTimeout(timeout);
 		timeout = setTimeout(later, wait);
 	};
-};
-
-export const generateInputClasses: (props: any, generatePigmentEvenIfSeamless?: boolean) => string = (
-	props,
-	generatePigmentEvenIfSeamless = false
-) => {
-	const { rounded, seamless, flat, size, pigment, elevation } = props;
-
-	return cn(
-		"dui__input",
-		{
-			"dui__input--rounded": rounded,
-			"dui__input--flat": flat,
-			"dui__input--seamless": seamless,
-		},
-		{
-			[`dui__input--${size}`]: SizeOptions.includes(size) && size !== "md",
-			[`dui__input--${pigment}`]: PigmentOptions.includes(pigment) && (generatePigmentEvenIfSeamless || !seamless),
-			[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none" && !seamless,
-		}
-	);
-};
-
-export const generateInputWrapperClasses: (props: any) => string = (props) => {
-	const { rounded, flat, size, pigment, elevation, seamless, disabled, isLoading, disableWhileLoading } = props;
-
-	return cn(
-		"dui__input__wrapper",
-		{
-			"dui__input__wrapper--rounded": rounded,
-			"dui__input__wrapper--flat": flat,
-			"dui__input__wrapper--seamless": seamless,
-		},
-		{
-			[`dui__input__wrapper--${size}`]: SizeOptions.includes(size) && size !== "md",
-			[`dui__input__wrapper--${pigment}`]: PigmentOptions.includes(pigment),
-			[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none" && !seamless,
-		},
-		{
-			"dui__input__wrapper--disabled": disabled,
-			"dui__input__wrapper--loading": isLoading,
-			"dui__input__wrapper--loading-disabled": isLoading && disableWhileLoading,
-		}
-	);
 };
 
 export const createRipple: ({

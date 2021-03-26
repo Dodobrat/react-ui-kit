@@ -3,9 +3,9 @@ import React, { useContext, useRef } from "react";
 import cn from "classnames";
 
 import { BadgeProps } from "./Badge.types";
-import { ElevationOptions, PigmentOptions, SizeOptions } from "../../helpers/global";
 import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
 import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
 
 const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) => {
 	const {
@@ -27,6 +27,16 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		onKeyDown,
 		...rest
 	} = props;
+
+	const badgeClassDefaults = {
+		pigment,
+		size,
+		flat,
+		rounded,
+		elevation,
+	};
+
+	const badgeClassBase = "dui__badge";
 
 	const badgeRef = useRef(null);
 
@@ -56,19 +66,11 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		<ParsedComponent
 			data-testid='Badge'
 			className={cn(
-				"dui__badge",
+				badgeClassBase,
 				{
-					[`dui__badge--${size}`]: SizeOptions.includes(size),
+					[`${badgeClassBase}--clickable`]: onClick,
 				},
-				{
-					"dui__badge--rounded": rounded,
-					"dui__badge--flat": flat,
-					"dui__badge--clickable": onClick,
-				},
-				{
-					[`dui__badge--${pigment}`]: PigmentOptions.includes(pigment),
-					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
-				},
+				generateCustomizationClasses(badgeClassBase, badgeClassDefaults),
 				className
 			)}
 			tabIndex={onClick && !rest["disabled"] ? 0 : -1}

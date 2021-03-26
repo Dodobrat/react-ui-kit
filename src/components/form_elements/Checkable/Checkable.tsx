@@ -3,9 +3,15 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { CheckableComponentProps, CheckableProps } from "./Checkable.types";
-import { generateInputClasses, generateInputWrapperClasses, mergeRefs } from "../../../helpers/functions";
+import { mergeRefs } from "../../../helpers/functions";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
+import {
+	generateCustomizationClasses,
+	generateLoadingClasses,
+	generateDisabledClasses,
+	generateSeamlessClasses,
+} from "../../../helpers/classnameGenerator";
 
 const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> = (props, ref) => {
 	const {
@@ -17,7 +23,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 		inputClassName,
 		type = "checkbox",
 		typeClass = "checkbox",
-		name = Math.random().toString(36).substr(2, 10),
+		name = `${type}_${Math.random().toString(36).substr(2, 10)}`,
 		id = name,
 		size = config.size ?? "md",
 		rounded = config.rounded ?? false,
@@ -51,6 +57,8 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 		disableWhileLoading,
 		disabled,
 	};
+
+	const wrapperClassBase = "dui__input__wrapper";
 
 	const checkRef = useRef(null);
 
@@ -87,19 +95,21 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 	return (
 		<div
 			className={cn(
-				"dui__input__wrapper__checkable",
+				wrapperClassBase,
+				`${wrapperClassBase}__checkable`,
 				{
-					[`dui__input__wrapper--${typeClass}`]: typeClass,
+					[`${wrapperClassBase}--${typeClass}`]: typeClass,
+					[`${wrapperClassBase}--focused`]: isFocused,
 				},
-				{
-					"dui__input__wrapper--focused": isFocused,
-				},
-				generateInputWrapperClasses(wrapperClassDefaults),
+				generateCustomizationClasses(wrapperClassBase, wrapperClassDefaults),
+				generateLoadingClasses(wrapperClassBase, wrapperClassDefaults),
+				generateDisabledClasses(wrapperClassBase, wrapperClassDefaults),
+				generateSeamlessClasses(wrapperClassBase, wrapperClassDefaults),
 				className
 			)}
 			tabIndex={-1}
 			ref={mergeRefs([ref])}>
-			{preffix && <div className='dui__input__wrapper__attachment dui__input__wrapper__preffix'>{preffix}</div>}
+			{preffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__preffix`)}>{preffix}</div>}
 			<CheckableComponent
 				className={inputClassName}
 				type={type}
@@ -120,8 +130,8 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 				{...rest}
 				ref={mergeRefs([checkRef, innerRef])}
 			/>
-			{isLoading && <div className='dui__input__wrapper__attachment dui__input__wrapper__loader'>{loadingComponent}</div>}
-			{suffix && <div className='dui__input__wrapper__attachment dui__input__wrapper__suffix'>{suffix}</div>}
+			{isLoading && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__loader`)}>{loadingComponent}</div>}
+			{suffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__suffix`)}>{suffix}</div>}
 		</div>
 	);
 };
@@ -160,6 +170,8 @@ export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableCo
 		seamless,
 	};
 
+	const classBase = "dui__input";
+
 	const checkComponentRef = useRef(null);
 
 	const handleOnFocus = (e: any) => {
@@ -175,19 +187,21 @@ export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableCo
 		<label
 			htmlFor={id}
 			className={cn(
-				"dui__input__checkable",
+				classBase,
+				`${classBase}__checkable`,
 				{
-					[`dui__input__${typeClass}`]: typeClass,
+					[`${classBase}__${typeClass}`]: typeClass,
 				},
-				generateInputClasses(classDefaults, true),
+				generateCustomizationClasses(classBase, classDefaults),
+				generateSeamlessClasses(classBase, classDefaults),
 				className
 			)}>
 			<input
 				type={type}
 				name={name}
 				id={id}
-				className={cn("dui__input__checkable__input", {
-					[`dui__input__${typeClass}__input`]: typeClass,
+				className={cn(`${classBase}__checkable__input`, {
+					[`${classBase}__${typeClass}__input`]: typeClass,
 				})}
 				checked={checked}
 				onFocus={handleOnFocus}
@@ -196,8 +210,8 @@ export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableCo
 				ref={mergeRefs([checkComponentRef, ref])}
 			/>
 			<div
-				className={cn("dui__input__checkable__value", {
-					[`dui__input__${typeClass}__value`]: typeClass,
+				className={cn(`${classBase}__checkable__value`, {
+					[`${classBase}__${typeClass}__value`]: typeClass,
 				})}
 			/>
 			{children}

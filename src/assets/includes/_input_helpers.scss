@@ -13,7 +13,6 @@
 
 @mixin colorSwatchStyles($arg: $mdFont) {
 	position: absolute;
-	box-sizing: border-box;
 	border: none;
 	border-radius: $smBorderRadius / 2;
 	@include colorSwatchPosition($arg);
@@ -36,7 +35,6 @@
 	background: $bg;
 	border: 0.0625rem solid $border;
 	border-radius: $roundBorderRadius;
-	box-sizing: border-box;
 	cursor: grab;
 	height: 1em;
 	width: 1em;

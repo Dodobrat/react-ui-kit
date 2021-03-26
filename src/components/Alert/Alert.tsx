@@ -3,13 +3,13 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { AlertProps } from "./Alert.types";
-import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import CollapseFade from "../util/animations/CollapseFade";
 import Fade from "../util/animations/Fade";
 import Button from "../Button/Button";
 import { createRipple, mergeRefs } from "../../helpers/functions";
 import { Close, Completed, Danger, Info, Warning } from "../icons";
 import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
 
 const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props, ref) => {
 	const {
@@ -20,6 +20,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		className,
 		elevation = config.alertElevation ?? "none",
 		pigment = config.alertPigment ?? "danger",
+		size = config.size ?? "md",
 		rounded = config.rounded ?? false,
 		flat = config.flat ?? false,
 		animation = config.alertAnimation ?? "collapse-n-fade",
@@ -37,11 +38,14 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 	} = props;
 
 	const passThroughBtnProps = {
+		size,
 		elevation,
 		pigment,
 		rounded,
 		flat,
 	};
+
+	const alertClassBase = "dui__alert";
 
 	const alertRef = useRef(null);
 	const [isVisibleState, setIsVisbleState] = useState<boolean>(isVisible);
@@ -96,16 +100,11 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 			<div
 				data-testid='Alert'
 				className={cn(
-					"dui__alert",
+					alertClassBase,
 					{
-						"dui__alert--rounded": rounded,
-						"dui__alert--flat": flat,
-						"dui__alert--flex": isDismissible || withIcon,
+						[`${alertClassBase}--flex`]: isDismissible || withIcon,
 					},
-					{
-						[`dui__alert--${pigment}`]: PigmentOptions.includes(pigment),
-						[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
-					},
+					generateCustomizationClasses(alertClassBase, passThroughBtnProps),
 					className
 				)}
 				onClick={isDismissibleOnClick ? removeAlert : props?.["onClick"]}
@@ -118,7 +117,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 				{withIcon && alertIcon(pigment)}
 				{isDismissible ? (
 					<>
-						<div className='dui__alert__title'>{children}</div>
+						<div className={cn(`${alertClassBase}__title`)}>{children}</div>
 						{dismissibleComponent ?? (
 							<Button onClick={removeAlert} size='xs' {...passThroughBtnProps}>
 								<Close className='dui__icon' />

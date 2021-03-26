@@ -3,7 +3,6 @@ import React, { forwardRef, useContext, useEffect, useRef, useState } from "reac
 import cn from "classnames";
 
 import { CollapseProps } from "./Collapse.types";
-import { ElevationOptions, PigmentOptions } from "../../helpers/global";
 import {
 	CollapseContentSubComponentProps,
 	CollapseLoaderSubComponentProps,
@@ -13,6 +12,7 @@ import { CollapseContent, CollapseLoader, CollapseToggle } from "./CollapseSubCo
 import { CnCh } from "../../helpers/global.types";
 import { mergeRefs } from "../../helpers/functions";
 import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
 interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CollapseLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Toggle: React.ForwardRefExoticComponent<CollapseToggleSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -38,6 +38,16 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		children,
 		...rest
 	} = props;
+
+	const collapseClassDefaults = {
+		elevation,
+		pigment,
+		flat,
+		isLoading,
+		disableWhileLoading,
+	};
+
+	const collapseClassBase = "dui__collapse";
 
 	const collapseRef = useRef(null);
 	const [collapseState, setCollapseState] = useState<boolean>(isCollapsed);
@@ -90,18 +100,13 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		<div
 			data-testid='Collapse'
 			className={cn(
-				"dui__collapse",
+				collapseClassBase,
 				{
-					"dui__collapse--flat": flat,
-					"dui__collapse--collapsed": collapseState,
-					"dui__collapse--loading": isLoading,
-					"dui__collapse--loading-disabled": isLoading && disableWhileLoading,
+					[`${collapseClassBase}--collapsed`]: collapseState,
 					"no-overflow": !allowOverflow,
 				},
-				{
-					[`dui__collapse--${pigment}`]: PigmentOptions.includes(pigment),
-					[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
-				},
+				generateLoadingClasses(collapseClassBase, collapseClassDefaults),
+				generateEssentialCustomizationClasses(collapseClassBase, collapseClassDefaults),
 				className
 			)}
 			{...rest}

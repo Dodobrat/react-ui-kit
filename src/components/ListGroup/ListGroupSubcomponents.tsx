@@ -64,8 +64,6 @@ export const ListGroupItem = forwardRef<unknown, ListGroupItemSubComponentProps>
 				"dui__list__group__item",
 				{
 					"dui__list__group__item--active": active,
-				},
-				{
 					[`dui__list__group__item--${pigment}`]: PigmentOptions.includes(pigment),
 				},
 				className
