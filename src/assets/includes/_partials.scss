@@ -83,21 +83,6 @@
 }
 
 // DRAGSCROLL
-.indiana-scroll-container {
-	&--dragging {
-		* {
-			@include crossBrowser(user-select, none);
-		}
-		& > * {
-			cursor: grabbing;
-		}
-	}
-}
-
-.indiana-dragging {
-	cursor: grabbing !important;
-}
-
 @mixin dragIndicatorBg($deg) {
 	background-color: inherit;
 }
@@ -131,6 +116,21 @@
 	}
 }
 
+.indiana-scroll-container {
+	&--dragging {
+		* {
+			@include crossBrowser(user-select, none);
+		}
+		& > * {
+			cursor: grabbing;
+		}
+	}
+}
+
+.indiana-dragging {
+	cursor: grabbing !important;
+}
+
 .dui__dragscroll__container {
 	position: relative;
 	background-color: inherit;
@@ -160,6 +160,60 @@
 		&--endY {
 			@include dragIndicatorPosition("endY", "vertical");
 		}
+	}
+}
+
+//TOOLTIP
+@mixin tooltip() {
+	position: absolute;
+	background-color: $mainFont;
+	color: $bgCard;
+	border-radius: $smBorderRadius;
+	font-size: $mdFont;
+	padding: $mdFont / 2 $mdFont;
+	line-height: 1.5;
+	max-width: 15rem;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+@mixin tooltipPigmentOptions($options: $pigments) {
+	$pigmentKeys: map-keys($options);
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+		&.dui__tooltip--#{$name} {
+			background-color: $bgColor;
+			color: $fontColor;
+		}
+	}
+}
+
+.dui__tooltip {
+	@include tooltip();
+	@each $name, $size in $sizes {
+		&.dui__tooltip--#{$name} {
+			font-size: $size;
+			padding: $size / 2 $size;
+		}
+	}
+	@include tooltipPigmentOptions();
+	&--flat {
+		border-radius: $flatBorderRadius;
+	}
+	&--rounded {
+		border-radius: $roundedBorderRadius;
+	}
+	&--seamless {
+		background-color: unset;
+		color: unset;
+		border-radius: unset;
+		font-size: unset;
+		padding: unset;
+		line-height: unset;
+		max-width: unset;
 	}
 }
 

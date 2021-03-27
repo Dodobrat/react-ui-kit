@@ -62,6 +62,12 @@ interface GlobalOptions {
 	portalVerticalAlign?: VerticalAlign;
 	portalAnimation?: PortalAnimation;
 	portalBodyScrollDisable?: boolean;
+	//--Toolip
+	tooltipElevation?: ElevationOptions;
+	tooltipPigment?: PigmentOptions;
+	tooltipSize?: SizeOptions;
+	tooltipRounded?: boolean;
+	tooltipFlat?: boolean;
 	//--Progress Bar
 	progressBarLabeled?: boolean;
 	progressBarLabelValue?: ProgressLabelValue;

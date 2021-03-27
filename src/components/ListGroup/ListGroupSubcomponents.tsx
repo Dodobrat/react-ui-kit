@@ -161,10 +161,8 @@ export const ListGroupCollapseContent = forwardRef<HTMLDivElement, ListGroupColl
 
 	const CollapseContent = () => {
 		return (
-			<div>
-				<div className={cn("dui__list__group__collapse__content", className)} {...rest} ref={ref}>
-					{children}
-				</div>
+			<div className={cn("dui__list__group__collapse__content", className)} {...rest} ref={ref}>
+				{children}
 			</div>
 		);
 	};
@@ -173,17 +171,21 @@ export const ListGroupCollapseContent = forwardRef<HTMLDivElement, ListGroupColl
 		case "collapse-n-fade":
 			return (
 				<CollapseFade in={!isCollapsed}>
-					<CollapseContent />
+					<div>
+						<CollapseContent />
+					</div>
 				</CollapseFade>
 			);
 		case "collapse":
 			return (
 				<CollapseShow in={!isCollapsed}>
-					<CollapseContent />
+					<div>
+						<CollapseContent />
+					</div>
 				</CollapseShow>
 			);
 		default:
-			return <>{!isCollapsed && <CollapseContent />}</>;
+			return !isCollapsed && <CollapseContent />;
 	}
 });
 

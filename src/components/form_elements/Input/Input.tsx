@@ -4,7 +4,7 @@ import cn from "classnames";
 
 import { InputComponentProps, InputProps } from "./Input.types";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
-import { CloseOutlined, Eye, EyeCrossed } from "../../icons";
+import { CloseOutlined, Eye, EyeCrossed, Search } from "../../icons";
 import { mergeRefs } from "../../../helpers/functions";
 import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
 import {
@@ -34,7 +34,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		disableWhileLoading = true,
 		isLoading = false,
 		loadingComponent = <SpinnerLoader size={size} pigment={pigment} inputLoader />,
-		preffix,
+		preffix = type === "search" ? <Search /> : null,
 		suffix,
 		isClearable = false,
 		clearableComponent = null,

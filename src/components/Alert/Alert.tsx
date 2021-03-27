@@ -149,7 +149,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 				</Fade>
 			);
 		default:
-			return <>{isVisibleState && <AlertContent />}</>;
+			return isVisibleState && <AlertContent />;
 	}
 };
 

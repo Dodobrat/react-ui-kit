@@ -117,10 +117,8 @@ export const CollapseContent = forwardRef<HTMLDivElement, CollapseContentSubComp
 
 	const CollapseContent = () => {
 		return (
-			<div>
-				<div className={cn("dui__collapse__content", className)} {...rest} ref={ref}>
-					{children}
-				</div>
+			<div className={cn("dui__collapse__content", className)} {...rest} ref={ref}>
+				{children}
 			</div>
 		);
 	};
@@ -129,17 +127,21 @@ export const CollapseContent = forwardRef<HTMLDivElement, CollapseContentSubComp
 		case "collapse-n-fade":
 			return (
 				<CollapseFade in={!isCollapsed}>
-					<CollapseContent />
+					<div>
+						<CollapseContent />
+					</div>
 				</CollapseFade>
 			);
 		case "collapse":
 			return (
 				<CollapseShow in={!isCollapsed}>
-					<CollapseContent />
+					<div>
+						<CollapseContent />
+					</div>
 				</CollapseShow>
 			);
 		default:
-			return <>{!isCollapsed && <CollapseContent />}</>;
+			return !isCollapsed && <CollapseContent />;
 	}
 });
 

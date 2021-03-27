@@ -1,7 +1,12 @@
 import { useEffect, useRef } from "react";
 import { canUseDOM } from "../helpers/functions";
 
-export const useEventListener: (e: any, handler: Function, el?: Window & typeof globalThis) => void = (e, handler, el = window) => {
+export const useEventListener: (e: any, handler: Function, eventOptions?: any, el?: Window & typeof globalThis) => void = (
+	e,
+	handler,
+	eventOptions,
+	el = window
+) => {
 	const savedHandler = useRef<Function>();
 
 	useEffect(() => {
@@ -14,10 +19,10 @@ export const useEventListener: (e: any, handler: Function, el?: Window & typeof 
 		if (el) {
 			const eventListener: (event: any) => any = (event) => savedHandler.current(event);
 
-			el.addEventListener(e, eventListener);
+			el.addEventListener(e, eventListener, eventOptions);
 
 			return () => {
-				el.removeEventListener(e, eventListener);
+				el.removeEventListener(e, eventListener, eventOptions);
 			};
 		}
 	}, [e, el]);

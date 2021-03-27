@@ -4,4 +4,5 @@ import { Directions, ElevationOptions, PortalComponent } from "../../helpers/glo
 export interface DrawerProps extends PortalComponent {
 	elevation?: ElevationOptions;
 	position?: Directions;
+	animation?: "slide";
 }

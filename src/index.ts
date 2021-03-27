@@ -28,6 +28,7 @@ export { default as Skeleton } from "./components/Skeleton/Skeleton";
 export { default as SpinnerLoader } from "./components/SpinnerLoader/SpinnerLoader";
 export { default as Tabs } from "./components/Tabs/Tabs";
 export { default as Text } from "./components/typography/Text/Text";
+export { default as Tooltip } from "./components/Tooltip/Tooltip";
 
 //Form Elements
 export { default as Checkbox } from "./components/form_elements/Checkbox/Checkbox";

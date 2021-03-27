@@ -29,6 +29,7 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 		position = config.drawerPosition ?? "left",
 		bodyScrollDisable = config.drawerBodyScrollDisable ?? true,
 		isOpen = false,
+		animation = "slide",
 		children,
 		...rest
 	} = props;
@@ -92,14 +93,16 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 		);
 	};
 
-	if (position) {
-		return (
-			<SlideIn position={position} in={isOpen}>
-				<DrawerContent />
-			</SlideIn>
-		);
+	switch (animation) {
+		case "slide":
+			return (
+				<SlideIn position={position} in={isOpen}>
+					<DrawerContent />
+				</SlideIn>
+			);
+		default:
+			return isOpen && <DrawerContent />;
 	}
-	return <DrawerContent />;
 };
 
 export default React.forwardRef<HTMLDivElement, DrawerProps>(Drawer);

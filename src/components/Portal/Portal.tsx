@@ -107,7 +107,7 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 				</ZoomPortal>
 			);
 		default:
-			return <PortalContent />;
+			return isOpen && <PortalContent />;
 	}
 };
 
