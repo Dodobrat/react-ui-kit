@@ -57,7 +57,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		if (adjustToViewport && tooltipTrigger) {
 			calculatePosition(tooltipTrigger);
 		}
-	}, [tooltipTrigger]);
+	}, [tooltipTrigger, tooltipPosition]);
 
 	useEventListener("scroll", handler, { passive: true });
 	useEventListener("resize", handler);
@@ -115,57 +115,45 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 
 			switch (position) {
 				case "bottom": {
-					const bottomTop = tooltipBottomPosition;
-					const bottomLeft = tooltipTBLeftPosition;
-
 					const flipTreshold = element.offsetTop - window.innerHeight + childRect.height + (tooltipRect.height + tooltipSpacing);
 
-					const adjustedBottomTop = window.scrollY < flipTreshold ? tooltipTopPosition : bottomTop;
-					const adjustedBottomLeft = Math.max(bottomLeft, tooltipSpacing);
+					const adjustedBottomTop = window.scrollY < flipTreshold ? tooltipTopPosition : tooltipBottomPosition;
+					const adjustedBottomLeft = Math.max(tooltipTBLeftPosition, tooltipSpacing);
 
 					setTooltipPosition({
-						top: adjustToViewport ? adjustedBottomTop : bottomTop,
-						left: adjustToViewport ? adjustedBottomLeft : bottomLeft,
+						top: adjustToViewport ? adjustedBottomTop : tooltipBottomPosition,
+						left: adjustToViewport ? adjustedBottomLeft : tooltipTBLeftPosition,
 					});
 					break;
 				}
 				case "left": {
-					const leftTop = tooltipLRTopPosition;
-					const leftLeft = tooltipLeftPosition;
-
-					const adjustedLeftLeft = window.scrollX > leftLeft ? tooltipRightPosition : leftLeft;
+					const adjustedLeftLeft = window.scrollX > tooltipLeftPosition ? tooltipRightPosition : tooltipLeftPosition;
 
 					setTooltipPosition({
-						top: leftTop,
-						left: adjustToViewport ? adjustedLeftLeft : leftLeft,
+						top: tooltipLRTopPosition,
+						left: adjustToViewport ? adjustedLeftLeft : tooltipLeftPosition,
 					});
 					break;
 				}
 				case "right": {
-					const rightTop = tooltipLRTopPosition;
-					const rightLeft = tooltipRightPosition;
-
-					const flipTreshhold = rightLeft + (tooltipRect.width + tooltipSpacing);
+					const flipTreshhold = tooltipRightPosition + (tooltipRect.width + tooltipSpacing);
 
 					const adjustedRightLeft =
-						window.scrollX > flipTreshhold || window.innerWidth < flipTreshhold ? tooltipLeftPosition : rightLeft;
+						window.scrollX > flipTreshhold || window.innerWidth < flipTreshhold ? tooltipLeftPosition : tooltipRightPosition;
 
 					setTooltipPosition({
-						top: rightTop,
-						left: adjustToViewport ? adjustedRightLeft : rightLeft,
+						top: tooltipLRTopPosition,
+						left: adjustToViewport ? adjustedRightLeft : tooltipRightPosition,
 					});
 					break;
 				}
 				default: {
-					const topTop = tooltipTopPosition;
-					const topLeft = tooltipTBLeftPosition;
-
-					const adjustedTopTop = window.scrollY > topTop ? tooltipBottomPosition : topTop;
-					const adjustedTopLeft = Math.max(topLeft, tooltipSpacing);
+					const adjustedTopTop = window.scrollY > tooltipTopPosition ? tooltipBottomPosition : tooltipTopPosition;
+					const adjustedTopLeft = Math.max(tooltipTBLeftPosition, tooltipSpacing);
 
 					setTooltipPosition({
-						top: adjustToViewport ? adjustedTopTop : topTop,
-						left: adjustToViewport ? adjustedTopLeft : topLeft,
+						top: adjustToViewport ? adjustedTopTop : tooltipTopPosition,
+						left: adjustToViewport ? adjustedTopLeft : tooltipTBLeftPosition,
 					});
 					break;
 				}
