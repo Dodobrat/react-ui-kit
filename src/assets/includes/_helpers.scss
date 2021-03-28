@@ -195,58 +195,67 @@ $axes: (
 	),
 );
 
-@mixin spacingClass($classKey, $name, $dir, $sizeCode, $size, $rule) {
-	.#{$classKey}_#{$sizeCode} {
-		#{$rule}: $size;
-	}
-	@each $breakpointName, $breakpointSize in $breakpoints {
-		.#{$classKey}_#{$breakpointName}_#{$sizeCode} {
-			@media all and (min-width: $breakpointSize) {
-				#{$rule}: $size;
+@mixin spacingClass($classKey, $name, $dir, $rule) {
+	@each $sizeCode, $size in $spacingSize {
+		$axesKeys: map-keys($axes);
+		@each $key in $axesKeys {
+			$axisName: map-deep-get($axes, $key, "name");
+			$prop1: map-deep-get($axes, $key, "prop1");
+			$prop2: map-deep-get($axes, $key, "prop2");
+			.#{$classKey}#{$axisName}_#{$sizeCode} {
+				#{$rule}-#{$prop1}: $size;
+				#{$rule}-#{$prop2}: $size;
 			}
-		}
-	}
 
-	$axesKeys: map-keys($axes);
-	@each $key in $axesKeys {
-		$axisName: map-deep-get($axes, $key, "name");
-		$prop1: map-deep-get($axes, $key, "prop1");
-		$prop2: map-deep-get($axes, $key, "prop2");
-		.#{$classKey}#{$axisName}_#{$sizeCode} {
-			#{$rule}-#{$prop1}: $size;
-			#{$rule}-#{$prop2}: $size;
-		}
-
-		@each $breakpointName, $breakpointSize in $breakpoints {
-			.#{$classKey}#{$axisName}_#{$breakpointName}_#{$sizeCode} {
-				@media all and (min-width: $breakpointSize) {
-					#{$rule}-#{$prop1}: $size;
-					#{$rule}-#{$prop2}: $size;
+			@each $breakpointName, $breakpointSize in $breakpoints {
+				.#{$classKey}#{$axisName}_#{$breakpointName}_#{$sizeCode} {
+					@media all and (min-width: $breakpointSize) {
+						#{$rule}-#{$prop1}: $size;
+						#{$rule}-#{$prop2}: $size;
+					}
 				}
 			}
 		}
 	}
 
-	.#{$classKey}#{$name}_#{$sizeCode} {
-		#{$rule}-#{$dir}: $size;
+	@each $sizeCode, $size in $spacingSize {
+		.#{$classKey}_#{$sizeCode} {
+			#{$rule}: $size;
+		}
 	}
 
 	@each $breakpointName, $breakpointSize in $breakpoints {
-		.#{$classKey}#{$name}_#{$breakpointName}_#{$sizeCode} {
-			@media all and (min-width: $breakpointSize) {
-				#{$rule}-#{$dir}: $size;
+		@each $sizeCode, $size in $spacingSize {
+			.#{$classKey}_#{$breakpointName}_#{$sizeCode} {
+				@media all and (min-width: $breakpointSize) {
+					#{$rule}: $size;
+				}
+			}
+		}
+	}
+
+	@each $sizeCode, $size in $spacingSize {
+		.#{$classKey}#{$name}_#{$sizeCode} {
+			#{$rule}-#{$dir}: $size;
+		}
+	}
+
+	@each $breakpointName, $breakpointSize in $breakpoints {
+		@each $sizeCode, $size in $spacingSize {
+			.#{$classKey}#{$name}_#{$breakpointName}_#{$sizeCode} {
+				@media all and (min-width: $breakpointSize) {
+					#{$rule}-#{$dir}: $size;
+				}
 			}
 		}
 	}
 }
 
 @each $name, $dir in $spacingDir {
-	@each $sizeCode, $size in $spacingSize {
-		//padding
-		@include spacingClass("p", $name, $dir, $sizeCode, $size, padding);
-		//margin
-		@include spacingClass("m", $name, $dir, $sizeCode, $size, margin);
-	}
+	//padding
+	@include spacingClass("p", $name, $dir, padding);
+	//margin
+	@include spacingClass("m", $name, $dir, margin);
 }
 
 //DISPLAY UTIL CLASSES

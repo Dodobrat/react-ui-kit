@@ -36,6 +36,7 @@
 		pointer-events: none;
 		opacity: 0;
 		&:disabled + .dui__switch__group__item__value {
+			opacity: 0.5;
 			cursor: not-allowed;
 		}
 		&:focus-visible + .dui__switch__group__item__value {

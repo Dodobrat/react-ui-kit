@@ -12,7 +12,6 @@
 		position: relative;
 		white-space: nowrap;
 		cursor: pointer;
-		opacity: 0.6;
 		@include crossBrowser(user-select, none);
 
 		&:focus {
@@ -26,6 +25,7 @@
 			}
 		}
 		&[aria-disabled="true"] {
+			opacity: 0.5;
 			cursor: not-allowed;
 		}
 	}
