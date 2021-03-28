@@ -1,6 +1,6 @@
 @mixin tableContainer() {
 	overflow-x: auto;
-	overscroll-behavior: contain;
+	overscroll-behavior-x: contain;
 	padding: 0.4375rem 0.625rem;
 	&--condensed {
 		@include tableElementsStyleReset();

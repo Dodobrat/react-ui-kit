@@ -19,6 +19,7 @@
 	}
 }
 
+//FLEX GRID UTIL CLASSES
 @mixin flexGrid() {
 	display: flex;
 	align-items: flex-start;
@@ -135,14 +136,17 @@
 		flex: 0 0 100%;
 	}
 
+	@for $i from 1 through $gridColumns {
+		&.dui__flex__col-#{$i} {
+			flex: 0 0 $gridColumnWidth * $i;
+		}
+		&.dui__flex__col--offset-#{$i} {
+			margin-left: $gridColumnWidth * $i;
+		}
+	}
+
 	@each $breakpointName, $breakpointSize in $breakpoints {
 		@for $i from 1 through $gridColumns {
-			&.dui__flex__col-#{$i} {
-				flex: 0 0 $gridColumnWidth * $i;
-			}
-			&.dui__flex__col--offset-#{$i} {
-				margin-left: $gridColumnWidth * $i;
-			}
 			&.dui__flex__col-#{$breakpointName}-#{$i} {
 				@media all and (min-width: $breakpointSize) {
 					flex: 0 0 $gridColumnWidth * $i;
@@ -177,6 +181,7 @@
 	}
 }
 
+//SPACING UTIL CLASSES
 $axes: (
 	"x": (
 		"name": "x",
@@ -190,9 +195,16 @@ $axes: (
 	),
 );
 
-@mixin spacingClass($name, $dir, $sizeCode, $size, $classKey: "p", $rule: padding) {
-	.#{$classKey}#{$sizeCode} {
+@mixin spacingClass($classKey, $name, $dir, $sizeCode, $size, $rule) {
+	.#{$classKey}_#{$sizeCode} {
 		#{$rule}: $size;
+	}
+	@each $breakpointName, $breakpointSize in $breakpoints {
+		.#{$classKey}_#{$breakpointName}_#{$sizeCode} {
+			@media all and (min-width: $breakpointSize) {
+				#{$rule}: $size;
+			}
+		}
 	}
 
 	$axesKeys: map-keys($axes);
@@ -200,30 +212,133 @@ $axes: (
 		$axisName: map-deep-get($axes, $key, "name");
 		$prop1: map-deep-get($axes, $key, "prop1");
 		$prop2: map-deep-get($axes, $key, "prop2");
-		.#{$classKey}#{$axisName}#{$sizeCode} {
+		.#{$classKey}#{$axisName}_#{$sizeCode} {
 			#{$rule}-#{$prop1}: $size;
 			#{$rule}-#{$prop2}: $size;
 		}
+
+		@each $breakpointName, $breakpointSize in $breakpoints {
+			.#{$classKey}#{$axisName}_#{$breakpointName}_#{$sizeCode} {
+				@media all and (min-width: $breakpointSize) {
+					#{$rule}-#{$prop1}: $size;
+					#{$rule}-#{$prop2}: $size;
+				}
+			}
+		}
 	}
 
-	.#{$classKey}#{$name}#{$sizeCode} {
+	.#{$classKey}#{$name}_#{$sizeCode} {
 		#{$rule}-#{$dir}: $size;
+	}
+
+	@each $breakpointName, $breakpointSize in $breakpoints {
+		.#{$classKey}#{$name}_#{$breakpointName}_#{$sizeCode} {
+			@media all and (min-width: $breakpointSize) {
+				#{$rule}-#{$dir}: $size;
+			}
+		}
 	}
 }
 
 @each $name, $dir in $spacingDir {
 	@each $sizeCode, $size in $spacingSize {
 		//padding
-		@include spacingClass($name, $dir, $sizeCode, $size);
+		@include spacingClass("p", $name, $dir, $sizeCode, $size, padding);
 		//margin
-		@include spacingClass($name, $dir, $sizeCode, $size, "m", margin);
+		@include spacingClass("m", $name, $dir, $sizeCode, $size, margin);
 	}
 }
 
+//DISPLAY UTIL CLASSES
+$display: (
+	"block": block,
+	"inblock": inline-block,
+	"flex": flex,
+	"inflex": inline-flex,
+	"grid": grid,
+	"ingrid": inline-grid,
+	"in": inline,
+	"table": table,
+	"table_cell": table-cell,
+	"table_row": table-cell,
+	"none": none,
+);
+
+@each $name, $display in $display {
+	.d#{$name} {
+		display: $display;
+	}
+	@each $breakpointName, $breakpointSize in $breakpoints {
+		.d_#{$breakpointName}_#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				display: $display;
+			}
+		}
+	}
+}
+
+//PIGMENT UTIL CLASSES
+$pigmentKeys: map-keys($pigments);
+@each $key in $pigmentKeys {
+	$name: map-deep-get($pigments, $key, "name");
+	$bgColor: map-deep-get($pigments, $key, "bgColor");
+	$fontColor: map-deep-get($pigments, $key, "fontColor");
+	.bg_#{$name} {
+		background: $bgColor;
+	}
+	.bgtext_#{$name} {
+		color: $fontColor;
+	}
+	.text_#{$name} {
+		color: $bgColor;
+	}
+}
+
+//SIZING UTIL CLASSES
+$sizing: (
+	"0": 0,
+	"25": 25%,
+	"50": 50%,
+	"75": 75%,
+	"100": 100%,
+	"auto": auto,
+);
+
+@each $name, $size in $sizing {
+	.w_#{$name} {
+		width: $size;
+	}
+	.maxw_#{$name} {
+		max-width: $size;
+	}
+	.h_#{$name} {
+		height: $size;
+	}
+	@each $breakpointName, $breakpointSize in $breakpoints {
+		.w_#{$breakpointName}_#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				width: $size;
+			}
+		}
+		.maxw_#{$breakpointName}_#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				max-width: $size;
+			}
+		}
+		.h_#{$breakpointName}_#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				height: $size;
+			}
+		}
+	}
+}
+
+//OVERFLOW HIDDEN
 .no-overflow {
 	overflow: hidden;
 }
 
+//RIPPLE EFFECT
 @mixin ripplePigmentOptions($options: $pigments) {
 	$pigmentKeys: map-keys($options);
 	@each $key in $pigmentKeys {
@@ -254,12 +369,14 @@ $axes: (
 	}
 }
 
+//ICON ADJUSTMENTS
 .dui__icon {
 	height: 1.15em;
 	width: 1.15em;
 	transform: translateY(0.15em);
 }
 
+//ELEVATIONS
 @each $name, $shadow in $elevations {
 	.dui__elevation--#{$name} {
 		box-shadow: $shadow;

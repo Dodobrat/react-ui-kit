@@ -227,6 +227,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 				<PortalWrapper>
 					<div
 						data-testid='Tooltip'
+						role='tooltip'
 						className={cn(
 							classBase,
 							generateCustomizationClasses(classBase, classDefaults),
