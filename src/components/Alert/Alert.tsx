@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { AlertProps } from "./Alert.types";
@@ -8,13 +8,13 @@ import Fade from "../util/animations/Fade";
 import Button from "../Button/Button";
 import { createRipple, mergeRefs } from "../../helpers/functions";
 import { Close, Completed, Danger, Info, Warning } from "../icons";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
 
 const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

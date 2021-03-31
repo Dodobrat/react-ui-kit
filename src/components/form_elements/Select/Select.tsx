@@ -1,12 +1,12 @@
 // Auto-Generated
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { SelectComponentProps, SelectProps } from "./Select.types";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { CloseOutlined } from "../../icons";
 import { mergeRefs } from "../../../helpers/functions";
-import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../../context/ConfigContext";
 import {
 	generateCustomizationClasses,
 	generateDisabledClasses,
@@ -17,7 +17,7 @@ import {
 const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -48,7 +48,7 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 		...rest
 	} = props;
 
-	const wrapperClassDefaults = {
+	const classDefaults = {
 		size,
 		rounded,
 		flat,
@@ -60,7 +60,7 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 		disabled,
 	};
 
-	const wrapperClassBase = "dui__input__wrapper";
+	const classBase = "dui__input__wrapper";
 
 	const selectRef = useRef(null);
 
@@ -125,20 +125,20 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 	return (
 		<div
 			className={cn(
-				wrapperClassBase,
-				`${wrapperClassBase}--select`,
+				classBase,
+				`${classBase}--select`,
 				{
-					[`${wrapperClassBase}--focused`]: isFocused,
+					[`${classBase}--focused`]: isFocused,
 				},
-				generateCustomizationClasses(wrapperClassBase, wrapperClassDefaults),
-				generateLoadingClasses(wrapperClassBase, wrapperClassDefaults),
-				generateDisabledClasses(wrapperClassBase, wrapperClassDefaults),
-				generateSeamlessClasses(wrapperClassBase, wrapperClassDefaults),
+				generateCustomizationClasses(classBase, classDefaults),
+				generateLoadingClasses(classBase, classDefaults),
+				generateDisabledClasses(classBase, classDefaults),
+				generateSeamlessClasses(classBase, classDefaults),
 				className
 			)}
 			tabIndex={-1}
 			ref={mergeRefs([ref])}>
-			{preffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__preffix`)}>{preffix}</div>}
+			{preffix && <div className={cn(`${classBase}__attachment`, `${classBase}__preffix`)}>{preffix}</div>}
 			<SelectComponent
 				className={inputClassName}
 				name={name}
@@ -163,13 +163,13 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 				{...rest}
 				ref={mergeRefs([selectRef, innerRef])}
 			/>
-			{isLoading && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__loader`)}>{loadingComponent}</div>}
+			{isLoading && <div className={cn(`${classBase}__attachment`, `${classBase}__loader`)}>{loadingComponent}</div>}
 			{isClearable && (selectValue?.length > 0 || showClearIndicator) && (
-				<div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__clear`)} onClick={resetInput}>
+				<div className={cn(`${classBase}__attachment`, `${classBase}__clear`)} onClick={resetInput}>
 					{clearableComponent ?? <CloseOutlined className='dui__icon' />}
 				</div>
 			)}
-			{suffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__suffix`)}>{suffix}</div>}
+			{suffix && <div className={cn(`${classBase}__attachment`, `${classBase}__suffix`)}>{suffix}</div>}
 		</div>
 	);
 };
@@ -177,7 +177,7 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 export const SelectComponent = React.forwardRef<HTMLSelectElement, SelectComponentProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

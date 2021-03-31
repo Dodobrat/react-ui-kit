@@ -1,9 +1,9 @@
 // Auto-Generated
-import React, { forwardRef, useContext } from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { TableProps } from "./Table.types";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import { TableBodyProps, TableFootProps, TableHeadProps, TableRowProps, TableCellProps, TableHCellProps } from "./TableSubComponents.types";
 import { TableBody, TableCell, TableFoot, TableHCell, TableHead, TableRow } from "./TableSubComponents";
 import Card from "../Card/Card";
@@ -21,7 +21,7 @@ interface TableComponent extends React.ForwardRefExoticComponent<TableProps & Re
 const Table = forwardRef<HTMLDivElement, TableProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

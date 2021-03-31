@@ -1,10 +1,10 @@
-import { CnCh, CustomizationProps, Directions } from "../../helpers/global.types";
+import { CnCh, CustomizationProps, Positions } from "../../helpers/global.types";
 
 type ExtraTooltipProps = CnCh & CustomizationProps;
 
 // Auto-Generated
 export interface TooltipProps extends ExtraTooltipProps {
-	position?: Directions;
+	position?: Positions;
 	content?: React.ReactNode;
 	adjustToViewport?: boolean;
 	showOnFocus?: boolean;
@@ -13,6 +13,6 @@ export interface TooltipProps extends ExtraTooltipProps {
 	seamless?: boolean;
 	isVisible?: boolean;
 	onToggle?: (isVisible: boolean) => void;
-	tooltipSpacing?: number;
+	spacing?: number;
 	triggerElement?: HTMLElement | React.MutableRefObject<any> | any;
 }

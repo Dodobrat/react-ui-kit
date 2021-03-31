@@ -1,11 +1,11 @@
 // Auto-Generated
-import React, { forwardRef, useContext } from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { BreadcrumbsProps } from "./Breadcrumbs.types";
 import { BreadcrumbsSubComponentProps } from "./BreadcrumbsSubcomponents.types";
 import { BreadcrumbItem } from "./BreadcrumbsSubcomponents";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
 
 interface BreadcrumbComponent extends React.ForwardRefExoticComponent<BreadcrumbsProps & React.RefAttributes<HTMLOListElement>> {
@@ -15,7 +15,7 @@ interface BreadcrumbComponent extends React.ForwardRefExoticComponent<Breadcrumb
 const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -30,7 +30,7 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 		...rest
 	} = props;
 
-	const breadcrumbsClassDefaults = {
+	const classDefaults = {
 		pigment,
 		size,
 		flat,
@@ -38,7 +38,7 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 		elevation,
 	};
 
-	const breadcrumbsClassBase = "dui__breadcrumbs";
+	const classBase = "dui__breadcrumbs";
 
 	const item: JSX.Element[] = React.Children.map(children, (child: JSX.Element, index: number) => {
 		if (child.type.displayName === "BreadcrumbItem" && index === React.Children.count(children) - 1) {
@@ -62,11 +62,11 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 		<ol
 			data-testid='Breadcrumbs'
 			className={cn(
-				breadcrumbsClassBase,
+				classBase,
 				{
-					[`${breadcrumbsClassBase}--contained`]: contained,
+					[`${classBase}--contained`]: contained,
 				},
-				generateCustomizationClasses(breadcrumbsClassBase, breadcrumbsClassDefaults),
+				generateCustomizationClasses(classBase, classDefaults),
 				className
 			)}
 			{...rest}

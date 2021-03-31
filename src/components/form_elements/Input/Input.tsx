@@ -1,12 +1,12 @@
 // Auto-Generated
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { InputComponentProps, InputProps } from "./Input.types";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { CloseOutlined, Eye, EyeCrossed, Search } from "../../icons";
 import { mergeRefs } from "../../../helpers/functions";
-import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../../context/ConfigContext";
 import {
 	generateCustomizationClasses,
 	generateDisabledClasses,
@@ -17,7 +17,7 @@ import {
 const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -52,7 +52,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		...rest
 	} = props;
 
-	const wrapperClassDefaults = {
+	const classDefaults = {
 		size,
 		rounded,
 		flat,
@@ -64,7 +64,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		disabled,
 	};
 
-	const wrapperClassBase = "dui__input__wrapper";
+	const classBase = "dui__input__wrapper";
 
 	const inputRef = useRef(null);
 
@@ -139,19 +139,19 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 	return (
 		<div
 			className={cn(
-				wrapperClassBase,
+				classBase,
 				{
-					[`${wrapperClassBase}--focused`]: isFocused,
+					[`${classBase}--focused`]: isFocused,
 				},
-				generateCustomizationClasses(wrapperClassBase, wrapperClassDefaults),
-				generateLoadingClasses(wrapperClassBase, wrapperClassDefaults),
-				generateDisabledClasses(wrapperClassBase, wrapperClassDefaults),
-				generateSeamlessClasses(wrapperClassBase, wrapperClassDefaults),
+				generateCustomizationClasses(classBase, classDefaults),
+				generateLoadingClasses(classBase, classDefaults),
+				generateDisabledClasses(classBase, classDefaults),
+				generateSeamlessClasses(classBase, classDefaults),
 				className
 			)}
 			tabIndex={-1}
 			ref={mergeRefs([ref])}>
-			{preffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__preffix`)}>{preffix}</div>}
+			{preffix && <div className={cn(`${classBase}__attachment`, `${classBase}__preffix`)}>{preffix}</div>}
 			<InputComponent
 				className={inputClassName}
 				type={inputType}
@@ -176,18 +176,18 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				{...rest}
 				ref={mergeRefs([inputRef, innerRef])}
 			/>
-			{isLoading && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__loader`)}>{loadingComponent}</div>}
+			{isLoading && <div className={cn(`${classBase}__attachment`, `${classBase}__loader`)}>{loadingComponent}</div>}
 			{isClearable && (inputValue?.length > 0 || showClearIndicator) && (
-				<div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__clear`)} onClick={resetInput}>
+				<div className={cn(`${classBase}__attachment`, `${classBase}__clear`)} onClick={resetInput}>
 					{clearableComponent ?? <CloseOutlined className='dui__icon' />}
 				</div>
 			)}
 			{withPasswordReveal && (
-				<div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__password`)} onClick={changeInputType}>
+				<div className={cn(`${classBase}__attachment`, `${classBase}__password`)} onClick={changeInputType}>
 					{passwordRevealComponent(inputType === "text")}
 				</div>
 			)}
-			{suffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__suffix`)}>{suffix}</div>}
+			{suffix && <div className={cn(`${classBase}__attachment`, `${classBase}__suffix`)}>{suffix}</div>}
 		</div>
 	);
 };
@@ -195,7 +195,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext } from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
 import LineLoader from "../LineLoader/LineLoader";
 import {
@@ -9,12 +9,12 @@ import {
 } from "./CardSubcomponents.types";
 import { CnCh } from "../../helpers/global.types";
 import { FlexJustify } from "../../helpers/global";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 
 export const CardLoader = forwardRef<HTMLDivElement, CardLoaderSubComponentProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const { className, pigment = config.pigment ?? "primary", children, ...rest } = props;
 

@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import {
 	ListGroupCollapseSubComponentProps,
@@ -14,7 +14,7 @@ import LineLoader from "../LineLoader/LineLoader";
 import CollapseFade from "../util/animations/CollapseFade";
 import CollapseShow from "../util/animations/CollapseShow";
 import { CaretDown } from "../icons";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 
 export const ListGroupLoader = forwardRef<HTMLDivElement, ListGroupLoaderSubComponentProps>((props, ref) => {
 	const { className, pigment, children, ...rest } = props;
@@ -80,7 +80,7 @@ ListGroupItem.displayName = "ListGroupItem";
 export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupCollapseToggleSubComponentProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -155,7 +155,7 @@ ListGroupCollapseToggle.displayName = "ListGroupCollapseToggle";
 export const ListGroupCollapseContent = forwardRef<HTMLDivElement, ListGroupCollapseContentSubComponentProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const { className, isCollapsed, animation = (config.listGroupAnimation = "collapse"), children, ...rest } = props;
 
@@ -200,7 +200,7 @@ interface ListGroupCollapseComponent
 export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubComponentProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

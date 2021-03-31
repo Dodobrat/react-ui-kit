@@ -1,15 +1,15 @@
 // Auto-Generated
-import React, { useContext } from "react";
+import React from "react";
 import cn from "classnames";
 
 import { SpinnerLoaderProps } from "./SpinnerLoader.types";
 import { PigmentOptions, SizeOptions } from "../../helpers/global";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 
 const SpinnerLoader: React.ForwardRefRenderFunction<HTMLDivElement, SpinnerLoaderProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		size = config.size ?? "md",

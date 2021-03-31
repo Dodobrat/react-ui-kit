@@ -1,15 +1,15 @@
 // Auto-Generated
-import React, { useContext } from "react";
+import React from "react";
 import cn from "classnames";
 
 import { LineLoaderProps } from "./LineLoader.types";
 import { PigmentOptions } from "../../helpers/global";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 
 const LineLoader: React.ForwardRefRenderFunction<HTMLDivElement, LineLoaderProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const { className, pigment = config.pigment ?? "primary", ...rest } = props;
 

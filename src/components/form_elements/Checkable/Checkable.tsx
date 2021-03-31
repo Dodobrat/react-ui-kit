@@ -1,11 +1,11 @@
 // Auto-Generated
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { CheckableComponentProps, CheckableProps } from "./Checkable.types";
 import { mergeRefs } from "../../../helpers/functions";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
-import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../../context/ConfigContext";
 import {
 	generateCustomizationClasses,
 	generateLoadingClasses,
@@ -16,7 +16,7 @@ import {
 const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -46,7 +46,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 		...rest
 	} = props;
 
-	const wrapperClassDefaults = {
+	const classDefaults = {
 		size,
 		rounded,
 		flat,
@@ -58,7 +58,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 		disabled,
 	};
 
-	const wrapperClassBase = "dui__input__wrapper";
+	const classBase = "dui__input__wrapper";
 
 	const checkRef = useRef(null);
 
@@ -95,21 +95,21 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 	return (
 		<div
 			className={cn(
-				wrapperClassBase,
-				`${wrapperClassBase}__checkable`,
+				classBase,
+				`${classBase}__checkable`,
 				{
-					[`${wrapperClassBase}--${typeClass}`]: typeClass,
-					[`${wrapperClassBase}--focused`]: isFocused,
+					[`${classBase}--${typeClass}`]: typeClass,
+					[`${classBase}--focused`]: isFocused,
 				},
-				generateCustomizationClasses(wrapperClassBase, wrapperClassDefaults),
-				generateLoadingClasses(wrapperClassBase, wrapperClassDefaults),
-				generateDisabledClasses(wrapperClassBase, wrapperClassDefaults),
-				generateSeamlessClasses(wrapperClassBase, wrapperClassDefaults),
+				generateCustomizationClasses(classBase, classDefaults),
+				generateLoadingClasses(classBase, classDefaults),
+				generateDisabledClasses(classBase, classDefaults),
+				generateSeamlessClasses(classBase, classDefaults),
 				className
 			)}
 			tabIndex={-1}
 			ref={mergeRefs([ref])}>
-			{preffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__preffix`)}>{preffix}</div>}
+			{preffix && <div className={cn(`${classBase}__attachment`, `${classBase}__preffix`)}>{preffix}</div>}
 			<CheckableComponent
 				className={inputClassName}
 				type={type}
@@ -130,8 +130,8 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 				{...rest}
 				ref={mergeRefs([checkRef, innerRef])}
 			/>
-			{isLoading && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__loader`)}>{loadingComponent}</div>}
-			{suffix && <div className={cn(`${wrapperClassBase}__attachment`, `${wrapperClassBase}__suffix`)}>{suffix}</div>}
+			{isLoading && <div className={cn(`${classBase}__attachment`, `${classBase}__loader`)}>{loadingComponent}</div>}
+			{suffix && <div className={cn(`${classBase}__attachment`, `${classBase}__suffix`)}>{suffix}</div>}
 		</div>
 	);
 };
@@ -139,7 +139,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableComponentProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

@@ -1,12 +1,12 @@
 // Auto-Generated
-import React, { forwardRef, useContext } from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { CardProps } from "./Card.types";
 import { CardBody, CardFooter, CardHeader, CardImage, CardLoader } from "./CardSubcomponents";
 import { CardHeaderSubComponentProps, CardImageSubComponentProps, CardLoaderSubComponentProps } from "./CardSubcomponents.types";
 import { CnCh } from "../../helpers/global.types";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
 
 interface CardComponent extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> {
@@ -20,7 +20,7 @@ interface CardComponent extends React.ForwardRefExoticComponent<CardProps & Reac
 const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		imgPosition = config.cardImgPosition ?? "top",
@@ -35,7 +35,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 		...rest
 	} = props;
 
-	const cardClassDefaults = {
+	const classDefaults = {
 		elevation,
 		pigment,
 		flat,
@@ -43,7 +43,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 		disableWhileLoading,
 	};
 
-	const cardClassBase = "dui__card";
+	const classBase = "dui__card";
 
 	const loader: JSX.Element[] = React.Children.map(children, (child: JSX.Element) =>
 		child?.type?.displayName === "CardLoader" ? child : null
@@ -57,13 +57,13 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 		<div
 			data-testid='Card'
 			className={cn(
-				cardClassBase,
+				classBase,
 				{
 					"no-overflow": !allowOverflow,
-					[`${cardClassBase}--img img-${imgPosition}`]: image.length > 0,
+					[`${classBase}--img img-${imgPosition}`]: image.length > 0,
 				},
-				generateLoadingClasses(cardClassBase, cardClassDefaults),
-				generateEssentialCustomizationClasses(cardClassBase, cardClassDefaults),
+				generateLoadingClasses(classBase, classDefaults),
+				generateEssentialCustomizationClasses(classBase, classDefaults),
 				className
 			)}
 			{...rest}

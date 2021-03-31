@@ -1,14 +1,14 @@
 // Auto-Generated
-import React, { useContext } from "react";
+import React from "react";
 import cn from "classnames";
 
 import { InputGroupProps } from "./InputGroup.types";
-import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../../context/ConfigContext";
 
 const InputGroup: React.ForwardRefRenderFunction<HTMLDivElement, InputGroupProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const { className, rounded = config.rounded ?? false, flat = config.flat ?? false, groupProps = {}, children, ...rest } = props;
 

@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { forwardRef, useContext, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { CollapseProps } from "./Collapse.types";
@@ -11,7 +11,7 @@ import {
 import { CollapseContent, CollapseLoader, CollapseToggle } from "./CollapseSubComponents";
 import { CnCh } from "../../helpers/global.types";
 import { mergeRefs } from "../../helpers/functions";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
 interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CollapseLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -22,7 +22,7 @@ interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React
 const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -39,7 +39,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		...rest
 	} = props;
 
-	const collapseClassDefaults = {
+	const classDefaults = {
 		elevation,
 		pigment,
 		flat,
@@ -47,7 +47,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		disableWhileLoading,
 	};
 
-	const collapseClassBase = "dui__collapse";
+	const classBase = "dui__collapse";
 
 	const collapseRef = useRef(null);
 	const [collapseState, setCollapseState] = useState<boolean>(isCollapsed);
@@ -100,13 +100,13 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		<div
 			data-testid='Collapse'
 			className={cn(
-				collapseClassBase,
+				classBase,
 				{
-					[`${collapseClassBase}--collapsed`]: collapseState,
+					[`${classBase}--collapsed`]: collapseState,
 					"no-overflow": !allowOverflow,
 				},
-				generateLoadingClasses(collapseClassBase, collapseClassDefaults),
-				generateEssentialCustomizationClasses(collapseClassBase, collapseClassDefaults),
+				generateLoadingClasses(classBase, classDefaults),
+				generateEssentialCustomizationClasses(classBase, classDefaults),
 				className
 			)}
 			{...rest}

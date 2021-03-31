@@ -1,16 +1,16 @@
 // Auto-Generated
-import React, { useContext } from "react";
+import React from "react";
 import cn from "classnames";
 
 import { ProgressRingProps } from "./ProgressRing.types";
 import { PigmentOptions } from "../../helpers/global";
 import { parseValueToPercent } from "../../helpers/functions";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 
 const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

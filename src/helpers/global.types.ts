@@ -11,7 +11,8 @@ export type FlexJustify = "flex-start" | "flex-end" | "center" | "space-between"
 export type FlexDirection = "row" | "row-reverse" | "column" | "column-reverse";
 export type FlexWrap = "nowrap" | "wrap" | "wrap-reverse";
 //Other
-export type Directions = "top" | "bottom" | "left" | "right";
+export type Positions = "top" | "bottom" | "left" | "right";
+export type StartEnd = "start" | "end";
 export type HorizontalAlign = "left" | "center" | "right";
 export type ProgressLabelValue = "%" | "count" | "count + %";
 type EssentialInputPropsExtensions = CustomizationProps & CnCh;

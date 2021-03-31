@@ -1,0 +1,18 @@
+@mixin dropdownPopUp() {
+	z-index: 9999;
+	position: absolute;
+}
+
+@mixin dropdownMenu() {
+	background-color: $bgCard;
+}
+
+.dui__dropdown {
+	&__menu,
+	&__body {
+		@include dropdownPopUp();
+	}
+	&__menu {
+		@include dropdownMenu();
+	}
+}

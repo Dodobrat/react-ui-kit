@@ -1,16 +1,16 @@
 // Auto-Generated
-import React, { useContext, useRef } from "react";
+import React, { useRef } from "react";
 import cn from "classnames";
 
 import { BadgeProps } from "./Badge.types";
 import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
 
 const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -28,7 +28,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		...rest
 	} = props;
 
-	const badgeClassDefaults = {
+	const classDefaults = {
 		pigment,
 		size,
 		flat,
@@ -36,7 +36,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		elevation,
 	};
 
-	const badgeClassBase = "dui__badge";
+	const classBase = "dui__badge";
 
 	const badgeRef = useRef(null);
 
@@ -66,11 +66,11 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		<ParsedComponent
 			data-testid='Badge'
 			className={cn(
-				badgeClassBase,
+				classBase,
 				{
-					[`${badgeClassBase}--clickable`]: onClick,
+					[`${classBase}--clickable`]: onClick,
 				},
-				generateCustomizationClasses(badgeClassBase, badgeClassDefaults),
+				generateCustomizationClasses(classBase, classDefaults),
 				className
 			)}
 			tabIndex={onClick && !rest["disabled"] ? 0 : -1}

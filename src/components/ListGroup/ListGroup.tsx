@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { forwardRef, useContext } from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { ListGroupProps } from "./ListGroup.types";
@@ -11,7 +11,7 @@ import {
 } from "./ListGroupSubcomponents.types";
 import { ListGroupCollapse, ListGroupHeader, ListGroupItem, ListGroupLoader } from "./ListGroupSubcomponents";
 import { addElementAttributes, addElementAttributesInObj } from "../../helpers/functions";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
 
 interface ListGroupComponent extends React.ForwardRefExoticComponent<ListGroupProps & React.RefAttributes<unknown>> {
@@ -36,7 +36,7 @@ const isSubComponentOfListGroup: (child: JSX.Element) => boolean = (child) => {
 const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -51,7 +51,7 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 		...rest
 	} = props;
 
-	const listClassDefaults = {
+	const classDefaults = {
 		elevation,
 		pigment,
 		flat,
@@ -59,7 +59,7 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 		disableWhileLoading,
 	};
 
-	const listClassBase = "dui__list__group";
+	const classBase = "dui__list__group";
 
 	const childElementType: (props: Object) => Object = (props) => {
 		const modifiedProps = { ...props };
@@ -101,12 +101,12 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 		<ParsedComponent
 			data-testid='ListGroup'
 			className={cn(
-				listClassBase,
+				classBase,
 				{
 					"no-overflow": !allowOverflow,
 				},
-				generateLoadingClasses(listClassBase, listClassDefaults),
-				generateEssentialCustomizationClasses(listClassBase, listClassDefaults),
+				generateLoadingClasses(classBase, classDefaults),
+				generateEssentialCustomizationClasses(classBase, classDefaults),
 				className
 			)}
 			{...rest}

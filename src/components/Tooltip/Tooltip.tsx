@@ -1,9 +1,9 @@
 // Auto-Generated
-import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { TooltipProps } from "./Tooltip.types";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import PortalWrapper from "../util/PortalWrapper/PortalWrapper";
 import { generateCustomizationClasses, generateSeamlessClasses } from "../../helpers/classnameGenerator";
 import { mergeRefs } from "../../helpers/functions";
@@ -12,7 +12,7 @@ import { useEventListener } from "../../hooks/useEventListener";
 const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -29,7 +29,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		flat = config.tooltipFlat ?? false,
 		seamless = config.tooltipSeamless ?? false,
 		triggerElement = null,
-		tooltipSpacing = 5,
+		spacing = 5,
 		isVisible = null,
 		onToggle,
 		children,
@@ -105,20 +105,20 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		if (tooltipVisible && tooltipEl && element) {
 			const tooltipRect = tooltipEl.getBoundingClientRect();
 
-			const tooltipTopPosition = element.offsetTop - (tooltipRect.height + tooltipSpacing);
-			const tooltipBottomPosition = element.offsetTop + childRect.height + tooltipSpacing;
-			const tooltipLeftPosition = element.offsetLeft - (tooltipRect.width + tooltipSpacing);
-			const tooltipRightPosition = element.offsetLeft + childRect.width + tooltipSpacing;
+			const tooltipTopPosition = element.offsetTop - (tooltipRect.height + spacing);
+			const tooltipBottomPosition = element.offsetTop + childRect.height + spacing;
+			const tooltipLeftPosition = element.offsetLeft - (tooltipRect.width + spacing);
+			const tooltipRightPosition = element.offsetLeft + childRect.width + spacing;
 
 			const tooltipTBLeftPosition = element.offsetLeft + childRect.width / 2 - tooltipRect.width / 2;
 			const tooltipLRTopPosition = element.offsetTop + childRect.height / 2 - tooltipRect.height / 2;
 
 			switch (position) {
 				case "bottom": {
-					const flipTreshold = element.offsetTop - window.innerHeight + childRect.height + (tooltipRect.height + tooltipSpacing);
+					const flipTreshold = element.offsetTop - window.innerHeight + childRect.height + (tooltipRect.height + spacing);
 
 					const adjustedBottomTop = window.scrollY < flipTreshold ? tooltipTopPosition : tooltipBottomPosition;
-					const adjustedBottomLeft = Math.max(tooltipTBLeftPosition, tooltipSpacing);
+					const adjustedBottomLeft = Math.max(tooltipTBLeftPosition, spacing);
 
 					setTooltipPosition({
 						top: adjustToViewport ? adjustedBottomTop : tooltipBottomPosition,
@@ -136,7 +136,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 					break;
 				}
 				case "right": {
-					const flipTreshhold = tooltipRightPosition + (tooltipRect.width + tooltipSpacing);
+					const flipTreshhold = tooltipRightPosition + (tooltipRect.width + spacing);
 
 					const adjustedRightLeft =
 						window.scrollX > flipTreshhold || window.innerWidth < flipTreshhold ? tooltipLeftPosition : tooltipRightPosition;
@@ -149,7 +149,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 				}
 				default: {
 					const adjustedTopTop = window.scrollY > tooltipTopPosition ? tooltipBottomPosition : tooltipTopPosition;
-					const adjustedTopLeft = Math.max(tooltipTBLeftPosition, tooltipSpacing);
+					const adjustedTopLeft = Math.max(tooltipTBLeftPosition, spacing);
 
 					setTooltipPosition({
 						top: adjustToViewport ? adjustedTopTop : tooltipTopPosition,

@@ -1,11 +1,11 @@
 // Auto-Generated
-import React, { forwardRef, useContext, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import cn from "classnames";
 
 import { TabsProps } from "./Tabs.types";
 import { TabContent, TabsItems, TabsPanel } from "./TabsSubcomponents";
 import { TabItemType, TabPanelType, TabsPanelSubComponentProps } from "./TabsSubcomponents.types";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
 
 interface TabsComponent extends React.ForwardRefExoticComponent<TabsProps & React.RefAttributes<HTMLDivElement>> {
@@ -15,7 +15,7 @@ interface TabsComponent extends React.ForwardRefExoticComponent<TabsProps & Reac
 const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -34,7 +34,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		...rest
 	} = props;
 
-	const tabsClassDefaults = {
+	const classDefaults = {
 		elevation,
 		pigment,
 		flat,
@@ -42,7 +42,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		disableWhileLoading,
 	};
 
-	const tabsClassBase = "dui__tabs";
+	const classBase = "dui__tabs";
 
 	const [activeTabIndex, setActiveTabIndex] = useState(activeTab);
 
@@ -116,13 +116,13 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 		<div
 			data-testid='Tabs'
 			className={cn(
-				tabsClassBase,
+				classBase,
 				{
-					[`${tabsClassBase}--vertical`]: orientation === "vertical",
+					[`${classBase}--vertical`]: orientation === "vertical",
 					"no-overflow": !allowOverflow,
 				},
-				generateLoadingClasses(tabsClassBase, tabsClassDefaults),
-				generateEssentialCustomizationClasses(tabsClassBase, tabsClassDefaults),
+				generateLoadingClasses(classBase, classDefaults),
+				generateEssentialCustomizationClasses(classBase, classDefaults),
 				className
 			)}
 			{...rest}

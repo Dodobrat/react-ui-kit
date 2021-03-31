@@ -1,4 +1,4 @@
-import { Directions } from "../../../helpers/global.types";
+import { Positions } from "../../../helpers/global.types";
 
 export interface AnimProps {
 	in: boolean;
@@ -12,5 +12,5 @@ export interface AnimProps {
 }
 
 export interface SlideInProps extends AnimProps {
-	position: Directions;
+	position: Positions;
 }

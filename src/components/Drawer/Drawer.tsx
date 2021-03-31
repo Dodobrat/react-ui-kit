@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { useCallback, useContext, useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import cn from "classnames";
 
 import { DrawerProps } from "./Drawer.types";
@@ -10,12 +10,12 @@ import { ElevationOptions, SizeOptions } from "../../helpers/global";
 import { useKeyPress } from "../../hooks/useKeyPress";
 import { disableScrollAndScrollBar } from "../../helpers/functions";
 import { useEventListener } from "../../hooks/useEventListener";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 
 const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

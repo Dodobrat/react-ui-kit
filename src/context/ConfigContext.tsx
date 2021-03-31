@@ -1,11 +1,11 @@
 // Auto-Generated
-import React, { createContext, useMemo, useState } from "react";
-import { AlertAnimation } from "../../components/Alert/Alert.types";
-import { CollapseAnimation } from "../../components/Collapse/CollapseSubComponents.types";
-import { VerticalAlign, PortalAnimation } from "../../components/Portal/Portal.types";
-import { Directions, ElevationOptions, PigmentOptions, ProgressLabelValue, SizeOptions } from "../../helpers/global.types";
+import React, { createContext, useContext, useMemo, useState } from "react";
+import { AlertAnimation } from "../components/Alert/Alert.types";
+import { CollapseAnimation } from "../components/Collapse/CollapseSubComponents.types";
+import { VerticalAlign, PortalAnimation } from "../components/Portal/Portal.types";
+import { Positions, ElevationOptions, PigmentOptions, ProgressLabelValue, SizeOptions } from "../helpers/global.types";
 
-export const GlobalContext = createContext(null);
+const ConfigContext = createContext(null);
 
 interface GlobalOptions {
 	flat?: boolean;
@@ -38,7 +38,7 @@ interface GlobalOptions {
 	//--Button Group
 	btnGroupSpongy?: boolean;
 	//--Card
-	cardImgPosition?: Directions;
+	cardImgPosition?: Positions;
 	//--Collapse
 	collapseScrollIntoViewOnToggle?: boolean;
 	collapseIndicator?: boolean;
@@ -47,8 +47,10 @@ interface GlobalOptions {
 	//--Drawer
 	drawerElevation?: ElevationOptions;
 	drawerKeyboard?: boolean;
-	drawerPosition?: Directions;
+	drawerPosition?: Positions;
 	drawerBodyScrollDisable?: boolean;
+	//--Dropdown
+	dropdownElevation?: ElevationOptions;
 	//--Heading
 	headingAs?: React.ElementType;
 	//--List Group
@@ -71,7 +73,7 @@ interface GlobalOptions {
 	//--Progress Bar
 	progressBarLabeled?: boolean;
 	progressBarLabelValue?: ProgressLabelValue;
-	progressBarLabelPosition?: Directions;
+	progressBarLabelPosition?: Positions;
 	//--Progress Ring
 	progressRingLabeled?: boolean;
 	progressRingLabelValue?: ProgressLabelValue;
@@ -82,19 +84,29 @@ interface GlobalOptions {
 	textAs?: React.ElementType;
 }
 
-const GlobalContextProvider: React.FC = ({ children }) => {
+const ConfigProvider: React.FC = ({ children }) => {
 	const [config, setConfig] = useState<GlobalOptions>({});
 
 	const appConfig = useMemo(() => ({ config, setConfig }), [config, setConfig]);
 
 	return (
-		<GlobalContext.Provider
+		<ConfigContext.Provider
 			value={{
 				appConfig,
 			}}>
 			{children}
-		</GlobalContext.Provider>
+		</ConfigContext.Provider>
 	);
 };
 
-export default GlobalContextProvider;
+export const useConfig = () => {
+	const context = useContext(ConfigContext);
+
+	if (context === undefined) {
+		throw new Error("useConfig must be used within a ConfigContextProvider");
+	}
+
+	return context;
+};
+
+export default ConfigProvider;

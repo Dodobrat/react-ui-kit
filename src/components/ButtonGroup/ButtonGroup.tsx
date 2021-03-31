@@ -1,14 +1,14 @@
 // Auto-Generated
-import React, { forwardRef, useContext } from "react";
+import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { ButtonGroupProps } from "./ButtonGroup.types";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 
 const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

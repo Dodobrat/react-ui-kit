@@ -1,9 +1,9 @@
 // Auto-Generated
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { SwitchGroupProps } from "./SwitchGroup.types";
-import { GlobalContext } from "../../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../../context/ConfigContext";
 import { createRipple, mergeRefs } from "../../../helpers/functions";
 import { useWindowResize } from "../../../hooks/useWindowResize";
 import { generateCustomizationClasses, generateSeamlessClasses } from "../../../helpers/classnameGenerator";
@@ -11,7 +11,7 @@ import { generateCustomizationClasses, generateSeamlessClasses } from "../../../
 const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,

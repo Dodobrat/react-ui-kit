@@ -1,11 +1,11 @@
 // Auto-Generated
-import React, { useContext, useRef } from "react";
+import React, { useRef } from "react";
 import cn from "classnames";
 
 import { ButtonProps } from "./Button.types";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
-import { GlobalContext } from "../../context/GlobalContext/GlobalContext";
+import { useConfig } from "../../context/ConfigContext";
 import {
 	generateBtnClasses,
 	generateCustomizationClasses,
@@ -16,7 +16,7 @@ import {
 const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
 	const {
 		appConfig: { config },
-	} = useContext(GlobalContext);
+	} = useConfig();
 
 	const {
 		className,
@@ -46,7 +46,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		...rest
 	} = props;
 
-	const btnUtilClassDefaults = {
+	const utilClassDefaults = {
 		iconStart,
 		iconEnd,
 		round,
@@ -58,7 +58,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		spongy,
 	};
 
-	const btnClassDefaults = {
+	const classDefaults = {
 		pigment,
 		pigmentColor,
 		size,
@@ -69,7 +69,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		disableWhileLoading,
 	};
 
-	const btnClassBase = "dui__btn";
+	const classBase = "dui__btn";
 
 	const btnRef = useRef(null);
 
@@ -90,11 +90,11 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 			data-testid='Button'
 			tabIndex={rest["disabled"] ? -1 : 0}
 			className={cn(
-				btnClassBase,
-				generateBtnClasses(btnClassBase, btnUtilClassDefaults),
-				generateCustomizationClasses(btnClassBase, btnClassDefaults),
-				generatePigmentColorClasses(btnClassBase, btnClassDefaults),
-				generateLoadingClasses(btnClassBase, btnClassDefaults),
+				classBase,
+				generateBtnClasses(classBase, utilClassDefaults),
+				generateCustomizationClasses(classBase, classDefaults),
+				generatePigmentColorClasses(classBase, classDefaults),
+				generateLoadingClasses(classBase, classDefaults),
 				className
 			)}
 			onPointerDown={handleOnPointerDown}
@@ -103,7 +103,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 			{iconStart && iconStart}
 			{children}
 			{iconEnd && iconEnd}
-			{isLoading && <div className={cn(`${btnClassBase}--loading__overlay`)}>{loadingComponent}</div>}
+			{isLoading && <div className={cn(`${classBase}--loading__overlay`)}>{loadingComponent}</div>}
 		</ParsedComponent>
 	);
 };

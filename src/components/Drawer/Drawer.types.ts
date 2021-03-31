@@ -1,8 +1,8 @@
-import { Directions, ElevationOptions, PortalComponent } from "../../helpers/global.types";
+import { Positions, ElevationOptions, PortalComponent } from "../../helpers/global.types";
 
 // Auto-Generated
 export interface DrawerProps extends PortalComponent {
 	elevation?: ElevationOptions;
-	position?: Directions;
+	position?: Positions;
 	animation?: "slide";
 }
