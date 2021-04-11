@@ -9,7 +9,7 @@ import Button from "../Button/Button";
 import { createRipple, mergeRefs } from "../../helpers/functions";
 import { Close, Completed, Danger, Info, Warning } from "../icons";
 import { useConfig } from "../../context/ConfigContext";
-import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props, ref) => {
 	const {
@@ -18,11 +18,11 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 
 	const {
 		className,
-		elevation = config.alertElevation ?? "none",
 		pigment = config.alertPigment ?? "danger",
+		pigmentColor = config.alertPigmentColor ?? null,
+		elevation = config.alertElevation ?? "none",
+		flavor = config.flavor ?? "default",
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
 		animation = config.alertAnimation ?? "collapse-n-fade",
 		isVisible = true,
 		withIcon = config.alertWithIcon ?? true,
@@ -37,15 +37,15 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		...rest
 	} = props;
 
-	const passThroughBtnProps = {
-		size,
-		elevation,
+	const classDefaults = {
 		pigment,
-		rounded,
-		flat,
+		pigmentColor,
+		elevation,
+		flavor,
+		size,
 	};
 
-	const alertClassBase = "dui__alert";
+	const classBase = "dui__alert";
 
 	const alertRef = useRef(null);
 	const [isVisibleState, setIsVisbleState] = useState<boolean>(isVisible);
@@ -82,7 +82,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 
 	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
 		if (withRipple) {
-			createRipple({ e, elem: alertRef, pigment });
+			createRipple({ e, elem: alertRef });
 		}
 
 		if (onPointerDown) {
@@ -99,33 +99,24 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		return (
 			<div
 				data-testid='Alert'
-				className={cn(
-					alertClassBase,
-					{
-						[`${alertClassBase}--flex`]: isDismissible || withIcon,
-					},
-					generateCustomizationClasses(alertClassBase, passThroughBtnProps),
-					className
-				)}
+				className={cn(classBase, generateStyleClasses(classDefaults), className)}
 				onClick={isDismissibleOnClick ? removeAlert : props?.["onClick"]}
 				role='alert'
-				tabIndex={0}
+				tabIndex={isDismissibleOnClick ? 0 : -1}
 				onKeyDown={handleKeyDown}
 				onPointerDown={handleOnPointerDown}
 				{...rest}
 				ref={mergeRefs([alertRef, ref])}>
 				{withIcon && alertIcon(pigment)}
-				{isDismissible ? (
+				<div className={cn(`${classBase}__content`)}>{children}</div>
+				{isDismissible && (
 					<>
-						<div className={cn(`${alertClassBase}__title`)}>{children}</div>
 						{dismissibleComponent ?? (
-							<Button onClick={removeAlert} size='xs' {...passThroughBtnProps}>
+							<Button onClick={removeAlert} {...classDefaults}>
 								<Close className='dui__icon' />
 							</Button>
 						)}
 					</>
-				) : (
-					children
 				)}
 			</div>
 		);

@@ -1,9 +1,8 @@
-import { CnCh, Positions, EssentialCustomizationProps, EssentialLoadingProps } from "../../helpers/global.types";
+import { CnCh, Positions, EssentialLoadingProps, AllEssentialCustomizationProps } from "../../helpers/global.types";
 
-type ExtraCardProps = EssentialCustomizationProps & CnCh & EssentialLoadingProps;
+type ExtraCardProps = AllEssentialCustomizationProps & CnCh & EssentialLoadingProps;
 
 // Auto-Generated
 export interface CardProps extends ExtraCardProps {
 	imgPosition?: Positions;
-	allowOverflow?: boolean;
 }

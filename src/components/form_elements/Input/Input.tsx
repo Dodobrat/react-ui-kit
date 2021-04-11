@@ -33,7 +33,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment} inputLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={pigment} componentLoader />,
 		preffix = type === "search" ? <Search /> : null,
 		suffix,
 		isClearable = false,

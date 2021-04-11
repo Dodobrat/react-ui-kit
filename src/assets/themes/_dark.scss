@@ -5,3 +5,46 @@ $bgCard: #2d2d2f;
 //--Font Colors
 $mainFont: #fff;
 $subFont: #eee;
+
+$pigments: (
+	"none": (
+		"name": "none",
+		"bgColor": transparent,
+		"fontColor": $mainFont,
+	),
+	"default": (
+		"name": "default",
+		"bgColor": $bgCard,
+		"fontColor": $mainFont,
+	),
+	"primary": (
+		"name": "primary",
+		"bgColor": $primaryBg,
+		"fontColor": $primaryFont,
+	),
+	"secondary": (
+		"name": "secondary",
+		"bgColor": $secondaryBg,
+		"fontColor": $secondaryFont,
+	),
+	"success": (
+		"name": "success",
+		"bgColor": $successBg,
+		"fontColor": $successFont,
+	),
+	"warning": (
+		"name": "warning",
+		"bgColor": $warningBg,
+		"fontColor": $warningFont,
+	),
+	"danger": (
+		"name": "danger",
+		"bgColor": $dangerBg,
+		"fontColor": $dangerFont,
+	),
+	"info": (
+		"name": "info",
+		"bgColor": $infoBg,
+		"fontColor": $infoFont,
+	),
+);

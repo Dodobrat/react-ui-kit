@@ -7,19 +7,7 @@ import { useWindowResize } from "../../hooks/useWindowResize";
 import { createRipple } from "../../helpers/functions";
 
 export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>((props, ref) => {
-	const {
-		className,
-		pigment,
-		withRipple,
-		onPointerDown,
-		activeOption,
-		orientation,
-		options = [],
-		children,
-		onKeyDown,
-		innerRef,
-		...rest
-	} = props;
+	const { className, withRipple, onPointerDown, activeOption, orientation, options = [], children, onKeyDown, innerRef, ...rest } = props;
 
 	const { width } = useWindowResize(500);
 
@@ -62,7 +50,7 @@ export const TabsItems = forwardRef<HTMLDivElement, TabsItemsSubComponentProps>(
 
 	const handleOnPointerDown: (e: React.PointerEvent, idx: number) => void = (e, idx) => {
 		if (withRipple) {
-			createRipple({ e, elem: itemsRef.current[idx], pigment });
+			createRipple({ e, elem: itemsRef.current[idx] });
 		}
 
 		if (onPointerDown) {

@@ -7,7 +7,7 @@ import { CardBody, CardFooter, CardHeader, CardImage, CardLoader } from "./CardS
 import { CardHeaderSubComponentProps, CardImageSubComponentProps, CardLoaderSubComponentProps } from "./CardSubcomponents.types";
 import { CnCh } from "../../helpers/global.types";
 import { useConfig } from "../../context/ConfigContext";
-import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
+import { generateLoadingClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 
 interface CardComponent extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CardLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -24,10 +24,9 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
 	const {
 		imgPosition = config.cardImgPosition ?? "top",
+		pigment = "default",
 		elevation = config.elevation ?? "subtle",
-		pigment = null,
-		flat = config.flat ?? false,
-		allowOverflow = true,
+		flavor = config.flavor ?? "default",
 		disableWhileLoading = true,
 		isLoading = false,
 		className,
@@ -38,7 +37,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 	const classDefaults = {
 		elevation,
 		pigment,
-		flat,
+		flavor,
 		isLoading,
 		disableWhileLoading,
 	};
@@ -59,11 +58,10 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 			className={cn(
 				classBase,
 				{
-					"no-overflow": !allowOverflow,
 					[`${classBase}--img img-${imgPosition}`]: image.length > 0,
 				},
+				generateStyleClasses(classDefaults),
 				generateLoadingClasses(classBase, classDefaults),
-				generateEssentialCustomizationClasses(classBase, classDefaults),
 				className
 			)}
 			{...rest}

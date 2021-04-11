@@ -5,7 +5,7 @@ import cn from "classnames";
 import { BadgeProps } from "./Badge.types";
 import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
 import { useConfig } from "../../context/ConfigContext";
-import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) => {
 	const {
@@ -15,11 +15,11 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 	const {
 		className,
 		as = "span",
+		pigment = config.badgePigment ?? "primary",
+		pigmentColor = config.badgePigmentColor ?? null,
 		elevation = config.badgeElevation ?? "none",
-		pigment = config.pigment ?? "primary",
+		flavor = config.flavor ?? "default",
 		size = config.size ?? "md",
-		flat = config.flat ?? false,
-		rounded = config.rounded ?? false,
 		children,
 		onClick,
 		withRipple = config.withRipple ?? !!onClick,
@@ -30,10 +30,10 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 
 	const classDefaults = {
 		pigment,
-		size,
-		flat,
-		rounded,
+		pigmentColor,
 		elevation,
+		flavor,
+		size,
 	};
 
 	const classBase = "dui__badge";
@@ -46,13 +46,15 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		}
 		if (badgeRef.current === document.activeElement && e.code === "Space") {
 			e.preventDefault();
-			onClick(e);
+			if (onClick) {
+				onClick(e);
+			}
 		}
 	};
 
 	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
 		if (withRipple) {
-			createRipple({ e, elem: badgeRef, pigment });
+			createRipple({ e, elem: badgeRef });
 		}
 
 		if (onPointerDown) {
@@ -68,9 +70,9 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 			className={cn(
 				classBase,
 				{
-					[`${classBase}--clickable`]: onClick,
+					clickable: onClick,
 				},
-				generateCustomizationClasses(classBase, classDefaults),
+				generateStyleClasses(classDefaults),
 				className
 			)}
 			tabIndex={onClick && !rest["disabled"] ? 0 : -1}

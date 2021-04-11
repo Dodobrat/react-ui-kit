@@ -3,23 +3,26 @@ import React, { forwardRef } from "react";
 import cn from "classnames";
 
 import { ContainerProps } from "./Container.types";
-import { AllSizeOptions, SizeOptions } from "../../../helpers/global";
+import { generateStyleClasses } from "../../../helpers/classnameGenerator";
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => {
-	const { fluid = false, size = "lg", spacingX = "sm", className, children, ...rest } = props;
+	const { fluid = false, size = "lg", className, children, ...rest } = props;
+
+	const classDefaults = {
+		containerSize: size,
+	};
+
+	const classBase = "dui__container";
 
 	return (
 		<div
 			data-testid='Container'
 			className={cn(
-				"dui__container",
+				classBase,
 				{
-					"dui__container--fluid": fluid,
+					[`${classBase}--fluid`]: fluid,
 				},
-				{
-					[`dui__container--${size}`]: AllSizeOptions.includes(size) && size !== "md" && !fluid,
-					[`dui__container--px-${spacingX}`]: SizeOptions.includes(spacingX),
-				},
+				generateStyleClasses(classDefaults),
 				className
 			)}
 			{...rest}

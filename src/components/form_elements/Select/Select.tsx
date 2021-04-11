@@ -32,7 +32,7 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment} inputLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={pigment} componentLoader />,
 		preffix,
 		suffix,
 		isClearable = false,

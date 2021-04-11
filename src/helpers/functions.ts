@@ -1,5 +1,4 @@
 import React from "react";
-import { PigmentOptions as PigmentOptionTypes } from "./global.types";
 
 export const parseValueToPercent: (min: number, max: number, value: number, decimals?: number) => number | string = (
 	min,
@@ -77,10 +76,12 @@ export const addElementAttributesInObj: (props: Object) => Object = (props) => {
 	return extraProps;
 };
 
+//TODO: Remove
 export const configError: (prop: string, supports: Object) => void = (prop, supports) => {
 	console.warn(`Unsupported (${prop}) config passed to component! Please use one of the following:`);
 	console.table(supports);
 };
+//---------------
 
 export const isTouchDevice: () => boolean = () => {
 	return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
@@ -112,15 +113,10 @@ export const debounce: (func: any, wait: number) => (...args: any[]) => void = (
 	};
 };
 
-export const createRipple: ({
+export const createRipple: ({ e, elem }: { e: React.PointerEvent; elem: HTMLElement | React.MutableRefObject<any> | any }) => void = ({
 	e,
 	elem,
-	pigment,
-}: {
-	e: React.PointerEvent;
-	elem: HTMLElement | React.MutableRefObject<any> | any;
-	pigment?: PigmentOptionTypes;
-}) => void = ({ e, elem, pigment = null }) => {
+}) => {
 	const element = elem.current ?? elem;
 
 	if (element) {
@@ -137,9 +133,6 @@ export const createRipple: ({
 		circle.style.left = `${x}px`;
 		circle.style.top = `${y}px`;
 		circle.classList.add("dui__ripple");
-		if (pigment) {
-			circle.classList.add(`dui__ripple--${pigment}`);
-		}
 
 		const ripple = element.getElementsByClassName("dui__ripple")[0];
 
@@ -152,3 +145,5 @@ export const createRipple: ({
 };
 
 export const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+
+//TODO: Export some of the more useful functions to index

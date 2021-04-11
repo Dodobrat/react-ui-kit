@@ -6,7 +6,7 @@ import { BreadcrumbsProps } from "./Breadcrumbs.types";
 import { BreadcrumbsSubComponentProps } from "./BreadcrumbsSubcomponents.types";
 import { BreadcrumbItem } from "./BreadcrumbsSubcomponents";
 import { useConfig } from "../../context/ConfigContext";
-import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 interface BreadcrumbComponent extends React.ForwardRefExoticComponent<BreadcrumbsProps & React.RefAttributes<HTMLOListElement>> {
 	Item: React.ForwardRefExoticComponent<BreadcrumbsSubComponentProps & React.RefAttributes<HTMLLIElement>>;
@@ -19,11 +19,10 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 
 	const {
 		className,
-		contained = config.breadcrumbsContained ?? false,
-		flat = config.flat ?? false,
-		rounded = config.rounded ?? false,
+		pigment = config.breadcrumbsPigment ?? "none",
+		pigmentColor = config.breadcrumbsPigmentColor ?? null,
 		elevation = config.breadcrumbsElevation ?? "none",
-		pigment = config.breadcrumbsPigment ?? null,
+		flavor = config.flavor ?? "default",
 		size = config.size ?? "md",
 		separator = config.breadcrumbsSeparator ?? "/",
 		children,
@@ -32,10 +31,10 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 
 	const classDefaults = {
 		pigment,
-		size,
-		flat,
-		rounded,
+		pigmentColor,
 		elevation,
+		flavor,
+		size,
 	};
 
 	const classBase = "dui__breadcrumbs";
@@ -59,18 +58,7 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 	});
 
 	return (
-		<ol
-			data-testid='Breadcrumbs'
-			className={cn(
-				classBase,
-				{
-					[`${classBase}--contained`]: contained,
-				},
-				generateCustomizationClasses(classBase, classDefaults),
-				className
-			)}
-			{...rest}
-			ref={ref}>
+		<ol data-testid='Breadcrumbs' className={cn(classBase, generateStyleClasses(classDefaults), className)} {...rest} ref={ref}>
 			{item}
 		</ol>
 	);

@@ -7,7 +7,7 @@ import { useConfig } from "../../context/ConfigContext";
 import { TableBodyProps, TableFootProps, TableHeadProps, TableRowProps, TableCellProps, TableHCellProps } from "./TableSubComponents.types";
 import { TableBody, TableCell, TableFoot, TableHCell, TableHead, TableRow } from "./TableSubComponents";
 import Card from "../Card/Card";
-import { PigmentOptions, SizeOptions } from "../../helpers/global";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 interface TableComponent extends React.ForwardRefExoticComponent<TableProps & React.RefAttributes<HTMLDivElement>> {
 	HCell: React.ForwardRefExoticComponent<TableHCellProps & React.RefAttributes<HTMLTableHeaderCellElement>>;
@@ -29,9 +29,8 @@ const Table = forwardRef<HTMLDivElement, TableProps>((props, ref) => {
 		innerRef,
 		elevation = config.elevation ?? "subtle",
 		size = config.size ?? "md",
-		pigment = null,
-		flat = config.flat ?? false,
-		allowOverflow = true,
+		pigment = "default",
+		flavor = config.flavor ?? "default",
 		condensed = false,
 		bordered = false,
 		disableWhileLoading = true,
@@ -41,9 +40,13 @@ const Table = forwardRef<HTMLDivElement, TableProps>((props, ref) => {
 	} = props;
 
 	const classDefaults = {
-		elevation,
+		size,
+	};
+
+	const passThroughProps = {
 		pigment,
-		flat,
+		elevation,
+		flavor,
 		isLoading,
 		disableWhileLoading,
 	};
@@ -57,25 +60,13 @@ const Table = forwardRef<HTMLDivElement, TableProps>((props, ref) => {
 				{
 					[`${classBase}__container--condensed`]: condensed,
 					[`${classBase}__container--bordered`]: bordered,
-					[`${classBase}__container--${pigment}`]: PigmentOptions.includes(pigment),
 				},
 				className
 			)}
-			allowOverflow={allowOverflow}
-			{...classDefaults}
+			{...passThroughProps}
 			{...rest}
 			ref={ref}>
-			<table
-				role='table'
-				className={cn(
-					classBase,
-					{
-						[`${classBase}--flat`]: flat,
-						[`${classBase}--${size}`]: SizeOptions.includes(size) && size !== "md",
-					},
-					innerClassName
-				)}
-				ref={innerRef}>
+			<table role='table' className={cn(classBase, generateStyleClasses(classDefaults), innerClassName)} ref={innerRef}>
 				{children}
 			</table>
 		</Card>

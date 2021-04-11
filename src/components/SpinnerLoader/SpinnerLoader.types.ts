@@ -1,10 +1,9 @@
-import { PigmentOptions, SizeOptions } from "../../helpers/global.types";
+import { AllPigmentOptions, AllSizeOptions, PigmentColorProps } from "../../helpers/global.types";
 
 // Auto-Generated
-export interface SpinnerLoaderProps {
-	btnLoader?: boolean;
-	inputLoader?: boolean;
-	size?: SizeOptions;
-	pigment?: PigmentOptions;
-	pigmentColor?: PigmentOptions;
+export interface SpinnerLoaderProps extends PigmentColorProps {
+	className?: string;
+	componentLoader?: boolean;
+	size?: AllSizeOptions;
+	pigment?: AllPigmentOptions;
 }

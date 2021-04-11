@@ -34,7 +34,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 		scrollOnFocus = false,
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment} inputLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={pigment} componentLoader />,
 		preffix,
 		suffix,
 		checked,

@@ -4,8 +4,7 @@ import cn from "classnames";
 
 import { FlexProps } from "./Flex.types";
 import { FlexCol } from "./FlexSubcomponents";
-import { FlexAlign, FlexDirection, FlexJustify, FlexWrap } from "../../../helpers/global";
-import { generateOtherClasses, generateSpacingClasses } from "../../../helpers/classnameGenerator";
+import { generateSpacingClasses, generateStyleClasses } from "../../../helpers/classnameGenerator";
 
 interface FlexComponent extends React.ForwardRefExoticComponent<FlexProps & React.RefAttributes<HTMLDivElement>> {
 	Col: React.FC;
@@ -25,6 +24,13 @@ const Flex = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
 		...rest
 	} = props;
 
+	const classDefaults = {
+		align,
+		justify,
+		direction,
+		wrap,
+	};
+
 	return (
 		<div
 			data-testid='Flex'
@@ -35,10 +41,7 @@ const Flex = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
 				},
 				generateSpacingClasses(spacingX, "sx"),
 				generateSpacingClasses(spacingY, "sy"),
-				generateOtherClasses(align, "align", FlexAlign, "flex-start"),
-				generateOtherClasses(justify, "justify", FlexJustify, "flex-start"),
-				generateOtherClasses(direction, "direction", FlexDirection, "row"),
-				generateOtherClasses(wrap, "wrap", FlexWrap, "wrap"),
+				generateStyleClasses(classDefaults),
 				className
 			)}
 			{...rest}

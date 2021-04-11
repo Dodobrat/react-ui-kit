@@ -32,7 +32,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment} inputLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={pigment} componentLoader />,
 		isClearable = false,
 		clearableComponent = null,
 		clearableComponentLabel = "Clear",

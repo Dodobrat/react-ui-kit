@@ -8,13 +8,13 @@ import {
 	ListGroupItemSubComponentProps,
 	ListGroupLoaderSubComponentProps,
 } from "./ListGroupSubcomponents.types";
-import { PigmentOptions } from "../../helpers/global";
 import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
 import LineLoader from "../LineLoader/LineLoader";
 import CollapseFade from "../util/animations/CollapseFade";
 import CollapseShow from "../util/animations/CollapseShow";
 import { CaretDown } from "../icons";
 import { useConfig } from "../../context/ConfigContext";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 export const ListGroupLoader = forwardRef<HTMLDivElement, ListGroupLoaderSubComponentProps>((props, ref) => {
 	const { className, pigment, children, ...rest } = props;
@@ -29,23 +29,18 @@ export const ListGroupLoader = forwardRef<HTMLDivElement, ListGroupLoaderSubComp
 ListGroupLoader.displayName = "ListGroupLoader";
 
 export const ListGroupHeader = forwardRef<unknown, ListGroupHeaderSubComponentProps>((props, ref) => {
-	const { className, as, align = "left", pigment, children, ...rest } = props;
+	const { className, as, pigment, children, ...rest } = props;
+
+	const classDefaults = {
+		pigment,
+	};
+
+	const classBase = "dui__list__group__header";
 
 	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
-		<ParsedComponent
-			className={cn(
-				"dui__list__group__header",
-				{},
-				{
-					[`dui__list__group__header--align-${align}`]: align !== "left",
-					[`dui__list__group__header--${pigment}`]: PigmentOptions.includes(pigment),
-				},
-				className
-			)}
-			{...rest}
-			ref={ref}>
+		<ParsedComponent className={cn(classBase, generateStyleClasses(classDefaults), className)} {...rest} ref={ref}>
 			{children}
 		</ParsedComponent>
 	);
@@ -56,16 +51,22 @@ ListGroupHeader.displayName = "ListGroupHeader";
 export const ListGroupItem = forwardRef<unknown, ListGroupItemSubComponentProps>((props, ref) => {
 	const { className, as, active = false, pigment, children, ...rest } = props;
 
+	const classDefaults = {
+		pigment,
+	};
+
+	const classBase = "dui__list__group__item";
+
 	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent
 			className={cn(
-				"dui__list__group__item",
+				classBase,
 				{
-					"dui__list__group__item--active": active,
-					[`dui__list__group__item--${pigment}`]: PigmentOptions.includes(pigment),
+					[`${classBase}--active`]: active,
 				},
+				generateStyleClasses(classDefaults),
 				className
 			)}
 			{...rest}
@@ -84,7 +85,6 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 
 	const {
 		className,
-		pigment,
 		collapseIndicator = config.listGroupCollapseIndicator ?? true,
 		collapseIndicatorComponent = config.listGroupCollapseIndicatorComponent ?? null,
 		isCollapsed,
@@ -95,6 +95,8 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 		children,
 		...rest
 	} = props;
+
+	const classBase = "dui__list__group__collapse__toggle";
 
 	const listGroupCollapseToggleRef = useRef(null);
 
@@ -110,7 +112,7 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 
 	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
 		if (withRipple) {
-			createRipple({ e, elem: listGroupCollapseToggleRef, pigment });
+			createRipple({ e, elem: listGroupCollapseToggleRef });
 		}
 
 		if (onPointerDown) {
@@ -121,10 +123,10 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 	return (
 		<div
 			className={cn(
-				"dui__list__group__collapse__toggle",
+				classBase,
 				{
-					"dui__list__group__collapse__toggle--collapsed": isCollapsed,
-					"dui__list__group__collapse__toggle--indicated": collapseIndicator,
+					[`${classBase}--collapsed`]: isCollapsed,
+					[`${classBase}--indicated`]: collapseIndicator,
 				},
 				className
 			)}
@@ -136,12 +138,8 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 			ref={mergeRefs([listGroupCollapseToggleRef, ref])}>
 			{collapseIndicator ? (
 				<>
-					<div className='dui__list__group__collapse__toggle__title'>{children}</div>
-					{!!collapseIndicatorComponent ? (
-						collapseIndicatorComponent
-					) : (
-						<CaretDown className='dui__list__group__collapse__toggle__indicator' />
-					)}
+					<div className={`${classBase}__title`}>{children}</div>
+					{!!collapseIndicatorComponent ? collapseIndicatorComponent : <CaretDown className={`${classBase}__indicator`} />}
 				</>
 			) : (
 				children
@@ -213,6 +211,12 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 		...rest
 	} = props;
 
+	const classDefaults = {
+		pigment,
+	};
+
+	const classBase = "dui__list__group__collapse";
+
 	const [collapseState, setCollapseState] = useState<boolean>(isCollapsed);
 
 	const onCollapseToggle = () => setCollapseState((prev) => !prev);
@@ -228,7 +232,6 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 				...child,
 				props: {
 					...child.props,
-					pigment,
 					isCollapsed: collapseState,
 					onKeyboardToggle: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,
 					onClick: onToggle ? () => onToggle(isCollapsed) : onCollapseToggle,
@@ -254,14 +257,12 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 	return (
 		<ParsedComponent
 			className={cn(
-				"dui__list__group__collapse",
+				classBase,
 				{
-					"dui__list__group__collapse--no-indent": !nestedCollapseIndent,
-					"dui__list__group__collapse--collapsed": collapseState,
+					[`${classBase}--no-indent`]: !nestedCollapseIndent,
+					[`${classBase}--collapsed`]: collapseState,
 				},
-				{
-					[`dui__list__group__collapse--${pigment}`]: PigmentOptions.includes(pigment),
-				},
+				generateStyleClasses(classDefaults),
 				className
 			)}
 			{...rest}

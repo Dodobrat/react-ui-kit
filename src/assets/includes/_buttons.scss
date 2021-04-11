@@ -3,13 +3,9 @@
 	display: inline-block;
 	position: relative;
 	margin: 0;
-	padding: calc(#{$mdFont} * 0.4375) $mdFont;
-	background-color: transparent;
+	padding: calc(1em * 0.4375) 1em;
 	width: auto;
-	border-radius: $smBorderRadius;
-	font-size: $mdFont;
 	font-weight: 400;
-	color: $mainFont;
 	overflow: hidden;
 	line-height: 1.5;
 	outline: none;
@@ -17,23 +13,6 @@
 	border: none;
 	vertical-align: middle;
 	@include crossBrowser(user-select, none);
-
-	&.dui__btn--focus-ring {
-		&:focus {
-			box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.1), 0 0 0 0.1rem rgba(0, 0, 0, 0.25);
-		}
-	}
-
-	&.dui__btn--active {
-		background-color: rgba(0, 0, 0, 0.175);
-	}
-
-	@include focusVisible();
-
-	&:hover {
-		transition: $fastTrans;
-		background-color: rgba(0, 0, 0, 0.1);
-	}
 
 	@include spongy();
 	&.dui__btn--still {
@@ -49,94 +28,8 @@
 	}
 }
 
-@mixin btnRoundOption($size: $mdFont) {
-	&.dui__btn--round {
-		border-radius: $roundBorderRadius;
-		width: calc(calc(#{$size} * 1.375) + #{$size});
-		height: calc(calc(#{$size} * 1.375) + #{$size});
-		padding: 0;
-	}
-}
-
-@mixin btnPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__btn--#{$name} {
-			background-color: $bgColor;
-			color: $fontColor;
-			&:hover,
-			&.dui__btn--active {
-				background-color: darken($bgColor, 5%);
-			}
-			&.dui__btn--focus-ring {
-				&:focus {
-					box-shadow: 0 0 0 0.25rem rgba($bgColor, 0.5), 0 0 0 0.1rem rgba($fontColor, 0.25);
-				}
-			}
-			@include focusVisible($bgColor, $fontColor);
-			.dui__btn--loading__overlay {
-				background-color: rgba($bgColor, 0.9);
-			}
-		}
-		&.dui__btn--color-#{$name} {
-			color: $bgColor;
-			&.dui__btn--focus-ring {
-				&:focus {
-					box-shadow: 0 0 0 0.25rem rgba($bgColor, 0.5), 0 0 0 0.1rem rgba($fontColor, 0.25);
-				}
-			}
-			&:hover,
-			&.dui__btn--active {
-				background-color: rgba($bgColor, 0.1);
-			}
-			@include focusVisible($bgColor, $fontColor);
-			.dui__btn--loading__overlay {
-				background-color: rgba($bgColor, 0.1);
-			}
-			.dui__ripple {
-				background-color: rgba($bgColor, 0.5);
-			}
-		}
-	}
-}
-
-@mixin btnGroupCornerRoudness($radius: $smBorderRadius, $dir: "horizontal") {
-	border-radius: $radius;
-
-	& > *:first-child {
-		border-radius: $radius 0 0 $radius;
-	}
-	& > *:last-child {
-		border-radius: 0 $radius $radius 0;
-	}
-
-	@if $dir == "vertical" {
-		& > *:first-child {
-			border-radius: $radius $radius 0 0;
-		}
-		& > *:last-child {
-			border-radius: 0 0 $radius $radius;
-		}
-	}
-}
-
 .dui__btn {
 	@include btn();
-	@include btnRoundOption();
-	@each $name, $size in $sizes {
-		&.dui__btn--#{$name} {
-			font-size: $size;
-			padding: calc(#{$size} * 0.4375) $size;
-
-			& > * {
-				font-size: $size;
-			}
-			@include btnRoundOption($size);
-		}
-	}
 
 	&--loading {
 		cursor: progress;
@@ -149,29 +42,20 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background-color: rgba($bg, 0.9);
 		}
 		&-disabled {
 			pointer-events: none;
 		}
 	}
-	@include btnPigmentOptions();
-
 	&--icon-start {
 		& > * {
-			margin-right: 0.5rem;
+			margin-right: 0.5em;
 		}
 	}
 	&--icon-end {
 		& > * {
-			margin-left: 0.5rem;
+			margin-left: 0.5em;
 		}
-	}
-	&--flat {
-		border-radius: $flatBorderRadius;
-	}
-	&--rounded {
-		border-radius: $roundedBorderRadius;
 	}
 	&--wide {
 		display: block;
@@ -197,18 +81,11 @@
 				z-index: 2;
 			}
 		}
-		@include btnGroupCornerRoudness();
 		&--wide {
 			width: 100%;
 			& > * {
 				flex: 1;
 			}
-		}
-		&--rounded {
-			@include btnGroupCornerRoudness($roundedBorderRadius);
-		}
-		&--flat {
-			@include btnGroupCornerRoudness($flatBorderRadius);
 		}
 		&--vertical {
 			flex-direction: column;
@@ -216,14 +93,6 @@
 			align-items: flex-start;
 			& > * {
 				width: 100%;
-			}
-			@include btnGroupCornerRoudness($smBorderRadius, "vertical");
-
-			&.dui__btn-group--rounded {
-				@include btnGroupCornerRoudness($xlBorderRadius, "vertical");
-			}
-			&.dui__btn-group--flat {
-				@include btnGroupCornerRoudness($flatBorderRadius, "vertical");
 			}
 		}
 	}

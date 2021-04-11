@@ -45,8 +45,8 @@ $slowTransEase: ease !default;
 $slowTrans: all $slowTransTime $slowTransEase !default;
 
 //Ripple
-$rippleTransTime: 0.5s !default;
-$rippleTransEase: linear !default;
+$rippleTransTime: 0.75s !default;
+$rippleTransEase: ease-out !default;
 
 //SIZING
 //--Global Font size
@@ -123,6 +123,15 @@ $drawerSizes: (
 	"xl": 28rem,
 ) !default;
 
+$portalSizes: (
+	"xs": 30rem,
+	"sm": 35rem,
+	"md": 40rem,
+	"lg": 50rem,
+	"xl": 65rem,
+	"fullscreen": 100%,
+) !default;
+
 $drawerPositions: (
 	"left": (
 		"name": "left",
@@ -144,15 +153,6 @@ $drawerPositions: (
 		"left": 0,
 		"bottom": 0,
 	),
-) !default;
-
-$portalSizes: (
-	"xs": 30rem,
-	"sm": 35rem,
-	"md": 40rem,
-	"lg": 50rem,
-	"xl": 65rem,
-	"fullscreen": 100%,
 ) !default;
 
 $portalVerticalAlignments: (
@@ -189,6 +189,7 @@ $breakpoints: (
 	"md": 60rem,
 	"lg": 71.25rem,
 	"xl": 82.5rem,
+	"fhd": 120rem,
 ) !default;
 
 $flexAlignOptions: (
@@ -221,14 +222,6 @@ $flexWrapOptions: (
 	"wrap-reverse": wrap-reverse,
 ) !default;
 
-$flexSpacingOptions: (
-	"xs": 0.3125rem,
-	"sm": 0.625rem,
-	"md": 0.9375rem,
-	"lg": 1.25rem,
-	"xl": 1.5625rem,
-) !default;
-
 //GRID END
 
 $containerSizes: (
@@ -240,7 +233,7 @@ $containerSizes: (
 	"fhd": 120rem,
 ) !default;
 
-$containerPaddingSizes: (
+$spacingOptions: (
 	"xs": 0.3125rem,
 	"sm": 0.625rem,
 	"md": 1rem,
@@ -256,7 +249,24 @@ $sizes: (
 	"xl": $xlFont,
 ) !default;
 
+$flavors: (
+	"default": $smBorderRadius,
+	"flat": $flatBorderRadius,
+	"rounded": $roundedBorderRadius,
+	"round": $roundBorderRadius,
+) !default;
+
 $pigments: (
+	"none": (
+		"name": "none",
+		"bgColor": transparent,
+		"fontColor": $mainFont,
+	),
+	"default": (
+		"name": "default",
+		"bgColor": $bgCard,
+		"fontColor": $mainFont,
+	),
 	"primary": (
 		"name": "primary",
 		"bgColor": $primaryBg,

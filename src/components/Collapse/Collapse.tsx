@@ -12,7 +12,7 @@ import { CollapseContent, CollapseLoader, CollapseToggle } from "./CollapseSubCo
 import { CnCh } from "../../helpers/global.types";
 import { mergeRefs } from "../../helpers/functions";
 import { useConfig } from "../../context/ConfigContext";
-import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
+import { generateLoadingClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CollapseLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Toggle: React.ForwardRefExoticComponent<CollapseToggleSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -28,10 +28,9 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 		className,
 		onToggle,
 		isCollapsed = true,
-		pigment = null,
-		flat = config.flat ?? false,
+		pigment = "default",
+		flavor = config.flavor ?? "default",
 		elevation = config.elevation ?? "subtle",
-		allowOverflow = true,
 		disableWhileLoading = true,
 		isLoading = false,
 		scrollIntoViewOnToggle = config.collapseScrollIntoViewOnToggle ?? false,
@@ -42,7 +41,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 	const classDefaults = {
 		elevation,
 		pigment,
-		flat,
+		flavor,
 		isLoading,
 		disableWhileLoading,
 	};
@@ -103,10 +102,9 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 				classBase,
 				{
 					[`${classBase}--collapsed`]: collapseState,
-					"no-overflow": !allowOverflow,
 				},
+				generateStyleClasses(classDefaults),
 				generateLoadingClasses(classBase, classDefaults),
-				generateEssentialCustomizationClasses(classBase, classDefaults),
 				className
 			)}
 			{...rest}

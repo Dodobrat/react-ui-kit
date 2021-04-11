@@ -6,11 +6,11 @@ import { DrawerProps } from "./Drawer.types";
 import PortalWrapper from "../util/PortalWrapper/PortalWrapper";
 import FocusTrap from "focus-trap-react";
 import SlideIn from "../util/animations/SlideIn";
-import { ElevationOptions, SizeOptions } from "../../helpers/global";
 import { useKeyPress } from "../../hooks/useKeyPress";
 import { disableScrollAndScrollBar } from "../../helpers/functions";
 import { useEventListener } from "../../hooks/useEventListener";
 import { useConfig } from "../../context/ConfigContext";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (props, ref) => {
 	const {
@@ -34,6 +34,14 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 		...rest
 	} = props;
 
+	const classDefaults = {
+		elevation,
+		drawerSize: size,
+	};
+
+	const classBase = "dui__drawer";
+	const innerClassBase = "dui__drawer__inner";
+
 	useKeyPress("Escape", keyboard && backdrop !== "static" ? () => onClose?.() : () => null);
 
 	useEffect(() => {
@@ -50,7 +58,7 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 	const handler = useCallback(
 		(e) => {
 			if (backdrop !== "static") {
-				if (e.target.classList.contains("dui__drawer") || e.target.classList.contains("dui__drawer__inner")) {
+				if (e.target.classList.contains(classBase)) {
 					return onClose?.();
 				}
 			}
@@ -67,9 +75,9 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 					<div
 						data-testid='Drawer'
 						className={cn(
-							"dui__drawer",
+							classBase,
 							{
-								"dui__drawer--backdrop": backdrop,
+								[`${classBase}--backdrop`]: backdrop,
 							},
 							className
 						)}
@@ -77,12 +85,11 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 						ref={ref}>
 						<div
 							className={cn(
-								"dui__drawer__inner",
+								innerClassBase,
 								{
-									[`dui__drawer__inner--position-${position}`]: position,
-									[`dui__drawer__inner--${size}`]: SizeOptions.includes(size),
-									[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none",
+									[`${innerClassBase}--position-${position}`]: position,
 								},
+								generateStyleClasses(classDefaults),
 								innerClassName
 							)}>
 							{children}

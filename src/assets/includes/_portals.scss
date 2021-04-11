@@ -16,21 +16,7 @@
 	position: relative;
 	margin: 0 auto;
 	width: 100%;
-	max-width: 100%;
 	padding: 0;
-
-	@each $name, $size in $portalSizes {
-		&.dui__portal__inner--#{$name} {
-			max-width: $size;
-		}
-	}
-
-	@each $name, $size in $sizes {
-		&.dui__portal__inner--safe-#{$name} {
-			$safeSize: $size * 2;
-			padding: $safeSize 0;
-		}
-	}
 
 	@each $name, $align in $portalVerticalAlignments {
 		&.dui__portal__inner--vertical-#{$name} {
@@ -77,15 +63,8 @@
 			left: $left;
 			bottom: $bottom;
 			right: $right;
-			@each $sizeName, $size in $drawerSizes {
-				&.dui__drawer__inner--#{$sizeName} {
-					@if ($name == "left" or $name == "right") {
-						max-width: $size;
-					} @else {
-						max-height: $size;
-					}
-				}
-			}
+
+			@include drawerSize($name);
 		}
 	}
 }

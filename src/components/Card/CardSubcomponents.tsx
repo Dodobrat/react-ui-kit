@@ -8,7 +8,7 @@ import {
 	CardFooterSubComponentProps,
 } from "./CardSubcomponents.types";
 import { CnCh } from "../../helpers/global.types";
-import { FlexJustify } from "../../helpers/global";
+import { FlexJustifyOptions } from "../../helpers/global";
 import { useConfig } from "../../context/ConfigContext";
 
 export const CardLoader = forwardRef<HTMLDivElement, CardLoaderSubComponentProps>((props, ref) => {
@@ -87,7 +87,7 @@ export const CardFooter = forwardRef<HTMLDivElement, CardFooterSubComponentProps
 			className={cn(
 				"dui__card__footer",
 				{
-					[`dui__card__footer--${justify}`]: FlexJustify.includes(justify),
+					[`dui__card__footer--${justify}`]: FlexJustifyOptions.includes(justify),
 				},
 				className
 			)}

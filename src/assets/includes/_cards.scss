@@ -5,28 +5,7 @@
 	width: 100%;
 	max-width: 100%;
 	min-width: 0;
-	border-radius: $smBorderRadius;
-	background-color: $bgCard;
 	background-clip: border-box;
-}
-
-@mixin cardPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__card--#{$name} {
-			background-color: $bgColor;
-			color: $fontColor;
-			.dui__card__header {
-				border-bottom: 0.0625rem solid rgba($fontColor, 0.1);
-			}
-			.dui__card__footer {
-				border-top: 0.0625rem solid rgba($fontColor, 0.1);
-			}
-		}
-	}
 }
 
 @mixin cardHeaderFooterDuplicates() {
@@ -41,7 +20,6 @@
 
 @mixin cardHeader() {
 	@include cardHeaderFooterDuplicates();
-	border-bottom: 0.0625rem solid rgba($subFont, 0.1);
 	&--rich {
 		.dui__card__header__title {
 			flex: 1;
@@ -65,7 +43,6 @@
 
 @mixin cardFooter() {
 	@include cardHeaderFooterDuplicates();
-	border-top: 0.0625rem solid rgba($subFont, 0.1);
 }
 
 @mixin cardImg() {
@@ -104,7 +81,6 @@
 			}
 		}
 	}
-	@include cardPigmentOptions();
 	&--img {
 		display: grid;
 		gap: 0;
@@ -115,9 +91,6 @@
 				"card-header"
 				"card-body"
 				"card-footer";
-			.dui__card__img {
-				border-radius: $smBorderRadius $smBorderRadius 0 0;
-			}
 		}
 		&.img-right {
 			grid-template-columns: 1fr 40%;
@@ -125,10 +98,6 @@
 				"card-header card-img"
 				"card-body card-img"
 				"card-footer card-img";
-
-			.dui__card__img {
-				border-radius: 0 $smBorderRadius $smBorderRadius 0;
-			}
 		}
 		&.img-bottom {
 			grid-template-columns: 1fr;
@@ -137,9 +106,6 @@
 				"card-body"
 				"card-footer"
 				"card-img";
-			.dui__card__img {
-				border-radius: 0 0 $smBorderRadius $smBorderRadius;
-			}
 		}
 		&.img-left {
 			grid-template-columns: 40% 1fr;
@@ -147,19 +113,6 @@
 				"card-img card-header"
 				"card-img card-body"
 				"card-img card-footer";
-
-			.dui__card__img {
-				border-radius: $smBorderRadius 0 0 $smBorderRadius;
-			}
-		}
-	}
-	&--flat {
-		border-radius: $flatBorderRadius;
-		&.dui__card--img > .dui__card__img {
-			border-radius: $flatBorderRadius;
-		}
-		.dui__card__loader {
-			border-radius: $flatBorderRadius;
 		}
 	}
 	&--loading {

@@ -1,63 +1,17 @@
-@mixin alert() {
+.dui__alert {
+	display: flex;
+	align-items: flex-start;
 	position: relative;
-	padding: $mdFont * 0.75;
-	border-radius: $smBorderRadius;
-	background-color: $bgCard;
-	color: $subFont;
+	padding: 0.75em;
 	line-height: 1.5;
+	outline: none;
 	&__icon {
-		flex: 0 0 1rem;
+		flex: 0 0 1em;
 		height: 1.5em;
 		width: 1.3em;
-		margin-right: 0.625rem;
+		margin-right: 0.625em;
 	}
-	&:focus {
-		outline: none;
-	}
-	@include focusVisible();
-}
-
-@mixin alertPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__alert--#{$name} {
-			background-color: $bgColor;
-			color: $fontColor;
-			@include focusVisible($bgColor, $fontColor);
-		}
-	}
-}
-
-.dui__alert {
-	@include alert();
-	@each $name, $size in $sizes {
-		&.dui__alert--#{$name} {
-			font-size: $size;
-			padding: $size * 0.75;
-
-			.dui__alert__icon {
-				flex: 0 0 $size;
-				height: $size * 1.5;
-				width: $size * 1.3;
-				margin-right: $size * 0.625;
-			}
-		}
-	}
-	@include alertPigmentOptions();
-	&--flex {
-		display: flex;
-		align-items: flex-start;
-		.dui__alert__title {
-			flex: 1;
-		}
-	}
-	&--rounded {
-		border-radius: $xlBorderRadius;
-	}
-	&--flat {
-		border-radius: $flatBorderRadius;
+	&__content {
+		flex: 1;
 	}
 }

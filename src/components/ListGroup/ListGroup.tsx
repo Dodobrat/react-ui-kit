@@ -12,7 +12,7 @@ import {
 import { ListGroupCollapse, ListGroupHeader, ListGroupItem, ListGroupLoader } from "./ListGroupSubcomponents";
 import { addElementAttributes, addElementAttributesInObj } from "../../helpers/functions";
 import { useConfig } from "../../context/ConfigContext";
-import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
+import { generateLoadingClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 
 interface ListGroupComponent extends React.ForwardRefExoticComponent<ListGroupProps & React.RefAttributes<unknown>> {
 	Loader: React.ForwardRefExoticComponent<ListGroupLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -40,10 +40,9 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 
 	const {
 		className,
+		pigment = "default",
 		elevation = config.elevation ?? "subtle",
-		pigment = null,
-		flat = config.flat ?? false,
-		allowOverflow = true,
+		flavor = config.flavor ?? "default",
 		disableWhileLoading = true,
 		isLoading = false,
 		as = "ul",
@@ -54,7 +53,7 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 	const classDefaults = {
 		elevation,
 		pigment,
-		flat,
+		flavor,
 		isLoading,
 		disableWhileLoading,
 	};
@@ -100,15 +99,7 @@ const ListGroup = forwardRef<unknown, ListGroupProps>((props, ref) => {
 	return (
 		<ParsedComponent
 			data-testid='ListGroup'
-			className={cn(
-				classBase,
-				{
-					"no-overflow": !allowOverflow,
-				},
-				generateLoadingClasses(classBase, classDefaults),
-				generateEssentialCustomizationClasses(classBase, classDefaults),
-				className
-			)}
+			className={cn(classBase, generateStyleClasses(classDefaults), generateLoadingClasses(classBase, classDefaults), className)}
 			{...rest}
 			ref={ref}>
 			{isLoading && loader.length === 0 && <ListGroupLoader />}

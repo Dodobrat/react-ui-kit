@@ -6,12 +6,7 @@ import { ButtonProps } from "./Button.types";
 import SpinnerLoader from "../SpinnerLoader/SpinnerLoader";
 import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/functions";
 import { useConfig } from "../../context/ConfigContext";
-import {
-	generateBtnClasses,
-	generateCustomizationClasses,
-	generateLoadingClasses,
-	generatePigmentColorClasses,
-} from "../../helpers/classnameGenerator";
+import { generateBtnClasses, generateLoadingClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 
 const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
 	const {
@@ -22,24 +17,22 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		className,
 		type = "button",
 		as = "button",
+		pigment = config.pigment ?? "primary",
+		pigmentColor = config.pigmentColor ?? null,
 		elevation = config.btnElevation ?? "none",
+		flavor = config.flavor ?? "default",
+		size = config.size ?? "md",
 		iconStart = null,
 		iconEnd = null,
 		leftAlignContent = false,
 		unWrapText = false,
-		pigment = config.pigment ?? "primary",
-		pigmentColor = config.pigmentColor ?? null,
 		keyboardOnlyFocusRing = config.btnKeyboardOnlyFocusRing ?? true,
 		spongy = config.btnSpongy ?? false,
-		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
-		round = false,
-		flat = config.flat ?? false,
 		wide = false,
 		active = false,
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment} pigmentColor={pigmentColor} btnLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={pigment} pigmentColor={pigmentColor} componentLoader />,
 		withRipple = config.withRipple ?? true,
 		onPointerDown,
 		children,
@@ -49,7 +42,6 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 	const utilClassDefaults = {
 		iconStart,
 		iconEnd,
-		round,
 		wide,
 		unWrapText,
 		leftAlignContent,
@@ -61,10 +53,9 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 	const classDefaults = {
 		pigment,
 		pigmentColor,
-		size,
-		flat,
-		rounded,
 		elevation,
+		flavor,
+		size,
 		isLoading,
 		disableWhileLoading,
 	};
@@ -75,7 +66,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 
 	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
 		if (withRipple) {
-			createRipple({ e, elem: btnRef, pigment });
+			createRipple({ e, elem: btnRef });
 		}
 
 		if (onPointerDown) {
@@ -92,8 +83,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 			className={cn(
 				classBase,
 				generateBtnClasses(classBase, utilClassDefaults),
-				generateCustomizationClasses(classBase, classDefaults),
-				generatePigmentColorClasses(classBase, classDefaults),
+				generateStyleClasses(classDefaults),
 				generateLoadingClasses(classBase, classDefaults),
 				className
 			)}

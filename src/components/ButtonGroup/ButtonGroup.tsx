@@ -4,6 +4,7 @@ import cn from "classnames";
 
 import { ButtonGroupProps } from "./ButtonGroup.types";
 import { useConfig } from "../../context/ConfigContext";
+import { generateBtnClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 
 const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) => {
 	const {
@@ -14,15 +15,24 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) =>
 		className,
 		spongy = config.btnGroupSpongy ?? false,
 		vertical = false,
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		wide = false,
 		children,
 		groupProps = {},
 		...rest
 	} = props;
 
-	const btnGroupClassBase = "dui__btn-group";
+	const utilClassDefaults = {
+		wide,
+		spongy,
+		vertical,
+	};
+
+	const classDefaults = {
+		flavor,
+	};
+
+	const classBase = "dui__btn-group";
 
 	return (
 		<div
@@ -30,16 +40,7 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) =>
 			role='group'
 			aria-label={"button group"}
 			tabIndex={-1}
-			className={cn(
-				btnGroupClassBase,
-				{
-					[`${btnGroupClassBase}--rounded`]: rounded,
-					[`${btnGroupClassBase}--flat`]: flat,
-					[`${btnGroupClassBase}--wide`]: wide,
-					[`${btnGroupClassBase}--vertical`]: vertical,
-				},
-				className
-			)}
+			className={cn(classBase, generateStyleClasses(classDefaults), generateBtnClasses(classBase, utilClassDefaults), className)}
 			{...groupProps}
 			ref={ref}>
 			{React.Children.map(children, (child: JSX.Element) => ({

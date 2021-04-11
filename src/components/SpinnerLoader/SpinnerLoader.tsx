@@ -3,8 +3,8 @@ import React from "react";
 import cn from "classnames";
 
 import { SpinnerLoaderProps } from "./SpinnerLoader.types";
-import { PigmentOptions, SizeOptions } from "../../helpers/global";
 import { useConfig } from "../../context/ConfigContext";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 const SpinnerLoader: React.ForwardRefRenderFunction<HTMLDivElement, SpinnerLoaderProps> = (props, ref) => {
 	const {
@@ -13,27 +13,31 @@ const SpinnerLoader: React.ForwardRefRenderFunction<HTMLDivElement, SpinnerLoade
 
 	const {
 		size = config.size ?? "md",
-		btnLoader = false,
-		inputLoader = false,
+		componentLoader = false,
 		pigment = config.pigment ?? "primary",
 		pigmentColor = config.pigmentColor ?? null,
+		className,
 		...rest
 	} = props;
+
+	const classDefaults = {
+		size,
+		pigment,
+		pigmentColor,
+	};
+
+	const classBase = "dui__spinner";
 
 	return (
 		<div
 			data-testid='SpinnerLoader'
 			className={cn(
-				"dui__spinner",
+				classBase,
 				{
-					"dui__spinner--btn": btnLoader,
-					"dui__spinner--input": inputLoader,
+					[`${classBase}--component`]: componentLoader,
 				},
-				{
-					[`dui__spinner--${size}`]: SizeOptions.includes(size),
-					[`dui__spinner--${pigment}`]: PigmentOptions.includes(pigment),
-					[`dui__spinner--color-${pigmentColor}`]: PigmentOptions.includes(pigmentColor),
-				}
+				generateStyleClasses(classDefaults),
+				className
 			)}
 			{...rest}
 			ref={ref}

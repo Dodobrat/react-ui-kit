@@ -51,6 +51,7 @@ const Accordion: React.ForwardRefRenderFunction<HTMLDivElement, AccordionProps> 
 			return {
 				...child,
 				props: {
+					...rest,
 					...child.props,
 					isCollapsed: collapseState[`collapse_${idx}`],
 					onToggle: (isCollapsed: boolean) => {

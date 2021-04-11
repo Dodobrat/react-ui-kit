@@ -2,7 +2,6 @@ import React, { useCallback, useEffect } from "react";
 import cn from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useKeyPress } from "../../hooks/useKeyPress";
-import { SizeOptions } from "../../helpers/global";
 import PortalWrapper from "../util/PortalWrapper/PortalWrapper";
 import FadePortal from "../util/animations/FadePortal";
 import ZoomPortal from "../util/animations/ZoomPortal";
@@ -11,6 +10,7 @@ import { disableScrollAndScrollBar } from "../../helpers/functions";
 import { PortalProps } from "./Portal.types";
 import { useEventListener } from "../../hooks/useEventListener";
 import { useConfig } from "../../context/ConfigContext";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (props, ref) => {
 	const {
@@ -33,6 +33,13 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 		children,
 		...rest
 	} = props;
+
+	const classDefaults = {
+		portalSize: size,
+	};
+
+	const classBase = "dui__portal";
+	const innerClassBase = "dui__portal__inner";
 
 	useKeyPress("Escape", keyboard && backdrop !== "static" ? () => onClose?.() : () => null);
 
@@ -67,9 +74,9 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 					<div
 						data-testid='Portal'
 						className={cn(
-							"dui__portal",
+							classBase,
 							{
-								"dui__portal--backdrop": backdrop,
+								[`${classBase}--backdrop`]: backdrop,
 							},
 							className
 						)}
@@ -77,12 +84,11 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 						ref={ref}>
 						<div
 							className={cn(
-								"dui__portal__inner",
+								innerClassBase,
 								{
-									[`dui__portal__inner--vertical-${verticalAlign}`]: !!verticalAlign,
-									[`dui__portal__inner--safe-${safeZoneSize}`]: SizeOptions.includes(safeZoneSize),
-									[`dui__portal__inner--${size}`]: SizeOptions.includes(size),
+									[`${innerClassBase}--vertical-${verticalAlign}`]: !!verticalAlign,
 								},
+								generateStyleClasses(classDefaults),
 								innerClassName
 							)}>
 							{children}

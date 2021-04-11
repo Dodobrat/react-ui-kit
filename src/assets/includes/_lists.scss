@@ -7,94 +7,9 @@
 	width: 100%;
 	max-width: 100%;
 	min-width: 0;
-	border-radius: $smBorderRadius;
-	background-color: $bgCard;
-	color: $mainFont;
 	list-style-type: none;
-	@include listGroupPigmentOptions();
-	& > *:first-child {
-		border-radius: $smBorderRadius $smBorderRadius 0 0;
-	}
 	& > *:last-child {
-		border-radius: 0 0 $smBorderRadius $smBorderRadius;
 		border-bottom: none;
-		& > .dui__list__group__collapse__toggle {
-			border-radius: 0 0 $smBorderRadius $smBorderRadius;
-		}
-	}
-}
-
-@mixin listGroupPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__list__group--#{$name} {
-			background-color: $bgColor;
-			color: $fontColor;
-			.dui__list__group__header {
-				color: rgba($fontColor, 0.7);
-			}
-			.dui__list__group__item {
-				&--active {
-					background-color: rgba($fontColor, 0.15);
-				}
-				&:hover {
-					background-color: rgba($fontColor, 0.02);
-				}
-			}
-			& > * {
-				border-bottom: 0.0625rem solid rgba($fontColor, 0.1);
-			}
-			& > *:last-child {
-				border-bottom: none;
-			}
-		}
-	}
-}
-
-@mixin listGroupItemPigmentOptions($item: "header", $options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__list__group__#{$item}--#{$name} {
-			background-color: $bgColor;
-			color: $fontColor;
-			border-bottom: 0.0625rem solid rgba($fontColor, 0.1);
-			&.dui__list__group__header {
-				color: rgba($fontColor, 0.7);
-			}
-			&.dui__list__group__item {
-				&--active {
-					background-color: darken($bgColor, 5%);
-				}
-				&:hover {
-					background-color: darken($bgColor, 2.5%);
-				}
-			}
-			&.dui__list__group__collapse {
-				.dui__list__group__collapse__toggle {
-					&:hover {
-						background-color: darken($bgColor, 2.5%);
-					}
-					@include focusVisible($bgColor, $fontColor);
-				}
-				.dui__list__group__collapse__content {
-					border-top: 0.0625rem solid rgba($fontColor, 0.1);
-					.dui__list__group__collapse {
-						&::before {
-							background-color: rgba($fontColor, 0.2);
-						}
-						&__content {
-							border-top: none;
-						}
-					}
-				}
-			}
-		}
 	}
 }
 
@@ -104,43 +19,21 @@
 	line-height: 1.5;
 	margin: 0;
 	background-color: inherit;
-	border-bottom: 0.0625rem solid rgba($subFont, 0.1);
 }
 
 @mixin listGroupHeader() {
 	@include headerItemDuplicates();
-	display: flex;
-	align-items: center;
-	color: rgba($mainFont, 0.7);
 	font-weight: 600;
-	&--align {
-		&-center {
-			justify-content: center;
-		}
-		&-right {
-			justify-content: flex-end;
-		}
-	}
-	@include listGroupItemPigmentOptions();
 }
 
 @mixin listGroupItem() {
 	@include headerItemDuplicates();
-	display: block;
 	color: inherit;
-	&:hover {
-		background-color: darken($bgCard, 1.5%);
-	}
-	&--active {
-		background-color: darken($bgCard, 3.5%);
-	}
-	@include listGroupItemPigmentOptions("item");
 }
 
 @mixin listGroupCollapse {
 	position: relative;
 	background-color: inherit;
-	border-bottom: 0.0625rem solid rgba($subFont, 0.1);
 	&__toggle {
 		position: relative;
 		padding: 0.625rem 1rem;
@@ -150,6 +43,7 @@
 		display: flex;
 		align-items: center;
 		cursor: pointer;
+		outline: none;
 		@include crossBrowser(user-select, none);
 
 		&__title {
@@ -161,13 +55,6 @@
 			transition: $normalTrans;
 			transform: rotateX(180deg);
 		}
-		&:hover {
-			background-color: darken($bgCard, 1.5%);
-		}
-		&:focus {
-			outline: none;
-		}
-		@include focusVisible();
 		&--collapsed {
 			.dui__list__group__collapse__toggle__indicator {
 				transform: rotateX(0deg);
@@ -176,7 +63,6 @@
 	}
 	&__content {
 		padding: 1rem;
-		border-top: 0.0625rem solid rgba($subFont, 0.1);
 		.dui__list__group__collapse {
 			border-bottom: none;
 			padding-left: 1.125rem;
@@ -189,12 +75,9 @@
 				left: 0;
 				width: 0.125rem;
 				height: 100%;
-				background-color: rgba($subFont, 0.2);
-				border-radius: $smBorderRadius;
 			}
 			&__toggle {
 				padding: 0.625rem 1rem;
-				border-radius: $smBorderRadius;
 			}
 			&__content {
 				padding: 1rem 0 0 0;
@@ -208,7 +91,6 @@
 			}
 		}
 	}
-	@include listGroupItemPigmentOptions("collapse");
 }
 
 .dui__list__group {
@@ -228,33 +110,8 @@
 
 	&--loading {
 		cursor: progress;
-		& > *:nth-child(2):not(.dui__list__group__loader) {
-			border-radius: $smBorderRadius $smBorderRadius 0 0;
-		}
 		&-disabled {
 			pointer-events: none;
-		}
-	}
-	&--flat {
-		border-radius: $flatBorderRadius;
-		& > * {
-			border-radius: $flatBorderRadius;
-		}
-		.dui__list__group__loader {
-			border-radius: $flatBorderRadius;
-		}
-		.dui__list__group__collapse {
-			&::before {
-				border-radius: $flatBorderRadius;
-			}
-			&__toggle {
-				border-radius: $flatBorderRadius;
-			}
-		}
-		& > *:last-child {
-			& > .dui__list__group__collapse__toggle {
-				border-radius: $flatBorderRadius;
-			}
 		}
 	}
 }

@@ -1,76 +1,10 @@
-@mixin lineLoaderPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-
-		&.dui__line-loader--#{$name} {
-			background-color: rgba($bgColor, 0.25);
-			.dui__line-loader__line {
-				background-color: $bgColor;
-			}
-		}
-	}
-}
-
-@mixin spinnerPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-
-		&.dui__spinner--#{$name} {
-			border-color: rgba($bgColor, 0.25);
-			border-top-color: $bgColor;
-		}
-	}
-}
-
-@mixin spinnerPigmentBtnOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-
-		&.dui__spinner--#{$name} {
-			border-color: rgba($fontColor, 0.25);
-			border-top-color: $fontColor;
-		}
-		&.dui__spinner--color-#{$name} {
-			border-color: rgba($bgColor, 0.25);
-			border-top-color: $bgColor;
-		}
-	}
-}
-
 .dui__spinner {
 	border-style: solid;
 	border-radius: $roundBorderRadius;
 	animation: spin 1s linear infinite;
-	@each $name, $size in $sizes {
-		&.dui__spinner--#{$name} {
-			$calcSize: calc(calc(#{$size} * 1.375) + #{$size});
 
-			width: $calcSize;
-			height: $calcSize;
-			border-width: calc(#{$calcSize} * 0.15);
-		}
-	}
-
-	border-color: rgba($subFont, 0.25);
-	border-top-color: $subFont;
-
-	@include spinnerPigmentOptions();
-
-	&--btn {
-		animation: btnSpin 1s linear infinite;
-		@include spinnerPigmentBtnOptions();
-	}
-
-	&--input {
-		animation: btnSpin 1s linear infinite;
-		@include spinnerPigmentOptions();
+	&--component {
+		animation: componentSpin 1s linear infinite;
 	}
 }
 
@@ -80,7 +14,7 @@
 	}
 }
 
-@keyframes btnSpin {
+@keyframes componentSpin {
 	from {
 		transform: scale(0.5) rotate(0deg);
 	}
@@ -106,8 +40,6 @@
 		border-radius: $mdBorderRadius;
 		animation: indeterminate 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 	}
-
-	@include lineLoaderPigmentOptions();
 }
 
 @keyframes indeterminate {

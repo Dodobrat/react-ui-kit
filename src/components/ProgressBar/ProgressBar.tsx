@@ -3,10 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { ProgressBarProps } from "./ProgressBar.types";
-import { PigmentOptions } from "../../helpers/global";
 import { useWindowResize } from "../../hooks/useWindowResize";
 import { parseValueToPercent } from "../../helpers/functions";
 import { useConfig } from "../../context/ConfigContext";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarProps> = (props, ref) => {
 	const {
@@ -23,12 +23,18 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 		labelPosition = config.progressBarLabelPosition ?? "top",
 		labelAlwaysVisible = false,
 		decimals = 0,
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		withTrack = true,
 		...rest
 	} = props;
+
+	const classDefaults = {
+		pigment,
+		flavor,
+	};
+
+	const classBase = "dui__progressbar";
 
 	const parsedValue: () => number | string = () => {
 		if (labelValue === "%") {
@@ -75,22 +81,18 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 		<div
 			data-testid='ProgressBar'
 			className={cn(
-				"dui__progressbar",
+				classBase,
 				{
-					"dui__progressbar--flat": flat,
-					"dui__progressbar--rounded": rounded,
-					"dui__progressbar--label-always": labelAlwaysVisible,
-					"dui__progressbar--no-track": !withTrack,
+					[`${classBase}--label-always`]: labelAlwaysVisible,
+					[`${classBase}--no-track`]: !withTrack,
 				},
-				{
-					[`dui__progressbar--${pigment}`]: PigmentOptions.includes(pigment),
-				},
+				generateStyleClasses(classDefaults),
 				className
 			)}
 			{...rest}
 			ref={ref}>
 			<div
-				className={cn("dui__progressbar__progress")}
+				className={cn(`${classBase}__progress`)}
 				style={{ width: `${parseValueToPercent(min, max, value, decimals)}%` }}
 				role='progressbar'
 				aria-label={`current progress is ${value} from range (${min} to ${max}), amounting to ${parseValueToPercent(
@@ -106,8 +108,8 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 			/>
 			{labeled && (
 				<div
-					className={cn("dui__progressbar__label", {
-						[`dui__progressbar__label--${labelPosition}`]: !!labelPosition,
+					className={cn(`${classBase}__label`, {
+						[`${classBase}__label--${labelPosition}`]: !!labelPosition,
 					})}
 					style={shouldCalcPosition() ? { left: `${progressLabelPosition}px` } : {}}>
 					{parsedValue()}

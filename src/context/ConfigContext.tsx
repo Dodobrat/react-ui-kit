@@ -3,38 +3,52 @@ import React, { createContext, useContext, useMemo, useState } from "react";
 import { AlertAnimation } from "../components/Alert/Alert.types";
 import { CollapseAnimation } from "../components/Collapse/CollapseSubComponents.types";
 import { VerticalAlign, PortalAnimation } from "../components/Portal/Portal.types";
-import { Positions, ElevationOptions, PigmentOptions, ProgressLabelValue, SizeOptions } from "../helpers/global.types";
+import {
+	Positions,
+	ProgressLabelValue,
+	AllElevationOptions,
+	AllPigmentOptions,
+	AllFlavorOptions,
+	AllSizeOptions,
+} from "../helpers/global.types";
 
 const ConfigContext = createContext(null);
 
 interface GlobalOptions {
+	flavor?: AllFlavorOptions;
+	//TODO: Deprecate Flat / Round
 	flat?: boolean;
 	rounded?: boolean;
-	pigment?: PigmentOptions;
-	pigmentColor?: PigmentOptions;
-	size?: SizeOptions;
-	elevation?: ElevationOptions;
+	//----------------
+	pigment?: AllPigmentOptions;
+	pigmentColor?: AllPigmentOptions;
+	size?: AllSizeOptions;
+	elevation?: AllElevationOptions;
 	withRipple?: boolean;
 	//-----Component Specific-----
 	//--Alert
-	alertElevation?: ElevationOptions;
-	alertPigment?: PigmentOptions;
+	alertElevation?: AllElevationOptions;
+	alertPigment?: AllPigmentOptions;
+	alertPigmentColor?: AllPigmentOptions;
 	alertAnimation?: AlertAnimation;
 	alertWithIcon?: boolean;
 	alertIsDismissible?: boolean;
 	alertIsDismissibleOnClick?: boolean;
 	alertDismissibleComponent?: React.ReactNode;
 	//--Badge
-	badgeElevation?: ElevationOptions;
+	badgePigment?: AllPigmentOptions;
+	badgePigmentColor?: AllPigmentOptions;
+	badgeElevation?: AllElevationOptions;
 	//--Breadcrumbs
 	breadcrumbsContained?: boolean;
-	breadcrumbsElevation?: ElevationOptions;
-	breadcrumbsPigment?: PigmentOptions;
+	breadcrumbsElevation?: AllElevationOptions;
+	breadcrumbsPigment?: AllPigmentOptions;
+	breadcrumbsPigmentColor?: AllPigmentOptions;
 	breadcrumbsSeparator?: React.ReactNode;
 	//--Button
 	btnKeyboardOnlyFocusRing?: boolean;
 	btnSpongy?: boolean;
-	btnElevation?: ElevationOptions;
+	btnElevation?: AllElevationOptions;
 	//--Button Group
 	btnGroupSpongy?: boolean;
 	//--Card
@@ -45,12 +59,12 @@ interface GlobalOptions {
 	collapseIndicatorComponent?: React.ReactNode;
 	collapseAnimation?: CollapseAnimation;
 	//--Drawer
-	drawerElevation?: ElevationOptions;
+	drawerElevation?: AllElevationOptions;
 	drawerKeyboard?: boolean;
 	drawerPosition?: Positions;
 	drawerBodyScrollDisable?: boolean;
 	//--Dropdown
-	dropdownElevation?: ElevationOptions;
+	dropdownElevation?: AllElevationOptions;
 	//--Heading
 	headingAs?: React.ElementType;
 	//--List Group
@@ -60,14 +74,14 @@ interface GlobalOptions {
 	listGroupNestedCollapseIndent?: boolean;
 	//--Portal
 	portalKeyboard?: boolean;
-	portalSafeZoneSize?: SizeOptions;
+	portalSafeZoneSize?: AllSizeOptions;
 	portalVerticalAlign?: VerticalAlign;
 	portalAnimation?: PortalAnimation;
 	portalBodyScrollDisable?: boolean;
 	//--Toolip
-	tooltipElevation?: ElevationOptions;
-	tooltipPigment?: PigmentOptions;
-	tooltipSize?: SizeOptions;
+	tooltipElevation?: AllElevationOptions;
+	tooltipPigment?: AllPigmentOptions;
+	tooltipSize?: AllSizeOptions;
 	tooltipRounded?: boolean;
 	tooltipFlat?: boolean;
 	//--Progress Bar
@@ -79,7 +93,7 @@ interface GlobalOptions {
 	progressRingLabelValue?: ProgressLabelValue;
 	progressRingCounterClockWise?: boolean;
 	//--Skeleton
-	skeletonPigment?: PigmentOptions;
+	skeletonPigment?: AllPigmentOptions;
 	//--Text
 	textAs?: React.ElementType;
 }

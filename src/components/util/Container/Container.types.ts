@@ -1,8 +1,7 @@
-import { AllSizeOptions, CnCh, SizeOptions } from "../../../helpers/global.types";
+import { ContainerSizeOptions, CnCh } from "../../../helpers/global.types";
 
 // Auto-Generated
 export interface ContainerProps extends CnCh {
 	fluid?: boolean;
-	size?: AllSizeOptions;
-	spacingX?: SizeOptions;
+	size?: ContainerSizeOptions;
 }

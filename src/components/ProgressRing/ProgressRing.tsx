@@ -3,9 +3,9 @@ import React from "react";
 import cn from "classnames";
 
 import { ProgressRingProps } from "./ProgressRing.types";
-import { PigmentOptions } from "../../helpers/global";
 import { parseValueToPercent } from "../../helpers/functions";
 import { useConfig } from "../../context/ConfigContext";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingProps> = (props, ref) => {
 	const {
@@ -23,12 +23,19 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 		labelValue = config.progressRingLabeleValue ?? "%",
 		labelAlwaysVisible = true,
 		decimals = 0,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		withTrack = true,
 		counterClockWise = config.progressRingCounterClockWise ?? false,
 		...rest
 	} = props;
+
+	const classDefaults = {
+		pigment,
+		flavor,
+	};
+
+	const classBase = "dui__progressring";
 
 	const normalizedRadius = size / 2 - strokeWidth;
 	const circumference = normalizedRadius * 2 * Math.PI;
@@ -59,15 +66,12 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 		<svg
 			data-testid='ProgressRing'
 			className={cn(
-				"dui__progressring",
+				classBase,
 				{
-					"dui__progressring--flat": flat,
-					"dui__progressring--label-always": labelAlwaysVisible,
-					"dui__progressring--reversed": counterClockWise,
+					[`${classBase}--label-always`]: labelAlwaysVisible,
+					[`${classBase}--reversed`]: counterClockWise,
 				},
-				{
-					[`dui__progressring--${pigment}`]: PigmentOptions.includes(pigment),
-				},
+				generateStyleClasses(classDefaults),
 				className
 			)}
 			role='progressbar'
@@ -89,7 +93,7 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 			viewBox={`0 0 ${size} ${size}`}
 			ref={ref}>
 			{withTrack && (
-				<circle className='dui__progressring__track' strokeWidth={strokeWidth} r={normalizedRadius} cx={size / 2} cy={size / 2} />
+				<circle className={`${classBase}__track`} strokeWidth={strokeWidth} r={normalizedRadius} cx={size / 2} cy={size / 2} />
 			)}
 			<circle
 				strokeWidth={strokeWidth}
@@ -101,13 +105,7 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 			/>
 
 			{labeled && (
-				<text
-					className='dui__progressring__label'
-					x='50%'
-					y='50%'
-					textAnchor='middle'
-					dy='0.35em'
-					fontSize={normalizedRadius / 2.75}>
+				<text className={`${classBase}__label`} x='50%' y='50%' textAnchor='middle' dy='0.35em' fontSize={normalizedRadius / 2.75}>
 					{parsedValue()}
 				</text>
 			)}

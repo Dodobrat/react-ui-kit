@@ -23,27 +23,6 @@
 
 // SKELETON
 
-@mixin skeletonPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__skeleton--#{$name} {
-			background-color: $bgColor;
-			&::after {
-				background-image: linear-gradient(
-					90deg,
-					rgba($fontColor, 0) 0,
-					rgba($fontColor, 0.3) 20%,
-					rgba($fontColor, 0.6) 60%,
-					rgba($fontColor, 0)
-				);
-			}
-		}
-	}
-}
-
 .dui__skeleton {
 	display: inline-block;
 	min-width: 10rem;
@@ -51,7 +30,6 @@
 	position: relative;
 	overflow: hidden;
 	background-color: rgba-to-rgb(rgba($subFont, 0.15));
-	border-radius: $smBorderRadius;
 
 	&::after {
 		content: "";
@@ -61,18 +39,7 @@
 		bottom: 0;
 		left: 0;
 		transform: translateX(-100%);
-		background-image: linear-gradient(90deg, rgba($bgCard, 0) 0, rgba($bgCard, 0.5) 20%, rgba($bgCard, 0.8) 60%, rgba($bgCard, 0));
 		animation: shimmer 2s infinite;
-	}
-
-	@include skeletonPigmentOptions();
-
-	&--rounded {
-		border-radius: $roundedBorderRadius;
-	}
-
-	&--flat {
-		border-radius: $flatBorderRadius;
 	}
 
 	@keyframes shimmer {

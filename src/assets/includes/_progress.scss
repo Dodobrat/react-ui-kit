@@ -6,7 +6,6 @@
 		transition: $fastTrans;
 		overflow: hidden;
 		height: 0.5rem;
-		border-radius: $smBorderRadius;
 		&::before {
 			content: "";
 			width: 100%;
@@ -15,13 +14,11 @@
 			bottom: 0;
 			left: 0;
 			z-index: -1;
-			border-radius: $smBorderRadius;
 		}
 	}
 	&__label {
 		transition: $fastTrans;
 		position: absolute;
-		border-radius: $smBorderRadius;
 		padding: 0.25rem 0.4rem;
 		font-size: 80%;
 		white-space: nowrap;
@@ -34,28 +31,6 @@
 	&:hover {
 		.dui__progressbar__label {
 			opacity: 1;
-		}
-	}
-}
-
-@mixin progressBarPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-
-		&.dui__progressbar--#{$name} {
-			.dui__progressbar__progress {
-				background-color: $bgColor;
-				&::before {
-					background-color: rgba($bgColor, 0.25);
-				}
-			}
-			.dui__progressbar__label {
-				background-color: $bgColor;
-				color: $fontColor;
-			}
 		}
 	}
 }
@@ -100,32 +75,6 @@ $progressBarLabelPositions: (
 .dui__progressbar {
 	@include progressBar();
 
-	@include progressBarPigmentOptions();
-
-	&--flat {
-		.dui__progressbar__progress {
-			border-radius: $flatBorderRadius;
-			&::before {
-				border-radius: $flatBorderRadius;
-			}
-		}
-		.dui__progressbar__label {
-			border-radius: $flatBorderRadius;
-		}
-	}
-
-	&--rounded {
-		.dui__progressbar__progress {
-			border-radius: $roundedBorderRadius;
-			&::before {
-				border-radius: $roundedBorderRadius;
-			}
-		}
-		.dui__progressbar__label {
-			border-radius: $roundedBorderRadius;
-		}
-	}
-
 	&--label-always {
 		.dui__progressbar__label {
 			opacity: 1;
@@ -149,7 +98,6 @@ $progressBarLabelPositions: (
 		transition: stroke-dashoffset $slowTransTime $slowTransEase;
 		transform: rotate(-90deg);
 		transform-origin: 50% 50%;
-		stroke-linecap: round;
 	}
 	.dui__progressring__label {
 		transition: $fastTrans;
@@ -164,39 +112,12 @@ $progressBarLabelPositions: (
 	}
 }
 
-@mixin progressRingPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-
-		&.dui__progressring--#{$name} {
-			& > circle {
-				stroke: $bgColor;
-			}
-			.dui__progressring__track {
-				stroke: rgba($bgColor, 0.25);
-			}
-			.dui__progressring__label {
-				fill: $bgColor;
-			}
-		}
-	}
-}
-
 .dui__progressring {
 	@include progressRing();
-	@include progressRingPigmentOptions();
 
 	&--reversed {
 		& > circle {
 			transform: rotate(-90deg) rotateX(180deg);
-		}
-	}
-	&--flat {
-		& > circle {
-			stroke-linecap: unset;
 		}
 	}
 	&--label-always {

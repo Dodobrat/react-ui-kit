@@ -6,7 +6,7 @@ import { TabsProps } from "./Tabs.types";
 import { TabContent, TabsItems, TabsPanel } from "./TabsSubcomponents";
 import { TabItemType, TabPanelType, TabsPanelSubComponentProps } from "./TabsSubcomponents.types";
 import { useConfig } from "../../context/ConfigContext";
-import { generateEssentialCustomizationClasses, generateLoadingClasses } from "../../helpers/classnameGenerator";
+import { generateLoadingClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 
 interface TabsComponent extends React.ForwardRefExoticComponent<TabsProps & React.RefAttributes<HTMLDivElement>> {
 	Panel: React.ForwardRefExoticComponent<TabsPanelSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -20,9 +20,8 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 	const {
 		className,
 		elevation = config.elevation ?? "subtle",
-		pigment = null,
-		flat = config.flat ?? false,
-		allowOverflow = true,
+		pigment = "default",
+		flavor = config.flavor ?? "default",
 		disableWhileLoading = true,
 		isLoading = false,
 		activeTab = 0,
@@ -37,7 +36,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 	const classDefaults = {
 		elevation,
 		pigment,
-		flat,
+		flavor,
 		isLoading,
 		disableWhileLoading,
 	};
@@ -119,10 +118,9 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 				classBase,
 				{
 					[`${classBase}--vertical`]: orientation === "vertical",
-					"no-overflow": !allowOverflow,
 				},
+				generateStyleClasses(classDefaults),
 				generateLoadingClasses(classBase, classDefaults),
-				generateEssentialCustomizationClasses(classBase, classDefaults),
 				className
 			)}
 			{...rest}
@@ -131,7 +129,6 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 				options={tabs}
 				withRipple={withRipple}
 				onPointerDown={onTabPointerDown}
-				pigment={pigment}
 				orientation={orientation}
 				activeOption={activeTabIndex}
 				onKeyDown={handleKeyPress}

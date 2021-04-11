@@ -59,7 +59,7 @@ export const CollapseToggle = forwardRef<HTMLDivElement, CollapseToggleSubCompon
 
 	const handleOnPointerDown: (e: React.PointerEvent) => void = (e) => {
 		if (withRipple) {
-			createRipple({ e, elem: toggleRef, pigment });
+			createRipple({ e, elem: toggleRef });
 		}
 
 		if (onPointerDown) {

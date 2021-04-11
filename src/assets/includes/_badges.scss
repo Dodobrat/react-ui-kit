@@ -1,63 +1,15 @@
-@mixin badge() {
-	all: unset;
+.dui__badge {
 	position: relative;
 	overflow: hidden;
 	display: inline-block;
-	font-size: 0.75em;
 	padding: 0.45em 0.5em;
+	margin: 0;
 	font-weight: 600;
 	line-height: 1;
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: bottom;
-	border-radius: $smBorderRadius;
+	outline: none;
+
 	@include crossBrowser(user-select, none);
-	&:focus {
-		outline: none;
-	}
-	@include focusVisible();
-}
-
-@mixin badgePigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__badge--#{$name} {
-			background-color: $bgColor;
-			color: $fontColor;
-			&.dui__badge--clickable {
-				&:hover {
-					background-color: darken($bgColor, 5%);
-				}
-				@include focusVisible($bgColor, $fontColor);
-			}
-		}
-	}
-}
-
-.dui__badge {
-	@include badge();
-	@each $name, $size in $sizes {
-		&.dui__badge--#{$name} {
-			$fontSize: calc(#{$size} * 0.75);
-			font-size: $fontSize;
-			padding: calc(#{$fontSize} * 0.45) calc(#{$fontSize} * 0.5);
-
-			& > * {
-				font-size: $fontSize;
-			}
-		}
-	}
-	@include badgePigmentOptions();
-	&--flat {
-		border-radius: $flatBorderRadius;
-	}
-	&--rounded {
-		border-radius: $roundedBorderRadius;
-	}
-	&--clickable {
-		cursor: pointer;
-	}
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { CnCh, PigmentOptions, RippleEffect, SyntheticKeyboardControls } from "../../helpers/global.types";
+import { CnCh, RippleEffect, SyntheticKeyboardControls } from "../../helpers/global.types";
 
 export interface TabsPanelSubComponentProps extends CnCh {
 	tabProps?: Object;
@@ -23,7 +23,6 @@ export type TabPanelType = {
 type ExtraTabsItemsSubComponentProps = CnCh & SyntheticKeyboardControls & RippleEffect;
 
 export interface TabsItemsSubComponentProps extends ExtraTabsItemsSubComponentProps {
-	pigment?: PigmentOptions;
 	innerRef?: React.MutableRefObject<any> | React.LegacyRef<any>;
 	activeOption?: number;
 	orientation?: "horizontal" | "vertical";

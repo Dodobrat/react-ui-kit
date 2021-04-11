@@ -1,0 +1,566 @@
+//PIGMENTS
+@mixin pigmentBgStyles($background, $color) {
+	background-color: $background;
+	color: $color;
+	&.dui__btn--focus-ring {
+		&:focus {
+			box-shadow: 0 0 0 0.25rem rgba($background, 0.5), 0 0 0 0.1rem rgba($color, 0.25);
+		}
+	}
+	&:hover,
+	&.filled,
+	&.dui__btn--active {
+		background-color: darken($background, 5%);
+	}
+	.dui__ripple {
+		background-color: rgba($color, 0.5);
+	}
+	&.dui__spinner {
+		background-color: transparent;
+		border-color: rgba($background, 0.25);
+		border-top-color: $background;
+		&.dui__spinner--component {
+			border-color: rgba($color, 0.25);
+			border-top-color: $color;
+		}
+	}
+	&.dui__line-loader {
+		background-color: rgba($background, 0.25);
+		.dui__line-loader__line {
+			background-color: $background;
+		}
+	}
+	&.dui__skeleton {
+		background-color: $background;
+		&::after {
+			background-image: linear-gradient(90deg, rgba($color, 0) 0, rgba($color, 0.3) 20%, rgba($color, 0.6) 60%, rgba($color, 0));
+		}
+	}
+	&.dui__card {
+		.dui__card__header {
+			border-bottom: 0.0625rem solid rgba($color, 0.1);
+		}
+		.dui__card__footer {
+			border-top: 0.0625rem solid rgba($color, 0.1);
+		}
+	}
+	&.dui__collapse {
+		.dui__collapse__toggle {
+			&:hover {
+				background-color: darken($background, 1.5%);
+			}
+			@include focusVisible($background, $color);
+		}
+	}
+	&.dui__list__group {
+		.dui__list__group__header {
+			color: rgba($color, 0.7);
+		}
+		.dui__list__group__item {
+			&--active {
+				background-color: darken($background, 5%);
+			}
+			&:hover {
+				background-color: darken($background, 2.5%);
+			}
+		}
+		.dui__list__group__collapse {
+			&__toggle {
+				&:hover {
+					background-color: darken($background, 2.5%);
+				}
+				@include focusVisible($background, $color);
+			}
+			&__content {
+				border-top: 0.0625rem solid rgba($color, 0.1);
+				.dui__list__group__collapse {
+					&::before {
+						background-color: rgba($color, 0.2);
+					}
+					&__content {
+						border-top: none;
+					}
+				}
+			}
+		}
+		& > * {
+			border-bottom: 0.0625rem solid rgba($color, 0.1);
+		}
+	}
+	&.dui__tabs {
+		.dui__dragscroll__container {
+			&::after {
+				background-color: rgba($color, 0.1);
+			}
+		}
+		.dui__tabs__items {
+			&__item {
+				@include focusVisible($background, $color);
+				&[aria-selected="true"] {
+					&:focus-visible {
+						box-shadow: none;
+					}
+				}
+			}
+			&__indicator {
+				background-color: $color;
+			}
+		}
+	}
+	&.dui__list__group:hover,
+	&.dui__tabs:hover,
+	&.dui__collapse:hover,
+	&.dui__card:hover {
+		background-color: $background;
+	}
+	&.dui__progressbar {
+		background: transparent;
+		.dui__progressbar__progress {
+			background-color: $background;
+			&::before {
+				background-color: rgba($background, 0.25);
+			}
+		}
+		.dui__progressbar__label {
+			background-color: $background;
+			color: $color;
+		}
+	}
+	&.dui__progressring {
+		background: transparent;
+		& > circle {
+			stroke: $background;
+		}
+		.dui__progressring__track {
+			stroke: rgba($background, 0.25);
+		}
+		.dui__progressring__label {
+			fill: $background;
+		}
+	}
+	@if ($background != transparent) {
+		.dui__btn--loading__overlay {
+			background-color: rgba($background, 0.9);
+		}
+	}
+	@include focusVisible($background, $color);
+}
+
+@mixin pigmentColorStyles($background, $color) {
+	background-color: transparent;
+	color: $background;
+	@if ($background == transparent) {
+		color: $subFont;
+	}
+	&.dui__btn--focus-ring {
+		&:focus {
+			box-shadow: 0 0 0 0.25rem rgba($background, 0.5), 0 0 0 0.1rem rgba($color, 0.25);
+		}
+	}
+	&:hover,
+	&.filled,
+	&.dui__btn--active {
+		background-color: rgba($background, 0.1);
+	}
+	.dui__btn--loading__overlay {
+		background-color: rgba($background, 0.1);
+	}
+	&.dui__spinner,
+	&.dui__spinner--component {
+		background-color: transparent;
+		border-color: rgba($background, 0.25);
+		border-top-color: $background;
+	}
+	.dui__ripple {
+		background-color: rgba($background, 0.5);
+	}
+	@include focusVisible($background, $color);
+}
+
+$options: $pigments;
+$pigmentKeys: map-keys($options);
+@each $key in $pigmentKeys {
+	$name: map-deep-get($options, $key, "name");
+	$bgColor: map-deep-get($options, $key, "bgColor");
+	$fontColor: map-deep-get($options, $key, "fontColor");
+	.pigment--#{$name} {
+		@include pigmentBgStyles($bgColor, $fontColor);
+	}
+	.pigmentColor--#{$name} {
+		@include pigmentColorStyles($bgColor, $fontColor);
+	}
+}
+
+@each $breakpointName, $breakpointSize in $breakpoints {
+	@each $key in $pigmentKeys {
+		$name: map-deep-get($options, $key, "name");
+		$bgColor: map-deep-get($options, $key, "bgColor");
+		$fontColor: map-deep-get($options, $key, "fontColor");
+		.pigment--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				@include pigmentBgStyles($bgColor, $fontColor);
+			}
+		}
+		.pigmentColor--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				@include pigmentColorStyles($bgColor, $fontColor);
+			}
+		}
+	}
+}
+
+//ELEVATIONS
+@each $name, $shadow in $elevations {
+	.elevation--#{$name} {
+		box-shadow: $shadow;
+	}
+}
+
+@each $breakpointName, $breakpointSize in $breakpoints {
+	@each $name, $shadow in $elevations {
+		.elevation--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				box-shadow: $shadow;
+			}
+		}
+	}
+}
+
+//SIZE
+@mixin size($size) {
+	font-size: $size;
+	&.dui__badge {
+		font-size: $size * 0.75;
+	}
+	&.dui__breadcrumbs {
+		padding: $size * 0.75 $size;
+
+		.dui__breadcrumbs__item {
+			& > span {
+				margin: 0 $size / 2;
+			}
+		}
+	}
+	&.dui__btn {
+		padding: $size * 0.4375 $size;
+	}
+	&.dui__spinner {
+		$calcSize: calc(calc(#{$size} * 1.375) + #{$size});
+
+		width: $calcSize;
+		height: $calcSize;
+		border-width: calc(#{$calcSize} * 0.15);
+	}
+}
+
+@each $name, $size in $sizes {
+	.size--#{$name} {
+		@include size($size);
+	}
+}
+
+@each $breakpointName, $breakpointSize in $breakpoints {
+	@each $name, $size in $sizes {
+		.size--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				@include size($size);
+			}
+		}
+	}
+}
+
+//CONTAINER SIZE
+@each $name, $size in $containerSizes {
+	.containerSize--#{$name} {
+		max-width: $size;
+	}
+}
+
+@each $breakpointName, $breakpointSize in $breakpoints {
+	@each $name, $size in $containerSizes {
+		.containerSize--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				max-width: $size;
+			}
+		}
+	}
+}
+
+//PORTAL SIZES
+@each $name, $size in $portalSizes {
+	.portalSize--#{$name} {
+		max-width: $size;
+	}
+}
+
+@each $breakpointName, $breakpointSize in $breakpoints {
+	@each $name, $size in $portalSizes {
+		.portalSize--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				max-width: $size;
+			}
+		}
+	}
+}
+
+//DRAWER SIZES
+@mixin drawerSize($name) {
+	@each $sizeName, $size in $drawerSizes {
+		&.drawerSize--#{$sizeName} {
+			@if ($name == "left" or $name == "right") {
+				max-width: $size;
+			} @else {
+				max-height: $size;
+			}
+		}
+	}
+
+	@each $breakpointName, $breakpointSize in $breakpoints {
+		@each $sizeName, $size in $drawerSizes {
+			&.drawerSize--#{$breakpointName}--#{$sizeName} {
+				@media all and (min-width: $breakpointSize) {
+					@if ($name == "left" or $name == "right") {
+						max-width: $size;
+					} @else {
+						max-height: $size;
+					}
+				}
+			}
+		}
+	}
+}
+
+//FLAVOR
+@mixin flavor($name, $radius) {
+	border-radius: $radius;
+	@if ($name == "round") {
+		&.dui__btn {
+			width: calc(calc(1em * 1.375) + 1em);
+			height: calc(calc(1em * 1.375) + 1em);
+			padding: 0;
+		}
+	}
+	@if ($name == "flat") {
+		&.dui__progressring {
+			& > circle {
+				stroke-linecap: unset;
+			}
+		}
+	}
+	@if ($name == "default" or $name == "rounded") {
+		&.dui__progressring {
+			& > circle {
+				stroke-linecap: round;
+			}
+		}
+	}
+	&.dui__card {
+		&.dui__card--img > .dui__card__img {
+			border-radius: $radius;
+		}
+		.dui__card__loader {
+			border-radius: $radius;
+		}
+		&.dui__card--img {
+			&.img-top {
+				.dui__card__img {
+					border-radius: $radius $radius 0 0;
+				}
+			}
+			&.img-right {
+				.dui__card__img {
+					border-radius: 0 $radius $radius 0;
+				}
+			}
+			&.img-bottom {
+				.dui__card__img {
+					border-radius: 0 0 $radius $radius;
+				}
+			}
+			&.img-left {
+				.dui__card__img {
+					border-radius: $radius 0 0 $radius;
+				}
+			}
+		}
+	}
+	&.dui__collapse {
+		.dui__collapse__loader {
+			border-radius: $radius;
+		}
+		.dui__collapse__toggle {
+			border-radius: $radius $radius 0 0;
+		}
+		.dui__collapse__content {
+			border-radius: 0 0 $radius $radius;
+			.dui__collapse {
+				&__toggle {
+					border-radius: $radius;
+				}
+			}
+		}
+		&.dui__collapse--collapsed {
+			.dui__collapse__toggle {
+				border-radius: $radius;
+			}
+		}
+	}
+	&.dui__list__group {
+		& > *:first-child {
+			border-radius: $radius $radius 0 0;
+			& > .dui__list__group__collapse__toggle {
+				border-radius: $radius $radius 0 0;
+			}
+		}
+		& > *:last-child {
+			border-radius: 0 0 $radius $radius;
+			& > .dui__list__group__collapse__toggle {
+				border-radius: 0;
+			}
+			&.dui__list__group__collapse--collapsed {
+				.dui__list__group__collapse__toggle {
+					border-radius: 0 0 $radius $radius;
+				}
+			}
+		}
+		&--loading {
+			& > *:nth-child(2):not(.dui__list__group__loader) {
+				border-radius: $radius $radius 0 0;
+			}
+		}
+		.dui__list__group__loader {
+			border-radius: $radius;
+		}
+		.dui__list__group__collapse {
+			&::before {
+				border-radius: $radius;
+			}
+			&__content {
+				.dui__list__group__collapse {
+					&__toggle {
+						border-radius: $radius;
+					}
+				}
+			}
+		}
+	}
+	&.dui__btn-group {
+		border-radius: $radius;
+
+		& > *:first-child {
+			border-radius: $radius 0 0 $radius;
+		}
+		& > *:last-child {
+			border-radius: 0 $radius $radius 0;
+		}
+
+		&.dui__btn-group--vertical {
+			& > *:first-child {
+				border-radius: $radius $radius 0 0;
+			}
+			& > *:last-child {
+				border-radius: 0 0 $radius $radius;
+			}
+		}
+	}
+	&.dui__progressbar {
+		.dui__progressbar__progress {
+			border-radius: $radius;
+			&::before {
+				border-radius: $radius;
+			}
+		}
+		.dui__progressbar__label {
+			border-radius: $radius;
+		}
+	}
+	&.dui__tabs {
+		.dui__dragscroll__container {
+			border-radius: $radius $radius 0 0;
+			&__indicator {
+				border-radius: $radius $radius 0 0;
+			}
+		}
+		&.dui__tabs--vertical {
+			.dui__dragscroll__container {
+				&__indicator {
+					border-radius: $radius 0 0 $radius;
+				}
+			}
+		}
+		.dui__tabs__items {
+			&__indicator {
+				border-radius: $radius;
+			}
+		}
+	}
+}
+
+@each $name, $radius in $flavors {
+	.flavor--#{$name} {
+		@include flavor($name, $radius);
+	}
+}
+
+@each $breakpointName, $breakpointSize in $breakpoints {
+	@each $name, $radius in $flavors {
+		.flavor--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				@include flavor($name, $radius);
+			}
+		}
+	}
+}
+
+//UTIL
+@each $name, $option in $flexAlignOptions {
+	.align--#{$name} {
+		align-items: $option;
+	}
+}
+@each $name, $option in $flexJustifyOptions {
+	.justify--#{$name} {
+		justify-content: $option;
+	}
+}
+@each $name, $option in $flexDirectionOptions {
+	.direction--#{$name} {
+		flex-direction: $option;
+	}
+}
+@each $name, $option in $flexWrapOptions {
+	.wrap--#{$name} {
+		flex-wrap: $option;
+	}
+}
+
+@each $breakpointName, $breakpointSize in $breakpoints {
+	@each $name, $option in $flexAlignOptions {
+		.align--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				align-items: $option;
+			}
+		}
+	}
+	@each $name, $option in $flexJustifyOptions {
+		.justify--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				justify-content: $option;
+			}
+		}
+	}
+	@each $name, $option in $flexDirectionOptions {
+		.direction--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				flex-direction: $option;
+			}
+		}
+	}
+	@each $name, $option in $flexWrapOptions {
+		.wrap--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				flex-wrap: $option;
+			}
+		}
+	}
+}

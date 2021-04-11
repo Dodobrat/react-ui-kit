@@ -1,8 +1,6 @@
-import { CnCh, ElemType, EssentialCustomizationProps, EssentialLoadingProps } from "../../helpers/global.types";
+import { AllEssentialCustomizationProps, CnCh, ElemType, EssentialLoadingProps } from "../../helpers/global.types";
 
-type ExtraListGroupProps = ElemType & EssentialCustomizationProps & CnCh & EssentialLoadingProps;
+type ExtraListGroupProps = ElemType & AllEssentialCustomizationProps & CnCh & EssentialLoadingProps;
 
 // Auto-Generated
-export interface ListGroupProps extends ExtraListGroupProps {
-	allowOverflow?: boolean;
-}
+export interface ListGroupProps extends ExtraListGroupProps {}

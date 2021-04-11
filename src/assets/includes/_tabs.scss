@@ -1,7 +1,3 @@
-@mixin tabs() {
-	@include card();
-}
-
 @mixin tabItems($orientation: "horizontal") {
 	position: relative;
 	display: flex;
@@ -12,12 +8,8 @@
 		position: relative;
 		white-space: nowrap;
 		cursor: pointer;
+		outline: none;
 		@include crossBrowser(user-select, none);
-
-		&:focus {
-			outline: none;
-		}
-		@include focusVisible();
 		&[aria-selected="true"] {
 			opacity: 1;
 			&:focus-visible {
@@ -46,8 +38,6 @@
 @mixin tabIndicator($orientation: "horizontal") {
 	position: absolute;
 	transition: $normalTrans;
-	background-color: $mainFont;
-	border-radius: $smBorderRadius;
 	padding: 0;
 	opacity: 1;
 	@if ($orientation == "horizontal") {
@@ -67,43 +57,10 @@
 	}
 }
 
-@mixin tabPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__tabs--#{$name} {
-			background-color: $bgColor;
-			color: $fontColor;
-			.dui__tabs__items {
-				&__item {
-					@include focusVisible($bgColor, $fontColor);
-					&[aria-selected="true"] {
-						&:focus-visible {
-							box-shadow: none;
-						}
-					}
-				}
-				&__indicator {
-					background-color: $fontColor;
-				}
-				&__content {
-					&::after {
-						background-color: rgba($fontColor, 0.1);
-					}
-				}
-			}
-		}
-	}
-}
-
 .dui__tabs {
-	@include tabs();
+	@include card();
 	.dui__dragscroll__container {
-		border-radius: $smBorderRadius $smBorderRadius 0 0;
 		&__indicator {
-			border-radius: $smBorderRadius $smBorderRadius 0 0;
 			height: calc(100% - 0.0625rem);
 		}
 		&::after {
@@ -114,7 +71,6 @@
 			right: 0;
 			width: calc(100% - 2rem);
 			height: 0.0625rem;
-			background-color: rgba($subFont, 0.1);
 			z-index: 1;
 		}
 	}
@@ -146,7 +102,6 @@
 				width: 0.0625rem;
 			}
 			&__indicator {
-				border-radius: $smBorderRadius 0 0 $smBorderRadius;
 				height: unset;
 				width: calc(100% - 0.0625rem);
 			}
@@ -160,16 +115,6 @@
 			@include tabItems("vertical");
 			&__indicator {
 				@include tabIndicator("vertical");
-			}
-		}
-	}
-	@include tabPigmentOptions();
-	&--flat {
-		border-radius: $flatBorderRadius;
-		.dui__dragscroll__container {
-			border-radius: $flatBorderRadius $flatBorderRadius 0 0;
-			&__indicator {
-				border-radius: $flatBorderRadius $flatBorderRadius 0 0;
 			}
 		}
 	}
