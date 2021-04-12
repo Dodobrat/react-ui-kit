@@ -182,7 +182,7 @@
 	}
 	&.dui__switch__group {
 		background-color: initial;
-		color: initial;
+		color: $subFont;
 		@include switchGroupShadow();
 		&:hover {
 			@include switchGroupShadow(rgba($background, 0.5));
