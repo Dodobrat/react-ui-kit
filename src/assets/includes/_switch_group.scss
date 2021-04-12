@@ -1,18 +1,9 @@
-@mixin switchGroupShadow($outerColor: transparent) {
-	box-shadow: inset 0 0 0 0.125rem rgba-to-rgb(rgba($subFont, 0.2)), 0 0 0 0.0625rem $outerColor;
-}
-
 @mixin switchGroup() {
 	position: relative;
 	display: inline-flex;
 	outline: none;
 	overflow: hidden;
-	border-radius: $smBorderRadius;
 	padding: 0 0.25rem;
-	@include switchGroupShadow();
-	&:hover {
-		@include switchGroupShadow(rgba($subFont, 0.5));
-	}
 }
 
 @mixin switchGroupIndicator() {
@@ -21,8 +12,6 @@
 	pointer-events: none;
 	height: calc(100% - 0.5rem);
 	bottom: 0.25rem;
-	background: $subFont;
-	border-radius: $smBorderRadius / 2;
 }
 
 @mixin switchGroupItem() {
@@ -49,44 +38,10 @@
 	&__value {
 		position: relative;
 		overflow: hidden;
-		border-radius: $smBorderRadius / 2;
-		padding: calc(#{$mdFont} * 0.25) $mdFont / 1.5;
-		font-size: $mdFont;
 		line-height: 1.5;
 		white-space: nowrap;
 		cursor: pointer;
 		@include crossBrowser(user-select, none);
-	}
-	&--active {
-		color: $bgCard;
-	}
-}
-
-@mixin switchGroupPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__switch__group--#{$name} {
-			&:hover {
-				@include switchGroupShadow(rgba($bgColor, 0.5));
-			}
-
-			.dui__switch__group__indicator {
-				background-color: $bgColor;
-			}
-			.dui__switch__group__item {
-				&--active {
-					color: $fontColor;
-				}
-			}
-			&.dui__switch__group--seamless {
-				&:hover {
-					box-shadow: none;
-				}
-			}
-		}
 	}
 }
 
@@ -98,41 +53,6 @@
 	&__item {
 		@include switchGroupItem();
 	}
-	@each $name, $size in $sizes {
-		&.dui__switch__group--#{$name} {
-			font-size: $size;
-			.dui__switch__group__item {
-				margin: 0.1875em 0;
-				&__value {
-					padding: calc(#{$size} * 0.25) $size / 1.5;
-					font-size: $size;
-				}
-			}
-		}
-	}
-	@include switchGroupPigmentOptions();
-	&--rounded {
-		border-radius: $roundedBorderRadius;
-		.dui__switch__group__indicator {
-			border-radius: $roundedBorderRadius;
-		}
-		.dui__switch__group__item {
-			&__value {
-				border-radius: $roundedBorderRadius;
-			}
-		}
-	}
-	&--flat {
-		border-radius: $flatBorderRadius;
-		.dui__switch__group__indicator {
-			border-radius: $flatBorderRadius;
-		}
-		.dui__switch__group__item {
-			&__value {
-				border-radius: $flatBorderRadius;
-			}
-		}
-	}
 	&--wide {
 		display: flex;
 		width: 100%;
@@ -141,22 +61,21 @@
 		}
 	}
 	&--seamless {
-		border-radius: $flatBorderRadius;
+		border-radius: 0;
 		box-shadow: none;
 		padding: 0;
 		&:hover {
 			box-shadow: none;
 		}
 		.dui__switch__group__indicator {
-			border-radius: $flatBorderRadius;
+			border-radius: 0;
 			height: 0.125em;
 			bottom: 0;
 		}
 		.dui__switch__group__item {
 			margin: 0;
 			&__value {
-				border-radius: $flatBorderRadius;
-				padding: calc(#{$mdFont} * 0.4375) $mdFont;
+				border-radius: 0;
 				color: $subFont;
 				opacity: 0.5;
 			}

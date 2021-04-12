@@ -1,17 +1,17 @@
 // COLOR PICKER
-@mixin mozColorSwatchDimensions($arg: $mdFont) {
+@mixin mozColorSwatchDimensions($arg) {
 	width: calc(100% - calc(#{$arg} * 0.4375) * 2);
 	height: calc(100% - calc(#{$arg} * 0.4375) * 2);
 }
 
-@mixin colorSwatchPosition($arg: $mdFont) {
+@mixin colorSwatchPosition($arg) {
 	top: calc(#{$arg} * 0.4375);
 	left: calc(#{$arg} * 0.4375);
 	right: calc(#{$arg} * 0.4375);
 	bottom: calc(#{$arg} * 0.4375);
 }
 
-@mixin colorSwatchStyles($arg: $mdFont) {
+@mixin colorSwatchStyles($arg) {
 	position: absolute;
 	border: none;
 	border-radius: $smBorderRadius / 2;
@@ -26,8 +26,8 @@
 	width: 100%;
 	box-shadow: none;
 	background-color: rgba($subFont, 0.2);
+	border-radius: $roundedBorderRadius;
 	border: none;
-	border-radius: $smBorderRadius;
 }
 
 @mixin rangeThumb($bg: $subFont, $border: $mainFont) {

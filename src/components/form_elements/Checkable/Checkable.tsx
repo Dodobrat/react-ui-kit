@@ -7,10 +7,10 @@ import { mergeRefs } from "../../../helpers/functions";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { useConfig } from "../../../context/ConfigContext";
 import {
-	generateCustomizationClasses,
 	generateLoadingClasses,
 	generateDisabledClasses,
 	generateSeamlessClasses,
+	generateStyleClasses,
 } from "../../../helpers/classnameGenerator";
 
 const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> = (props, ref) => {
@@ -26,15 +26,14 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 		name = `${type}_${Math.random().toString(36).substr(2, 10)}`,
 		id = name,
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		seamless = false,
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		scrollOnFocus = false,
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment} componentLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={null} pigmentColor={pigment} componentLoader />,
 		preffix,
 		suffix,
 		checked,
@@ -48,11 +47,10 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 
 	const classDefaults = {
 		size,
-		rounded,
-		flat,
+		flavor,
 		pigment,
-		seamless,
 		elevation,
+		seamless,
 		isLoading,
 		disableWhileLoading,
 		disabled,
@@ -101,7 +99,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 					[`${classBase}--${typeClass}`]: typeClass,
 					[`${classBase}--focused`]: isFocused,
 				},
-				generateCustomizationClasses(classBase, classDefaults),
+				generateStyleClasses(classDefaults),
 				generateLoadingClasses(classBase, classDefaults),
 				generateDisabledClasses(classBase, classDefaults),
 				generateSeamlessClasses(classBase, classDefaults),
@@ -116,10 +114,9 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 				typeClass={typeClass}
 				name={name}
 				id={id}
-				flat={flat}
+				flavor={flavor}
 				size={size}
 				seamless={seamless}
-				rounded={rounded}
 				pigment={pigment}
 				elevation={elevation}
 				checked={inputChecked}
@@ -149,8 +146,7 @@ export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableCo
 		id = name,
 		checked,
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		seamless = true,
@@ -163,8 +159,7 @@ export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableCo
 
 	const classDefaults = {
 		size,
-		rounded,
-		flat,
+		flavor,
 		pigment,
 		elevation,
 		seamless,
@@ -192,7 +187,7 @@ export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableCo
 				{
 					[`${classBase}__${typeClass}`]: typeClass,
 				},
-				generateCustomizationClasses(classBase, classDefaults),
+				generateStyleClasses(classDefaults),
 				generateSeamlessClasses(classBase, classDefaults),
 				className
 			)}>

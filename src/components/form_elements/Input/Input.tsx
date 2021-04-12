@@ -8,10 +8,10 @@ import { CloseOutlined, Eye, EyeCrossed, Search } from "../../icons";
 import { mergeRefs } from "../../../helpers/functions";
 import { useConfig } from "../../../context/ConfigContext";
 import {
-	generateCustomizationClasses,
 	generateDisabledClasses,
 	generateLoadingClasses,
 	generateSeamlessClasses,
+	generateStyleClasses,
 } from "../../../helpers/classnameGenerator";
 
 const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props, ref) => {
@@ -26,14 +26,13 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		name,
 		id = name,
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
 		seamless = false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment} componentLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={null} pigmentColor={pigment} componentLoader />,
 		preffix = type === "search" ? <Search /> : null,
 		suffix,
 		isClearable = false,
@@ -54,8 +53,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 
 	const classDefaults = {
 		size,
-		rounded,
-		flat,
+		flavor,
 		pigment,
 		seamless,
 		elevation,
@@ -143,7 +141,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				{
 					[`${classBase}--focused`]: isFocused,
 				},
-				generateCustomizationClasses(classBase, classDefaults),
+				generateStyleClasses(classDefaults),
 				generateLoadingClasses(classBase, classDefaults),
 				generateDisabledClasses(classBase, classDefaults),
 				generateSeamlessClasses(classBase, classDefaults),
@@ -157,9 +155,8 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				type={inputType}
 				name={name}
 				id={id}
-				flat={flat}
+				flavor={flavor}
 				size={size}
-				rounded={rounded}
 				pigment={pigment}
 				seamless={seamless}
 				elevation={elevation}
@@ -204,8 +201,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 		id = name,
 		value,
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		seamless = type === "range",
@@ -219,8 +215,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 
 	const classDefaults = {
 		size,
-		rounded,
-		flat,
+		flavor,
 		pigment,
 		elevation,
 		seamless,
@@ -244,12 +239,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 			type={type}
 			name={name}
 			id={id}
-			className={cn(
-				classBase,
-				generateCustomizationClasses(classBase, classDefaults),
-				generateSeamlessClasses(classBase, classDefaults),
-				className
-			)}
+			className={cn(classBase, generateStyleClasses(classDefaults), generateSeamlessClasses(classBase, classDefaults), className)}
 			value={value}
 			onChange={onChange}
 			onFocus={handleOnFocus}

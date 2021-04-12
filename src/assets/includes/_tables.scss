@@ -4,6 +4,7 @@
 	padding: 0.4375rem 0.625rem;
 	&--condensed {
 		@include tableElementsStyleReset();
+		border-collapse: collapse;
 		.dui__table {
 			&__head,
 			&__foot {
@@ -24,36 +25,16 @@
 	}
 	&--bordered {
 		@include tableElementsStyleReset();
-		.dui__table {
-			border: 0.0625rem solid rgba-to-rgb(rgba($mainFont, 0.25));
-			.dui__table__cell,
-			.dui__table__header {
-				border: 0.0625rem solid rgba-to-rgb(rgba($mainFont, 0.25));
-			}
-		}
+		border-collapse: separate;
 	}
 }
 
 @mixin tableElementsStyleReset() {
 	padding: 0;
 	.dui__table {
-		border-collapse: collapse;
 		border-spacing: 0;
-		&__head,
-		&__foot {
-			.dui__table__row {
-				.dui__table__header:first-child,
-				.dui__table__header:last-child {
-					border-radius: 0;
-				}
-			}
-		}
 		&__body {
 			.dui__table__row {
-				.dui__table__cell:first-child,
-				.dui__table__cell:last-child {
-					border-radius: 0;
-				}
 				.dui__table__cell::before {
 					display: none;
 				}
@@ -83,20 +64,7 @@
 			text-transform: uppercase;
 			letter-spacing: 0.075em;
 			user-select: none;
-			color: $subFont;
-			background-color: darken($bgCard, 5%);
 			line-height: 1.5;
-			&:hover {
-				background-color: darken($bgCard, 7.5%);
-			}
-
-			&:first-child {
-				border-radius: $smBorderRadius 0 0 $smBorderRadius;
-			}
-
-			&:last-child {
-				border-radius: 0 $smBorderRadius $smBorderRadius 0;
-			}
 		}
 	}
 }
@@ -111,14 +79,7 @@
 			}
 		}
 
-		&:hover {
-			.dui__table__cell {
-				background-color: rgba-to-rgb(rgba($subFont, 0.1));
-			}
-		}
-
 		.dui__table__cell {
-			background-color: $bgCard;
 			padding: 0.625em;
 			text-align: left;
 			white-space: nowrap;
@@ -134,67 +95,7 @@
 				right: 0;
 				height: 0.0625rem;
 				width: 100%;
-				background-color: rgba-to-rgb(rgba($subFont, 0.2));
 				transform: translateY(-0.125rem);
-			}
-			&:first-child {
-				border-radius: $smBorderRadius 0 0 $smBorderRadius;
-			}
-			&:last-child {
-				border-radius: 0 $smBorderRadius $smBorderRadius 0;
-			}
-		}
-	}
-}
-
-@mixin tablePigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__table__container--#{$name} {
-			&.dui__table__container--bordered {
-				.dui__table {
-					border: 0.0625rem solid rgba-to-rgb(rgba($fontColor, 0.25), $bgColor);
-					.dui__table__cell,
-					.dui__table__header {
-						border: 0.0625rem solid rgba-to-rgb(rgba($fontColor, 0.25), $bgColor);
-					}
-				}
-			}
-			.dui__table {
-				background-color: $bgColor;
-				color: $fontColor;
-				.dui__table__head,
-				.dui__table__foot {
-					.dui__table__row {
-						.dui__table__header {
-							color: $fontColor;
-							background-color: darken($bgColor, 5%);
-							&:hover {
-								background-color: darken($bgColor, 7.5%);
-							}
-						}
-					}
-				}
-				.dui__table__body {
-					.dui__table__row {
-						&:hover {
-							.dui__table__cell {
-								background-color: rgba-to-rgb(rgba($fontColor, 0.1), $bgColor);
-							}
-						}
-
-						.dui__table__cell {
-							background-color: $bgColor;
-
-							&::before {
-								background-color: rgba-to-rgb(rgba($fontColor, 0.2), $bgColor);
-							}
-						}
-					}
-				}
 			}
 		}
 	}
@@ -203,39 +104,13 @@
 .dui__table {
 	&__container {
 		@include tableContainer();
-		@include tablePigmentOptions();
 	}
 	@include table();
-	@each $name, $size in $sizes {
-		&.dui__table--#{$name} {
-			font-size: $size;
-		}
-	}
 	&__head,
 	&__foot {
 		@include tableHeader();
 	}
 	&__body {
 		@include tableBody();
-	}
-
-	&--flat {
-		.dui__table__head,
-		.dui__table__foot {
-			.dui__table__row {
-				.dui__table__header:first-child,
-				.dui__table__header:last-child {
-					border-radius: $flatBorderRadius;
-				}
-			}
-		}
-		.dui__table__body {
-			.dui__table__row {
-				.dui__table__cell:first-child,
-				.dui__table__cell:last-child {
-					border-radius: $flatBorderRadius;
-				}
-			}
-		}
 	}
 }

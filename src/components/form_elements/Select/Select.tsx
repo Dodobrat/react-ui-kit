@@ -8,10 +8,10 @@ import { CloseOutlined } from "../../icons";
 import { mergeRefs } from "../../../helpers/functions";
 import { useConfig } from "../../../context/ConfigContext";
 import {
-	generateCustomizationClasses,
 	generateDisabledClasses,
 	generateLoadingClasses,
 	generateSeamlessClasses,
+	generateStyleClasses,
 } from "../../../helpers/classnameGenerator";
 
 const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (props, ref) => {
@@ -25,14 +25,13 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 		name,
 		id = name,
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
 		seamless = false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		pigment = config.primary ?? "primary",
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment} componentLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={null} pigmentColor={pigment} componentLoader />,
 		preffix,
 		suffix,
 		isClearable = false,
@@ -50,8 +49,7 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 
 	const classDefaults = {
 		size,
-		rounded,
-		flat,
+		flavor,
 		pigment,
 		seamless,
 		elevation,
@@ -130,7 +128,7 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 				{
 					[`${classBase}--focused`]: isFocused,
 				},
-				generateCustomizationClasses(classBase, classDefaults),
+				generateStyleClasses(classDefaults),
 				generateLoadingClasses(classBase, classDefaults),
 				generateDisabledClasses(classBase, classDefaults),
 				generateSeamlessClasses(classBase, classDefaults),
@@ -143,9 +141,8 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 				className={inputClassName}
 				name={name}
 				id={id}
-				flat={flat}
+				flavor={flavor}
 				size={size}
-				rounded={rounded}
 				pigment={pigment}
 				seamless={seamless}
 				elevation={elevation}
@@ -185,8 +182,7 @@ export const SelectComponent = React.forwardRef<HTMLSelectElement, SelectCompone
 		id = name,
 		value,
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		seamless = false,
@@ -200,8 +196,7 @@ export const SelectComponent = React.forwardRef<HTMLSelectElement, SelectCompone
 
 	const classDefaults = {
 		size,
-		rounded,
-		flat,
+		flavor,
 		pigment,
 		elevation,
 		seamless,
@@ -228,7 +223,7 @@ export const SelectComponent = React.forwardRef<HTMLSelectElement, SelectCompone
 				className={cn(
 					classBase,
 					`${classBase}__select`,
-					generateCustomizationClasses(classBase, classDefaults),
+					generateStyleClasses(classDefaults),
 					generateSeamlessClasses(classBase, classDefaults),
 					className
 				)}

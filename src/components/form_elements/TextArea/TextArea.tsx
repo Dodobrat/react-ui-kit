@@ -8,10 +8,10 @@ import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
 import { CloseOutlined } from "../../icons";
 import { useConfig } from "../../../context/ConfigContext";
 import {
-	generateCustomizationClasses,
 	generateDisabledClasses,
 	generateLoadingClasses,
 	generateSeamlessClasses,
+	generateStyleClasses,
 } from "../../../helpers/classnameGenerator";
 
 const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = (props, ref) => {
@@ -25,14 +25,13 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 		name,
 		id = name,
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		seamless = false,
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={pigment} componentLoader />,
+		loadingComponent = <SpinnerLoader size={size} pigment={null} pigmentColor={pigment} componentLoader />,
 		isClearable = false,
 		clearableComponent = null,
 		clearableComponentLabel = "Clear",
@@ -56,8 +55,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 
 	const classDefaults = {
 		size,
-		rounded,
-		flat,
+		flavor,
 		seamless,
 		pigment,
 		elevation,
@@ -144,7 +142,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 				{
 					[`${classBase}--focused`]: isFocused,
 				},
-				generateCustomizationClasses(classBase, classDefaults),
+				generateStyleClasses(classDefaults),
 				generateLoadingClasses(classBase, classDefaults),
 				generateDisabledClasses(classBase, classDefaults),
 				generateSeamlessClasses(classBase, classDefaults),
@@ -156,9 +154,8 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 				className={inputClassName}
 				name={name}
 				id={id}
-				flat={flat}
+				flavor={flavor}
 				size={size}
-				rounded={rounded}
 				seamless={seamless}
 				pigment={pigment}
 				elevation={elevation}
@@ -207,8 +204,7 @@ export const TextAreaComponent = React.forwardRef<HTMLTextAreaElement, TextAreaC
 		id = name,
 		value,
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		seamless = false,
@@ -222,8 +218,7 @@ export const TextAreaComponent = React.forwardRef<HTMLTextAreaElement, TextAreaC
 
 	const classDefaults = {
 		size,
-		rounded,
-		flat,
+		flavor,
 		pigment,
 		elevation,
 		seamless,
@@ -255,7 +250,7 @@ export const TextAreaComponent = React.forwardRef<HTMLTextAreaElement, TextAreaC
 			className={cn(
 				classBase,
 				`${classBase}__textarea`,
-				generateCustomizationClasses(classBase, classDefaults),
+				generateStyleClasses(classDefaults),
 				generateSeamlessClasses(classBase, classDefaults),
 				className
 			)}

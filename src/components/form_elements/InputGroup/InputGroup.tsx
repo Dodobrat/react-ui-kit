@@ -4,25 +4,23 @@ import cn from "classnames";
 
 import { InputGroupProps } from "./InputGroup.types";
 import { useConfig } from "../../../context/ConfigContext";
+import { generateStyleClasses } from "../../../helpers/classnameGenerator";
 
 const InputGroup: React.ForwardRefRenderFunction<HTMLDivElement, InputGroupProps> = (props, ref) => {
 	const {
 		appConfig: { config },
 	} = useConfig();
 
-	const { className, rounded = config.rounded ?? false, flat = config.flat ?? false, groupProps = {}, children, ...rest } = props;
+	const { className, flavor = config.flavor ?? "default", groupProps = {}, children, ...rest } = props;
+
+	const classDefaults = {
+		flavor,
+	};
 
 	return (
 		<div
 			data-testid='InputGroup'
-			className={cn(
-				"dui__input-group",
-				{
-					"dui__input-group--rounded": rounded,
-					"dui__input-group--flat": flat,
-				},
-				className
-			)}
+			className={cn("dui__input-group", generateStyleClasses(classDefaults), className)}
 			tabIndex={-1}
 			{...rest}
 			ref={ref}>

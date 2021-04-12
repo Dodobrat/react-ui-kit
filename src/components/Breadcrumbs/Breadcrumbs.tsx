@@ -20,7 +20,6 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 	const {
 		className,
 		pigment = config.breadcrumbsPigment ?? "none",
-		pigmentColor = config.breadcrumbsPigmentColor ?? null,
 		elevation = config.breadcrumbsElevation ?? "none",
 		flavor = config.flavor ?? "default",
 		size = config.size ?? "md",
@@ -31,7 +30,6 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 
 	const classDefaults = {
 		pigment,
-		pigmentColor,
 		elevation,
 		flavor,
 		size,

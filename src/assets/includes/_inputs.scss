@@ -1,70 +1,22 @@
-@import "./input_helpers";
-
 @mixin input() {
+	transition: $fastTrans;
 	position: relative;
 	display: block;
-	transition: $fastTrans;
 	caret-color: $mainFont;
 	background-color: darken($bgCard, 7.5%);
 	line-height: 1.5;
-	padding: calc(#{$mdFont} * 0.4375) 0;
-	text-indent: $mdFont / 1.25;
 	width: 100%;
 	color: $mainFont;
 	border: none;
-	font-size: $mdFont;
-	border-radius: $smBorderRadius;
+	outline: none;
 	@include crossBrowser(appearance, none);
 
 	&:disabled {
 		background-color: darken($bgCard, 12.5%);
 	}
 
-	&:hover {
-		box-shadow: 0 0 0 0.0625rem rgba($subFont, 0.2);
-	}
-
-	&:focus {
-		outline: none;
-	}
-
-	@include focusVisible();
-
-	&[type="color"] {
-		padding: calc(#{$mdFont} * 0.4375 * 2.715) 0;
-		&::-moz-color-swatch {
-			@include colorSwatchStyles();
-			@include mozColorSwatchDimensions();
-		}
-
-		&::-webkit-color-swatch {
-			@include colorSwatchStyles();
-		}
-	}
-
-	&[type="date"],
-	&[type="time"] {
-		text-indent: $mdFont / 2.5;
-		&::-webkit-calendar-picker-indicator {
-			opacity: 0;
-			padding-right: $mdFont / 1.25;
-		}
-	}
-
-	@-moz-document url-prefix() {
-		&[type="file"],
-		&.dui__input__select {
-			text-indent: $mdFont / 2.5;
-		}
-		&[type="date"],
-		&[type="time"] {
-			text-indent: $mdFont / 1.25;
-		}
-	}
-
 	&[type="range"] {
 		margin: auto 0;
-		padding: calc(#{$mdFont} * 1.1875) $mdFont / 2.5;
 		width: 100%;
 		height: 1em;
 		&:hover {
@@ -87,7 +39,8 @@
 	display: flex;
 	width: 100%;
 	background-color: darken($bgCard, 7.5%);
-	border-radius: $smBorderRadius;
+	color: $mainFont;
+	outline: none;
 	.dui__input {
 		background-color: inherit;
 		&:hover {
@@ -97,324 +50,31 @@
 			box-shadow: none;
 		}
 	}
-	&:focus {
-		outline: none;
-	}
-	&:hover {
-		box-shadow: 0 0 0 0.0625rem rgba($subFont, 0.2);
-	}
-	&--focused {
-		@include focusVisibleStyles();
-		&:hover {
-			@include focusVisibleStyles();
-		}
-	}
 }
 
-@mixin inputPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__input--#{$name} {
-			&:hover {
-				box-shadow: 0 0 0 0.0625rem rgba($bgColor, 0.2);
-			}
-			@include focusVisible($bgColor, $bgColor);
-			&[type="range"] {
-				&:hover {
-					@include rangeHover($bgColor);
-				}
-				&:focus-visible {
-					@include rangeFocusVisible($bgColor, $bgColor);
-				}
-				@include rangeThumbPigments($bgColor, darken($bgColor, 10%));
-			}
-			&.dui__input__checkable {
-				.dui__input__checkable__input:checked + .dui__input__checkable__value {
-					background-color: $bgColor;
-					border-color: $bgColor;
-				}
-				.dui__input__checkable__input:focus-visible + .dui__input__checkable__value {
-					@include focusVisibleStyles($bgColor, $bgColor);
-				}
-				.dui__input__checkbox__input:checked + .dui__input__checkbox__value {
-					&::after {
-						border-color: $fontColor;
-					}
-				}
-				.dui__input__switch__input:checked + .dui__input__switch__value {
-					&::after {
-						background-color: $fontColor;
-					}
-				}
-				.dui__input__radio__input:checked + .dui__input__radio__value {
-					&::after {
-						background-color: $fontColor;
-					}
-				}
-				&:hover {
-					.dui__input__checkable__value {
-						box-shadow: 0 0 0 0.125rem rgba($bgColor, 0.2);
-					}
-				}
-			}
-		}
-	}
-}
-
-@mixin inputWrapperPigmentOptions($options: $pigments) {
-	$pigmentKeys: map-keys($options);
-	@each $key in $pigmentKeys {
-		$name: map-deep-get($options, $key, "name");
-		$bgColor: map-deep-get($options, $key, "bgColor");
-		$fontColor: map-deep-get($options, $key, "fontColor");
-		&.dui__input__wrapper--#{$name} {
-			&:hover {
-				box-shadow: 0 0 0 0.0625rem rgba($bgColor, 0.2);
-			}
-			&.dui__input__wrapper--focused {
-				@include focusVisibleStyles($bgColor, $bgColor);
-				&:hover {
-					@include focusVisibleStyles($bgColor, $bgColor);
-				}
-				&.dui__input__wrapper--seamless {
-					box-shadow: none;
-					&.dui__input__wrapper:hover,
-					&.dui__input__wrapper:focus,
-					&.dui__input__wrapper:focus-visible {
-						box-shadow: none;
-					}
-				}
-			}
-			&.dui__input__wrapper__checkable {
-				.dui__input__checkable__input:checked + .dui__input__checkable__value {
-					background-color: $bgColor;
-					border-color: $bgColor;
-				}
-				.dui__input__checkbox__input:checked + .dui__input__checkbox__value {
-					&::after {
-						border-color: $fontColor;
-					}
-				}
-				.dui__input__switch__input:checked + .dui__input__switch__value {
-					&::after {
-						background-color: $fontColor;
-					}
-				}
-				.dui__input__radio__input:checked + .dui__input__radio__value {
-					&::after {
-						background-color: $fontColor;
-					}
-				}
-				&:hover {
-					.dui__input__checkable__value {
-						box-shadow: 0 0 0 0.125rem rgba($bgColor, 0.2);
-					}
-				}
-				&--focused {
-					.dui__input__checkable__value {
-						@include focusVisibleStyles($bgColor, $bgColor);
-					}
-					&:hover {
-						.dui__input__checkable__value {
-							@include focusVisibleStyles($bgColor, $bgColor);
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-@mixin inputGroupCornerRoudness($radius: $smBorderRadius) {
-	border-radius: $radius;
-	& > * {
-		border-right: 0.0625rem solid rgba($subFont, 0.1);
-	}
-	& > *:first-child {
-		border-radius: $radius 0 0 $radius;
-	}
-	& > *:last-child {
-		border-radius: 0 $radius $radius 0;
-		border-right: none;
-	}
+@mixin seamless() {
+	background-color: inherit;
+	border-radius: 0;
+	box-shadow: none;
 }
 
 .dui__input {
 	@include input();
-	@each $name, $size in $sizes {
-		&.dui__input--#{$name} {
-			font-size: $size;
-			& > * {
-				font-size: $size;
-			}
-			padding: calc(#{$size} * 0.4375) 0;
-			text-indent: $size / 1.25;
-
-			&[type="color"] {
-				padding: calc(#{$size} * 0.4375 * 2.715) 0;
-				&::-moz-color-swatch {
-					@include colorSwatchPosition($size);
-					@include mozColorSwatchDimensions($size);
-				}
-				&::-webkit-color-swatch {
-					@include colorSwatchPosition($size);
-				}
-			}
-
-			&.dui__input[type="date"],
-			&.dui__input[type="time"] {
-				text-indent: $size / 2.5;
-				&::-webkit-calendar-picker-indicator {
-					padding-right: $size / 1.25;
-				}
-			}
-
-			@-moz-document url-prefix() {
-				&.dui__input[type="file"],
-				&.dui__input__select {
-					text-indent: $size / 2.5;
-				}
-				&.dui__input[type="date"],
-				&.dui__input[type="time"] {
-					text-indent: $size / 1.25;
-				}
-			}
-
-			&[type="range"] {
-				padding: calc(#{$size} * 1.1875) $size / 2.5;
-			}
-
-			&.dui__input__textarea {
-				text-indent: calc(#{$size} * 0.4375);
-				padding: calc(#{$size} * 0.4375);
-			}
-
-			&.dui__input__checkable {
-				padding: calc(#{$size} * 0.4375) $size / 1.25;
-				&.dui__input--seamless {
-					padding: calc(#{$size} * 0.4375) 0;
-				}
-			}
-		}
-	}
-	@include inputPigmentOptions();
-	&--rounded {
-		border-radius: $roundedBorderRadius;
-		&.dui__input[type="color"] {
-			&::-moz-color-swatch {
-				border-radius: $roundedBorderRadius / 2;
-			}
-			&::-webkit-color-swatch {
-				border-radius: $roundedBorderRadius / 2;
-			}
-		}
-	}
-
-	&--flat {
-		border-radius: $flatBorderRadius;
-		&.dui__input[type="color"] {
-			&::-moz-color-swatch {
-				border-radius: $flatBorderRadius;
-			}
-			&::-webkit-color-swatch {
-				border-radius: $flatBorderRadius;
-			}
-		}
-		&.dui__input__checkbox {
-			.dui__input__checkbox__value {
-				border-radius: $flatBorderRadius;
-			}
-		}
-		&.dui__input__switch {
-			.dui__input__switch__value {
-				border-radius: $flatBorderRadius;
-				&::after {
-					border-radius: $flatBorderRadius;
-				}
-			}
-		}
-	}
 
 	&--seamless {
-		background-color: inherit;
-		border-radius: 0;
-		&.dui__input:hover,
-		&.dui__input:focus,
-		&.dui__input:focus-visible {
-			box-shadow: none;
-		}
-		&.dui__input__checkable {
-			padding: calc(#{$mdFont} * 0.4375) 0;
-		}
+		@include seamless();
 	}
 
 	&__wrapper {
 		@include inputWrapper();
-		@each $name, $size in $sizes {
-			&.dui__input__wrapper--#{$name} {
-				font-size: $size;
-				& > * {
-					font-size: $size;
-				}
-
-				.dui__input__wrapper__attachment {
-					padding-top: calc(#{$size} * 0.4375 - 0.015em);
-					padding-bottom: calc(#{$size} * 0.4375 - 0.015em);
-					&:last-child,
-					&:not(&:first-child) {
-						padding-right: $size / 1.25;
-					}
-					&.dui__input__wrapper__preffix {
-						padding-left: $size / 1.25;
-						padding-right: 0;
-					}
-					&.dui__input__wrapper__clear {
-						& > span {
-							margin-right: $size / 2;
-						}
-					}
-					&.dui__input__wrapper__loader {
-						padding: 0;
-					}
-				}
-
-				&.dui__input__wrapper__checkable {
-					.dui__input__checkable__value {
-						margin-left: $size / 1.25;
-					}
-					.dui__input__checkable {
-						padding: calc(#{$size} * 0.4375) 0;
-					}
-				}
-			}
-		}
-		@include inputWrapperPigmentOptions();
-
 		&__checkable {
 			.dui__input__checkable {
 				display: flex;
 				width: 100%;
-				padding: calc(#{$mdFont} * 0.4375) 0;
-			}
-			.dui__input__checkable__value {
-				margin-left: $mdFont / 1.25;
 			}
 			&:hover {
 				.dui__input__checkable__value {
 					box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
-				}
-			}
-			&--focused {
-				.dui__input__checkable__value {
-					@include focusVisibleStyles();
-				}
-				&:hover {
-					.dui__input__checkable__value {
-						@include focusVisibleStyles();
-					}
 				}
 			}
 		}
@@ -428,17 +88,7 @@
 			white-space: nowrap;
 			line-height: 1.5;
 			opacity: 0.75;
-			padding: calc(#{$mdFont} * 0.4375 - 0.015em) 0.3125rem;
 			@include crossBrowser(user-select, none);
-
-			&.dui__input__wrapper__preffix {
-				padding-left: $mdFont / 1.25;
-				padding-right: 0;
-			}
-			&:last-child,
-			&:not(&:first-child) {
-				padding-right: $mdFont / 1.25;
-			}
 			&.dui__input__wrapper__loader {
 				padding: 0;
 			}
@@ -448,9 +98,6 @@
 			}
 			&.dui__input__wrapper__clear {
 				display: inline-flex;
-				& > span {
-					margin-right: $mdFont / 2;
-				}
 			}
 			[class^="dui__icon"] {
 				width: 1em;
@@ -462,31 +109,8 @@
 			}
 		}
 
-		&--rounded {
-			border-radius: $roundedBorderRadius;
-		}
-
-		&--flat {
-			border-radius: $flatBorderRadius;
-			.dui__input__checkbox__value {
-				border-radius: $flatBorderRadius;
-			}
-			.dui__input__switch__value {
-				border-radius: $flatBorderRadius;
-				&:after {
-					border-radius: $flatBorderRadius;
-				}
-			}
-		}
-
 		&--seamless {
-			background-color: inherit;
-			border-radius: 0;
-			&.dui__input__wrapper:hover,
-			&.dui__input__wrapper:focus,
-			&.dui__input__wrapper:focus-visible {
-				box-shadow: none;
-			}
+			@include seamless();
 		}
 
 		&--disabled {
@@ -507,8 +131,6 @@
 	}
 
 	&__textarea {
-		text-indent: calc(#{$mdFont} * 0.4375);
-		padding: calc(#{$mdFont} * 0.4375);
 		min-height: 10em;
 	}
 
@@ -516,7 +138,6 @@
 		display: inline-flex;
 		width: auto;
 		line-height: 1.5;
-		padding: calc(#{$mdFont} * 0.4375) $mdFont / 1.25;
 		cursor: pointer;
 		@include crossBrowser(user-select, none);
 		&__input {
@@ -690,7 +311,6 @@
 		outline: none;
 
 		& > * {
-			border-radius: 0;
 			&:focus,
 			&:hover {
 				z-index: 2;
@@ -701,15 +321,6 @@
 			flex: 1 1 auto;
 			width: 1%;
 			min-width: 0;
-		}
-
-		@include inputGroupCornerRoudness();
-
-		&--rounded {
-			@include inputGroupCornerRoudness($roundedBorderRadius);
-		}
-		&--flat {
-			@include inputGroupCornerRoudness($flatBorderRadius);
 		}
 	}
 }

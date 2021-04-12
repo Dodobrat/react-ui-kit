@@ -15,7 +15,7 @@ export type ElevationResponsiveOptions = {
 };
 export type AllElevationOptions = ElevationResponsiveOptions | ElevationOptions;
 //----------
-export type FlavorOptions = "default" | "flat" | "rounded" | "round";
+export type FlavorOptions = "default" | "flat" | "rounded" | "round" | "square";
 export type FlavorResponsiveOptions = {
 	[bp in BreakpointOptions]?: FlavorOptions;
 };
@@ -120,7 +120,7 @@ export interface CustomizationProps extends EssentialCustomizationProps {
 	rounded?: boolean;
 }
 //--------------------------------
-type EssentialInputPropsExtensions = CustomizationProps & CnCh;
+type EssentialInputPropsExtensions = AllCustomizationProps & CnCh;
 export interface EssentialInputProps extends EssentialInputPropsExtensions {
 	seamless?: boolean;
 	scrollOnFocus?: boolean;

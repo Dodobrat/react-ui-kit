@@ -43,7 +43,6 @@ interface GlobalOptions {
 	breadcrumbsContained?: boolean;
 	breadcrumbsElevation?: AllElevationOptions;
 	breadcrumbsPigment?: AllPigmentOptions;
-	breadcrumbsPigmentColor?: AllPigmentOptions;
 	breadcrumbsSeparator?: React.ReactNode;
 	//--Button
 	btnKeyboardOnlyFocusRing?: boolean;

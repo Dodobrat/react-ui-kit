@@ -76,12 +76,10 @@ export const addElementAttributesInObj: (props: Object) => Object = (props) => {
 	return extraProps;
 };
 
-//TODO: Remove
 export const configError: (prop: string, supports: Object) => void = (prop, supports) => {
 	console.warn(`Unsupported (${prop}) config passed to component! Please use one of the following:`);
 	console.table(supports);
 };
-//---------------
 
 export const isTouchDevice: () => boolean = () => {
 	return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;

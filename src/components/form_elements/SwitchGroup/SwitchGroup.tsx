@@ -6,7 +6,7 @@ import { SwitchGroupProps } from "./SwitchGroup.types";
 import { useConfig } from "../../../context/ConfigContext";
 import { createRipple, mergeRefs } from "../../../helpers/functions";
 import { useWindowResize } from "../../../hooks/useWindowResize";
-import { generateCustomizationClasses, generateSeamlessClasses } from "../../../helpers/classnameGenerator";
+import { generateSeamlessClasses, generateStyleClasses } from "../../../helpers/classnameGenerator";
 
 const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupProps> = (props, ref) => {
 	const {
@@ -19,8 +19,7 @@ const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupPro
 		elevation = "none",
 		pigment = config.pigment ?? "primary",
 		size = config.size ?? "md",
-		rounded = config.rounded ?? false,
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "default",
 		seamless = false,
 		wide = false,
 		withRipple = config.withRipple ?? true,
@@ -34,8 +33,7 @@ const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupPro
 
 	const classDefaults = {
 		size,
-		rounded,
-		flat,
+		flavor,
 		pigment,
 		elevation,
 		seamless,
@@ -88,7 +86,7 @@ const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupPro
 
 	const handleOnPointerDown: (e: React.PointerEvent, idx: number) => void = (e, idx) => {
 		if (withRipple) {
-			createRipple({ e, elem: itemsRef.current[idx], pigment });
+			createRipple({ e, elem: itemsRef.current[idx] });
 		}
 
 		if (onPointerDown) {
@@ -119,7 +117,7 @@ const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupPro
 				{
 					[`${classBase}--wide`]: wide,
 				},
-				generateCustomizationClasses(classBase, classDefaults),
+				generateStyleClasses(classDefaults),
 				generateSeamlessClasses(classBase, classDefaults),
 				className
 			)}

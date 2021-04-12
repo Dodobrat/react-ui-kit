@@ -1,8 +1,7 @@
-import { AllCustomizationProps, CnCh, PigmentColorProps } from "../../helpers/global.types";
+import { AllCustomizationProps, CnCh } from "../../helpers/global.types";
 
-type ExtraBreadcrumbsProps = AllCustomizationProps & PigmentColorProps & CnCh;
+type ExtraBreadcrumbsProps = AllCustomizationProps & CnCh;
 // Auto-Generated
 export interface BreadcrumbsProps extends ExtraBreadcrumbsProps {
-	contained?: boolean;
 	separator?: JSX.Element | string | null;
 }

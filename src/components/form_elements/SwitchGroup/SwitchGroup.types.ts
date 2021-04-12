@@ -1,7 +1,7 @@
 import React from "react";
-import { CnCh, CustomizationProps, RippleEffect } from "../../../helpers/global.types";
+import { AllCustomizationProps, CnCh, RippleEffect } from "../../../helpers/global.types";
 
-type ExtraSwitchGroupProps = CnCh & CustomizationProps & RippleEffect;
+type ExtraSwitchGroupProps = CnCh & AllCustomizationProps & RippleEffect;
 
 interface SwitchGroupItem {
 	value: any;
