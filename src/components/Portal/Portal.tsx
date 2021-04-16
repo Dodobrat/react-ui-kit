@@ -50,7 +50,6 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 			if (!noScroll) {
 				disableScrollAndScrollBar(isOpen);
 			}
-			return () => disableScrollAndScrollBar(false);
 		}
 	}, [isOpen]);
 

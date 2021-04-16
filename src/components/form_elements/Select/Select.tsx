@@ -108,16 +108,10 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 				setShowClearIndicator(true);
 			}
 		}
-		return () => {
-			setShowClearIndicator(false);
-		};
 	}, []);
 
 	useEffect(() => {
 		setSelectValue(value);
-		return () => {
-			setSelectValue("");
-		};
 	}, [value]);
 
 	return (

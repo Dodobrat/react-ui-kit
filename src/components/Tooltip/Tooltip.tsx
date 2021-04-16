@@ -5,7 +5,7 @@ import cn from "classnames";
 import { TooltipProps } from "./Tooltip.types";
 import { useConfig } from "../../context/ConfigContext";
 import PortalWrapper from "../util/PortalWrapper/PortalWrapper";
-import { generateCustomizationClasses, generateSeamlessClasses } from "../../helpers/classnameGenerator";
+import { generateSeamlessClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 import { mergeRefs } from "../../helpers/functions";
 import { useEventListener } from "../../hooks/useEventListener";
 
@@ -22,11 +22,10 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		showOnFocus = true,
 		showOnClick = false,
 		showOnHover = true,
-		elevation = config.tooltipElevation ?? "interstellar",
-		pigment = config.tooltipPigment ?? null,
+		elevation = config.tooltipElevation ?? "subtle",
+		pigment = config.tooltipPigment ?? "default",
 		size = config.tooltipSize ?? "md",
-		rounded = config.tooltipRounded ?? false,
-		flat = config.tooltipFlat ?? false,
+		flavor = config.tooltipFlavor ?? "default",
 		seamless = config.tooltipSeamless ?? false,
 		triggerElement = null,
 		spacing = 5,
@@ -40,8 +39,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		elevation,
 		pigment,
 		size,
-		rounded,
-		flat,
+		flavor,
 		seamless,
 	};
 
@@ -217,7 +215,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 				props: extraChildProps(child.props),
 			};
 		}
-		console.error("Invalid Tooltip child! Please use a valid React child / component.");
+		console.error("Invalid Tooltip trigger element! Please use a valid React child / component.");
 		return child;
 	});
 
@@ -230,7 +228,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 						role='tooltip'
 						className={cn(
 							classBase,
-							generateCustomizationClasses(classBase, classDefaults),
+							generateStyleClasses(classDefaults),
 							generateSeamlessClasses(classBase, classDefaults),
 							className
 						)}

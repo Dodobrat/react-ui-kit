@@ -16,10 +16,6 @@ const ConfigContext = createContext(null);
 
 interface GlobalOptions {
 	flavor?: AllFlavorOptions;
-	//TODO: Deprecate Flat / Round
-	flat?: boolean;
-	rounded?: boolean;
-	//----------------
 	pigment?: AllPigmentOptions;
 	pigmentColor?: AllPigmentOptions;
 	size?: AllSizeOptions;
@@ -81,8 +77,7 @@ interface GlobalOptions {
 	tooltipElevation?: AllElevationOptions;
 	tooltipPigment?: AllPigmentOptions;
 	tooltipSize?: AllSizeOptions;
-	tooltipRounded?: boolean;
-	tooltipFlat?: boolean;
+	tooltipFlavor?: AllFlavorOptions;
 	//--Progress Bar
 	progressBarLabeled?: boolean;
 	progressBarLabelValue?: ProgressLabelValue;

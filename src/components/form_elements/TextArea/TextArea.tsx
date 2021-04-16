@@ -121,17 +121,10 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 				setShowClearIndicator(true);
 			}
 		}
-		return () => {
-			setCharacterCount(false);
-			setShowClearIndicator(false);
-		};
 	}, []);
 
 	useEffect(() => {
 		setInputValue(value);
-		return () => {
-			setInputValue("");
-		};
 	}, [value]);
 
 	return (

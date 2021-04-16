@@ -47,9 +47,6 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 
 	useEffect(() => {
 		setActiveTabIndex(activeTab);
-		return () => {
-			setActiveTabIndex(0);
-		};
 	}, [activeTab]);
 
 	const tabs: TabItemType[] = React.Children.map(children, (child: JSX.Element, idx: number) =>

@@ -30,9 +30,10 @@
 	border: none;
 }
 
-@mixin rangeThumb($bg: $subFont, $border: $mainFont) {
+@mixin rangeThumb($background: $subFont, $border: $mainFont) {
+	transition: $fastTrans;
 	box-shadow: none;
-	background: $bg;
+	background: $background;
 	border: 0.0625rem solid $border;
 	border-radius: $roundBorderRadius;
 	cursor: grab;
@@ -48,13 +49,13 @@
 @mixin rangeHover($shadow: $subFont) {
 	&[type="range"] {
 		&::-webkit-slider-thumb {
-			box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+			box-shadow: 0 0 0 0.3125rem rgba($shadow, 0.35);
 		}
 		&::-moz-range-thumb {
-			box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+			box-shadow: 0 0 0 0.3125rem rgba($shadow, 0.35);
 		}
 		&::-ms-thumb {
-			box-shadow: 0 0 0 0.125rem rgba($subFont, 0.2);
+			box-shadow: 0 0 0 0.3125rem rgba($shadow, 0.35);
 		}
 	}
 }

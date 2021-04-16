@@ -122,16 +122,10 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				setShowClearIndicator(true);
 			}
 		}
-		return () => {
-			setShowClearIndicator(false);
-		};
 	}, []);
 
 	useEffect(() => {
 		setInputValue(value);
-		return () => {
-			setInputValue("");
-		};
 	}, [value]);
 
 	return (

@@ -73,7 +73,6 @@ const ProgressBar: React.ForwardRefRenderFunction<HTMLDivElement, ProgressBarPro
 			} else {
 				setProgressLabelPosition(() => progressBarLength ?? 0);
 			}
-			return () => setProgressLabelPosition(0);
 		}
 	}, [value, min, max, width, labeled]);
 

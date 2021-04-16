@@ -4,7 +4,6 @@ import cn from "classnames";
 
 import { DropdownProps } from "./Dropdown.types";
 import { useConfig } from "../../context/ConfigContext";
-import { generateCustomizationClasses } from "../../helpers/classnameGenerator";
 import { DropdownBody, DropdownHeader, DropdownItem, DropdownMenu, DropdownSeparator, DropdownToggle } from "./DropdownSubComponents";
 import {
 	DropdownBodySubComponentProps,
@@ -14,6 +13,7 @@ import {
 	DropdownSeparatorSubComponentProps,
 	DropdownToggleSubComponentProps,
 } from "./DropdownSubComponents.types";
+import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 interface DropdownComponent extends React.ForwardRefExoticComponent<DropdownProps & React.RefAttributes<HTMLDivElement>> {
 	Toggle: React.ForwardRefExoticComponent<DropdownToggleSubComponentProps & React.RefAttributes<unknown>>;
@@ -34,9 +34,9 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 		alignment = "start",
 		adjustToViewport = true,
 		elevation = config.dropdownElevation ?? "subtle",
-		pigment = null,
+		pigment = "default",
 		size = config.size ?? "md",
-		flat = config.flat ?? false,
+		flavor = config.flavor ?? "deafult",
 		seamless = false,
 		spacing = 5,
 		onToggle,
@@ -49,7 +49,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 	const classDefaults = {
 		elevation,
 		pigment,
-		flat,
+		flavor,
 		size,
 		seamless,
 	};
@@ -62,8 +62,6 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 
 	useEffect(() => {
 		setDropdownState(isToggled);
-
-		return () => setDropdownState(true);
 	}, [isToggled]);
 
 	const triggerLevelChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) => {
@@ -88,8 +86,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 				props: {
 					...child.props,
 					isToggled: dropdownState,
-					className:
-						child.type.displayName === "DropdownMenu" ? generateCustomizationClasses(`${classBase}__menu`, classDefaults) : "",
+					className: child.type.displayName === "DropdownMenu" ? generateStyleClasses(classDefaults) : "",
 				},
 			};
 		}

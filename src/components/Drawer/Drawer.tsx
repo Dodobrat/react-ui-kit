@@ -51,7 +51,6 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 			if (!noScroll) {
 				disableScrollAndScrollBar(isOpen);
 			}
-			return () => disableScrollAndScrollBar(false);
 		}
 	}, [isOpen]);
 

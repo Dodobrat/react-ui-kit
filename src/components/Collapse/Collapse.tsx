@@ -55,8 +55,6 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
 
 	useEffect(() => {
 		setCollapseState(isCollapsed);
-
-		return () => setCollapseState(true);
 	}, [isCollapsed]);
 
 	const isAccordionChild = collapseRef.current?.parentElement?.classList?.contains?.("dui__accordion");

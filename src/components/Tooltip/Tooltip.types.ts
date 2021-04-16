@@ -1,6 +1,6 @@
-import { CnCh, CustomizationProps, Positions } from "../../helpers/global.types";
+import { CnCh, AllCustomizationProps, Positions } from "../../helpers/global.types";
 
-type ExtraTooltipProps = CnCh & CustomizationProps;
+type ExtraTooltipProps = CnCh & AllCustomizationProps;
 
 // Auto-Generated
 export interface TooltipProps extends ExtraTooltipProps {

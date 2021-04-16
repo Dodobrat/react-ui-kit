@@ -223,7 +223,6 @@ export const ListGroupCollapse = forwardRef<unknown, ListGroupCollapseSubCompone
 
 	useEffect(() => {
 		setCollapseState(isCollapsed);
-		return () => setCollapseState(true);
 	}, [isCollapsed]);
 
 	const listGroupCollapseChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) => {

@@ -19,18 +19,6 @@ type ClassnameGeneratorFunc = (props: Object | string) => string;
 type DefaultClassnameGeneratorFunc = (baseClass: string, props: any) => string;
 type FlexSpacingClassnameGeneratorFunc = (prop: any, prefix: string) => string;
 
-export const generateCustomizationClasses: DefaultClassnameGeneratorFunc = (baseClass, props) => {
-	const { size, rounded, flat, seamless, pigment, elevation } = props;
-
-	return cn({
-		[`${baseClass}--rounded`]: rounded,
-		[`${baseClass}--flat`]: flat,
-		[`${baseClass}--${size}`]: SizeOptions.includes(size) && size !== "md",
-		[`${baseClass}--${pigment}`]: PigmentOptions.includes(pigment),
-		[`dui__elevation--${elevation}`]: ElevationOptions.includes(elevation) && elevation !== "none" && !seamless,
-	});
-};
-
 export const generateLoadingClasses: DefaultClassnameGeneratorFunc = (baseClass, props) => {
 	const { isLoading, disableWhileLoading } = props;
 

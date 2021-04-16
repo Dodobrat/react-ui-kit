@@ -68,6 +68,19 @@
 			fill: $background;
 		}
 	}
+	&.dui__tooltip {
+		@if ($background == $bgCard) {
+			background-color: $color;
+			color: $background;
+		} @else {
+			background-color: $background;
+			color: $color;
+		}
+		&.dui__tooltip--seamless {
+			background-color: unset;
+			color: unset;
+		}
+	}
 	//INPUTS
 	&.dui__input {
 		&:hover {
@@ -545,6 +558,15 @@ $pigmentKeys: map-keys($options);
 		height: $calcSize;
 		border-width: calc(#{$calcSize} * 0.15);
 	}
+	&.dui__tooltip {
+		font-size: $size * 0.9;
+		padding: $size / 2 $size;
+		&.dui__tooltip--seamless {
+			font-size: unset;
+			padding: unset;
+			line-height: unset;
+		}
+	}
 }
 
 @each $name, $size in $sizes {
@@ -945,6 +967,9 @@ $pigmentKeys: map-keys($options);
 					}
 				}
 			}
+		}
+		&.dui__tooltip--seamless {
+			border-radius: unset;
 		}
 	}
 }

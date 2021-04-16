@@ -74,8 +74,20 @@ export type FlexGridColResponsiveOptions = {
 export type AllFlexGridColOptions = FlexGridColResponsiveOptions | FlexGridColOptions;
 //Other
 export type Positions = "top" | "bottom" | "left" | "right";
+export type AllPositions =
+	| "top-left"
+	| "top-center"
+	| "top-right"
+	| "right-top"
+	| "right-center"
+	| "right-bottom"
+	| "bottom-left"
+	| "bottom-center"
+	| "bottom-right"
+	| "left-top"
+	| "left-center"
+	| "left-bottom";
 export type StartEnd = "start" | "end";
-export type HorizontalAlign = "left" | "center" | "right";
 export type ProgressLabelValue = "%" | "count" | "count + %";
 
 //Render As
@@ -108,18 +120,6 @@ export interface RippleEffect {
 	onPointerDown?: React.PointerEventHandler;
 }
 
-//TODO: REMOVE--------------------------------
-export interface EssentialCustomizationProps {
-	pigment?: PigmentOptions;
-	elevation?: ElevationOptions;
-	flat?: boolean;
-}
-
-export interface CustomizationProps extends EssentialCustomizationProps {
-	size?: SizeOptions;
-	rounded?: boolean;
-}
-//--------------------------------
 type EssentialInputPropsExtensions = AllCustomizationProps & CnCh;
 export interface EssentialInputProps extends EssentialInputPropsExtensions {
 	seamless?: boolean;

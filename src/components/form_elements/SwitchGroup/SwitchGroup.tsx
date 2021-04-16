@@ -72,16 +72,10 @@ const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupPro
 
 	useEffect(() => {
 		adjustActiveIndicatorPosition();
-		return () => {
-			adjustActiveIndicatorPosition();
-		};
 	}, []);
 
 	useEffect(() => {
 		adjustActiveIndicatorPosition();
-		return () => {
-			adjustActiveIndicatorPosition();
-		};
 	}, [active, width]);
 
 	const handleOnPointerDown: (e: React.PointerEvent, idx: number) => void = (e, idx) => {
@@ -104,9 +98,6 @@ const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupPro
 
 	useEffect(() => {
 		setActive(activeOption);
-		return () => {
-			setActive(null);
-		};
 	}, [activeOption]);
 
 	return (

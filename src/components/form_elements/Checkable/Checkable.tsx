@@ -85,9 +85,6 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 
 	useEffect(() => {
 		setInputChecked(checked);
-		return () => {
-			setInputChecked(false);
-		};
 	}, [checked]);
 
 	return (

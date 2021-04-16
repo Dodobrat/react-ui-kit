@@ -1,6 +1,6 @@
-import { CnCh, CustomizationProps, Positions, StartEnd } from "../../helpers/global.types";
+import { CnCh, AllCustomizationProps, Positions, StartEnd } from "../../helpers/global.types";
 
-type ExtraDropdownProps = CnCh & CustomizationProps;
+type ExtraDropdownProps = CnCh & AllCustomizationProps;
 // Auto-Generated
 export interface DropdownProps extends ExtraDropdownProps {
 	onToggle?: (isToggled: boolean) => void;

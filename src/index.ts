@@ -15,7 +15,7 @@ export { default as Collapse } from "./components/Collapse/Collapse";
 export { default as Container } from "./components/util/Container/Container";
 export { default as DragScroll } from "./components/util/DragScroll/DragScroll";
 export { default as Drawer } from "./components/Drawer/Drawer";
-export { default as Dropdown } from "./components/Dropdown/Dropdown";
+// export { default as Dropdown } from "./components/Dropdown/Dropdown";
 export { default as Flex } from "./components/util/Flex/Flex";
 export { default as Heading } from "./components/typography/Heading/Heading";
 export { default as LineLoader } from "./components/LineLoader/LineLoader";

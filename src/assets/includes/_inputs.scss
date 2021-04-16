@@ -19,12 +19,6 @@
 		margin: auto 0;
 		width: 100%;
 		height: 1em;
-		&:hover {
-			@include rangeHover();
-		}
-		&:focus-visible {
-			@include rangeFocusVisible();
-		}
 		&:disabled {
 			cursor: not-allowed;
 		}
