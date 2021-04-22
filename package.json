@@ -1,6 +1,6 @@
 {
 	"name": "@dodobrat/react-ui-kit",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "build/index.js",
 	"module": "build/index.esm.js",
 	"files": [
@@ -47,8 +47,8 @@
 	"homepage": "https://github.com/Dodobrat/react-ui-kit#readme",
 	"deprecated": false,
 	"peerDependencies": {
-		"react": "^16.8.0",
-		"react-dom": "^16.8.0"
+		"react": ">=16.8.0",
+		"react-dom": ">=16.8.0"
 	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^17.1.0",
