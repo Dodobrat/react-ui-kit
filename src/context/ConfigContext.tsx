@@ -14,7 +14,7 @@ import {
 
 const ConfigContext = createContext(null);
 
-interface GlobalOptions {
+type GlobalOptions = {
 	flavor?: AllFlavorOptions;
 	pigment?: AllPigmentOptions;
 	pigmentColor?: AllPigmentOptions;
@@ -90,10 +90,15 @@ interface GlobalOptions {
 	skeletonPigment?: AllPigmentOptions;
 	//--Text
 	textAs?: React.ElementType;
+};
+
+interface ConfigProviderProps {
+	config?: GlobalOptions;
+	children?: React.ReactNode;
 }
 
-const ConfigProvider: React.FC = ({ children }) => {
-	const [config, setConfig] = useState<GlobalOptions>({});
+const ConfigProvider: React.FC<ConfigProviderProps> = ({ config: defaultConfig = {}, children }) => {
+	const [config, setConfig] = useState<GlobalOptions>(defaultConfig);
 
 	const appConfig = useMemo(() => ({ config, setConfig }), [config, setConfig]);
 
