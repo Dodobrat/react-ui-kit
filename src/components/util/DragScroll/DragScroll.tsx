@@ -5,7 +5,7 @@ import cn from "classnames";
 import { DragScrollProps } from "./DragScroll.types";
 import ScrollContainer from "react-indiana-drag-scroll";
 import Fade from "../animations/Fade";
-import { CaretDown, CaretLeft, CaretRight, CaretUp } from "../../icons";
+import { IconCaretDown, IconCaretLeft, IconCaretRight, IconCaretUp } from "../../icons";
 import { useWindowResize } from "../../../hooks/useWindowResize";
 import { mergeRefs } from "../../../helpers/functions";
 
@@ -95,13 +95,13 @@ const DragScroll: React.ForwardRefRenderFunction<HTMLDivElement, DragScrollProps
 	const showIndicator: (position: string) => string | React.ReactNode = (position) => {
 		switch (position) {
 			case "startX":
-				return <CaretLeft />;
+				return <IconCaretLeft />;
 			case "startY":
-				return <CaretUp />;
+				return <IconCaretUp />;
 			case "endX":
-				return <CaretRight />;
+				return <IconCaretRight />;
 			case "endY":
-				return <CaretDown />;
+				return <IconCaretDown />;
 			default:
 				return position;
 		}

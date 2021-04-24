@@ -5,7 +5,7 @@ import cn from "classnames";
 import { TextAreaProps, TextAreaComponentProps } from "./TextArea.types";
 import { mergeRefs } from "../../../helpers/functions";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
-import { CloseOutlined } from "../../icons";
+import { IconCloseOutlined } from "../../icons";
 import { useConfig } from "../../../context/ConfigContext";
 import {
 	generateDisabledClasses,
@@ -171,7 +171,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 					<div className={cn(`${classBase}__attachment`, `${classBase}__clear`)} onClick={resetInput}>
 						{clearableComponent ?? (
 							<>
-								<span>{clearableComponentLabel}</span> <CloseOutlined className='dui__icon' />
+								<span>{clearableComponentLabel}</span> <IconCloseOutlined className='dui__icon' />
 							</>
 						)}
 					</div>

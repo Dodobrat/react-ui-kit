@@ -118,6 +118,7 @@ export const createRipple: ({ e, elem }: { e: React.PointerEvent; elem: HTMLElem
 	const element = elem.current ?? elem;
 
 	if (element) {
+		e.stopPropagation();
 		const rect = element.getBoundingClientRect();
 
 		const circle = document.createElement("div");

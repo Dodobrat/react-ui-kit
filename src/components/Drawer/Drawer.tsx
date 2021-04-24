@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import cn from "classnames";
 
 import { DrawerProps } from "./Drawer.types";
@@ -11,6 +11,8 @@ import { disableScrollAndScrollBar } from "../../helpers/functions";
 import { useEventListener } from "../../hooks/useEventListener";
 import { useConfig } from "../../context/ConfigContext";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
+
+let drawerCount = 0;
 
 const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (props, ref) => {
 	const {
@@ -39,16 +41,25 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 		drawerSize: size,
 	};
 
+	const drawerInstance = useRef(0);
+
 	const classBase = "dui__drawer";
 	const innerClassBase = "dui__drawer__inner";
+	const drawerId = `${classBase}__${drawerInstance.current}`;
 
 	useKeyPress("Escape", keyboard && backdrop !== "static" ? () => onClose?.() : () => null);
 
 	useEffect(() => {
-		if (bodyScrollDisable) {
-			const noScroll = document.body.classList.contains("no-scroll");
+		drawerCount += 1;
+		drawerInstance.current = drawerCount;
+		return () => {
+			drawerCount -= 1;
+		};
+	}, []);
 
-			if (!noScroll) {
+	useEffect(() => {
+		if (bodyScrollDisable) {
+			if (drawerCount > 0) {
 				disableScrollAndScrollBar(isOpen);
 			}
 		}
@@ -57,7 +68,7 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 	const handler = useCallback(
 		(e) => {
 			if (backdrop !== "static") {
-				if (e.target.classList.contains(classBase)) {
+				if (e.target.classList.contains(classBase) && e.target.getAttribute("id") === drawerId) {
 					return onClose?.();
 				}
 			}
@@ -73,6 +84,7 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 				<FocusTrap active={withFocusLock}>
 					<div
 						data-testid='Drawer'
+						id={drawerId}
 						className={cn(
 							classBase,
 							{

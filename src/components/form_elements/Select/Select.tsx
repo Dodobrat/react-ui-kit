@@ -4,7 +4,7 @@ import cn from "classnames";
 
 import { SelectComponentProps, SelectProps } from "./Select.types";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
-import { CloseOutlined } from "../../icons";
+import { IconCloseOutlined } from "../../icons";
 import { mergeRefs } from "../../../helpers/functions";
 import { useConfig } from "../../../context/ConfigContext";
 import {
@@ -157,7 +157,7 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 			{isLoading && <div className={cn(`${classBase}__attachment`, `${classBase}__loader`)}>{loadingComponent}</div>}
 			{isClearable && (selectValue?.length > 0 || showClearIndicator) && (
 				<div className={cn(`${classBase}__attachment`, `${classBase}__clear`)} onClick={resetInput}>
-					{clearableComponent ?? <CloseOutlined className='dui__icon' />}
+					{clearableComponent ?? <IconCloseOutlined className='dui__icon' />}
 				</div>
 			)}
 			{suffix && <div className={cn(`${classBase}__attachment`, `${classBase}__suffix`)}>{suffix}</div>}

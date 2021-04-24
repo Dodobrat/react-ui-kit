@@ -7,7 +7,7 @@ import CollapseFade from "../util/animations/CollapseFade";
 import Fade from "../util/animations/Fade";
 import Button from "../Button/Button";
 import { createRipple, mergeRefs } from "../../helpers/functions";
-import { Close, Completed, Danger, Info, Warning } from "../icons";
+import { IconClose, IconCompleted, IconDanger, IconInfo, IconWarning } from "../icons";
 import { useConfig } from "../../context/ConfigContext";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
@@ -56,13 +56,13 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		if (!iconComponent) {
 			switch (type) {
 				case "danger":
-					return <Danger className='dui__alert__icon' />;
+					return <IconDanger className='dui__alert__icon' />;
 				case "warning":
-					return <Warning className='dui__alert__icon' />;
+					return <IconWarning className='dui__alert__icon' />;
 				case "success":
-					return <Completed className='dui__alert__icon' />;
+					return <IconCompleted className='dui__alert__icon' />;
 				default:
-					return <Info className='dui__alert__icon' />;
+					return <IconInfo className='dui__alert__icon' />;
 			}
 		}
 		return iconComponent;
@@ -113,7 +113,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 					<>
 						{dismissibleComponent ?? (
 							<Button onClick={removeAlert} {...classDefaults}>
-								<Close className='dui__icon' />
+								<IconClose className='dui__icon' />
 							</Button>
 						)}
 					</>
