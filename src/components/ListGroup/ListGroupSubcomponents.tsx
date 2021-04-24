@@ -189,7 +189,7 @@ export const ListGroupCollapseContent = forwardRef<HTMLDivElement, ListGroupColl
 
 ListGroupCollapseContent.displayName = "ListGroupCollapseContent";
 
-interface ListGroupCollapseComponent
+export interface ListGroupCollapseComponent
 	extends React.ForwardRefExoticComponent<ListGroupCollapseSubComponentProps & React.RefAttributes<unknown>> {
 	Toggle: React.ForwardRefExoticComponent<ListGroupCollapseToggleSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Content: React.ForwardRefExoticComponent<ListGroupCollapseContentSubComponentProps & React.RefAttributes<HTMLDivElement>>;

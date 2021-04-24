@@ -1,4 +1,7 @@
 import React from "react";
+import { AlertAnimation } from "../components/Alert/Alert.types";
+import { CollapseAnimation } from "../components/Collapse/CollapseSubComponents.types";
+import { PortalAnimation, VerticalAlign } from "../components/Portal/Portal.types";
 
 export type BreakpointOptions = "base" | "xs" | "sm" | "md" | "lg" | "xl";
 //Customization Types
@@ -90,6 +93,88 @@ export type AllPositions =
 export type StartEnd = "start" | "end";
 export type ProgressLabelValue = "%" | "count" | "count + %";
 
+//CONTEXT
+export type GlobalOptions = {
+	flavor?: AllFlavorOptions;
+	pigment?: AllPigmentOptions;
+	pigmentColor?: AllPigmentOptions;
+	size?: AllSizeOptions;
+	elevation?: AllElevationOptions;
+	withRipple?: boolean;
+	//-----Component Specific-----
+	//--Alert
+	alertElevation?: AllElevationOptions;
+	alertPigment?: AllPigmentOptions;
+	alertPigmentColor?: AllPigmentOptions;
+	alertAnimation?: AlertAnimation;
+	alertWithIcon?: boolean;
+	alertIsDismissible?: boolean;
+	alertIsDismissibleOnClick?: boolean;
+	alertDismissibleComponent?: React.ReactNode;
+	//--Badge
+	badgePigment?: AllPigmentOptions;
+	badgePigmentColor?: AllPigmentOptions;
+	badgeElevation?: AllElevationOptions;
+	//--Breadcrumbs
+	breadcrumbsContained?: boolean;
+	breadcrumbsElevation?: AllElevationOptions;
+	breadcrumbsPigment?: AllPigmentOptions;
+	breadcrumbsSeparator?: React.ReactNode;
+	//--Button
+	btnKeyboardOnlyFocusRing?: boolean;
+	btnSpongy?: boolean;
+	btnElevation?: AllElevationOptions;
+	//--Button Group
+	btnGroupSpongy?: boolean;
+	//--Card
+	cardImgPosition?: Positions;
+	//--Collapse
+	collapseScrollIntoViewOnToggle?: boolean;
+	collapseIndicator?: boolean;
+	collapseIndicatorComponent?: React.ReactNode;
+	collapseAnimation?: CollapseAnimation;
+	//--Drawer
+	drawerElevation?: AllElevationOptions;
+	drawerKeyboard?: boolean;
+	drawerPosition?: Positions;
+	drawerBodyScrollDisable?: boolean;
+	//--Dropdown
+	dropdownElevation?: AllElevationOptions;
+	//--Flex
+	flexSpacingX?: AllSizeOptions;
+	flexSpacingY?: AllSizeOptions;
+	//--Heading
+	headingAs?: React.ElementType;
+	//--List Group
+	listGroupCollapseIndicator?: boolean;
+	listGroupCollapseIndicatorComponent?: React.ReactNode;
+	listGroupAnimation?: CollapseAnimation;
+	listGroupNestedCollapseIndent?: boolean;
+	//--Portal
+	portalKeyboard?: boolean;
+	portalSafeZoneSize?: AllSizeOptions;
+	portalVerticalAlign?: VerticalAlign;
+	portalAnimation?: PortalAnimation;
+	portalBodyScrollDisable?: boolean;
+	//--Toolip
+	tooltipElevation?: AllElevationOptions;
+	tooltipPigment?: AllPigmentOptions;
+	tooltipSize?: AllSizeOptions;
+	tooltipFlavor?: AllFlavorOptions;
+	//--Progress Bar
+	progressBarLabeled?: boolean;
+	progressBarLabelValue?: ProgressLabelValue;
+	progressBarLabelPosition?: Positions;
+	//--Progress Ring
+	progressRingLabeled?: boolean;
+	progressRingLabelValue?: ProgressLabelValue;
+	progressRingCounterClockWise?: boolean;
+	//--Skeleton
+	skeletonPigment?: AllPigmentOptions;
+	//--Text
+	textAs?: React.ElementType;
+};
+
 //Render As
 export interface ElemType {
 	as?: React.ElementType;
@@ -120,7 +205,7 @@ export interface RippleEffect {
 	onPointerDown?: React.PointerEventHandler;
 }
 
-type EssentialInputPropsExtensions = AllCustomizationProps & CnCh;
+export type EssentialInputPropsExtensions = AllCustomizationProps & CnCh;
 export interface EssentialInputProps extends EssentialInputPropsExtensions {
 	seamless?: boolean;
 	scrollOnFocus?: boolean;
@@ -156,11 +241,11 @@ export interface Progress {
 }
 
 export interface PortalComponent extends CnCh {
-	innerClassName?: string;
 	onClose: () => void;
+	isOpen: boolean;
+	innerClassName?: string;
 	withFocusLock?: boolean;
 	keyboard?: boolean;
 	backdrop?: boolean | "static";
 	bodyScrollDisable?: boolean;
-	isOpen?: boolean;
 }

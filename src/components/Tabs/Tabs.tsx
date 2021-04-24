@@ -8,7 +8,7 @@ import { TabItemType, TabPanelType, TabsPanelSubComponentProps } from "./TabsSub
 import { useConfig } from "../../context/ConfigContext";
 import { generateLoadingClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 
-interface TabsComponent extends React.ForwardRefExoticComponent<TabsProps & React.RefAttributes<HTMLDivElement>> {
+export interface TabsComponent extends React.ForwardRefExoticComponent<TabsProps & React.RefAttributes<HTMLDivElement>> {
 	Panel: React.ForwardRefExoticComponent<TabsPanelSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 }
 

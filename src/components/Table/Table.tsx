@@ -9,7 +9,7 @@ import { TableBody, TableCell, TableFoot, TableHCell, TableHead, TableRow } from
 import Card from "../Card/Card";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
-interface TableComponent extends React.ForwardRefExoticComponent<TableProps & React.RefAttributes<HTMLDivElement>> {
+export interface TableComponent extends React.ForwardRefExoticComponent<TableProps & React.RefAttributes<HTMLDivElement>> {
 	HCell: React.ForwardRefExoticComponent<TableHCellProps & React.RefAttributes<HTMLTableHeaderCellElement>>;
 	Cell: React.ForwardRefExoticComponent<TableCellProps & React.RefAttributes<HTMLTableCellElement>>;
 	Row: React.ForwardRefExoticComponent<TableRowProps & React.RefAttributes<HTMLTableRowElement>>;

@@ -13,7 +13,7 @@ import { CnCh } from "../../helpers/global.types";
 import { mergeRefs } from "../../helpers/functions";
 import { useConfig } from "../../context/ConfigContext";
 import { generateLoadingClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
-interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React.RefAttributes<HTMLDivElement>> {
+export interface CollapseComponent extends React.ForwardRefExoticComponent<CnCh & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<CollapseLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Toggle: React.ForwardRefExoticComponent<CollapseToggleSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Content: React.ForwardRefExoticComponent<CollapseContentSubComponentProps & React.RefAttributes<HTMLDivElement>>;

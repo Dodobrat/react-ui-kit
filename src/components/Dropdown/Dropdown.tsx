@@ -15,7 +15,7 @@ import {
 } from "./DropdownSubComponents.types";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
-interface DropdownComponent extends React.ForwardRefExoticComponent<DropdownProps & React.RefAttributes<HTMLDivElement>> {
+export interface DropdownComponent extends React.ForwardRefExoticComponent<DropdownProps & React.RefAttributes<HTMLDivElement>> {
 	Toggle: React.ForwardRefExoticComponent<DropdownToggleSubComponentProps & React.RefAttributes<unknown>>;
 	Menu: React.ForwardRefExoticComponent<DropdownMenuSubComponentProps & React.RefAttributes<unknown>>;
 	Header: React.ForwardRefExoticComponent<DropdownHeaderSubComponentProps & React.RefAttributes<unknown>>;

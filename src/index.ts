@@ -78,3 +78,6 @@ export { useWindowResize } from "./hooks/useWindowResize";
 //Context
 export { useConfig } from "./context/ConfigContext";
 export { default as ConfigProvider } from "./context/ConfigContext";
+
+//Helpers
+export { parseValueToPercent, disableScrollAndScrollBar, isTouchDevice, mergeRefs, debounce, canUseDOM } from "./helpers/functions";

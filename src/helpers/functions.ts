@@ -143,5 +143,3 @@ export const createRipple: ({ e, elem }: { e: React.PointerEvent; elem: HTMLElem
 };
 
 export const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
-
-//TODO: Export some of the more useful functions to index

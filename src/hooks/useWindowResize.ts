@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { canUseDOM } from "../helpers/functions";
 import { useDebounce } from "./useDebounce";
 
-interface useWindowResizeTypes {
+export interface useWindowResizeTypes {
 	width: number;
 	height: number;
 }

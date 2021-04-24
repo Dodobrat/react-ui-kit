@@ -1,6 +1,6 @@
 import { useReducer, useCallback } from "react";
 
-interface UseStateHistoryProps {
+export interface UseStateHistoryProps {
 	state: any;
 	set: (newPresent: any) => void;
 	undo: () => void;

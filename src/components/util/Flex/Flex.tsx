@@ -5,16 +5,22 @@ import cn from "classnames";
 import { FlexProps } from "./Flex.types";
 import { FlexCol } from "./FlexSubcomponents";
 import { generateSpacingClasses, generateStyleClasses } from "../../../helpers/classnameGenerator";
+import { FlexSubComponentProps } from "./FlexSubcomponents.types";
+import { useConfig } from "../../../context/ConfigContext";
 
-interface FlexComponent extends React.ForwardRefExoticComponent<FlexProps & React.RefAttributes<HTMLDivElement>> {
-	Col: React.FC;
+export interface FlexComponent extends React.ForwardRefExoticComponent<FlexProps & React.RefAttributes<HTMLDivElement>> {
+	Col: React.ForwardRefExoticComponent<FlexSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 }
 
 const Flex = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
 	const {
+		appConfig: { config },
+	} = useConfig();
+
+	const {
 		className,
-		spacingX = "sm",
-		spacingY = "sm",
+		spacingX = config.flexSpacingX ?? "sm",
+		spacingY = config.flexSpacingY ?? "sm",
 		align = "flex-start",
 		justify = "flex-start",
 		direction = "row",

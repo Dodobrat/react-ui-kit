@@ -3,7 +3,7 @@ import { CollapseAnimation } from "../Collapse/CollapseSubComponents.types";
 import { LineLoaderProps } from "../LineLoader/LineLoader.types";
 
 type ExtraListGroupSubComponentProps = ElemType & CnCh;
-interface ListGroupSubComponentProps extends ExtraListGroupSubComponentProps {
+export interface ListGroupSubComponentProps extends ExtraListGroupSubComponentProps {
 	pigment?: AllPigmentOptions;
 }
 

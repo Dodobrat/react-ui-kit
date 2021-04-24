@@ -1,28 +1,28 @@
 import { CnCh, ElemType, SyntheticKeyboardControls } from "../../helpers/global.types";
 
-type DropdownSubComponentCommon = CnCh & ElemType;
+type ExtraDropdownSubComponentDuplicates = CnCh & ElemType;
 
-type ExtraDropdownToggleSubComponentProps = DropdownSubComponentCommon & SyntheticKeyboardControls;
+type ExtraDropdownToggleSubComponentProps = ExtraDropdownSubComponentDuplicates & SyntheticKeyboardControls;
 export interface DropdownToggleSubComponentProps extends ExtraDropdownToggleSubComponentProps {
 	isToggled?: boolean;
 	onKeyboardToggle?: (isToggled: boolean) => void;
 }
 
-type ExtraDropdownMenuSubComponentProps = DropdownSubComponentCommon;
+type ExtraDropdownMenuSubComponentProps = ExtraDropdownSubComponentDuplicates;
 export interface DropdownMenuSubComponentProps extends ExtraDropdownMenuSubComponentProps {
 	isToggled?: boolean;
 }
 
-type ExtraDropdownHeaderSubComponentProps = DropdownSubComponentCommon;
+type ExtraDropdownHeaderSubComponentProps = ExtraDropdownSubComponentDuplicates;
 export interface DropdownHeaderSubComponentProps extends ExtraDropdownHeaderSubComponentProps {}
 
-type ExtraDropdownItemSubComponentProps = DropdownSubComponentCommon;
+type ExtraDropdownItemSubComponentProps = ExtraDropdownSubComponentDuplicates;
 export interface DropdownItemSubComponentProps extends ExtraDropdownItemSubComponentProps {}
 
-type ExtraDropdownSeparatorSubComponentProps = DropdownSubComponentCommon;
+type ExtraDropdownSeparatorSubComponentProps = ExtraDropdownSubComponentDuplicates;
 export interface DropdownSeparatorSubComponentProps extends ExtraDropdownSeparatorSubComponentProps {}
 
-type ExtraDropdownBodySubComponentProps = DropdownSubComponentCommon;
+type ExtraDropdownBodySubComponentProps = ExtraDropdownSubComponentDuplicates;
 export interface DropdownBodySubComponentProps extends ExtraDropdownBodySubComponentProps {
 	isToggled?: boolean;
 }

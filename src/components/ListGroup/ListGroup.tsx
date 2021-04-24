@@ -14,7 +14,7 @@ import { addElementAttributes, addElementAttributesInObj } from "../../helpers/f
 import { useConfig } from "../../context/ConfigContext";
 import { generateLoadingClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 
-interface ListGroupComponent extends React.ForwardRefExoticComponent<ListGroupProps & React.RefAttributes<unknown>> {
+export interface ListGroupComponent extends React.ForwardRefExoticComponent<ListGroupProps & React.RefAttributes<unknown>> {
 	Loader: React.ForwardRefExoticComponent<ListGroupLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
 	Header: React.ForwardRefExoticComponent<ListGroupHeaderSubComponentProps & React.RefAttributes<unknown>>;
 	Item: React.ForwardRefExoticComponent<ListGroupItemSubComponentProps & React.RefAttributes<unknown>>;

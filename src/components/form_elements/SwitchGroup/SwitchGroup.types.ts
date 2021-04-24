@@ -3,19 +3,19 @@ import { AllCustomizationProps, CnCh, RippleEffect } from "../../../helpers/glob
 
 type ExtraSwitchGroupProps = CnCh & AllCustomizationProps & RippleEffect;
 
-interface SwitchGroupItem {
+export type SwitchGroupItem = {
 	value: any;
 	label: React.ReactNode;
 	disabled?: boolean;
 	props?: React.InputHTMLAttributes<HTMLInputElement>;
-}
+};
 
-interface OnSwitchArgs {
+export type OnSwitchArgs = {
 	e: React.ChangeEvent;
 	option: SwitchGroupItem;
-}
+};
 
-type onSwitchFunc = (args: OnSwitchArgs) => void;
+export type onSwitchFunc = (args: OnSwitchArgs) => void;
 
 // Auto-Generated
 export interface SwitchGroupProps extends ExtraSwitchGroupProps {
