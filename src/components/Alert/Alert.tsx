@@ -5,7 +5,6 @@ import cn from "classnames";
 import { AlertProps } from "./Alert.types";
 import CollapseFade from "../util/animations/CollapseFade";
 import Fade from "../util/animations/Fade";
-import Button from "../Button/Button";
 import { createRipple, mergeRefs } from "../../helpers/functions";
 import { IconClose, IconCompleted, IconDanger, IconInfo, IconWarning } from "../icons";
 import { useConfig } from "../../context/ConfigContext";
@@ -109,15 +108,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 				ref={mergeRefs([alertRef, ref])}>
 				{withIcon && alertIcon(pigment)}
 				<div className={cn(`${classBase}__content`)}>{children}</div>
-				{isDismissible && (
-					<>
-						{dismissibleComponent ?? (
-							<Button onClick={removeAlert} {...classDefaults}>
-								<IconClose className='dui__icon' />
-							</Button>
-						)}
-					</>
-				)}
+				{isDismissible && <>{dismissibleComponent ?? <IconClose onClick={removeAlert} className='dui__icon' />}</>}
 			</div>
 		);
 	};

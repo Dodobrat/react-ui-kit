@@ -25,6 +25,19 @@
 
 		@include rangeDefaults();
 	}
+
+	&[type="date"],
+	&[type="time"] {
+		&::-webkit-datetime-edit {
+			flex: 0 0 auto;
+		}
+		&::-webkit-calendar-picker-indicator {
+			opacity: 0;
+			margin-left: 0;
+			flex: 1;
+			height: 100%;
+		}
+	}
 }
 
 @mixin inputWrapper() {

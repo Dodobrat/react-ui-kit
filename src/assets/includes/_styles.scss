@@ -458,10 +458,6 @@ $pigmentKeys: map-keys($options);
 		&.dui__input[type="date"],
 		&.dui__input[type="time"] {
 			text-indent: $size / 2.5;
-			&::-webkit-calendar-picker-indicator {
-				opacity: 0;
-				padding-right: $size / 1.25;
-			}
 		}
 
 		@-moz-document url-prefix() {
