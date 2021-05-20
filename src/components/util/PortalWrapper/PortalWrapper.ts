@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 
 import { canUseDOM } from "../../../helpers/functions";
@@ -9,16 +9,7 @@ const PortalWrapper: React.FC = (props) => {
 
 	if (!canUseDOM) return null;
 
-	const [portalNode] = useState(document.createElement("div"));
-
-	useEffect(() => {
-		document.body.appendChild(portalNode);
-		return () => {
-			document.body.removeChild(portalNode);
-		};
-	}, []);
-
-	return ReactDOM.createPortal(children, portalNode);
+	return ReactDOM.createPortal(children, document.body);
 };
 
 export default PortalWrapper;

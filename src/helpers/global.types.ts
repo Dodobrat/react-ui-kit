@@ -2,6 +2,7 @@ import React from "react";
 import { AlertAnimation } from "../components/Alert/Alert.types";
 import { CollapseAnimation } from "../components/Collapse/CollapseSubComponents.types";
 import { PortalAnimation, VerticalAlign } from "../components/Portal/Portal.types";
+import { TooltipAnimation } from "../components/Tooltip/Tooltip.types";
 
 export type BreakpointOptions = "base" | "xs" | "sm" | "md" | "lg" | "xl";
 //Customization Types
@@ -157,10 +158,17 @@ export type GlobalOptions = {
 	portalAnimation?: PortalAnimation;
 	portalBodyScrollDisable?: boolean;
 	//--Toolip
+	tooltipPosition?: AllPositions;
+	tooltipShowOnFocus?: boolean;
+	tooltipShowOnClick?: boolean;
+	tooltipShowOnHover?: boolean;
 	tooltipElevation?: AllElevationOptions;
 	tooltipPigment?: AllPigmentOptions;
 	tooltipSize?: AllSizeOptions;
 	tooltipFlavor?: AllFlavorOptions;
+	tooltipSeamless?: boolean;
+	tooltipSpacing?: number;
+	tooltipAnimation?: TooltipAnimation;
 	//--Progress Bar
 	progressBarLabeled?: boolean;
 	progressBarLabelValue?: ProgressLabelValue;

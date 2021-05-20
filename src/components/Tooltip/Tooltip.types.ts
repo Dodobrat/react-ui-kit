@@ -1,12 +1,13 @@
-import { CnCh, AllCustomizationProps, Positions } from "../../helpers/global.types";
+import React from "react";
+import { CnCh, AllCustomizationProps, AllPositions } from "../../helpers/global.types";
 
 type ExtraTooltipProps = CnCh & AllCustomizationProps;
+export type TooltipAnimation = "fade" | null;
 
 // Auto-Generated
 export interface TooltipProps extends ExtraTooltipProps {
-	position?: Positions;
+	position?: AllPositions;
 	content?: React.ReactNode;
-	adjustToViewport?: boolean;
 	showOnFocus?: boolean;
 	showOnClick?: boolean;
 	showOnHover?: boolean;
@@ -14,5 +15,7 @@ export interface TooltipProps extends ExtraTooltipProps {
 	isVisible?: boolean;
 	onToggle?: (isVisible: boolean) => void;
 	spacing?: number;
-	triggerElement?: HTMLElement | React.MutableRefObject<any> | any;
+	disabled?: boolean;
+	triggerElement?: HTMLElement | React.MutableRefObject<HTMLElement> | any;
+	animation?: TooltipAnimation;
 }

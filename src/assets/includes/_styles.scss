@@ -556,7 +556,7 @@ $pigmentKeys: map-keys($options);
 	}
 	&.dui__tooltip {
 		font-size: $size * 0.9;
-		padding: $size / 2 $size;
+		padding: $size * 0.625 $size;
 		&.dui__tooltip--seamless {
 			font-size: unset;
 			padding: unset;

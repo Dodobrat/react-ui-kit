@@ -7,7 +7,105 @@ import { useConfig } from "../../context/ConfigContext";
 import PortalWrapper from "../util/PortalWrapper/PortalWrapper";
 import { generateSeamlessClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
 import { mergeRefs } from "../../helpers/functions";
+import Fade from "../util/animations/Fade";
 import { useEventListener } from "../../hooks/useEventListener";
+import { AllPositions } from "../../helpers/global.types";
+
+const positionTooltip: (trigger: HTMLElement, tooltip: HTMLElement, position: AllPositions, spacing: number) => void = (
+	trigger,
+	tooltip,
+	position,
+	spacing
+) => {
+	// I know this code is not great but at least it works.
+	// It will be refactored in the future with a more robust solution.
+
+	const triggerRect = trigger.getBoundingClientRect();
+	const tooltipCoords = { x: 0, y: 0 };
+	const mainPosition = position.split("-")[0];
+	const secondaryPosition = position.split("-")[1];
+	const isVertical = mainPosition === "top" || mainPosition === "bottom";
+	const isHorizontal = mainPosition === "left" || mainPosition === "right";
+
+	if (tooltip) {
+		const constraints = {
+			top: spacing,
+			right: document.body.clientWidth - (tooltip.offsetWidth + spacing),
+			bottom: window.innerHeight - (tooltip.offsetHeight + spacing),
+			left: spacing,
+		};
+
+		switch (mainPosition) {
+			case "left":
+				tooltipCoords.x = triggerRect.left - (tooltip.offsetWidth + spacing);
+				tooltipCoords.y = triggerRect.top + (trigger.offsetHeight - tooltip.offsetHeight) / 2;
+				break;
+			case "right":
+				tooltipCoords.x = triggerRect.right + spacing;
+				tooltipCoords.y = triggerRect.top + (trigger.offsetHeight - tooltip.offsetHeight) / 2;
+				break;
+			case "bottom":
+				tooltipCoords.x = triggerRect.left + (trigger.offsetWidth - tooltip.offsetWidth) / 2;
+				tooltipCoords.y = triggerRect.bottom + spacing;
+				break;
+			default:
+				tooltipCoords.x = triggerRect.left + (trigger.offsetWidth - tooltip.offsetWidth) / 2;
+				tooltipCoords.y = triggerRect.top - (tooltip.offsetHeight + spacing);
+				break;
+		}
+
+		switch (secondaryPosition) {
+			case "left":
+				tooltipCoords.x = triggerRect.left;
+				break;
+			case "right":
+				tooltipCoords.x = triggerRect.left + trigger.offsetWidth - tooltip.offsetWidth;
+				break;
+			case "top":
+				tooltipCoords.y = triggerRect.top;
+				break;
+			case "bottom":
+				tooltipCoords.y = triggerRect.top + trigger.offsetHeight - tooltip.offsetHeight;
+				break;
+			default:
+				break;
+		}
+
+		if (mainPosition === "top" && tooltipCoords.y < constraints.top) {
+			tooltipCoords.y = triggerRect.bottom + spacing;
+		}
+		if (mainPosition === "bottom" && tooltipCoords.y > constraints.bottom) {
+			tooltipCoords.y = triggerRect.top - (tooltip.offsetHeight + spacing);
+		}
+		if (mainPosition === "left" && tooltipCoords.x < constraints.left) {
+			tooltipCoords.x = triggerRect.right + spacing;
+		}
+		if (mainPosition === "right" && tooltipCoords.x > constraints.right) {
+			tooltipCoords.x = triggerRect.left - (tooltip.offsetWidth + spacing);
+		}
+
+		if (isVertical) {
+			if (tooltipCoords.x < constraints.left) {
+				tooltipCoords.x = Math.min(constraints.left, triggerRect.right);
+			}
+			if (tooltipCoords.x > constraints.right) {
+				tooltipCoords.x = Math.max(constraints.right, triggerRect.left - tooltip.offsetWidth + spacing);
+			}
+		}
+
+		if (isHorizontal) {
+			if (tooltipCoords.y < constraints.top) {
+				tooltipCoords.y = Math.min(constraints.top, triggerRect.bottom);
+			}
+			if (tooltipCoords.y > constraints.bottom) {
+				tooltipCoords.y = Math.max(constraints.bottom, triggerRect.top - tooltip.offsetHeight + spacing);
+			}
+		}
+
+		tooltip.style.top = `${tooltipCoords.y}px`;
+		tooltip.style.left = `${tooltipCoords.x}px`;
+	}
+};
 
 const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (props, ref) => {
 	const {
@@ -17,19 +115,20 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 	const {
 		className,
 		content,
-		position = "top",
-		adjustToViewport = true,
-		showOnFocus = true,
-		showOnClick = false,
-		showOnHover = true,
+		position = config.tooltipPosition ?? "top-center",
+		showOnFocus = config.tooltipShowOnFocus ?? true,
+		showOnClick = config.tooltipShowOnClick ?? false,
+		showOnHover = config.tooltipShowOnHover ?? true,
 		elevation = config.tooltipElevation ?? "subtle",
 		pigment = config.tooltipPigment ?? "default",
 		size = config.tooltipSize ?? "md",
 		flavor = config.tooltipFlavor ?? "default",
 		seamless = config.tooltipSeamless ?? false,
+		animation = config.tooltipAnimation ?? "fade",
 		triggerElement = null,
-		spacing = 5,
-		isVisible = null,
+		disabled,
+		spacing = config.tooltipSpacing ?? 5,
+		isVisible = false,
 		onToggle,
 		children,
 		...rest
@@ -46,38 +145,8 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 	const classBase = "dui__tooltip";
 
 	const tooltipRef = useRef(null);
-	const [forceUpdate, setForceUpdate] = useState(0);
 	const [tooltipVisible, setTooltipVisible] = useState(isVisible);
-	const [tooltipTrigger, setTooltipTrigger] = useState(null);
-	const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
-
-	const handler = useCallback(() => {
-		if (adjustToViewport && tooltipTrigger) {
-			calculatePosition(tooltipTrigger);
-		}
-	}, [tooltipTrigger, tooltipPosition]);
-
-	useEventListener("scroll", handler, { passive: true });
-	useEventListener("resize", handler);
-
-	useEffect(() => {
-		if (isVisible !== null) {
-			setTooltipVisible(isVisible);
-			setForceUpdate((prev) => prev + 1);
-		}
-	}, [isVisible]);
-
-	useEffect(() => {
-		if (tooltipTrigger) {
-			calculatePosition(tooltipTrigger);
-		}
-	}, [tooltipTrigger, forceUpdate]);
-
-	useEffect(() => {
-		if (triggerElement?.current) {
-			setTooltipTrigger(triggerElement.current);
-		}
-	}, [triggerElement]);
+	const [triggerEl, setTriggerEl] = useState(triggerElement?.current);
 
 	useEffect(() => {
 		if (onToggle) {
@@ -86,78 +155,27 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 	}, [tooltipVisible]);
 
 	useEffect(() => {
-		const tooltipEl = tooltipRef.current;
+		setTooltipVisible(isVisible);
+	}, [isVisible]);
 
-		const { top, left } = tooltipPosition;
+	useEffect(() => {
+		setTriggerEl(triggerElement?.current);
+	}, [triggerElement]);
 
-		if (tooltipEl) {
-			tooltipEl.style.top = `${top}px`;
-			tooltipEl.style.left = `${left}px`;
+	useEffect(() => {
+		if (triggerEl) {
+			positionTooltip(triggerEl, tooltipRef.current, position, spacing);
 		}
-	}, [tooltipPosition]);
+	}, [triggerEl, tooltipVisible, position]);
 
-	const calculatePosition: (element: HTMLElement | React.MutableRefObject<any> | any) => void = (element) => {
-		const childRect = tooltipVisible ? element?.getBoundingClientRect?.() : null;
-		const tooltipEl = tooltipRef.current;
-
-		if (tooltipVisible && tooltipEl && element) {
-			const tooltipRect = tooltipEl.getBoundingClientRect();
-
-			const tooltipTopPosition = element.offsetTop - (tooltipRect.height + spacing);
-			const tooltipBottomPosition = element.offsetTop + childRect.height + spacing;
-			const tooltipLeftPosition = element.offsetLeft - (tooltipRect.width + spacing);
-			const tooltipRightPosition = element.offsetLeft + childRect.width + spacing;
-
-			const tooltipTBLeftPosition = element.offsetLeft + childRect.width / 2 - tooltipRect.width / 2;
-			const tooltipLRTopPosition = element.offsetTop + childRect.height / 2 - tooltipRect.height / 2;
-
-			switch (position) {
-				case "bottom": {
-					const flipTreshold = element.offsetTop - window.innerHeight + childRect.height + (tooltipRect.height + spacing);
-
-					const adjustedBottomTop = window.scrollY < flipTreshold ? tooltipTopPosition : tooltipBottomPosition;
-					const adjustedBottomLeft = Math.max(tooltipTBLeftPosition, spacing);
-
-					setTooltipPosition({
-						top: adjustToViewport ? adjustedBottomTop : tooltipBottomPosition,
-						left: adjustToViewport ? adjustedBottomLeft : tooltipTBLeftPosition,
-					});
-					break;
-				}
-				case "left": {
-					const adjustedLeftLeft = window.scrollX > tooltipLeftPosition ? tooltipRightPosition : tooltipLeftPosition;
-
-					setTooltipPosition({
-						top: tooltipLRTopPosition,
-						left: adjustToViewport ? adjustedLeftLeft : tooltipLeftPosition,
-					});
-					break;
-				}
-				case "right": {
-					const flipTreshhold = tooltipRightPosition + (tooltipRect.width + spacing);
-
-					const adjustedRightLeft =
-						window.scrollX > flipTreshhold || window.innerWidth < flipTreshhold ? tooltipLeftPosition : tooltipRightPosition;
-
-					setTooltipPosition({
-						top: tooltipLRTopPosition,
-						left: adjustToViewport ? adjustedRightLeft : tooltipRightPosition,
-					});
-					break;
-				}
-				default: {
-					const adjustedTopTop = window.scrollY > tooltipTopPosition ? tooltipBottomPosition : tooltipTopPosition;
-					const adjustedTopLeft = Math.max(tooltipTBLeftPosition, spacing);
-
-					setTooltipPosition({
-						top: adjustToViewport ? adjustedTopTop : tooltipTopPosition,
-						left: adjustToViewport ? adjustedTopLeft : tooltipTBLeftPosition,
-					});
-					break;
-				}
-			}
+	const handler = useCallback(() => {
+		if (triggerEl && tooltipVisible) {
+			positionTooltip(triggerEl, tooltipRef.current, position, spacing);
 		}
-	};
+	}, [triggerEl, tooltipVisible, position]);
+
+	useEventListener("scroll", handler, { passive: true });
+	useEventListener("resize", handler);
 
 	const passThroughEvent: (handler: Function, e: Event) => void = (handler, e) => {
 		if (handler) {
@@ -165,83 +183,88 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		}
 	};
 
+	const initTooltip: (showCondition: boolean, handler: Function, e: Event) => void = (showCondition, handler, e) => {
+		if (showCondition) {
+			setTriggerEl(e.currentTarget);
+			setTooltipVisible(true);
+		}
+		passThroughEvent(handler, e);
+	};
+
+	const destroyTooltip: (showCondition: boolean, handler: Function, e: Event) => void = (showCondition, handler, e) => {
+		if (showCondition) {
+			setTooltipVisible(false);
+		}
+		passThroughEvent(handler, e);
+	};
+
 	const extraChildProps: (props: any) => any = (props) => {
 		return {
 			...props,
-			onPointerOver: (e: PointerEvent) => {
-				if (showOnHover) {
-					setTooltipTrigger(e.currentTarget);
-					setTooltipVisible(true);
-				}
-				passThroughEvent(props.onPointerOver, e);
-			},
-			onPointerLeave: (e: PointerEvent) => {
-				if (showOnHover) {
-					setTooltipTrigger(null);
-					setTooltipVisible(false);
-				}
-				passThroughEvent(props.onPointerLeave, e);
-			},
-			onFocus: (e: FocusEvent) => {
-				if (showOnFocus) {
-					setTooltipTrigger(e.currentTarget);
-					setTooltipVisible(true);
-				}
-				passThroughEvent(props.onFocus, e);
-			},
-			onBlur: (e: FocusEvent) => {
-				if (showOnFocus) {
-					setTooltipTrigger(null);
-					setTooltipVisible(false);
-				}
-				passThroughEvent(props.onBlur, e);
-			},
+			onMouseEnter: (e: MouseEvent) => initTooltip(showOnHover, props.onMouseEnter, e),
+			onMouseLeave: (e: MouseEvent) => destroyTooltip(showOnHover, props.onMouseLeave, e),
+			onTouchStart: (e: TouchEvent) => initTooltip(showOnHover, props.onTouchStart, e),
+			onTouchEnd: (e: TouchEvent) => destroyTooltip(showOnHover, props.onTouchEnd, e),
+			onFocus: (e: FocusEvent) => initTooltip(showOnFocus, props.onFocus, e),
+			onBlur: (e: FocusEvent) => destroyTooltip(showOnFocus, props.onBlur, e),
 			onClick: (e: Event) => {
 				if (showOnClick) {
-					setTooltipTrigger(e.currentTarget);
+					if (!tooltipVisible) {
+						setTriggerEl(e.currentTarget);
+					}
 					setTooltipVisible((prev) => !prev);
-					setForceUpdate((prev) => prev + 1);
 				}
 				passThroughEvent(props.onClick, e);
 			},
 		};
 	};
 
-	const childrenListeners = React.Children.map(children, (child: JSX.Element) => {
+	const validChildren = React.Children.map(children, (child: JSX.Element) => {
 		const validEl = React.isValidElement(child);
+
 		if (validEl) {
-			return {
-				...child,
-				props: extraChildProps(child.props),
-			};
+			if (disabled) {
+				return child;
+			} else {
+				return React.cloneElement(child, extraChildProps(child.props));
+			}
 		}
+
 		console.error("Invalid Tooltip trigger element! Please use a valid React child / component.");
 		return child;
 	});
 
-	return (
-		<>
-			{tooltipVisible && (
-				<PortalWrapper>
-					<div
-						data-testid='Tooltip'
-						role='tooltip'
-						className={cn(
-							classBase,
-							generateStyleClasses(classDefaults),
-							generateSeamlessClasses(classBase, classDefaults),
-							className
-						)}
-						{...rest}
-						ref={mergeRefs([tooltipRef, ref])}>
-						{content}
-					</div>
-				</PortalWrapper>
-			)}
-
-			{childrenListeners}
-		</>
+	const TooltipComponent = () => (
+		<PortalWrapper>
+			<div
+				data-testid='Tooltip'
+				role='tooltip'
+				className={cn(classBase, generateStyleClasses(classDefaults), generateSeamlessClasses(classBase, classDefaults), className)}
+				{...rest}
+				ref={mergeRefs([tooltipRef, ref])}>
+				{content}
+			</div>
+		</PortalWrapper>
 	);
+
+	switch (animation) {
+		case "fade":
+			return (
+				<>
+					<Fade in={tooltipVisible}>
+						<TooltipComponent />
+					</Fade>
+					{validChildren}
+				</>
+			);
+		default:
+			return (
+				<>
+					{tooltipVisible && <TooltipComponent />}
+					{validChildren}
+				</>
+			);
+	}
 };
 
 export default React.forwardRef<HTMLDivElement, TooltipProps>(Tooltip);

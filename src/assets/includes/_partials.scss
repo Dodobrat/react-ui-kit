@@ -132,11 +132,12 @@
 
 //TOOLTIP
 @mixin tooltip() {
-	position: absolute;
+	position: fixed;
 	line-height: 1.2;
 	max-width: 15rem;
-	top: 0;
-	left: 0;
+	//not setting top/left removes the jumping of the tooltip
+	// top: 0;
+	// left: 0;
 	z-index: 9999;
 }
 
