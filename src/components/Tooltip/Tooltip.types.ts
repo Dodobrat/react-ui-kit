@@ -2,7 +2,7 @@ import React from "react";
 import { CnCh, AllCustomizationProps, AllPositions } from "../../helpers/global.types";
 
 type ExtraTooltipProps = CnCh & AllCustomizationProps;
-export type TooltipAnimation = "fade" | null;
+export type TooltipAnimation = "fade" | "zoom" | null;
 
 // Auto-Generated
 export interface TooltipProps extends ExtraTooltipProps {

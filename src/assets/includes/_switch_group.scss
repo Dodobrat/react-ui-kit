@@ -8,6 +8,9 @@
 
 @mixin switchGroupIndicator() {
 	transition: $fastTrans;
+	@media (prefers-reduced-motion) {
+		transition: none;
+	}
 	position: absolute;
 	pointer-events: none;
 	height: calc(100% - 0.5rem);

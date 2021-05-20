@@ -59,6 +59,7 @@ export * from "./components/icons/index";
 export { default as CollapseFade } from "./components/util/animations/CollapseFade";
 export { default as CollapseShow } from "./components/util/animations/CollapseShow";
 export { default as Fade } from "./components/util/animations/Fade";
+export { default as Zoom } from "./components/util/animations/Zoom";
 export { default as FadePortal } from "./components/util/animations/FadePortal";
 export { default as ZoomPortal } from "./components/util/animations/ZoomPortal";
 export { default as SlideIn } from "./components/util/animations/SlideIn";

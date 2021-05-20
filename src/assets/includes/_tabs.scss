@@ -38,6 +38,9 @@
 @mixin tabIndicator($orientation: "horizontal") {
 	position: absolute;
 	transition: $normalTrans;
+	@media (prefers-reduced-motion) {
+		transition: none;
+	}
 	padding: 0;
 	opacity: 1;
 	@if ($orientation == "horizontal") {

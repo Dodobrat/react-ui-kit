@@ -1,5 +1,8 @@
 @mixin btn() {
 	transition: $fastTrans;
+	@media (prefers-reduced-motion) {
+		transition: none;
+	}
 	display: inline-block;
 	position: relative;
 	margin: 0;

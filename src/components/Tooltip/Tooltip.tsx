@@ -6,106 +6,10 @@ import { TooltipProps } from "./Tooltip.types";
 import { useConfig } from "../../context/ConfigContext";
 import PortalWrapper from "../util/PortalWrapper/PortalWrapper";
 import { generateSeamlessClasses, generateStyleClasses } from "../../helpers/classnameGenerator";
-import { mergeRefs } from "../../helpers/functions";
+import { mergeRefs, positionTooltip } from "../../helpers/functions";
 import Fade from "../util/animations/Fade";
 import { useEventListener } from "../../hooks/useEventListener";
-import { AllPositions } from "../../helpers/global.types";
-
-const positionTooltip: (trigger: HTMLElement, tooltip: HTMLElement, position: AllPositions, spacing: number) => void = (
-	trigger,
-	tooltip,
-	position,
-	spacing
-) => {
-	// I know this code is not great but at least it works.
-	// It will be refactored in the future with a more robust solution.
-
-	const triggerRect = trigger.getBoundingClientRect();
-	const tooltipCoords = { x: 0, y: 0 };
-	const mainPosition = position.split("-")[0];
-	const secondaryPosition = position.split("-")[1];
-	const isVertical = mainPosition === "top" || mainPosition === "bottom";
-	const isHorizontal = mainPosition === "left" || mainPosition === "right";
-
-	if (tooltip) {
-		const constraints = {
-			top: spacing,
-			right: document.body.clientWidth - (tooltip.offsetWidth + spacing),
-			bottom: window.innerHeight - (tooltip.offsetHeight + spacing),
-			left: spacing,
-		};
-
-		switch (mainPosition) {
-			case "left":
-				tooltipCoords.x = triggerRect.left - (tooltip.offsetWidth + spacing);
-				tooltipCoords.y = triggerRect.top + (trigger.offsetHeight - tooltip.offsetHeight) / 2;
-				break;
-			case "right":
-				tooltipCoords.x = triggerRect.right + spacing;
-				tooltipCoords.y = triggerRect.top + (trigger.offsetHeight - tooltip.offsetHeight) / 2;
-				break;
-			case "bottom":
-				tooltipCoords.x = triggerRect.left + (trigger.offsetWidth - tooltip.offsetWidth) / 2;
-				tooltipCoords.y = triggerRect.bottom + spacing;
-				break;
-			default:
-				tooltipCoords.x = triggerRect.left + (trigger.offsetWidth - tooltip.offsetWidth) / 2;
-				tooltipCoords.y = triggerRect.top - (tooltip.offsetHeight + spacing);
-				break;
-		}
-
-		switch (secondaryPosition) {
-			case "left":
-				tooltipCoords.x = triggerRect.left;
-				break;
-			case "right":
-				tooltipCoords.x = triggerRect.left + trigger.offsetWidth - tooltip.offsetWidth;
-				break;
-			case "top":
-				tooltipCoords.y = triggerRect.top;
-				break;
-			case "bottom":
-				tooltipCoords.y = triggerRect.top + trigger.offsetHeight - tooltip.offsetHeight;
-				break;
-			default:
-				break;
-		}
-
-		if (mainPosition === "top" && tooltipCoords.y < constraints.top) {
-			tooltipCoords.y = triggerRect.bottom + spacing;
-		}
-		if (mainPosition === "bottom" && tooltipCoords.y > constraints.bottom) {
-			tooltipCoords.y = triggerRect.top - (tooltip.offsetHeight + spacing);
-		}
-		if (mainPosition === "left" && tooltipCoords.x < constraints.left) {
-			tooltipCoords.x = triggerRect.right + spacing;
-		}
-		if (mainPosition === "right" && tooltipCoords.x > constraints.right) {
-			tooltipCoords.x = triggerRect.left - (tooltip.offsetWidth + spacing);
-		}
-
-		if (isVertical) {
-			if (tooltipCoords.x < constraints.left) {
-				tooltipCoords.x = Math.min(constraints.left, triggerRect.right);
-			}
-			if (tooltipCoords.x > constraints.right) {
-				tooltipCoords.x = Math.max(constraints.right, triggerRect.left - tooltip.offsetWidth + spacing);
-			}
-		}
-
-		if (isHorizontal) {
-			if (tooltipCoords.y < constraints.top) {
-				tooltipCoords.y = Math.min(constraints.top, triggerRect.bottom);
-			}
-			if (tooltipCoords.y > constraints.bottom) {
-				tooltipCoords.y = Math.max(constraints.bottom, triggerRect.top - tooltip.offsetHeight + spacing);
-			}
-		}
-
-		tooltip.style.top = `${tooltipCoords.y}px`;
-		tooltip.style.left = `${tooltipCoords.x}px`;
-	}
-};
+import Zoom from "../util/animations/Zoom";
 
 const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (props, ref) => {
 	const {
@@ -163,7 +67,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 	}, [triggerElement]);
 
 	useEffect(() => {
-		if (triggerEl) {
+		if (triggerEl && tooltipVisible) {
 			positionTooltip(triggerEl, tooltipRef.current, position, spacing);
 		}
 	}, [triggerEl, tooltipVisible, position]);
@@ -202,10 +106,10 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		return {
 			...props,
 			onMouseEnter: (e: MouseEvent) => initTooltip(showOnHover, props.onMouseEnter, e),
-			onMouseLeave: (e: MouseEvent) => destroyTooltip(showOnHover, props.onMouseLeave, e),
 			onTouchStart: (e: TouchEvent) => initTooltip(showOnHover, props.onTouchStart, e),
-			onTouchEnd: (e: TouchEvent) => destroyTooltip(showOnHover, props.onTouchEnd, e),
 			onFocus: (e: FocusEvent) => initTooltip(showOnFocus, props.onFocus, e),
+			onMouseLeave: (e: MouseEvent) => destroyTooltip(showOnHover, props.onMouseLeave, e),
+			onTouchEnd: (e: TouchEvent) => destroyTooltip(showOnHover, props.onTouchEnd, e),
 			onBlur: (e: FocusEvent) => destroyTooltip(showOnFocus, props.onBlur, e),
 			onClick: (e: Event) => {
 				if (showOnClick) {
@@ -254,6 +158,15 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 					<Fade in={tooltipVisible}>
 						<TooltipComponent />
 					</Fade>
+					{validChildren}
+				</>
+			);
+		case "zoom":
+			return (
+				<>
+					<Zoom in={tooltipVisible}>
+						<TooltipComponent />
+					</Zoom>
 					{validChildren}
 				</>
 			);

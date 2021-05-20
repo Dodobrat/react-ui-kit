@@ -1,5 +1,8 @@
 @mixin input() {
 	transition: $fastTrans;
+	@media (prefers-reduced-motion) {
+		transition: none;
+	}
 	position: relative;
 	display: block;
 	caret-color: $mainFont;
@@ -42,6 +45,9 @@
 
 @mixin inputWrapper() {
 	transition: $fastTrans;
+	@media (prefers-reduced-motion) {
+		transition: none;
+	}
 	position: relative;
 	display: flex;
 	width: 100%;
@@ -187,6 +193,9 @@
 				&::before,
 				&::after {
 					transition: opacity $normalTransTime $normalTransEase;
+					@media (prefers-reduced-motion) {
+						transition: none;
+					}
 					opacity: 0;
 					content: "";
 					position: absolute;
@@ -230,6 +239,9 @@
 				overflow: hidden;
 				&::after {
 					transition: $fastTrans;
+					@media (prefers-reduced-motion) {
+						transition: none;
+					}
 					content: "";
 					position: absolute;
 					top: 0.1em;
@@ -263,6 +275,9 @@
 				border: 0.15em solid $subFont;
 				&::after {
 					transition: opacity $normalTransTime $normalTransEase;
+					@media (prefers-reduced-motion) {
+						transition: none;
+					}
 					opacity: 0;
 					content: "";
 					position: absolute;

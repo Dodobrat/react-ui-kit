@@ -28,6 +28,9 @@
 	background-color: rgba($subFont, 0.2);
 	border-radius: $roundedBorderRadius;
 	border: none;
+	@media (prefers-reduced-motion) {
+		transition: none;
+	}
 }
 
 @mixin rangeThumb($background: $subFont, $border: $mainFont) {
@@ -43,6 +46,9 @@
 	margin-top: -0.25em;
 	&:active {
 		cursor: grabbing;
+	}
+	@media (prefers-reduced-motion) {
+		transition: none;
 	}
 }
 

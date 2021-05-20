@@ -53,6 +53,9 @@
 			flex: 0 0 1rem;
 			margin-left: 0.625rem;
 			transition: $normalTrans;
+			@media (prefers-reduced-motion) {
+				transition: none;
+			}
 			transform: rotateX(180deg);
 		}
 		&--collapsed {

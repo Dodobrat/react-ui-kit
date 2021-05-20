@@ -21,6 +21,33 @@
 	}
 }
 
+@mixin zoomAnim() {
+	&-enter {
+		opacity: 0;
+		transform: scale(0.75);
+	}
+	&-enter-active {
+		transition: $normalTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
+		opacity: 1;
+		transform: scale(1);
+	}
+	&-exit {
+		opacity: 1;
+		transform: scale(1);
+	}
+	&-exit-active {
+		transition: $normalTrans;
+		@media (prefers-reduced-motion) {
+			transition: none;
+		}
+		opacity: 0;
+		transform: scale(0.75);
+	}
+}
+
 @mixin fadePortalAnim() {
 	&-enter {
 		opacity: 0;
@@ -286,9 +313,15 @@
 
 .dui__anim {
 	&__fade {
-		will-change: opacity;
+		will-change: opacity, transform;
 		&.fade {
 			@include fadeAnim();
+		}
+	}
+	&__zoom {
+		will-change: opacity;
+		&.zoom {
+			@include zoomAnim();
 		}
 	}
 	&__fade-portal {
