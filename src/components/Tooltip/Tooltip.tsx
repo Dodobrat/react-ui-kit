@@ -12,6 +12,8 @@ import { useEventListener } from "../../hooks/useEventListener";
 import Zoom from "../util/animations/Zoom";
 
 const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (props, ref) => {
+	const tooltipId = `tooltip_${new Date().getTime().toString()}_${Math.random().toString(36).substr(2, 5)}`;
+
 	const {
 		appConfig: { config },
 	} = useConfig();
@@ -28,7 +30,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		size = config.tooltipSize ?? "md",
 		flavor = config.tooltipFlavor ?? "default",
 		seamless = config.tooltipSeamless ?? false,
-		animation = config.tooltipAnimation ?? "fade",
+		animation = config.tooltipAnimation ?? "zoom",
 		triggerElement = null,
 		disabled,
 		spacing = config.tooltipSpacing ?? 5,
@@ -120,6 +122,8 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 				}
 				passThroughEvent(props.onClick, e);
 			},
+			["aria-haspopup"]: true,
+			["id"]: tooltipId,
 		};
 	};
 
@@ -143,6 +147,8 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 			<div
 				data-testid='Tooltip'
 				role='tooltip'
+				aria-describedby={tooltipId}
+				aria-hidden={!tooltipVisible}
 				className={cn(classBase, generateStyleClasses(classDefaults), generateSeamlessClasses(classBase, classDefaults), className)}
 				{...rest}
 				ref={mergeRefs([tooltipRef, ref])}>

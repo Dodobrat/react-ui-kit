@@ -117,7 +117,7 @@ export const TabContent = forwardRef<HTMLDivElement, TabContentSubComponentProps
 
 				if (isActive) {
 					return (
-						<div key={idx} role='tabpanel' aria-hidden={isActive} {...componentProps}>
+						<div key={idx} role='tabpanel' aria-hidden={!isActive} {...componentProps}>
 							{component}
 						</div>
 					);

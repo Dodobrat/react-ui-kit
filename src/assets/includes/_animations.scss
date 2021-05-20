@@ -313,13 +313,13 @@
 
 .dui__anim {
 	&__fade {
-		will-change: opacity, transform;
+		will-change: opacity;
 		&.fade {
 			@include fadeAnim();
 		}
 	}
 	&__zoom {
-		will-change: opacity;
+		will-change: opacity, transform;
 		&.zoom {
 			@include zoomAnim();
 		}
