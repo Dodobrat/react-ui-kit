@@ -2,7 +2,6 @@ import React from "react";
 import { AlertAnimation } from "../components/Alert/Alert.types";
 import { CollapseAnimation } from "../components/Collapse/CollapseSubComponents.types";
 import { PortalAnimation, VerticalAlign } from "../components/Portal/Portal.types";
-import { TooltipAnimation } from "../components/Tooltip/Tooltip.types";
 
 export type BreakpointOptions = "base" | "xs" | "sm" | "md" | "lg" | "xl";
 //Customization Types
@@ -31,7 +30,7 @@ export type SizeResponsiveOptions = {
 };
 export type AllSizeOptions = SizeResponsiveOptions | SizeOptions;
 //----------
-export type ContainerSizeOptions = "xs" | "sm" | "md" | "lg" | "xl" | "fhd";
+export type ContainerSizeOptions = "xs" | "sm" | "md" | "lg" | "xl" | "fhd" | "fluid";
 export type ContainerSizeResponsiveOptions = {
 	[bp in BreakpointOptions]?: ContainerSizeOptions;
 };
@@ -91,7 +90,7 @@ export type AllPositions =
 	| "left-top"
 	| "left-center"
 	| "left-bottom";
-export type StartEnd = "start" | "end";
+export type PopUpAnimation = "fade" | "zoom" | null;
 export type ProgressLabelValue = "%" | "count" | "count + %";
 
 //CONTEXT
@@ -134,6 +133,8 @@ export type GlobalOptions = {
 	collapseIndicator?: boolean;
 	collapseIndicatorComponent?: React.ReactNode;
 	collapseAnimation?: CollapseAnimation;
+	//--Container
+	containerSize?: AllContainerSizeOptions;
 	//--Drawer
 	drawerElevation?: AllElevationOptions;
 	drawerKeyboard?: boolean;
@@ -141,6 +142,13 @@ export type GlobalOptions = {
 	drawerBodyScrollDisable?: boolean;
 	//--Dropdown
 	dropdownElevation?: AllElevationOptions;
+	dropdownPigment?: AllPigmentOptions;
+	dropdownSize?: AllSizeOptions;
+	dropdownFlavor?: AllFlavorOptions;
+	dropdownSeamless?: boolean;
+	dropdownSpacing?: number;
+	dropdownShowOnFocus?: boolean;
+	dropdownAnimation?: PopUpAnimation;
 	//--Flex
 	flexSpacingX?: AllSizeOptions;
 	flexSpacingY?: AllSizeOptions;
@@ -168,7 +176,7 @@ export type GlobalOptions = {
 	tooltipFlavor?: AllFlavorOptions;
 	tooltipSeamless?: boolean;
 	tooltipSpacing?: number;
-	tooltipAnimation?: TooltipAnimation;
+	tooltipAnimation?: PopUpAnimation;
 	//--Progress Bar
 	progressBarLabeled?: boolean;
 	progressBarLabelValue?: ProgressLabelValue;

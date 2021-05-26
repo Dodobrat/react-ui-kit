@@ -1,8 +1,7 @@
 import React from "react";
-import { CnCh, AllCustomizationProps, AllPositions } from "../../helpers/global.types";
+import { CnCh, AllCustomizationProps, AllPositions, PopUpAnimation } from "../../helpers/global.types";
 
 type ExtraTooltipProps = CnCh & AllCustomizationProps;
-export type TooltipAnimation = "fade" | "zoom" | null;
 
 // Auto-Generated
 export interface TooltipProps extends ExtraTooltipProps {
@@ -12,10 +11,10 @@ export interface TooltipProps extends ExtraTooltipProps {
 	showOnClick?: boolean;
 	showOnHover?: boolean;
 	seamless?: boolean;
-	isVisible?: boolean;
-	onToggle?: (isVisible: boolean) => void;
+	isToggled?: boolean;
+	onToggle?: (isToggled: boolean) => void;
 	spacing?: number;
 	disabled?: boolean;
 	triggerElement?: HTMLElement | React.MutableRefObject<HTMLElement> | any;
-	animation?: TooltipAnimation;
+	animation?: PopUpAnimation;
 }

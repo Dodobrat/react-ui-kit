@@ -1,5 +1,11 @@
 // Auto-Generated
-import React, { forwardRef, useEffect, useState } from "react";
+import React, {
+	forwardRef,
+	// useCallback,
+	useEffect,
+	//  useRef,
+	useState,
+} from "react";
 import cn from "classnames";
 
 import { DropdownProps } from "./Dropdown.types";
@@ -14,6 +20,7 @@ import {
 	DropdownToggleSubComponentProps,
 } from "./DropdownSubComponents.types";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
+// import { useEventListener } from "../../hooks/useEventListener";
 
 export interface DropdownComponent extends React.ForwardRefExoticComponent<DropdownProps & React.RefAttributes<HTMLDivElement>> {
 	Toggle: React.ForwardRefExoticComponent<DropdownToggleSubComponentProps & React.RefAttributes<unknown>>;
@@ -30,15 +37,17 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 	} = useConfig();
 
 	const {
-		position = "bottom",
-		alignment = "start",
-		adjustToViewport = true,
+		position = "bottom-left",
 		elevation = config.dropdownElevation ?? "subtle",
-		pigment = "default",
-		size = config.size ?? "md",
-		flavor = config.flavor ?? "deafult",
-		seamless = false,
-		spacing = 5,
+		pigment = config.dropdownPigment ?? "default",
+		size = config.dropdownSize ?? "md",
+		flavor = config.dropdownFlavor ?? "default",
+		seamless = config.dropdownSeamless ?? false,
+		spacing = config.dropdownSpacing ?? 5,
+		showOnFocus = config.dropdownShowOnFocus ?? false,
+		animation = config.dropdownAnimation ?? "zoom",
+		triggerElement = null,
+		disabled,
 		onToggle,
 		isToggled = false,
 		className,
@@ -56,13 +65,40 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 
 	const classBase = "dui__dropdown";
 
-	const [dropdownState, setDropdownState] = useState<boolean>(isToggled);
+	// const dropdownRef = useRef(null);
+	const [dropdownToggled, setDropdownToggled] = useState(isToggled);
+	// const [triggerEl, setTriggerEl] = useState(triggerElement?.current);
 
-	const onDropdownToggle = () => setDropdownState((prev) => !prev);
+	const onDropdownToggle = () => setDropdownToggled((prev) => !prev);
 
 	useEffect(() => {
-		setDropdownState(isToggled);
+		if (onToggle) {
+			onToggle(dropdownToggled);
+		}
+	}, [dropdownToggled]);
+
+	useEffect(() => {
+		setDropdownToggled(isToggled);
 	}, [isToggled]);
+
+	// useEffect(() => {
+	// 	setTriggerEl(triggerElement?.current);
+	// }, [triggerElement]);
+
+	// useEffect(() => {
+	// 	if (triggerEl && dropdownToggled) {
+	// 		positionDropdown(triggerEl, dropdownRef.current, position, spacing);
+	// 	}
+	// }, [triggerEl, dropdownToggled, position]);
+
+	// const handler = useCallback(() => {
+	// 	if (triggerEl && dropdownToggled) {
+	// 		positionDropdown(triggerEl, dropdownRef.current, position, spacing);
+	// 	}
+	// }, [triggerEl, dropdownToggled, position]);
+
+	// useEventListener("scroll", handler, { passive: true });
+	// useEventListener("resize", handler);
 
 	const triggerLevelChildren: JSX.Element[] = React.Children.map(children, (child: JSX.Element) => {
 		if (child?.type?.displayName === "DropdownToggle") {
@@ -70,7 +106,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 				...child,
 				props: {
 					...child.props,
-					isToggled: dropdownState,
+					isToggled: dropdownToggled,
 					onKeyboardToggle: onToggle ? () => onToggle(isToggled) : onDropdownToggle,
 					onClick: onToggle ? () => onToggle(isToggled) : onDropdownToggle,
 				},
@@ -85,7 +121,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 				...child,
 				props: {
 					...child.props,
-					isToggled: dropdownState,
+					isToggled: dropdownToggled,
 					className: child.type.displayName === "DropdownMenu" ? generateStyleClasses(classDefaults) : "",
 				},
 			};

@@ -1,13 +1,16 @@
-import { CnCh, AllCustomizationProps, Positions, StartEnd } from "../../helpers/global.types";
+import { CnCh, AllCustomizationProps, AllPositions, PopUpAnimation } from "../../helpers/global.types";
 
 type ExtraDropdownProps = CnCh & AllCustomizationProps;
+
 // Auto-Generated
 export interface DropdownProps extends ExtraDropdownProps {
-	onToggle?: (isToggled: boolean) => void;
-	isToggled?: boolean;
-	adjustToViewport?: boolean;
-	position?: Positions;
+	position?: AllPositions;
+	showOnFocus?: boolean;
 	seamless?: boolean;
+	isToggled?: boolean;
+	onToggle?: (isToggled: boolean) => void;
 	spacing?: number;
-	alignment?: StartEnd;
+	disabled?: boolean;
+	triggerElement?: HTMLElement | React.MutableRefObject<HTMLElement> | any;
+	animation?: PopUpAnimation;
 }

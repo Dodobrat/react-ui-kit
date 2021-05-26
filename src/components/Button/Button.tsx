@@ -19,6 +19,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		as = "button",
 		pigment = config.pigment ?? "primary",
 		pigmentColor = config.pigmentColor ?? null,
+		hoverPigment = null,
 		elevation = config.btnElevation ?? "none",
 		flavor = config.flavor ?? "default",
 		size = config.size ?? "md",
@@ -53,6 +54,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 	const classDefaults = {
 		pigment,
 		pigmentColor,
+		hoverPigment,
 		elevation,
 		flavor,
 		size,

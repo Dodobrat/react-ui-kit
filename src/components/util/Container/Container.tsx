@@ -4,9 +4,14 @@ import cn from "classnames";
 
 import { ContainerProps } from "./Container.types";
 import { generateStyleClasses } from "../../../helpers/classnameGenerator";
+import { useConfig } from "../../../context/ConfigContext";
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => {
-	const { fluid = false, size = "lg", className, children, ...rest } = props;
+	const {
+		appConfig: { config },
+	} = useConfig();
+
+	const { size = config.containerSize ?? "lg", className, children, ...rest } = props;
 
 	const classDefaults = {
 		containerSize: size,
@@ -15,18 +20,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => {
 	const classBase = "dui__container";
 
 	return (
-		<div
-			data-testid='Container'
-			className={cn(
-				classBase,
-				{
-					[`${classBase}--fluid`]: fluid,
-				},
-				generateStyleClasses(classDefaults),
-				className
-			)}
-			{...rest}
-			ref={ref}>
+		<div data-testid='Container' className={cn(classBase, generateStyleClasses(classDefaults), className)} {...rest} ref={ref}>
 			{children}
 		</div>
 	);

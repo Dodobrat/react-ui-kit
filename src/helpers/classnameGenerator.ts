@@ -51,6 +51,7 @@ export const generateStyleClasses: ClassnameGeneratorFunc = (props = {}) => {
 	const allowedClassnameValues = new Map([
 		["pigment", PigmentOptions],
 		["pigmentColor", PigmentOptions],
+		["hoverPigment", PigmentOptions],
 		["elevation", ElevationOptions],
 		["flavor", FlavorOptions],
 		["size", SizeOptions],

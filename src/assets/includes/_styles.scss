@@ -382,6 +382,16 @@ $pigmentKeys: map-keys($options);
 	.pigmentColor--#{$name} {
 		@include pigmentColorStyles($bgColor, $fontColor);
 	}
+	.hoverPigment--#{$name} {
+		&.dui__btn:hover,
+		&.dui__btn--active {
+			background-color: darken($bgColor, 5%);
+			color: $fontColor;
+			.dui__ripple {
+				background-color: rgba($fontColor, 0.5);
+			}
+		}
+	}
 }
 
 @each $breakpointName, $breakpointSize in $breakpoints {
@@ -397,6 +407,18 @@ $pigmentKeys: map-keys($options);
 		.pigmentColor--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
 				@include pigmentColorStyles($bgColor, $fontColor);
+			}
+		}
+		.hoverPigment--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				&.dui__btn:hover,
+				&.dui__btn--active {
+					background-color: darken($bgColor, 5%);
+					color: $fontColor;
+					.dui__ripple {
+						background-color: rgba($fontColor, 0.5);
+					}
+				}
 			}
 		}
 	}

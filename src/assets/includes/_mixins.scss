@@ -1,3 +1,35 @@
+@mixin scrollbar($trackBg: $bgCard, $thumbBg: $mainFont, $size: 0.75rem, $thumbRadius: $mdBorderRadius) {
+	@media (pointer: fine) {
+		&::-webkit-scrollbar {
+			width: $size;
+			height: $size;
+		}
+		&::-webkit-scrollbar-track {
+			background: $trackBg;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: rgba($thumbBg, 0.2);
+			border-radius: $thumbRadius;
+			border: $size * 0.225 solid $trackBg;
+
+			&:vertical:hover {
+				background: rgba($thumbBg, 0.4);
+			}
+
+			&:horizontal:hover {
+				background: rgba($thumbBg, 0.4);
+			}
+		}
+		&::-webkit-scrollbar-corner {
+			background: $trackBg;
+		}
+	}
+	& {
+		scrollbar-width: thin;
+		scrollbar-color: rgba($thumbBg, 0.2) $trackBg;
+	}
+}
+
 @mixin componentLoader() {
 	overflow: hidden;
 	position: absolute;

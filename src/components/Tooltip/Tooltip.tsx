@@ -34,7 +34,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		triggerElement = null,
 		disabled,
 		spacing = config.tooltipSpacing ?? 5,
-		isVisible = false,
+		isToggled = false,
 		onToggle,
 		children,
 		...rest
@@ -51,34 +51,34 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 	const classBase = "dui__tooltip";
 
 	const tooltipRef = useRef(null);
-	const [tooltipVisible, setTooltipVisible] = useState(isVisible);
+	const [tooltipToggled, setTooltipToggled] = useState(isToggled);
 	const [triggerEl, setTriggerEl] = useState(triggerElement?.current);
 
 	useEffect(() => {
 		if (onToggle) {
-			onToggle(tooltipVisible);
+			onToggle(tooltipToggled);
 		}
-	}, [tooltipVisible]);
+	}, [tooltipToggled]);
 
 	useEffect(() => {
-		setTooltipVisible(isVisible);
-	}, [isVisible]);
+		setTooltipToggled(isToggled);
+	}, [isToggled]);
 
 	useEffect(() => {
 		setTriggerEl(triggerElement?.current);
 	}, [triggerElement]);
 
 	useEffect(() => {
-		if (triggerEl && tooltipVisible) {
+		if (triggerEl && tooltipToggled) {
 			positionTooltip(triggerEl, tooltipRef.current, position, spacing);
 		}
-	}, [triggerEl, tooltipVisible, position]);
+	}, [triggerEl, tooltipToggled, position]);
 
 	const handler = useCallback(() => {
-		if (triggerEl && tooltipVisible) {
+		if (triggerEl && tooltipToggled) {
 			positionTooltip(triggerEl, tooltipRef.current, position, spacing);
 		}
-	}, [triggerEl, tooltipVisible, position]);
+	}, [triggerEl, tooltipToggled, position]);
 
 	useEventListener("scroll", handler, { passive: true });
 	useEventListener("resize", handler);
@@ -92,14 +92,14 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 	const initTooltip: (showCondition: boolean, handler: Function, e: Event) => void = (showCondition, handler, e) => {
 		if (showCondition) {
 			setTriggerEl(e.currentTarget);
-			setTooltipVisible(true);
+			setTooltipToggled(true);
 		}
 		passThroughEvent(handler, e);
 	};
 
 	const destroyTooltip: (showCondition: boolean, handler: Function, e: Event) => void = (showCondition, handler, e) => {
 		if (showCondition) {
-			setTooltipVisible(false);
+			setTooltipToggled(false);
 		}
 		passThroughEvent(handler, e);
 	};
@@ -115,10 +115,10 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 			onBlur: (e: FocusEvent) => destroyTooltip(showOnFocus, props.onBlur, e),
 			onClick: (e: Event) => {
 				if (showOnClick) {
-					if (!tooltipVisible) {
+					if (!tooltipToggled) {
 						setTriggerEl(e.currentTarget);
 					}
-					setTooltipVisible((prev) => !prev);
+					setTooltipToggled((prev) => !prev);
 				}
 				passThroughEvent(props.onClick, e);
 			},
@@ -148,7 +148,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 				data-testid='Tooltip'
 				role='tooltip'
 				aria-describedby={tooltipId}
-				aria-hidden={!tooltipVisible}
+				aria-hidden={!tooltipToggled}
 				className={cn(classBase, generateStyleClasses(classDefaults), generateSeamlessClasses(classBase, classDefaults), className)}
 				{...rest}
 				ref={mergeRefs([tooltipRef, ref])}>
@@ -161,7 +161,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		case "fade":
 			return (
 				<>
-					<Fade in={tooltipVisible}>
+					<Fade in={tooltipToggled}>
 						<TooltipComponent />
 					</Fade>
 					{validChildren}
@@ -170,7 +170,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		case "zoom":
 			return (
 				<>
-					<Zoom in={tooltipVisible}>
+					<Zoom in={tooltipToggled}>
 						<TooltipComponent />
 					</Zoom>
 					{validChildren}
@@ -179,7 +179,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		default:
 			return (
 				<>
-					{tooltipVisible && <TooltipComponent />}
+					{tooltipToggled && <TooltipComponent />}
 					{validChildren}
 				</>
 			);
