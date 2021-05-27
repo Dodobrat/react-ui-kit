@@ -1,11 +1,11 @@
 import React from "react";
 import {
 	AllCustomizationProps,
+	AllPigmentOptions,
 	CnCh,
 	ElemType,
 	LoadingProps,
 	PigmentColorProps,
-	PigmentOptions,
 	RippleEffect,
 } from "../../helpers/global.types";
 
@@ -15,7 +15,7 @@ type ExtraButtonProps = ElemType & RippleEffect & AllCustomizationProps & Pigmen
 
 export interface ButtonProps extends ExtraButtonProps {
 	type?: "button" | "submit" | "reset";
-	hoverPigment?: PigmentOptions;
+	hoverPigment?: AllPigmentOptions;
 	iconStart?: null | React.ReactNode;
 	iconEnd?: null | React.ReactNode;
 	leftAlignContent?: boolean;
