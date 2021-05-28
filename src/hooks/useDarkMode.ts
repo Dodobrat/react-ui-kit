@@ -1,12 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { canUseDOM } from "../helpers/functions";
 import { useLocalStorage } from "./useLocalStorage";
 import { usePrefersDarkMode } from "./usePrefersDarkMode";
 
-export const useDarkMode: (preference: boolean) => any[] = (systemPreferenceFirst = true) => {
+export interface useDarkModeProps {
+	systemPreferenceFirst?: boolean;
+	element?: HTMLElement;
+	localStorageKey?: string;
+}
+
+export const useDarkMode: ({ systemPreferenceFirst, element, localStorageKey }: useDarkModeProps) => any[] = ({
+	systemPreferenceFirst = true,
+	element = document.documentElement,
+	localStorageKey = "dui_dark_theme",
+}) => {
 	const determineInitialValue = () => {
-		if (localStorage?.dui_dark_theme) {
-			return localStorage?.dui_dark_theme;
+		if (localStorage[localStorageKey]) {
+			return localStorage[localStorageKey];
 		}
 		if (systemPreferenceFirst) {
 			return prefersDarkMode;
@@ -15,29 +25,30 @@ export const useDarkMode: (preference: boolean) => any[] = (systemPreferenceFirs
 	};
 
 	const prefersDarkMode = usePrefersDarkMode();
-	const [isDark, setIsDark] = useLocalStorage("dui_dark_theme", determineInitialValue());
+	const [isDark, setIsDark] = useLocalStorage(localStorageKey, determineInitialValue());
+	const [el] = useState(element);
 
 	useEffect(() => {
 		if (!canUseDOM) return;
 
-		if (!localStorage?.dui_dark_theme) {
-			document.documentElement.setAttribute("dark", prefersDarkMode.toString());
+		if (!localStorage[localStorageKey] && systemPreferenceFirst) {
+			el.setAttribute("dark-theme", prefersDarkMode.toString());
+
+			return () => {
+				el.removeAttribute("dark-theme");
+			};
 		}
-
-		return () => {
-			document.documentElement.removeAttribute("dark");
-		};
-	}, [prefersDarkMode]);
+	}, [prefersDarkMode, el]);
 
 	useEffect(() => {
 		if (!canUseDOM) return;
 
-		document.documentElement.setAttribute("dark", isDark);
+		el.setAttribute("dark-theme", isDark);
 
 		return () => {
-			document.documentElement.removeAttribute("dark");
+			el.removeAttribute("dark-theme");
 		};
-	}, [isDark]);
+	}, [isDark, el]);
 
 	return [isDark, setIsDark];
 };
