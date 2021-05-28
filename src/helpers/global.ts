@@ -3,7 +3,7 @@ export const PigmentOptions = ["none", "default", "primary", "secondary", "succe
 export const ElevationOptions = ["none", "subtle", "light", "medium", "strong", "interstellar"];
 export const FlavorOptions = ["default", "flat", "rounded", "round", "square"];
 export const SizeOptions = ["xs", "sm", "md", "lg", "xl"];
-export const ContainerSizeOptions = ["xs", "sm", "md", "lg", "xl", "fhd"];
+export const ContainerSizeOptions = ["xs", "sm", "md", "lg", "xl", "fhd", "fluid"];
 export const PortalSizeOptions = ["xs", "sm", "md", "lg", "xl", "fullscreen"];
 
 //Flex Specific
