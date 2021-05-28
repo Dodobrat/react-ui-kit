@@ -143,15 +143,15 @@ $axes: (
 			$prop1: map-deep-get($axes, $key, "prop1");
 			$prop2: map-deep-get($axes, $key, "prop2");
 			.#{$classKey}#{$axisName}--#{$sizeCode} {
-				#{$rule}-#{$prop1}: $size;
-				#{$rule}-#{$prop2}: $size;
+				#{$rule}-#{$prop1}: $size !important;
+				#{$rule}-#{$prop2}: $size !important;
 			}
 
 			@each $breakpointName, $breakpointSize in $breakpoints {
 				.#{$classKey}#{$axisName}--#{$breakpointName}--#{$sizeCode} {
 					@media all and (min-width: $breakpointSize) {
-						#{$rule}-#{$prop1}: $size;
-						#{$rule}-#{$prop2}: $size;
+						#{$rule}-#{$prop1}: $size !important;
+						#{$rule}-#{$prop2}: $size !important;
 					}
 				}
 			}
@@ -160,10 +160,10 @@ $axes: (
 
 	@each $sizeCode, $size in $spacingSize {
 		.#{$classKey}--#{$sizeCode} {
-			#{$rule}: $size;
+			#{$rule}: $size !important;
 		}
 		.#{$classKey}#{$name}--#{$sizeCode} {
-			#{$rule}-#{$dir}: $size;
+			#{$rule}-#{$dir}: $size !important;
 		}
 	}
 
@@ -171,12 +171,12 @@ $axes: (
 		@each $sizeCode, $size in $spacingSize {
 			.#{$classKey}--#{$breakpointName}--#{$sizeCode} {
 				@media all and (min-width: $breakpointSize) {
-					#{$rule}: $size;
+					#{$rule}: $size !important;
 				}
 			}
 			.#{$classKey}#{$name}--#{$breakpointName}--#{$sizeCode} {
 				@media all and (min-width: $breakpointSize) {
-					#{$rule}-#{$dir}: $size;
+					#{$rule}-#{$dir}: $size !important;
 				}
 			}
 		}
@@ -230,13 +230,13 @@ $pigmentKeys: map-keys($pigments);
 	$bgColor: map-deep-get($pigments, $key, "bgColor");
 	$fontColor: map-deep-get($pigments, $key, "fontColor");
 	.bg--#{$name} {
-		background: $bgColor;
+		background: $bgColor !important;
 	}
 	.bgtext--#{$name} {
-		color: $fontColor;
+		color: $fontColor !important;
 	}
 	.text--#{$name} {
-		color: $bgColor;
+		color: $bgColor !important;
 	}
 }
 
@@ -247,17 +247,17 @@ $pigmentKeys: map-keys($pigments);
 		$fontColor: map-deep-get($pigments, $key, "fontColor");
 		.bg--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
-				background: $bgColor;
+				background: $bgColor !important;
 			}
 		}
 		.bgtext--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
-				color: $fontColor;
+				color: $fontColor !important;
 			}
 		}
 		.text--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
-				color: $bgColor;
+				color: $bgColor !important;
 			}
 		}
 	}
@@ -275,13 +275,13 @@ $sizing: (
 
 @each $name, $size in $sizing {
 	.w--#{$name} {
-		width: $size;
+		width: $size !important;
 	}
 	.maxw--#{$name} {
-		max-width: $size;
+		max-width: $size !important;
 	}
 	.h--#{$name} {
-		height: $size;
+		height: $size !important;
 	}
 }
 
@@ -289,17 +289,17 @@ $sizing: (
 	@each $name, $size in $sizing {
 		.w--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
-				width: $size;
+				width: $size !important;
 			}
 		}
 		.maxw--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
-				max-width: $size;
+				max-width: $size !important;
 			}
 		}
 		.h--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
-				height: $size;
+				height: $size !important;
 			}
 		}
 	}
@@ -307,7 +307,7 @@ $sizing: (
 
 //OVERFLOW HIDDEN
 .no-overflow {
-	overflow: hidden;
+	overflow: hidden !important;
 }
 
 //RIPPLE EFFECT
@@ -335,5 +335,5 @@ $sizing: (
 }
 
 .clickable {
-	cursor: pointer;
+	cursor: pointer !important;
 }
