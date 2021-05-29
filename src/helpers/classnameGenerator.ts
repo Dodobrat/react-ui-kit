@@ -52,6 +52,7 @@ export const generateStyleClasses: ClassnameGeneratorFunc = (props = {}) => {
 		["pigment", PigmentOptions],
 		["pigmentColor", PigmentOptions],
 		["hoverPigment", PigmentOptions],
+		["activePigment", PigmentOptions],
 		["elevation", ElevationOptions],
 		["flavor", FlavorOptions],
 		["size", SizeOptions],
