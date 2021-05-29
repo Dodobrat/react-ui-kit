@@ -832,6 +832,9 @@ $pigmentKeys: map-keys($options);
 		&.dui__btn {
 			width: initial;
 			height: initial;
+			&--wide {
+				width: 100%;
+			}
 		}
 	}
 }
