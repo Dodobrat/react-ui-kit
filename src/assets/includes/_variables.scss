@@ -170,7 +170,7 @@ $spacingDir: (
 	"l": left,
 ) !default;
 
-$spacingSize: (
+$marginSpacingSize: (
 	"0": 0,
 	"1": 0.325rem,
 	"2": 0.625rem,
@@ -178,6 +178,16 @@ $spacingSize: (
 	"4": 1.5rem,
 	"auto": auto,
 ) !default;
+
+$paddingSpacingSize: (
+	"0": 0,
+	"1": 0.325rem,
+	"2": 0.625rem,
+	"3": 1rem,
+	"4": 1.5rem,
+	"unset": unset,
+) !default;
+
 //GRID
 $gridColumns: 12 !default;
 $gridColumnWidth: 100% / $gridColumns !default;

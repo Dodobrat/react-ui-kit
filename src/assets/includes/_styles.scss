@@ -504,11 +504,6 @@ $pigmentKeys: map-keys($options);
 
 //FLAVOR
 @mixin flavor($name, $radius) {
-	@if ($name == "round" or $name == "square") {
-		&.dui__btn {
-			padding: 0;
-		}
-	}
 	@if ($name == "flat") {
 		&.dui__progressring {
 			& > circle {
@@ -712,9 +707,6 @@ $pigmentKeys: map-keys($options);
 	}
 	@if ($name != "round" or $name != "square") {
 		border-radius: $radius;
-		&.dui__btn {
-			padding: unset;
-		}
 		&.dui__btn-group {
 			& > *:first-child {
 				border-radius: $radius 0 0 $radius;
@@ -863,6 +855,34 @@ $pigmentKeys: map-keys($options);
 }
 
 //SIZE
+@mixin btnSpecificSize($size) {
+	&.dui__btn {
+		@each $name, $radius in $flavors {
+			&.flavor--#{$name} {
+				@if ($name == "round" or $name == "square") {
+					padding: 0;
+				} @else {
+					padding: $size * 0.4375 $size;
+				}
+			}
+		}
+
+		@each $breakpointName, $breakpointSize in $breakpoints {
+			@each $name, $radius in $flavors {
+				&.flavor--#{$breakpointName}--#{$name} {
+					@media all and (min-width: $breakpointSize) {
+						@if ($name == "round" or $name == "square") {
+							padding: 0;
+						} @else {
+							padding: $size * 0.4375 $size;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 @mixin size($size) {
 	font-size: $size;
 	&.dui__badge {
@@ -876,9 +896,6 @@ $pigmentKeys: map-keys($options);
 				margin: 0 $size / 2;
 			}
 		}
-	}
-	&.dui__btn {
-		padding: $size * 0.4375 $size;
 	}
 	&.dui__input {
 		& > * {
@@ -1011,6 +1028,7 @@ $pigmentKeys: map-keys($options);
 @each $name, $size in $sizes {
 	.size--#{$name} {
 		@include size($size);
+		@include btnSpecificSize($size);
 	}
 }
 
@@ -1019,6 +1037,7 @@ $pigmentKeys: map-keys($options);
 		.size--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
 				@include size($size);
+				@include btnSpecificSize($size);
 			}
 		}
 	}

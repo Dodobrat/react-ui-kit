@@ -135,7 +135,7 @@ $axes: (
 	),
 );
 
-@mixin spacingClass($classKey, $name, $dir, $rule) {
+@mixin spacingClass($classKey, $name, $dir, $rule, $spacingSize) {
 	@each $sizeCode, $size in $spacingSize {
 		$axesKeys: map-keys($axes);
 		@each $key in $axesKeys {
@@ -185,9 +185,9 @@ $axes: (
 
 @each $name, $dir in $spacingDir {
 	//padding
-	@include spacingClass("p", $name, $dir, padding);
+	@include spacingClass("p", $name, $dir, padding, $paddingSpacingSize);
 	//margin
-	@include spacingClass("m", $name, $dir, margin);
+	@include spacingClass("m", $name, $dir, margin, $marginSpacingSize);
 }
 
 //DISPLAY UTIL CLASSES
