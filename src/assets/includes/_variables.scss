@@ -185,11 +185,17 @@ $gridColumnWidth: 100% / $gridColumns !default;
 $breakpoints: (
 	"base": 0,
 	"xs": 33.75rem,
+	//540px
 	"sm": 45rem,
+	//720px
 	"md": 60rem,
+	//960px
 	"lg": 71.25rem,
+	//1,140px
 	"xl": 82.5rem,
+	//1,320px
 	"fhd": 120rem,
+	//1,920px
 ) !default;
 
 $flexAlignOptions: (

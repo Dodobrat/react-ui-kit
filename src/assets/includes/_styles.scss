@@ -441,168 +441,6 @@ $pigmentKeys: map-keys($options);
 	}
 }
 
-//SIZE
-@mixin size($size) {
-	font-size: $size;
-	&.dui__badge {
-		font-size: $size * 0.75;
-	}
-	&.dui__breadcrumbs {
-		padding: $size * 0.75 $size;
-
-		.dui__breadcrumbs__item {
-			& > span {
-				margin: 0 $size / 2;
-			}
-		}
-	}
-	&.dui__btn {
-		padding: $size * 0.4375 $size;
-	}
-	&.dui__input {
-		& > * {
-			font-size: $size;
-		}
-		padding: calc(#{$size} * 0.4375) 0;
-		text-indent: $size / 1.25;
-
-		&[type="color"] {
-			padding: calc(#{$size} * 0.4375 * 2.715) 0;
-			&::-moz-color-swatch {
-				@include colorSwatchStyles($size);
-				@include mozColorSwatchDimensions($size);
-			}
-			&::-webkit-color-swatch {
-				@include colorSwatchStyles($size);
-			}
-		}
-
-		&.dui__input[type="date"],
-		&.dui__input[type="time"] {
-			text-indent: $size / 2.5;
-		}
-
-		@-moz-document url-prefix() {
-			&.dui__input[type="file"],
-			&.dui__input__select {
-				text-indent: $size / 2.5;
-			}
-			&.dui__input[type="date"],
-			&.dui__input[type="time"] {
-				text-indent: $size / 1.25;
-			}
-		}
-
-		&[type="range"] {
-			padding: calc(#{$size} * 1.1875) $size / 1.25;
-		}
-
-		&.dui__input__textarea {
-			text-indent: calc(#{$size} * 0.4375);
-			padding: calc(#{$size} * 0.4375);
-		}
-
-		&.dui__input__checkable {
-			padding: calc(#{$size} * 0.4375) $size / 1.25;
-			&.dui__input--seamless {
-				padding: calc(#{$size} * 0.4375) 0;
-			}
-		}
-		&__wrapper {
-			& > * {
-				font-size: $size;
-			}
-
-			.dui__input__wrapper__attachment {
-				padding: calc(#{$size} * 0.4375 - 0.015em) 0.3125em;
-				&:last-child,
-				&:not(&:first-child) {
-					padding-right: $size / 1.25;
-				}
-				&.dui__input__wrapper__preffix {
-					padding-left: $size / 1.25;
-					padding-right: 0;
-				}
-				&.dui__input__wrapper__clear {
-					& > span {
-						margin-right: $size / 2;
-					}
-				}
-				&.dui__input__wrapper__loader {
-					padding: 0;
-				}
-			}
-
-			&.dui__input__wrapper__checkable {
-				.dui__input__checkable__value {
-					margin-left: $size / 1.25;
-				}
-				.dui__input__checkable {
-					padding: calc(#{$size} * 0.4375) 0;
-				}
-			}
-		}
-		&__textarea {
-			text-indent: calc(#{$size} * 0.4375);
-			padding: calc(#{$size} * 0.4375);
-		}
-		&__checkable {
-			padding: calc(#{$size} * 0.4375) $size / 1.25;
-		}
-		&--seamless {
-			&.dui__input__checkable {
-				padding: calc(#{$size} * 0.4375) 0;
-			}
-		}
-	}
-	&.dui__switch__group {
-		.dui__switch__group__item {
-			&__value {
-				padding: calc(#{$size} * 0.25) $size / 1.5;
-				font-size: $size;
-			}
-		}
-		&.dui__switch__group--seamless {
-			.dui__switch__group__item {
-				&__value {
-					padding: calc(#{$size} * 0.4375) $size;
-				}
-			}
-		}
-	}
-	&.dui__spinner {
-		$calcSize: calc(calc(#{$size} * 1.375) + #{$size});
-		width: $calcSize;
-		height: $calcSize;
-		border-width: calc(#{$calcSize} * 0.15);
-	}
-	&.dui__tooltip {
-		font-size: $size * 0.9;
-		padding: $size * 0.625 $size;
-		&.dui__tooltip--seamless {
-			font-size: unset;
-			padding: unset;
-			line-height: unset;
-		}
-	}
-}
-
-@each $name, $size in $sizes {
-	.size--#{$name} {
-		@include size($size);
-	}
-}
-
-@each $breakpointName, $breakpointSize in $breakpoints {
-	@each $name, $size in $sizes {
-		.size--#{$breakpointName}--#{$name} {
-			@media all and (min-width: $breakpointSize) {
-				@include size($size);
-			}
-		}
-	}
-}
-
 //CONTAINER SIZE
 @each $name, $size in $containerSizes {
 	.containerSize--#{$name} {
@@ -668,9 +506,6 @@ $pigmentKeys: map-keys($options);
 @mixin flavor($name, $radius) {
 	@if ($name == "round" or $name == "square") {
 		&.dui__btn {
-			border-radius: $radius;
-			width: calc(calc(1em * 1.375) + 1em);
-			height: calc(calc(1em * 1.375) + 1em);
 			padding: 0;
 		}
 	}
@@ -877,6 +712,9 @@ $pigmentKeys: map-keys($options);
 	}
 	@if ($name != "round" or $name != "square") {
 		border-radius: $radius;
+		&.dui__btn {
+			padding: unset;
+		}
 		&.dui__btn-group {
 			& > *:first-child {
 				border-radius: $radius 0 0 $radius;
@@ -992,9 +830,24 @@ $pigmentKeys: map-keys($options);
 	}
 }
 
+@mixin btnSpecificFlavor($name) {
+	@if ($name == "round" or $name == "square") {
+		&.dui__btn {
+			width: calc(calc(1em * 1.375) + 1em);
+			height: calc(calc(1em * 1.375) + 1em);
+		}
+	} @else {
+		&.dui__btn {
+			width: initial;
+			height: initial;
+		}
+	}
+}
+
 @each $name, $radius in $flavors {
 	.flavor--#{$name} {
 		@include flavor($name, $radius);
+		@include btnSpecificFlavor($name);
 	}
 }
 
@@ -1003,6 +856,169 @@ $pigmentKeys: map-keys($options);
 		.flavor--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
 				@include flavor($name, $radius);
+				@include btnSpecificFlavor($name);
+			}
+		}
+	}
+}
+
+//SIZE
+@mixin size($size) {
+	font-size: $size;
+	&.dui__badge {
+		font-size: $size * 0.75;
+	}
+	&.dui__breadcrumbs {
+		padding: $size * 0.75 $size;
+
+		.dui__breadcrumbs__item {
+			& > span {
+				margin: 0 $size / 2;
+			}
+		}
+	}
+	&.dui__btn {
+		padding: $size * 0.4375 $size;
+	}
+	&.dui__input {
+		& > * {
+			font-size: $size;
+		}
+		padding: calc(#{$size} * 0.4375) 0;
+		text-indent: $size / 1.25;
+
+		&[type="color"] {
+			padding: calc(#{$size} * 0.4375 * 2.715) 0;
+			&::-moz-color-swatch {
+				@include colorSwatchStyles($size);
+				@include mozColorSwatchDimensions($size);
+			}
+			&::-webkit-color-swatch {
+				@include colorSwatchStyles($size);
+			}
+		}
+
+		&.dui__input[type="date"],
+		&.dui__input[type="time"] {
+			text-indent: $size / 2.5;
+		}
+
+		@-moz-document url-prefix() {
+			&.dui__input[type="file"],
+			&.dui__input__select {
+				text-indent: $size / 2.5;
+			}
+			&.dui__input[type="date"],
+			&.dui__input[type="time"] {
+				text-indent: $size / 1.25;
+			}
+		}
+
+		&[type="range"] {
+			padding: calc(#{$size} * 1.1875) $size / 1.25;
+		}
+
+		&.dui__input__textarea {
+			text-indent: calc(#{$size} * 0.4375);
+			padding: calc(#{$size} * 0.4375);
+		}
+
+		&.dui__input__checkable {
+			padding: calc(#{$size} * 0.4375) $size / 1.25;
+			&.dui__input--seamless {
+				padding: calc(#{$size} * 0.4375) 0;
+			}
+		}
+		&__wrapper {
+			& > * {
+				font-size: $size;
+			}
+
+			.dui__input__wrapper__attachment {
+				padding: calc(#{$size} * 0.4375 - 0.015em) 0.3125em;
+				&:last-child,
+				&:not(&:first-child) {
+					padding-right: $size / 1.25;
+				}
+				&.dui__input__wrapper__preffix {
+					padding-left: $size / 1.25;
+					padding-right: 0;
+				}
+				&.dui__input__wrapper__clear {
+					& > span {
+						margin-right: $size / 2;
+					}
+				}
+				&.dui__input__wrapper__loader {
+					padding: 0;
+				}
+			}
+
+			&.dui__input__wrapper__checkable {
+				.dui__input__checkable__value {
+					margin-left: $size / 1.25;
+				}
+				.dui__input__checkable {
+					padding: calc(#{$size} * 0.4375) 0;
+				}
+			}
+		}
+		&__textarea {
+			text-indent: calc(#{$size} * 0.4375);
+			padding: calc(#{$size} * 0.4375);
+		}
+		&__checkable {
+			padding: calc(#{$size} * 0.4375) $size / 1.25;
+		}
+		&--seamless {
+			&.dui__input__checkable {
+				padding: calc(#{$size} * 0.4375) 0;
+			}
+		}
+	}
+	&.dui__switch__group {
+		.dui__switch__group__item {
+			&__value {
+				padding: calc(#{$size} * 0.25) $size / 1.5;
+				font-size: $size;
+			}
+		}
+		&.dui__switch__group--seamless {
+			.dui__switch__group__item {
+				&__value {
+					padding: calc(#{$size} * 0.4375) $size;
+				}
+			}
+		}
+	}
+	&.dui__spinner {
+		$calcSize: calc(calc(#{$size} * 1.375) + #{$size});
+		width: $calcSize;
+		height: $calcSize;
+		border-width: calc(#{$calcSize} * 0.15);
+	}
+	&.dui__tooltip {
+		font-size: $size * 0.9;
+		padding: $size * 0.625 $size;
+		&.dui__tooltip--seamless {
+			font-size: unset;
+			padding: unset;
+			line-height: unset;
+		}
+	}
+}
+
+@each $name, $size in $sizes {
+	.size--#{$name} {
+		@include size($size);
+	}
+}
+
+@each $breakpointName, $breakpointSize in $breakpoints {
+	@each $name, $size in $sizes {
+		.size--#{$breakpointName}--#{$name} {
+			@media all and (min-width: $breakpointSize) {
+				@include size($size);
 			}
 		}
 	}
