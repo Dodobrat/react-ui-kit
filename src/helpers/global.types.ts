@@ -98,7 +98,7 @@ export type GlobalOptions = {
 	flavor?: AllFlavorOptions;
 	pigment?: AllPigmentOptions;
 	pigmentColor?: AllPigmentOptions;
-	size?: AllSizeOptions;
+	sizing?: AllSizeOptions;
 	elevation?: AllElevationOptions;
 	withRipple?: boolean;
 	//-----Component Specific-----
@@ -209,7 +209,7 @@ export interface AllEssentialCustomizationProps {
 	flavor?: AllFlavorOptions;
 }
 export interface AllCustomizationProps extends AllEssentialCustomizationProps {
-	size?: AllSizeOptions;
+	sizing?: AllSizeOptions;
 }
 
 export interface PigmentColorProps {

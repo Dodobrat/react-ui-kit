@@ -11,10 +11,10 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => {
 		appConfig: { config },
 	} = useConfig();
 
-	const { size = config.containerSize ?? "lg", className, children, ...rest } = props;
+	const { sizing = config.containerSize ?? "lg", className, children, ...rest } = props;
 
 	const classDefaults = {
-		containerSize: size,
+		containerSize: sizing,
 	};
 
 	const classBase = "dui__container";

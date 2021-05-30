@@ -22,7 +22,7 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 		pigment = config.breadcrumbsPigment ?? "none",
 		elevation = config.breadcrumbsElevation ?? "none",
 		flavor = config.flavor ?? "default",
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		separator = config.breadcrumbsSeparator ?? "/",
 		children,
 		...rest
@@ -32,7 +32,7 @@ const Breadcrumbs = forwardRef<HTMLOListElement, BreadcrumbsProps>((props, ref) 
 		pigment,
 		elevation,
 		flavor,
-		size,
+		sizing,
 	};
 
 	const classBase = "dui__breadcrumbs";

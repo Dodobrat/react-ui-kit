@@ -40,7 +40,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 		position = "bottom-left",
 		elevation = config.dropdownElevation ?? "subtle",
 		pigment = config.dropdownPigment ?? "default",
-		size = config.dropdownSize ?? "md",
+		sizing = config.dropdownSize ?? "md",
 		flavor = config.dropdownFlavor ?? "default",
 		seamless = config.dropdownSeamless ?? false,
 		spacing = config.dropdownSpacing ?? 5,
@@ -59,7 +59,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
 		elevation,
 		pigment,
 		flavor,
-		size,
+		sizing,
 		seamless,
 	};
 

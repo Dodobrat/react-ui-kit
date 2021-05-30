@@ -5,7 +5,7 @@ export type PortalAnimation = "default" | "zoom" | null;
 // Auto-Generated
 export interface PortalProps extends PortalComponent {
 	safeZoneSize?: SizeOptions | null;
-	size?: AllPortalSizeOptions;
+	sizing?: AllPortalSizeOptions;
 	verticalAlign?: VerticalAlign;
 	animation?: PortalAnimation;
 }

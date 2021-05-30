@@ -27,7 +27,7 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 		withFocusLock = false,
 		keyboard = config.drawerKeyboard ?? true,
 		backdrop = true,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		position = config.drawerPosition ?? "left",
 		bodyScrollDisable = config.drawerBodyScrollDisable ?? true,
 		isOpen = false,
@@ -38,7 +38,7 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 
 	const classDefaults = {
 		elevation,
-		drawerSize: size,
+		drawerSize: sizing,
 	};
 
 	const drawerInstance = useRef(0);

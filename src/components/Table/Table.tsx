@@ -28,7 +28,7 @@ const Table = forwardRef<HTMLDivElement, TableProps>((props, ref) => {
 		innerClassName,
 		innerRef,
 		elevation = config.elevation ?? "subtle",
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		pigment = "default",
 		flavor = config.flavor ?? "default",
 		condensed = false,
@@ -40,7 +40,7 @@ const Table = forwardRef<HTMLDivElement, TableProps>((props, ref) => {
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 	};
 
 	const passThroughProps = {

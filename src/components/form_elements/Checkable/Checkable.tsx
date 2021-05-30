@@ -25,7 +25,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 		typeClass = "checkbox",
 		name = `${type}_${Math.random().toString(36).substr(2, 10)}`,
 		id = name,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		flavor = config.flavor ?? "default",
 		seamless = false,
 		pigment = config.pigment ?? "primary",
@@ -33,7 +33,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 		scrollOnFocus = false,
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={null} pigmentColor={pigment} componentLoader />,
+		loadingComponent = <SpinnerLoader sizing={sizing} pigment={null} pigmentColor={pigment} componentLoader />,
 		preffix,
 		suffix,
 		checked,
@@ -46,7 +46,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		flavor,
 		pigment,
 		elevation,
@@ -112,7 +112,7 @@ const Checkable: React.ForwardRefRenderFunction<HTMLDivElement, CheckableProps> 
 				name={name}
 				id={id}
 				flavor={flavor}
-				size={size}
+				sizing={sizing}
 				seamless={seamless}
 				pigment={pigment}
 				elevation={elevation}
@@ -142,7 +142,7 @@ export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableCo
 		name,
 		id = name,
 		checked,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
@@ -155,7 +155,7 @@ export const CheckableComponent = React.forwardRef<HTMLInputElement, CheckableCo
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		flavor,
 		pigment,
 		elevation,

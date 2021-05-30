@@ -24,14 +24,14 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 		inputClassName,
 		name,
 		id = name,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		flavor = config.flavor ?? "default",
 		seamless = false,
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={null} pigmentColor={pigment} componentLoader />,
+		loadingComponent = <SpinnerLoader sizing={sizing} pigment={null} pigmentColor={pigment} componentLoader />,
 		isClearable = false,
 		clearableComponent = null,
 		clearableComponentLabel = "Clear",
@@ -54,7 +54,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		flavor,
 		seamless,
 		pigment,
@@ -148,7 +148,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLDivElement, TextAreaProps> = 
 				name={name}
 				id={id}
 				flavor={flavor}
-				size={size}
+				sizing={sizing}
 				seamless={seamless}
 				pigment={pigment}
 				elevation={elevation}
@@ -196,7 +196,7 @@ export const TextAreaComponent = React.forwardRef<HTMLTextAreaElement, TextAreaC
 		name,
 		id = name,
 		value,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
@@ -210,7 +210,7 @@ export const TextAreaComponent = React.forwardRef<HTMLTextAreaElement, TextAreaC
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		flavor,
 		pigment,
 		elevation,

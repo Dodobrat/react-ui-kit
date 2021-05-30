@@ -18,7 +18,7 @@ const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupPro
 		name,
 		elevation = "none",
 		pigment = config.pigment ?? "primary",
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		flavor = config.flavor ?? "default",
 		seamless = false,
 		wide = false,
@@ -32,7 +32,7 @@ const SwitchGroup: React.ForwardRefRenderFunction<HTMLDivElement, SwitchGroupPro
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		flavor,
 		pigment,
 		elevation,

@@ -25,14 +25,14 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		type = "text",
 		name,
 		id = name,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		seamless = false,
 		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={null} pigmentColor={pigment} componentLoader />,
+		loadingComponent = <SpinnerLoader sizing={sizing} pigment={null} pigmentColor={pigment} componentLoader />,
 		preffix = type === "search" ? <IconSearch /> : null,
 		suffix,
 		isClearable = false,
@@ -52,7 +52,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		flavor,
 		pigment,
 		seamless,
@@ -150,7 +150,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 				name={name}
 				id={id}
 				flavor={flavor}
-				size={size}
+				sizing={sizing}
 				pigment={pigment}
 				seamless={seamless}
 				elevation={elevation}
@@ -194,7 +194,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 		name,
 		id = name,
 		value,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
@@ -208,7 +208,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		flavor,
 		pigment,
 		elevation,

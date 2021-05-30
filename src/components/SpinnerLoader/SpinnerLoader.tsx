@@ -12,7 +12,7 @@ const SpinnerLoader: React.ForwardRefRenderFunction<HTMLDivElement, SpinnerLoade
 	} = useConfig();
 
 	const {
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		componentLoader = false,
 		pigment = config.pigment ?? "primary",
 		pigmentColor = config.pigmentColor ?? null,
@@ -21,7 +21,7 @@ const SpinnerLoader: React.ForwardRefRenderFunction<HTMLDivElement, SpinnerLoade
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		pigment,
 		pigmentColor,
 	};

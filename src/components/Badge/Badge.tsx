@@ -19,7 +19,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		pigmentColor = config.badgePigmentColor ?? null,
 		elevation = config.badgeElevation ?? "none",
 		flavor = config.flavor ?? "default",
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		children,
 		onClick,
 		withRipple = config.withRipple ?? !!onClick,
@@ -33,7 +33,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		pigmentColor,
 		elevation,
 		flavor,
-		size,
+		sizing,
 	};
 
 	const classBase = "dui__badge";

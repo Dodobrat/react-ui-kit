@@ -21,7 +21,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		pigmentColor = config.alertPigmentColor ?? null,
 		elevation = config.alertElevation ?? "none",
 		flavor = config.flavor ?? "default",
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		animation = config.alertAnimation ?? "collapse-n-fade",
 		isVisible = true,
 		withIcon = config.alertWithIcon ?? true,
@@ -41,7 +41,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		pigmentColor,
 		elevation,
 		flavor,
-		size,
+		sizing,
 	};
 
 	const classBase = "dui__alert";

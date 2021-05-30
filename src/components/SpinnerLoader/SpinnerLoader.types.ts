@@ -4,6 +4,6 @@ import { AllPigmentOptions, AllSizeOptions, PigmentColorProps } from "../../help
 export interface SpinnerLoaderProps extends PigmentColorProps {
 	className?: string;
 	componentLoader?: boolean;
-	size?: AllSizeOptions;
+	sizing?: AllSizeOptions;
 	pigment?: AllPigmentOptions;
 }

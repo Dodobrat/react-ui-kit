@@ -27,7 +27,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 		showOnHover = config.tooltipShowOnHover ?? true,
 		elevation = config.tooltipElevation ?? "subtle",
 		pigment = config.tooltipPigment ?? "default",
-		size = config.tooltipSize ?? "md",
+		sizing = config.tooltipSize ?? "md",
 		flavor = config.tooltipFlavor ?? "default",
 		seamless = config.tooltipSeamless ?? false,
 		animation = config.tooltipAnimation ?? "zoom",
@@ -43,7 +43,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (p
 	const classDefaults = {
 		elevation,
 		pigment,
-		size,
+		sizing,
 		flavor,
 		seamless,
 	};

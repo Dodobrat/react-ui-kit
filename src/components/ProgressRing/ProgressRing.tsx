@@ -14,7 +14,7 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 
 	const {
 		className,
-		size = 60,
+		sizing = 60,
 		strokeWidth = 5,
 		min = 0,
 		max = 100,
@@ -37,7 +37,7 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 
 	const classBase = "dui__progressring";
 
-	const normalizedRadius = size / 2 - strokeWidth;
+	const normalizedRadius = sizing / 2 - strokeWidth;
 	const circumference = normalizedRadius * 2 * Math.PI;
 	const strokeDashoffset = circumference - (Number(parseValueToPercent(min, max, value, decimals)) / 100) * circumference;
 
@@ -87,21 +87,21 @@ const ProgressRing: React.ForwardRefRenderFunction<SVGSVGElement, ProgressRingPr
 			{...rest}
 			style={{
 				...rest?.["style"],
-				maxWidth: size,
-				maxHeight: size,
+				maxWidth: sizing,
+				maxHeight: sizing,
 			}}
-			viewBox={`0 0 ${size} ${size}`}
+			viewBox={`0 0 ${sizing} ${sizing}`}
 			ref={ref}>
 			{withTrack && (
-				<circle className={`${classBase}__track`} strokeWidth={strokeWidth} r={normalizedRadius} cx={size / 2} cy={size / 2} />
+				<circle className={`${classBase}__track`} strokeWidth={strokeWidth} r={normalizedRadius} cx={sizing / 2} cy={sizing / 2} />
 			)}
 			<circle
 				strokeWidth={strokeWidth}
 				strokeDasharray={circumference + " " + circumference}
 				style={{ strokeDashoffset }}
 				r={normalizedRadius}
-				cx={size / 2}
-				cy={size / 2}
+				cx={sizing / 2}
+				cy={sizing / 2}
 			/>
 
 			{labeled && (

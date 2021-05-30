@@ -26,7 +26,7 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 		withFocusLock = false,
 		keyboard = config.portalKeyboard ?? true,
 		backdrop = true,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		safeZoneSize = config.portalSafeZoneSize ?? "md",
 		verticalAlign = config.portalVerticalAlign ?? "center",
 		animation = config.portalAnimation ?? "default",
@@ -37,7 +37,7 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 	} = props;
 
 	const classDefaults = {
-		portalSize: size,
+		portalSize: sizing,
 	};
 
 	const portalInstance = useRef(0);

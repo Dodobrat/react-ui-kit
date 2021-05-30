@@ -3,7 +3,7 @@ import { Positions, PortalComponent, AllElevationOptions, AllSizeOptions } from 
 // Auto-Generated
 export interface DrawerProps extends PortalComponent {
 	elevation?: AllElevationOptions;
-	size?: AllSizeOptions;
+	sizing?: AllSizeOptions;
 	position?: Positions;
 	animation?: "slide";
 }

@@ -24,14 +24,14 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 		inputClassName,
 		name,
 		id = name,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		seamless = false,
 		flavor = config.flavor ?? "default",
 		pigment = config.primary ?? "primary",
 		elevation = "none",
 		disableWhileLoading = true,
 		isLoading = false,
-		loadingComponent = <SpinnerLoader size={size} pigment={null} pigmentColor={pigment} componentLoader />,
+		loadingComponent = <SpinnerLoader sizing={sizing} pigment={null} pigmentColor={pigment} componentLoader />,
 		preffix,
 		suffix,
 		isClearable = false,
@@ -48,7 +48,7 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		flavor,
 		pigment,
 		seamless,
@@ -136,7 +136,7 @@ const Select: React.ForwardRefRenderFunction<HTMLDivElement, SelectProps> = (pro
 				name={name}
 				id={id}
 				flavor={flavor}
-				size={size}
+				sizing={sizing}
 				pigment={pigment}
 				seamless={seamless}
 				elevation={elevation}
@@ -175,7 +175,7 @@ export const SelectComponent = React.forwardRef<HTMLSelectElement, SelectCompone
 		name,
 		id = name,
 		value,
-		size = config.size ?? "md",
+		sizing = config.sizing ?? "md",
 		flavor = config.flavor ?? "default",
 		pigment = config.pigment ?? "primary",
 		elevation = "none",
@@ -189,7 +189,7 @@ export const SelectComponent = React.forwardRef<HTMLSelectElement, SelectCompone
 	} = props;
 
 	const classDefaults = {
-		size,
+		sizing,
 		flavor,
 		pigment,
 		elevation,
