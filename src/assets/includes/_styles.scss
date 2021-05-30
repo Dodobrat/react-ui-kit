@@ -1047,7 +1047,7 @@ $pigmentKeys: map-keys($options);
 }
 
 @each $name, $size in $sizes {
-	.size--#{$name} {
+	.sizing--#{$name} {
 		@include size($size);
 		@include btnSpecificSize($size);
 	}
@@ -1055,7 +1055,7 @@ $pigmentKeys: map-keys($options);
 
 @each $breakpointName, $breakpointSize in $breakpoints {
 	@each $name, $size in $sizes {
-		.size--#{$breakpointName}--#{$name} {
+		.sizing--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
 				@include size($size);
 				@include btnSpecificSize($size);
