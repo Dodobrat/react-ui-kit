@@ -78,7 +78,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		}
 	};
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent

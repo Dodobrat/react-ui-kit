@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { canUseDOM } from "../helpers/functions";
 import { useDebounce } from "./useDebounce";
 
 export interface useWindowResizeTypes {
-	width: number;
-	height: number;
+	width: number | null;
+	height: number | null;
 }
 
 export const useWindowResize: (delay?: number) => useWindowResizeTypes = (delay = 1) => {
-	const [dimensions, setDimensions] = useState<useWindowResizeTypes>({ width: 1920, height: 1080 });
+	const [dimensions, setDimensions] = useState<useWindowResizeTypes>({ width: null, height: null });
+
+	useLayoutEffect(() => {
+		if (!canUseDOM) return;
+
+		setDimensions(() => ({ width: window.innerWidth, height: window.innerHeight }));
+	}, []);
 
 	useEffect(() => {
 		if (!canUseDOM) return;

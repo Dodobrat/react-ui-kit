@@ -29,7 +29,7 @@ export const DropdownToggle = forwardRef<unknown, DropdownToggleSubComponentProp
 		}
 	};
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent
@@ -49,7 +49,7 @@ DropdownToggle.displayName = "DropdownToggle";
 export const DropdownMenu = forwardRef<unknown, DropdownMenuSubComponentProps>((props, ref) => {
 	const { className, as = "div", isToggled, children, ...rest } = props;
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	if (isToggled) {
 		return (
@@ -66,7 +66,7 @@ DropdownMenu.displayName = "DropdownMenu";
 export const DropdownHeader = forwardRef<unknown, DropdownHeaderSubComponentProps>((props, ref) => {
 	const { className, as = "div", children, ...rest } = props;
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent className={cn("dui__dropdown__header", className)} {...rest} ref={ref}>
@@ -80,7 +80,7 @@ DropdownHeader.displayName = "DropdownHeader";
 export const DropdownItem = forwardRef<unknown, DropdownItemSubComponentProps>((props, ref) => {
 	const { className, as = "div", children, ...rest } = props;
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent className={cn("dui__dropdown__item", className)} {...rest} ref={ref}>
@@ -94,7 +94,7 @@ DropdownItem.displayName = "DropdownItem";
 export const DropdownSeparator = forwardRef<unknown, DropdownSeparatorSubComponentProps>((props, ref) => {
 	const { className, as = "div", children, ...rest } = props;
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return <ParsedComponent className={cn("dui__dropdown__separator", className)} {...rest} ref={ref} tabIndex={-1} />;
 });
@@ -104,7 +104,7 @@ DropdownSeparator.displayName = "DropdownSeparator";
 export const DropdownBody = forwardRef<unknown, DropdownBodySubComponentProps>((props, ref) => {
 	const { className, as = "div", isToggled, children, ...rest } = props;
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	if (isToggled) {
 		return (

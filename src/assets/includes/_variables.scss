@@ -1,10 +1,18 @@
 //--Backgrounds
-$bg: #fafafa !default;
+$bg: #f3f3f3 !default;
 $bgCard: #fff !default;
+
+$sidebarBg: $bgCard !default;
+$sidebarMainBg: $bgCard !default;
+$topbarBg: $bgCard !default;
 
 //--Font Colors
 $mainFont: #212121 !default;
 $subFont: #4f4f4f !default;
+
+$sidebarFont: $mainFont !default;
+$sidebarMainFont: $mainFont !default;
+$topbarFont: $mainFont !default;
 
 //--Accents
 $primaryBase: 242 !default;

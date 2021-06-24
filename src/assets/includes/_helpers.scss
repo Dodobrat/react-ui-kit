@@ -82,6 +82,16 @@
 		}
 	}
 
+	&.col--auto {
+		flex: 0 0 auto;
+	}
+	&.offset--auto {
+		margin-left: auto;
+	}
+	&.offsetRight--auto {
+		margin-right: auto;
+	}
+
 	@each $breakpointName, $breakpointSize in $breakpoints {
 		@for $i from 1 through $gridColumns {
 			&.col--#{$breakpointName}--#{$i} {
@@ -100,16 +110,22 @@
 				}
 			}
 		}
-	}
 
-	&.col--auto {
-		flex: 0 0 auto;
-	}
-	&.offset--auto {
-		margin-left: auto;
-	}
-	&.offsetRight--auto {
-		margin-right: auto;
+		&.col--#{$breakpointName}--auto {
+			@media all and (min-width: $breakpointSize) {
+				flex: 0 0 auto;
+			}
+		}
+		&.offset--#{$breakpointName}--auto {
+			@media all and (min-width: $breakpointSize) {
+				margin-left: auto;
+			}
+		}
+		&.offsetRight--#{$breakpointName}--auto {
+			@media all and (min-width: $breakpointSize) {
+				margin-right: auto;
+			}
+		}
 	}
 }
 

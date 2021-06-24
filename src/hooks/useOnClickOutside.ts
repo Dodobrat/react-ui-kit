@@ -3,8 +3,8 @@ import { useEffect } from "react";
 export const useOnClickOutside: (
 	ref: React.RefObject<HTMLElement>,
 	handler: Function,
-	mouseEventDir: "up" | "down",
-	touchEventDir: "start" | "end"
+	mouseEventDir?: "up" | "down",
+	touchEventDir?: "start" | "end"
 ) => void = (ref, handler, mouseEventDir = "up", touchEventDir = "end") => {
 	useEffect(() => {
 		const listener: (event: any) => void = (event) => {

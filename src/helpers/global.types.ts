@@ -77,6 +77,7 @@ export type FlexGridColResponsiveOptions = {
 export type AllFlexGridColOptions = FlexGridColResponsiveOptions | FlexGridColOptions;
 //Other
 export type Positions = "top" | "bottom" | "left" | "right";
+export type SidebarPositions = "left" | "right";
 export type AllPositions =
 	| "top-left"
 	| "top-center"
@@ -189,6 +190,9 @@ export type GlobalOptions = {
 	skeletonPigment?: AllPigmentOptions;
 	//--Text
 	textAs?: React.ElementType;
+
+	//-----LAYOUTS-----
+	adminLayoutSidebarPosition?: SidebarPositions;
 };
 
 //Render As

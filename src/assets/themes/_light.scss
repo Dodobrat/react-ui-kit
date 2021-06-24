@@ -2,9 +2,17 @@
 $bg: #f3f3f3;
 $bgCard: #fff;
 
+$sidebarBg: $bgCard;
+$sidebarMainBg: $bgCard;
+$topbarBg: $bgCard;
+
 //--Font Colors
 $mainFont: #212121;
 $subFont: #4f4f4f;
+
+$sidebarFont: $mainFont;
+$sidebarMainFont: $mainFont;
+$topbarFont: $mainFont;
 
 $pigments: (
 	"none": (

@@ -7,6 +7,7 @@ import { FlexCol } from "./FlexSubcomponents";
 import { generateSpacingClasses, generateStyleClasses } from "../../../helpers/classnameGenerator";
 import { FlexSubComponentProps } from "./FlexSubcomponents.types";
 import { useConfig } from "../../../context/ConfigContext";
+import { addElementAttributes } from "../../../helpers/functions";
 
 export interface FlexComponent extends React.ForwardRefExoticComponent<FlexProps & React.RefAttributes<HTMLDivElement>> {
 	Col: React.ForwardRefExoticComponent<FlexSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -19,6 +20,7 @@ const Flex = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
 
 	const {
 		className,
+		as = "div",
 		spacingX = config.flexSpacingX ?? "sm",
 		spacingY = config.flexSpacingY ?? "sm",
 		align = "flex-start",
@@ -37,8 +39,10 @@ const Flex = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
 		wrap,
 	};
 
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+
 	return (
-		<div
+		<ParsedComponent
 			data-testid='Flex'
 			className={cn(
 				"dui__flex",
@@ -53,7 +57,7 @@ const Flex = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
 			{...rest}
 			ref={ref}>
 			{children}
-		</div>
+		</ParsedComponent>
 	);
 }) as FlexComponent;
 

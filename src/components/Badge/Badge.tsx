@@ -62,7 +62,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 		}
 	};
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent

@@ -13,7 +13,7 @@ const Heading: React.ForwardRefRenderFunction<HTMLDivElement, HeadingProps> = (p
 
 	const { className, as = config.headingAs ?? "h1", centered = false, children, ...rest } = props;
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent

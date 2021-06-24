@@ -20,7 +20,7 @@ const FormControl: React.ForwardRefRenderFunction<HTMLDivElement, FormControlPro
 		...rest
 	} = props;
 
-	let ParsedLabel: React.ElementType = addElementAttributes(labelAs, labelProps);
+	const ParsedLabel: React.ElementType = addElementAttributes(labelAs, labelProps);
 
 	return (
 		<div data-testid='FormControl' className={cn("dui__form__control", className)} {...rest} ref={ref}>

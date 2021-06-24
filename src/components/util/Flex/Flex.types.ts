@@ -1,3 +1,4 @@
+import { HTMLAttributes } from "react";
 import {
 	CnCh,
 	AllFlexAlignOptions,
@@ -5,10 +6,13 @@ import {
 	AllFlexDirectionOptions,
 	AllFlexWrapOptions,
 	AllSizeOptions,
+	ElemType,
 } from "../../../helpers/global.types";
 
 // Auto-Generated
-export interface FlexProps extends CnCh {
+
+type FlexExtraProps = CnCh & ElemType & HTMLAttributes<unknown>;
+export interface FlexProps extends FlexExtraProps {
 	spacingX?: AllSizeOptions;
 	spacingY?: AllSizeOptions;
 	disableNegativeSpace?: boolean;

@@ -13,7 +13,7 @@ const Text: React.ForwardRefRenderFunction<HTMLDivElement, TextProps> = (props, 
 
 	const { className, as = config.textAs ?? "p", children, ...rest } = props;
 
-	let ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
 
 	return (
 		<ParsedComponent data-testid='Text' className={cn("dui__text", className)} {...rest} ref={ref}>

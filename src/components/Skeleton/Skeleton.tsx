@@ -5,13 +5,21 @@ import cn from "classnames";
 import { SkeletonProps } from "./Skeleton.types";
 import { useConfig } from "../../context/ConfigContext";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
+import { addElementAttributes } from "../../helpers/functions";
 
 const Skeleton: React.ForwardRefRenderFunction<HTMLDivElement, SkeletonProps> = (props, ref) => {
 	const {
 		appConfig: { config },
 	} = useConfig();
 
-	const { className, pigment = config.skeletonPigment ?? "default", flavor = config.flavor ?? "default", children, ...rest } = props;
+	const {
+		className,
+		as = "div",
+		pigment = config.skeletonPigment ?? "default",
+		flavor = config.flavor ?? "default",
+		children,
+		...rest
+	} = props;
 
 	const classDefaults = {
 		pigment,
@@ -20,7 +28,16 @@ const Skeleton: React.ForwardRefRenderFunction<HTMLDivElement, SkeletonProps> = 
 
 	const classBase = "dui__skeleton";
 
-	return <div data-testid='Skeleton' className={cn(classBase, generateStyleClasses(classDefaults), className)} {...rest} ref={ref} />;
+	const ParsedComponent: React.ElementType = addElementAttributes(as, rest);
+
+	return (
+		<ParsedComponent
+			data-testid='Skeleton'
+			className={cn(classBase, generateStyleClasses(classDefaults), className)}
+			{...rest}
+			ref={ref}
+		/>
+	);
 };
 
 export default React.forwardRef<HTMLDivElement, SkeletonProps>(Skeleton);
