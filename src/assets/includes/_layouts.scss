@@ -24,18 +24,18 @@
 			will-change: width, transform;
 			transition: $normalTrans;
 			background-color: $sidebarMainBg;
-			position: fixed;
+			position: sticky;
 			top: 0;
-			left: 0;
-			bottom: 0;
 			width: 20rem;
 			transform: translateX(-101%);
 			height: 100vh;
 			overflow: hidden;
-			overflow-y: auto;
 			overscroll-behavior: contain;
 			display: flex;
 			flex-direction: column;
+			&:hover {
+				overflow-y: auto;
+			}
 		}
 		&--expanded {
 			.dui__admin__sidebar__inner {
@@ -141,6 +141,7 @@
 		position: sticky;
 		top: 0;
 		height: 3.5rem;
+		z-index: 9997;
 	}
 
 	&__content {
