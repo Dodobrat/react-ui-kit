@@ -10,7 +10,16 @@ import { ButtonProps } from "../../Button/Button.types";
 import { IconArrowUp } from "../../icons";
 
 const BackTop: React.ForwardRefRenderFunction<ButtonProps, BackTopProps> = (props, ref) => {
-	const { className, flavor = "round", sizing = "lg", position = "bottom-right", scrollDistanceTrigger = 400, children, ...rest } = props;
+	const {
+		className,
+		flavor = "rounded",
+		equalDimensions = true,
+		sizing = "lg",
+		position = "bottom-right",
+		scrollDistanceTrigger = 400,
+		children,
+		...rest
+	} = props;
 
 	const [showScroll, setShowScroll] = useState(false);
 
@@ -38,7 +47,14 @@ const BackTop: React.ForwardRefRenderFunction<ButtonProps, BackTopProps> = (prop
 					},
 					className
 				)}>
-				<Button flavor={flavor} sizing={sizing} data-testid='BackTop' onClick={scrollTop} {...rest} ref={ref}>
+				<Button
+					flavor={flavor}
+					sizing={sizing}
+					equalDimensions={equalDimensions}
+					data-testid='BackTop'
+					onClick={scrollTop}
+					{...rest}
+					ref={ref}>
 					{children ?? <IconArrowUp className='dui__icon' />}
 				</Button>
 			</div>

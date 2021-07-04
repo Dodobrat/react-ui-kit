@@ -47,5 +47,5 @@ export default {
 		}),
 		typescript({ useTsconfigDeclarationDir: true }),
 	],
-	external: ["react", "react-dom"],
+	external: ["react", "react-dom", "prop-types"],
 };

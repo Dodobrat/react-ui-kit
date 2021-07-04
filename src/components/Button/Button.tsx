@@ -24,6 +24,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 		elevation = config.btnElevation ?? "none",
 		flavor = config.flavor ?? "default",
 		sizing = config.sizing ?? "md",
+		equalDimensions = false,
 		iconStart = null,
 		iconEnd = null,
 		leftAlignContent = false,
@@ -42,6 +43,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 	} = props;
 
 	const utilClassDefaults = {
+		equalDimensions,
 		iconStart,
 		iconEnd,
 		wide,

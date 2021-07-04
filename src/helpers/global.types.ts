@@ -18,7 +18,7 @@ export type ElevationResponsiveOptions = {
 };
 export type AllElevationOptions = ElevationResponsiveOptions | ElevationOptions;
 //----------
-export type FlavorOptions = "default" | "flat" | "rounded" | "round" | "square";
+export type FlavorOptions = "default" | "flat" | "rounded";
 export type FlavorResponsiveOptions = {
 	[bp in BreakpointOptions]?: FlavorOptions;
 };

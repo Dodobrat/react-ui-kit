@@ -15,6 +15,7 @@ type ExtraButtonProps = ElemType & RippleEffect & AllCustomizationProps & Pigmen
 
 export interface ButtonProps extends ExtraButtonProps {
 	type?: "button" | "submit" | "reset";
+	equalDimensions?: boolean;
 	hoverPigment?: AllPigmentOptions;
 	activePigment?: AllPigmentOptions;
 	iconStart?: null | React.ReactNode;

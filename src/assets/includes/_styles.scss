@@ -105,6 +105,8 @@
 		}
 		&.dui__input__checkable {
 			&.dui__input--seamless {
+				transition: none;
+				background-color: transparent !important;
 				&:hover,
 				&:focus,
 				&:focus-visible {
@@ -723,144 +725,124 @@ $pigmentKeys: map-keys($options);
 			}
 		}
 	}
-	@if ($name != "round" or $name != "square") {
-		border-radius: $radius;
-		&.dui__btn-group {
+	border-radius: $radius;
+	&.dui__btn-group {
+		& > *:first-child {
+			border-radius: $radius 0 0 $radius;
+		}
+		& > *:last-child {
+			border-radius: 0 $radius $radius 0;
+		}
+
+		&.dui__btn-group--vertical {
+			& > *:first-child {
+				border-radius: $radius $radius 0 0;
+			}
+			& > *:last-child {
+				border-radius: 0 0 $radius $radius;
+			}
+		}
+	}
+	&.dui__progressbar {
+		border-radius: 0;
+		.dui__progressbar__progress {
+			border-radius: $radius;
+			&::before {
+				border-radius: $radius;
+			}
+		}
+		.dui__progressbar__label {
+			border-radius: $radius;
+		}
+	}
+	&.dui__input {
+		&__wrapper {
+			border-radius: $radius;
+		}
+		@if ($name != "flat") {
+			&[type="color"] {
+				&::-moz-color-swatch {
+					border-radius: $radius / 2;
+				}
+				&::-webkit-color-swatch {
+					border-radius: $radius / 2;
+				}
+			}
+		} @else {
+			&[type="color"] {
+				&::-moz-color-swatch {
+					border-radius: $radius;
+				}
+				&::-webkit-color-swatch {
+					border-radius: $radius;
+				}
+			}
+			&.dui__input__checkbox {
+				.dui__input__checkbox__value {
+					border-radius: $radius;
+				}
+			}
+			&.dui__input__switch {
+				.dui__input__switch__value {
+					border-radius: $radius * 5;
+					&::after {
+						border-radius: $radius;
+					}
+				}
+			}
+			&__wrapper {
+				.dui__input__switch__value {
+					border-radius: $radius;
+					&:after {
+						border-radius: $radius;
+					}
+				}
+				.dui__input__checkbox__value {
+					border-radius: $radius;
+				}
+			}
+		}
+
+		&-group {
+			& > * {
+				border-radius: 0;
+				border-right: 0.0625rem solid rgba($subFont, 0.1);
+			}
 			& > *:first-child {
 				border-radius: $radius 0 0 $radius;
 			}
 			& > *:last-child {
 				border-radius: 0 $radius $radius 0;
-			}
-
-			&.dui__btn-group--vertical {
-				& > *:first-child {
-					border-radius: $radius $radius 0 0;
-				}
-				& > *:last-child {
-					border-radius: 0 0 $radius $radius;
-				}
+				border-right: none;
 			}
 		}
-		&.dui__progressbar {
-			border-radius: 0;
-			.dui__progressbar__progress {
-				border-radius: $radius;
-				&::before {
-					border-radius: $radius;
-				}
-			}
-			.dui__progressbar__label {
-				border-radius: $radius;
-			}
-		}
-		&.dui__input {
-			&__wrapper {
-				border-radius: $radius;
-			}
-			@if ($name != "flat") {
-				&[type="color"] {
-					&::-moz-color-swatch {
-						border-radius: $radius / 2;
-					}
-					&::-webkit-color-swatch {
-						border-radius: $radius / 2;
-					}
-				}
+	}
+	&.dui__switch__group {
+		.dui__switch__group__indicator {
+			@if ($name == "default") {
+				border-radius: $radius / 2;
 			} @else {
-				&[type="color"] {
-					&::-moz-color-swatch {
-						border-radius: $radius;
-					}
-					&::-webkit-color-swatch {
-						border-radius: $radius;
-					}
-				}
-				&.dui__input__checkbox {
-					.dui__input__checkbox__value {
-						border-radius: $radius;
-					}
-				}
-				&.dui__input__switch {
-					.dui__input__switch__value {
-						border-radius: $radius * 5;
-						&::after {
-							border-radius: $radius;
-						}
-					}
-				}
-				&__wrapper {
-					.dui__input__switch__value {
-						border-radius: $radius;
-						&:after {
-							border-radius: $radius;
-						}
-					}
-					.dui__input__checkbox__value {
-						border-radius: $radius;
-					}
-				}
-			}
-
-			&-group {
-				& > * {
-					border-radius: 0;
-					border-right: 0.0625rem solid rgba($subFont, 0.1);
-				}
-				& > *:first-child {
-					border-radius: $radius 0 0 $radius;
-				}
-				& > *:last-child {
-					border-radius: 0 $radius $radius 0;
-					border-right: none;
-				}
+				border-radius: $radius;
 			}
 		}
-		&.dui__switch__group {
-			.dui__switch__group__indicator {
+		.dui__switch__group__item {
+			&__value {
 				@if ($name == "default") {
 					border-radius: $radius / 2;
 				} @else {
 					border-radius: $radius;
 				}
 			}
-			.dui__switch__group__item {
-				&__value {
-					@if ($name == "default") {
-						border-radius: $radius / 2;
-					} @else {
-						border-radius: $radius;
-					}
-				}
-			}
-		}
-		&.dui__tooltip--seamless {
-			border-radius: unset;
 		}
 	}
-}
-
-@mixin btnSpecificFlavor($name) {
-	@if ($name == "round" or $name == "square") {
-		&.dui__btn {
-			width: calc(calc(1em * 1.375) + 1em);
-			height: calc(calc(1em * 1.375) + 1em);
-		}
-	} @else {
-		&.dui__btn {
-			width: initial;
-			height: initial;
-			&--wide {
-				width: 100%;
-			}
-		}
+	&.dui__tooltip--seamless {
+		border-radius: unset;
 	}
 }
 
 @each $name, $radius in $flavors {
 	.flavor--#{$name} {
 		@include flavor($name, $radius);
-		@include btnSpecificFlavor($name);
 	}
 }
 
@@ -869,7 +851,6 @@ $pigmentKeys: map-keys($options);
 		.flavor--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
 				@include flavor($name, $radius);
-				@include btnSpecificFlavor($name);
 			}
 		}
 	}
@@ -880,11 +861,7 @@ $pigmentKeys: map-keys($options);
 	&.dui__btn {
 		@each $name, $radius in $flavors {
 			&.flavor--#{$name} {
-				@if ($name == "round" or $name == "square") {
-					padding: 0;
-				} @else {
-					padding: $size * 0.4375 $size;
-				}
+				padding: $size * 0.4375 $size;
 			}
 		}
 
@@ -892,11 +869,7 @@ $pigmentKeys: map-keys($options);
 			@each $name, $radius in $flavors {
 				&.flavor--#{$breakpointName}--#{$name} {
 					@media all and (min-width: $breakpointSize) {
-						@if ($name == "round" or $name == "square") {
-							padding: 0;
-						} @else {
-							padding: $size * 0.4375 $size;
-						}
+						padding: $size * 0.4375 $size;
 					}
 				}
 			}

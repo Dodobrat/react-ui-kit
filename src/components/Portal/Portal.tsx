@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useRef } from "react";
 import cn from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useKeyPress } from "../../hooks/useKeyPress";
@@ -7,12 +7,64 @@ import FadePortal from "../util/animations/FadePortal";
 import ZoomPortal from "../util/animations/ZoomPortal";
 import { disableScrollAndScrollBar } from "../../helpers/functions";
 
-import { PortalProps } from "./Portal.types";
+import { PortalContentProps, PortalProps } from "./Portal.types";
 import { useEventListener } from "../../hooks/useEventListener";
 import { useConfig } from "../../context/ConfigContext";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 let portalCount = 0;
+
+const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref) => {
+	const {
+		withFocusLock,
+		classBase,
+		backdrop,
+		className,
+		innerClassBase,
+		classDefaults,
+		innerClassName,
+		children,
+		isOpen,
+		element,
+		portalId,
+		portalInnerId,
+		verticalAlign,
+		safeZoneSize,
+		...rest
+	} = props;
+
+	return (
+		<PortalWrapper element={element}>
+			<FocusTrap active={withFocusLock}>
+				<div
+					data-testid='Portal'
+					id={portalId}
+					className={cn(
+						classBase,
+						{
+							[`${classBase}--backdrop`]: backdrop,
+						},
+						className
+					)}
+					{...rest}
+					ref={ref}>
+					<div
+						id={portalInnerId}
+						className={cn(
+							innerClassBase,
+							{
+								[`${innerClassBase}--vertical-${verticalAlign}`]: !!verticalAlign,
+							},
+							generateStyleClasses(classDefaults),
+							innerClassName
+						)}>
+						{children}
+					</div>
+				</div>
+			</FocusTrap>
+		</PortalWrapper>
+	);
+});
 
 const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (props, ref) => {
 	const {
@@ -20,8 +72,6 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 	} = useConfig();
 
 	const {
-		className,
-		innerClassName,
 		onClose,
 		withFocusLock = false,
 		keyboard = config.portalKeyboard ?? true,
@@ -32,7 +82,7 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 		animation = config.portalAnimation ?? "default",
 		bodyScrollDisable = config.portalBodyScrollDisable ?? true,
 		isOpen = false,
-		children,
+		element,
 		...rest
 	} = props;
 
@@ -74,8 +124,10 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 		(e) => {
 			if (backdrop !== "static") {
 				if (
-					(e.target.classList.contains(classBase) || e.target.classList.contains(innerClassBase)) &&
-					(e.target.getAttribute("id") === portalId || e.target.getAttribute("id") === portalInnerId)
+					e.target.classList.contains(classBase) ||
+					e.target.classList.contains(innerClassBase) ||
+					e.target.getAttribute("id") === portalId ||
+					e.target.getAttribute("id") === portalInnerId
 				) {
 					return onClose?.();
 				}
@@ -86,55 +138,36 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 
 	useEventListener("click", handler);
 
-	const PortalContent = () => {
-		return (
-			<PortalWrapper>
-				<FocusTrap active={withFocusLock}>
-					<div
-						data-testid='Portal'
-						id={portalId}
-						className={cn(
-							classBase,
-							{
-								[`${classBase}--backdrop`]: backdrop,
-							},
-							className
-						)}
-						{...rest}
-						ref={ref}>
-						<div
-							id={portalInnerId}
-							className={cn(
-								innerClassBase,
-								{
-									[`${innerClassBase}--vertical-${verticalAlign}`]: !!verticalAlign,
-								},
-								generateStyleClasses(classDefaults),
-								innerClassName
-							)}>
-							{children}
-						</div>
-					</div>
-				</FocusTrap>
-			</PortalWrapper>
-		);
+	const portalProps = {
+		onClose,
+		isOpen,
+		withFocusLock,
+		portalId,
+		portalInnerId,
+		classBase,
+		backdrop,
+		innerClassBase,
+		classDefaults,
+		safeZoneSize,
+		verticalAlign,
+		...rest,
 	};
 
 	switch (animation) {
 		case "default":
 			return (
 				<FadePortal in={isOpen}>
-					<PortalContent />
+					<PortalContent {...portalProps} ref={ref} />
 				</FadePortal>
 			);
 		case "zoom":
 			return (
 				<ZoomPortal in={isOpen}>
-					<PortalContent />
+					<PortalContent {...portalProps} ref={ref} />
 				</ZoomPortal>
 			);
 		default:
-			return isOpen && <PortalContent />;
+			return isOpen && <PortalContent {...portalProps} ref={ref} />;
 	}
 };
 

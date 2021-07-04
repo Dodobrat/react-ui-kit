@@ -7,3 +7,10 @@ export interface DrawerProps extends PortalComponent {
 	position?: Positions;
 	animation?: "slide";
 }
+
+export interface DrawerContentProps extends DrawerProps {
+	drawerId?: string;
+	classBase?: string;
+	innerClassBase?: string;
+	classDefaults?: any;
+}

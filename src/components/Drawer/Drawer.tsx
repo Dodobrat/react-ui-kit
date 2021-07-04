@@ -1,8 +1,8 @@
 // Auto-Generated
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useRef } from "react";
 import cn from "classnames";
 
-import { DrawerProps } from "./Drawer.types";
+import { DrawerContentProps, DrawerProps } from "./Drawer.types";
 import PortalWrapper from "../util/PortalWrapper/PortalWrapper";
 import FocusTrap from "focus-trap-react";
 import SlideIn from "../util/animations/SlideIn";
@@ -14,14 +14,60 @@ import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
 let drawerCount = 0;
 
+const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>((props, ref) => {
+	const {
+		withFocusLock,
+		drawerId,
+		classBase,
+		backdrop,
+		className,
+		innerClassBase,
+		position,
+		classDefaults,
+		innerClassName,
+		children,
+		isOpen,
+		...rest
+	} = props;
+
+	return (
+		<PortalWrapper>
+			<FocusTrap active={withFocusLock}>
+				<div
+					data-testid='Drawer'
+					id={drawerId}
+					className={cn(
+						classBase,
+						{
+							[`${classBase}--backdrop`]: backdrop,
+						},
+						className
+					)}
+					{...rest}
+					ref={ref}>
+					<div
+						className={cn(
+							innerClassBase,
+							{
+								[`${innerClassBase}--position-${position}`]: position,
+							},
+							generateStyleClasses(classDefaults),
+							innerClassName
+						)}>
+						{children}
+					</div>
+				</div>
+			</FocusTrap>
+		</PortalWrapper>
+	);
+});
+
 const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (props, ref) => {
 	const {
 		appConfig: { config },
 	} = useConfig();
 
 	const {
-		className,
-		innerClassName,
 		onClose,
 		elevation = config.drawerElevation ?? "interstellar",
 		withFocusLock = false,
@@ -32,7 +78,6 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 		bodyScrollDisable = config.drawerBodyScrollDisable ?? true,
 		isOpen = false,
 		animation = "slide",
-		children,
 		...rest
 	} = props;
 
@@ -68,7 +113,7 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 	const handler = useCallback(
 		(e) => {
 			if (backdrop !== "static") {
-				if (e.target.classList.contains(classBase) && e.target.getAttribute("id") === drawerId) {
+				if (e.target.classList.contains(classBase) || e.target.getAttribute("id") === drawerId) {
 					return onClose?.();
 				}
 			}
@@ -78,48 +123,28 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 
 	useEventListener("click", handler);
 
-	const DrawerContent = () => {
-		return (
-			<PortalWrapper>
-				<FocusTrap active={withFocusLock}>
-					<div
-						data-testid='Drawer'
-						id={drawerId}
-						className={cn(
-							classBase,
-							{
-								[`${classBase}--backdrop`]: backdrop,
-							},
-							className
-						)}
-						{...rest}
-						ref={ref}>
-						<div
-							className={cn(
-								innerClassBase,
-								{
-									[`${innerClassBase}--position-${position}`]: position,
-								},
-								generateStyleClasses(classDefaults),
-								innerClassName
-							)}>
-							{children}
-						</div>
-					</div>
-				</FocusTrap>
-			</PortalWrapper>
-		);
+	const drawerProps = {
+		onClose,
+		isOpen,
+		withFocusLock,
+		drawerId,
+		classBase,
+		backdrop,
+		innerClassBase,
+		position,
+		classDefaults,
+		...rest,
 	};
 
 	switch (animation) {
 		case "slide":
 			return (
 				<SlideIn position={position} in={isOpen}>
-					<DrawerContent />
+					<DrawerContent {...drawerProps} ref={ref} />
 				</SlideIn>
 			);
 		default:
-			return isOpen && <DrawerContent />;
+			return isOpen && <DrawerContent {...drawerProps} ref={ref} />;
 	}
 };
 

@@ -98,9 +98,21 @@ export const generateStyleClasses: ClassnameGeneratorFunc = (props = {}) => {
 
 //Component Specific
 export const generateBtnClasses: DefaultClassnameGeneratorFunc = (baseClass, props) => {
-	const { iconStart, iconEnd, wide, unWrapText, leftAlignContent, active, keyboardOnlyFocusRing, spongy, vertical } = props;
+	const {
+		equalDimensions,
+		iconStart,
+		iconEnd,
+		wide,
+		unWrapText,
+		leftAlignContent,
+		active,
+		keyboardOnlyFocusRing,
+		spongy,
+		vertical,
+	} = props;
 
 	return cn({
+		[`${baseClass}--equal`]: equalDimensions,
 		[`${baseClass}--icon-start`]: iconStart,
 		[`${baseClass}--icon-end`]: iconEnd,
 		[`${baseClass}--wide`]: wide,

@@ -24,6 +24,7 @@
 
 	&:disabled {
 		cursor: not-allowed;
+		opacity: 0.5;
 	}
 
 	&:not(:disabled) {
@@ -33,6 +34,15 @@
 
 .dui__btn {
 	@include btn();
+
+	&--equal {
+		padding: 0 !important;
+		width: calc(calc(1em * 1.375) + 1em);
+		height: calc(calc(1em * 1.375) + 1em);
+		display: grid;
+		align-items: center;
+		justify-items: center;
+	}
 
 	&--loading {
 		cursor: progress;
@@ -51,11 +61,15 @@
 		}
 	}
 	&--icon-start {
+		display: inline-flex;
+		align-items: center;
 		& > * {
 			margin-right: 0.5em;
 		}
 	}
 	&--icon-end {
+		display: inline-flex;
+		align-items: center;
 		& > * {
 			margin-left: 0.5em;
 		}

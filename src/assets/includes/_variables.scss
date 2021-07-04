@@ -259,11 +259,11 @@ $containerSizes: (
 ) !default;
 
 $spacingOptions: (
-	"xs": 0.3125rem,
-	"sm": 0.625rem,
-	"md": 1rem,
-	"lg": 1.625rem,
-	"xl": 2rem,
+	"xs": 0.15625rem,
+	"sm": 0.3125rem,
+	"md": 0.5rem,
+	"lg": 0.8125rem,
+	"xl": 1rem,
 ) !default;
 
 $sizes: (
@@ -278,8 +278,6 @@ $flavors: (
 	"default": $smBorderRadius,
 	"flat": $flatBorderRadius,
 	"rounded": $roundedBorderRadius,
-	"round": $roundBorderRadius,
-	"square": $flatBorderRadius,
 ) !default;
 
 $pigments: (
