@@ -11,13 +11,10 @@ import {
 	AdminLayoutSidebarSubComponentProps,
 	AdminLayoutTopbarSubComponentProps,
 } from "./AdminLayoutSubComponents.types";
-import Flex from "../../util/Flex/Flex";
 import { useAdminLayout } from "../../../context/AdminLayoutContext";
 import { useWindowResize } from "../../../hooks/useWindowResize";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
 import { addElementAttributes, mergeRefs } from "../../../helpers/functions";
-
-const { Col } = Flex;
 
 export const AdminLayoutLoader = forwardRef<HTMLDivElement, AdminLayoutLoaderSubComponentProps>((props, ref) => {
 	const {
@@ -111,9 +108,7 @@ export const AdminLayoutSidebar = forwardRef<HTMLDivElement, AdminLayoutSidebarS
 	useOnClickOutside(sidebarRef, () => sidebarState && width < sidebarBreakpointState && setSidebarState(false));
 
 	return (
-		<Col
-			col='auto'
-			as='aside'
+		<aside
 			className={cn(
 				"dui__admin__sidebar",
 				{
@@ -131,7 +126,7 @@ export const AdminLayoutSidebar = forwardRef<HTMLDivElement, AdminLayoutSidebarS
 				ref={mergeRefs([sidebarRef, innerRef])}>
 				{children}
 			</div>
-		</Col>
+		</aside>
 	);
 }) as AdminLayoutSidebarComponent;
 
@@ -142,9 +137,9 @@ export const AdminLayoutTopbar = forwardRef<HTMLDivElement, AdminLayoutTopbarSub
 	const { className, children, ...rest } = props;
 
 	return (
-		<Col col='auto' as='header' className={cn("dui__admin__topbar", className)} {...rest} ref={ref}>
+		<header className={cn("dui__admin__topbar", className)} {...rest} ref={ref}>
 			{children}
-		</Col>
+		</header>
 	);
 });
 
@@ -154,9 +149,9 @@ export const AdminLayoutContent = forwardRef<HTMLDivElement, AdminLayoutContentS
 	const { className, children, ...rest } = props;
 
 	return (
-		<Col as='article' className={cn("dui__admin__content", className)} {...rest} ref={ref}>
+		<article className={cn("dui__admin__content", className)} {...rest} ref={ref}>
 			{children}
-		</Col>
+		</article>
 	);
 });
 
@@ -166,9 +161,9 @@ export const AdminLayoutFooter = forwardRef<HTMLDivElement, AdminLayoutFooterSub
 	const { className, children, ...rest } = props;
 
 	return (
-		<Col col='auto' as='footer' className={cn("dui__admin__footer", className)} {...rest} ref={ref}>
+		<footer className={cn("dui__admin__footer", className)} {...rest} ref={ref}>
 			{children}
-		</Col>
+		</footer>
 	);
 });
 

@@ -18,8 +18,8 @@ import {
 	AdminLayoutSidebar,
 	AdminLayoutTopbar,
 } from "./AdminLayoutSubComponents";
-import Flex from "../../util/Flex/Flex";
 import { generateLoadingClasses } from "../../../helpers/classnameGenerator";
+import { useAdminLayout } from "../../../context/AdminLayoutContext";
 
 export interface AdminLayoutComponent extends React.ForwardRefExoticComponent<AdminLayoutProps & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<AdminLayoutLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -33,6 +33,10 @@ const AdminLayout = forwardRef<HTMLDivElement, AdminLayoutProps>((props, ref) =>
 	const {
 		appConfig: { config },
 	} = useConfig();
+
+	const {
+		sidebarValue: { sidebarState },
+	} = useAdminLayout();
 
 	const {
 		sidebarPosition = config.adminLayoutSidebarPosition ?? "left",
@@ -77,24 +81,27 @@ const AdminLayout = forwardRef<HTMLDivElement, AdminLayoutProps>((props, ref) =>
 	);
 
 	return (
-		<Flex
-			data-testid='AdminLayout'
-			className={cn(classBase, generateLoadingClasses(classBase, classDefaults), className)}
-			{...rest}
-			spacingX={null}
-			spacingY={null}
-			align='stretch'
-			wrap='nowrap'
-			as='main'
-			ref={ref}>
+		<>
 			{isLoading && loader.length === 0 && <AdminLayoutLoader />}
-			{sidebar}
-			<Flex direction='column' spacingX={null} spacingY={null} className='dui__admin__inner' as='section'>
-				{topbar}
-				{content}
-				{footer}
-			</Flex>
-		</Flex>
+			<main
+				className={cn(
+					classBase,
+					generateLoadingClasses(classBase, classDefaults),
+					{
+						[`${classBase}--sidebar-expanded`]: sidebarState,
+					},
+					className
+				)}
+				{...rest}
+				ref={ref}>
+				{sidebar}
+				<section className='dui__admin__inner'>
+					{topbar}
+					{content}
+					{footer}
+				</section>
+			</main>
+		</>
 	);
 }) as AdminLayoutComponent;
 

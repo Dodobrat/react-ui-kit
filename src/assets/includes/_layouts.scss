@@ -1,5 +1,24 @@
 @mixin admin() {
 	position: relative;
+	display: grid;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	grid-template-columns: 0 1fr;
+	grid-template-rows: 1fr;
+	transition: grid-template-columns $normalTransTime $normalTransEase;
+
+	@media (min-width: map-get($breakpoints, "sm")) {
+		grid-template-columns: 3.5rem 1fr;
+	}
+
+	@media (min-width: map-get($breakpoints, "lg")) {
+		grid-template-columns: 3.5rem 1fr;
+
+		&--sidebar-expanded {
+			grid-template-columns: 20rem 1fr;
+		}
+	}
 }
 
 .dui__admin {
@@ -14,6 +33,7 @@
 	}
 
 	&__sidebar {
+		grid-column: 1 / 1;
 		will-change: width, transform;
 		transition: $normalTrans;
 		min-height: 100vh;
@@ -37,6 +57,7 @@
 				overflow-y: auto;
 			}
 		}
+
 		&--expanded {
 			.dui__admin__sidebar__inner {
 				transform: translateX(0);
@@ -94,6 +115,7 @@
 		}
 
 		@media (min-width: map-get($breakpoints, "sm")) {
+			grid-column: 1 / 2;
 			width: 3.5rem;
 			&__inner {
 				width: 3.5rem;
@@ -107,6 +129,7 @@
 		}
 
 		@media (min-width: map-get($breakpoints, "lg")) {
+			grid-column: 1 / 2;
 			width: 3.5rem;
 			&__inner {
 				width: 3.5rem;
@@ -129,9 +152,9 @@
 	}
 
 	&__inner {
-		max-width: 100%;
-		flex: 1 1 auto;
+		grid-column: 2 / 3;
 		min-height: 100vh;
+		overflow-y: auto;
 		& > * {
 			width: 100%;
 		}

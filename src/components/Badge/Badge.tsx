@@ -78,6 +78,7 @@ const Badge: React.ForwardRefRenderFunction<unknown, BadgeProps> = (props, ref) 
 			tabIndex={onClick && !rest["disabled"] ? 0 : -1}
 			onKeyDown={handleKeyDown}
 			onPointerDown={handleOnPointerDown}
+			onClick={onClick}
 			{...rest}
 			ref={mergeRefs([badgeRef, ref])}>
 			{children}
