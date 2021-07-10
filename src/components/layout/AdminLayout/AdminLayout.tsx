@@ -19,7 +19,6 @@ import {
 	AdminLayoutTopbar,
 } from "./AdminLayoutSubComponents";
 import { generateLoadingClasses } from "../../../helpers/classnameGenerator";
-import { useAdminLayout } from "../../../context/AdminLayoutContext";
 
 export interface AdminLayoutComponent extends React.ForwardRefExoticComponent<AdminLayoutProps & React.RefAttributes<HTMLDivElement>> {
 	Loader: React.ForwardRefExoticComponent<AdminLayoutLoaderSubComponentProps & React.RefAttributes<HTMLDivElement>>;
@@ -33,10 +32,6 @@ const AdminLayout = forwardRef<HTMLDivElement, AdminLayoutProps>((props, ref) =>
 	const {
 		appConfig: { config },
 	} = useConfig();
-
-	const {
-		sidebarValue: { sidebarState },
-	} = useAdminLayout();
 
 	const {
 		sidebarPosition = config.adminLayoutSidebarPosition ?? "left",
@@ -83,17 +78,7 @@ const AdminLayout = forwardRef<HTMLDivElement, AdminLayoutProps>((props, ref) =>
 	return (
 		<>
 			{isLoading && loader.length === 0 && <AdminLayoutLoader />}
-			<main
-				className={cn(
-					classBase,
-					generateLoadingClasses(classBase, classDefaults),
-					{
-						[`${classBase}--sidebar-expanded`]: sidebarState,
-					},
-					className
-				)}
-				{...rest}
-				ref={ref}>
+			<main className={cn(classBase, generateLoadingClasses(classBase, classDefaults), className)} {...rest} ref={ref}>
 				{sidebar}
 				<section className='dui__admin__inner'>
 					{topbar}

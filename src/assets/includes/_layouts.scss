@@ -1,24 +1,9 @@
 @mixin admin() {
 	position: relative;
-	display: grid;
+	display: flex;
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-	grid-template-columns: 0 1fr;
-	grid-template-rows: 1fr;
-	transition: grid-template-columns $normalTransTime $normalTransEase;
-
-	@media (min-width: map-get($breakpoints, "sm")) {
-		grid-template-columns: 3.5rem 1fr;
-	}
-
-	@media (min-width: map-get($breakpoints, "lg")) {
-		grid-template-columns: 3.5rem 1fr;
-
-		&--sidebar-expanded {
-			grid-template-columns: 20rem 1fr;
-		}
-	}
 }
 
 .dui__admin {
@@ -33,7 +18,7 @@
 	}
 
 	&__sidebar {
-		grid-column: 1 / 1;
+		flex: 0 0 0;
 		will-change: width, transform;
 		transition: $normalTrans;
 		min-height: 100vh;
@@ -115,7 +100,7 @@
 		}
 
 		@media (min-width: map-get($breakpoints, "sm")) {
-			grid-column: 1 / 2;
+			flex: 0 0 3.5rem;
 			width: 3.5rem;
 			&__inner {
 				width: 3.5rem;
@@ -129,14 +114,15 @@
 		}
 
 		@media (min-width: map-get($breakpoints, "lg")) {
-			grid-column: 1 / 2;
 			width: 3.5rem;
+			flex: 0 0 3.5rem;
 			&__inner {
 				width: 3.5rem;
 				transform: none;
 			}
 			&--expanded {
 				width: 20rem;
+				flex: 0 0 20rem;
 				.dui__admin__sidebar__inner {
 					width: 20rem;
 					box-shadow: none;
@@ -152,7 +138,7 @@
 	}
 
 	&__inner {
-		grid-column: 2 / 3;
+		flex: 1 1 auto;
 		min-height: 100vh;
 		overflow-y: auto;
 		& > * {
