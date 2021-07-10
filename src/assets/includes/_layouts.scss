@@ -139,6 +139,9 @@
 
 	&__inner {
 		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
 		min-height: 100vh;
 		overflow-y: auto;
 		& > * {
@@ -147,6 +150,7 @@
 	}
 
 	&__topbar {
+		flex: 0 0 auto;
 		background-color: $topbarBg;
 		position: sticky;
 		top: 0;
@@ -156,9 +160,11 @@
 
 	&__content {
 		background-color: $bg;
+		flex: 1 1 auto;
 	}
 
 	&__footer {
+		flex: 0 0 auto;
 		background-color: $bg;
 		color: $subFont;
 	}
