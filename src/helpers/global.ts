@@ -13,7 +13,7 @@ export const FlexDirectionOptions = ["row", "row-reverse", "column", "column-rev
 export const FlexWrapOptions = ["nowrap", "wrap", "wrap-reverse"];
 
 const cols = Array.from(new Array(12), (_, idx) => `${idx + 1}`);
-export const FlexColOptions = [...cols, "auto"];
+export const FlexColOptions = [...cols, "auto", "reset"];
 
 //Util helpers
 export const Breakpoints = ["base", "xs", "sm", "md", "lg", "xl", "fhd"];

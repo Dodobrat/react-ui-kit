@@ -64,6 +64,7 @@ export const generateStyleClasses: ClassnameGeneratorFunc = (props = {}) => {
 		["direction", FlexDirectionOptions],
 		["wrap", FlexWrapOptions],
 		["col", FlexColOptions],
+		["reset", FlexColOptions],
 		["offset", FlexColOptions],
 		["offsetRight", FlexColOptions],
 	]);

@@ -70,7 +70,7 @@ export type AllFlexWrapOptions = FlexWrapResponsiveOptions | FlexWrapOptions;
 //----------
 //FLEX COL
 //----------
-export type FlexGridColOptions = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "auto";
+export type FlexGridColOptions = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "auto" | "reset";
 export type FlexGridColResponsiveOptions = {
 	[bp in BreakpointOptions]?: FlexGridColOptions;
 };

@@ -82,6 +82,9 @@
 		}
 	}
 
+	&.col--reset {
+		flex: 1 1 auto;
+	}
 	&.col--auto {
 		flex: 0 0 auto;
 	}
@@ -111,6 +114,11 @@
 			}
 		}
 
+		&.col--#{$breakpointName}--reset {
+			@media all and (min-width: $breakpointSize) {
+				flex: 1 1 auto;
+			}
+		}
 		&.col--#{$breakpointName}--auto {
 			@media all and (min-width: $breakpointSize) {
 				flex: 0 0 auto;
