@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import cn from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useKeyPress } from "../../hooks/useKeyPress";
@@ -8,9 +8,9 @@ import ZoomPortal from "../util/animations/ZoomPortal";
 import { disableScrollAndScrollBar } from "../../helpers/functions";
 
 import { PortalContentProps, PortalProps } from "./Portal.types";
-import { useEventListener } from "../../hooks/useEventListener";
 import { useConfig } from "../../context/ConfigContext";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 let portalCount = 0;
 
@@ -30,8 +30,19 @@ const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref
 		portalInnerId,
 		verticalAlign,
 		safeZoneSize,
+		onClose,
 		...rest
 	} = props;
+
+	const portalChildrenWrapperRef = useRef(null);
+
+	const handleOnClose = () => {
+		if (backdrop !== "static") {
+			return onClose?.();
+		}
+	};
+
+	useOnClickOutside(portalChildrenWrapperRef, handleOnClose);
 
 	return (
 		<PortalWrapper element={element}>
@@ -58,7 +69,7 @@ const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref
 							generateStyleClasses(classDefaults),
 							innerClassName
 						)}>
-						{children}
+						<div ref={portalChildrenWrapperRef}>{children}</div>
 					</div>
 				</div>
 			</FocusTrap>
@@ -119,24 +130,6 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 			}
 		};
 	}, [isOpen]);
-
-	const handler = useCallback(
-		(e) => {
-			if (backdrop !== "static") {
-				if (
-					e.target.classList.contains(classBase) ||
-					e.target.classList.contains(innerClassBase) ||
-					e.target.getAttribute("id") === portalId ||
-					e.target.getAttribute("id") === portalInnerId
-				) {
-					return onClose?.();
-				}
-			}
-		},
-		[onClose]
-	);
-
-	useEventListener("click", handler);
 
 	const portalProps = {
 		onClose,

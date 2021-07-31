@@ -1,5 +1,5 @@
 // Auto-Generated
-import React, { forwardRef, useCallback, useEffect, useRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import cn from "classnames";
 
 import { DrawerContentProps, DrawerProps } from "./Drawer.types";
@@ -8,9 +8,9 @@ import FocusTrap from "focus-trap-react";
 import SlideIn from "../util/animations/SlideIn";
 import { useKeyPress } from "../../hooks/useKeyPress";
 import { disableScrollAndScrollBar } from "../../helpers/functions";
-import { useEventListener } from "../../hooks/useEventListener";
 import { useConfig } from "../../context/ConfigContext";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 let drawerCount = 0;
 
@@ -27,8 +27,19 @@ const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>((props, ref
 		innerClassName,
 		children,
 		isOpen,
+		onClose,
 		...rest
 	} = props;
+
+	const drawerChildrenWrapperRef = useRef(null);
+
+	const handleOnClose = () => {
+		if (backdrop !== "static") {
+			return onClose?.();
+		}
+	};
+
+	useOnClickOutside(drawerChildrenWrapperRef, handleOnClose);
 
 	return (
 		<PortalWrapper>
@@ -53,7 +64,8 @@ const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>((props, ref
 							},
 							generateStyleClasses(classDefaults),
 							innerClassName
-						)}>
+						)}
+						ref={drawerChildrenWrapperRef}>
 						{children}
 					</div>
 				</div>
@@ -109,19 +121,6 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 			}
 		}
 	}, [isOpen]);
-
-	const handler = useCallback(
-		(e) => {
-			if (backdrop !== "static") {
-				if (e.target.classList.contains(classBase) || e.target.getAttribute("id") === drawerId) {
-					return onClose?.();
-				}
-			}
-		},
-		[onClose]
-	);
-
-	useEventListener("click", handler);
 
 	const drawerProps = {
 		onClose,

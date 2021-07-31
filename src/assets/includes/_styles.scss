@@ -609,6 +609,17 @@ $pigmentKeys: map-keys($options);
 					}
 				}
 			}
+			& > *:only-child {
+				border-radius: $radius;
+				& > .dui__list__group__collapse__toggle {
+					border-radius: $radius;
+				}
+				&.dui__list__group__collapse--collapsed {
+					.dui__list__group__collapse__toggle {
+						border-radius: $radius;
+					}
+				}
+			}
 			&--loading {
 				& > *:nth-child(2):not(.dui__list__group__loader) {
 					border-radius: $radius $radius 0 0;
