@@ -19,6 +19,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 
 	const {
 		className,
+		contentClassName,
 		elevation = config.elevation ?? "subtle",
 		pigment = "default",
 		flavor = config.flavor ?? "default",
@@ -130,7 +131,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 				activeOption={activeTabIndex}
 				onKeyDown={handleKeyPress}
 			/>
-			<TabContent options={panels} />
+			<TabContent options={panels} className={contentClassName} />
 		</div>
 	);
 }) as TabsComponent;

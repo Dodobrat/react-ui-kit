@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { canUseDOM } from "../helpers/functions";
 
 export const useOnClickOutside: (
 	ref: React.RefObject<HTMLElement>,
@@ -6,21 +7,29 @@ export const useOnClickOutside: (
 	mouseEventDir?: "up" | "down",
 	touchEventDir?: "start" | "end"
 ) => void = (ref, handler, mouseEventDir = "up", touchEventDir = "end") => {
+	const onClickRef = useRef(handler);
+
 	useEffect(() => {
-		const listener: (event: any) => void = (event) => {
-			if (!ref.current || ref.current.contains(event.target)) {
+		onClickRef.current = handler;
+	}, [handler]);
+
+	useEffect(() => {
+		if (!canUseDOM) return;
+
+		const handleEvent: (e: any) => any = (e) => {
+			if (!ref.current || ref.current.contains(e.target)) {
 				return;
 			}
 
-			handler(event);
+			return onClickRef.current(e);
 		};
 
-		document.addEventListener(`mouse${mouseEventDir}`, listener);
-		document.addEventListener(`touch${touchEventDir}`, listener);
+		document.addEventListener(`mouse${mouseEventDir}`, handleEvent);
+		document.addEventListener(`touch${touchEventDir}`, handleEvent);
 
 		return () => {
-			document.removeEventListener(`mouse${mouseEventDir}`, listener);
-			document.removeEventListener(`touch${touchEventDir}`, listener);
+			document.removeEventListener(`mouse${mouseEventDir}`, handleEvent);
+			document.removeEventListener(`touch${touchEventDir}`, handleEvent);
 		};
-	}, [ref, handler]);
+	}, [ref, mouseEventDir, touchEventDir]);
 };

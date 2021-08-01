@@ -33,9 +33,9 @@ const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>((props, ref
 
 	const drawerChildrenWrapperRef = useRef(null);
 
-	const handleOnClose = () => {
+	const handleOnClose = (e: any) => {
 		if (backdrop !== "static") {
-			return onClose?.();
+			return onClose?.(e);
 		}
 	};
 
@@ -104,7 +104,7 @@ const Drawer: React.ForwardRefRenderFunction<HTMLDivElement, DrawerProps> = (pro
 	const innerClassBase = "dui__drawer__inner";
 	const drawerId = `${classBase}__${drawerInstance.current}`;
 
-	useKeyPress("Escape", keyboard && backdrop !== "static" ? () => onClose?.() : () => null);
+	useKeyPress("Escape", keyboard && backdrop !== "static" ? (e: any) => onClose?.(e) : () => null);
 
 	useEffect(() => {
 		drawerCount += 1;

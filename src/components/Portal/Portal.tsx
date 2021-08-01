@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useRef } from "react";
 import cn from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useKeyPress } from "../../hooks/useKeyPress";
@@ -31,18 +31,9 @@ const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref
 		verticalAlign,
 		safeZoneSize,
 		onClose,
+		innerRef,
 		...rest
 	} = props;
-
-	const portalChildrenWrapperRef = useRef(null);
-
-	const handleOnClose = () => {
-		if (backdrop !== "static") {
-			return onClose?.();
-		}
-	};
-
-	useOnClickOutside(portalChildrenWrapperRef, handleOnClose);
 
 	return (
 		<PortalWrapper element={element}>
@@ -60,7 +51,6 @@ const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref
 					{...rest}
 					ref={ref}>
 					<div
-						id={portalInnerId}
 						className={cn(
 							innerClassBase,
 							{
@@ -69,7 +59,9 @@ const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref
 							generateStyleClasses(classDefaults),
 							innerClassName
 						)}>
-						<div ref={portalChildrenWrapperRef}>{children}</div>
+						<div id={portalInnerId} ref={innerRef}>
+							{children}
+						</div>
 					</div>
 				</div>
 			</FocusTrap>
@@ -84,6 +76,7 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 
 	const {
 		onClose,
+		onOutsideClick,
 		withFocusLock = false,
 		keyboard = config.portalKeyboard ?? true,
 		backdrop = true,
@@ -102,13 +95,28 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 	};
 
 	const portalInstance = useRef(0);
+	const portalChildrenWrapperRef = useRef(null);
 
 	const classBase = "dui__portal";
 	const innerClassBase = "dui__portal__inner";
 	const portalId = `${classBase}__${portalInstance.current}`;
 	const portalInnerId = `${innerClassBase}__${portalInstance.current}`;
 
-	useKeyPress("Escape", keyboard && backdrop !== "static" ? () => onClose?.() : () => null);
+	const onCloseHandler = useCallback(
+		(e) => {
+			if (onOutsideClick && !onClose) {
+				return onOutsideClick?.(e);
+			}
+			if (backdrop !== "static") {
+				return onClose?.(e);
+			}
+			return null;
+		},
+		[onOutsideClick, onClose, backdrop]
+	);
+
+	useKeyPress("Escape", keyboard && onCloseHandler);
+	useOnClickOutside(portalChildrenWrapperRef, onCloseHandler);
 
 	useEffect(() => {
 		portalCount += 1;
@@ -133,6 +141,7 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 
 	const portalProps = {
 		onClose,
+		innerRef: portalChildrenWrapperRef,
 		isOpen,
 		withFocusLock,
 		portalId,

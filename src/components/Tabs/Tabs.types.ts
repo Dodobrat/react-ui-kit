@@ -3,6 +3,7 @@ import { AllEssentialCustomizationProps, CnCh, EssentialLoadingProps } from "../
 type ExtraTabsProps = CnCh & AllEssentialCustomizationProps & EssentialLoadingProps;
 // Auto-Generated
 export interface TabsProps extends ExtraTabsProps {
+	contentClassName?: string;
 	withRipple?: boolean;
 	onTabPointerDown?: React.PointerEventHandler;
 	activeTab?: number;
