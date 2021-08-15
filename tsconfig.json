@@ -16,7 +16,11 @@
 		"forceConsistentCasingInFileNames": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"suppressImplicitAnyIndexErrors": true
+		"suppressImplicitAnyIndexErrors": true,
+		"baseUrl": ".",
+		"paths": {
+			"tslib": ["node_modules/tslib/tslib.d.ts"]
+		}
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules", "build", "rollup.config.js", "src/**/*.test.tsx"]

@@ -4,5 +4,4 @@ build/
 
 #files
 stats.html
-package-lock.json
 .env
