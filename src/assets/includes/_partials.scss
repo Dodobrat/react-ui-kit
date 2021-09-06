@@ -101,6 +101,7 @@
 .dui__dragscroll__container {
 	position: relative;
 	background-color: inherit;
+	max-width: 100vw;
 	&__indicator {
 		position: absolute;
 		display: flex;

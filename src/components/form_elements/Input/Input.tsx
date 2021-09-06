@@ -43,6 +43,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		onFocus,
 		onBlur,
 		disabled = false,
+		spellCheck = false,
 		innerRef,
 		withPasswordReveal = type === "password",
 		passwordRevealComponent = (visible = type === "text") =>
@@ -164,6 +165,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 					return onUncontrolledChange(e);
 				}}
 				disabled={(isLoading && disableWhileLoading) || disabled}
+				spellCheck={spellCheck}
 				{...rest}
 				ref={mergeRefs([inputRef, innerRef])}
 			/>
@@ -203,6 +205,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 		onFocus,
 		scrollOnFocus = false,
 		disabled,
+		spellCheck,
 		children,
 		...rest
 	} = props;
@@ -238,6 +241,7 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputComponentP
 			onChange={onChange}
 			onFocus={handleOnFocus}
 			disabled={disabled}
+			spellCheck={spellCheck}
 			{...rest}
 			ref={mergeRefs([inputComponentRef, ref])}
 		/>
