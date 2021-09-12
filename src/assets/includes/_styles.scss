@@ -482,6 +482,7 @@ $pigmentKeys: map-keys($options);
 @each $name, $size in $portalSizes {
 	.portalSize--#{$name} {
 		max-width: $size;
+		width: 100vw;
 	}
 }
 
@@ -490,6 +491,7 @@ $pigmentKeys: map-keys($options);
 		.portalSize--#{$breakpointName}--#{$name} {
 			@media all and (min-width: $breakpointSize) {
 				max-width: $size;
+				width: 100vw;
 			}
 		}
 	}

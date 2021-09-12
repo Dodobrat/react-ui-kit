@@ -18,8 +18,7 @@ export interface PortalWrapperProps {
 
 export interface PortalContentProps extends PortalProps {
 	classBase?: string;
-	innerClassBase?: string;
-	innerRef?: any;
+	innerProps?: any;
 	classDefaults?: any;
 	portalId?: string;
 	portalInnerId?: string;

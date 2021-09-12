@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import cn from "classnames";
 import FocusTrap from "focus-trap-react";
 import { useKeyPress } from "../../hooks/useKeyPress";
@@ -10,9 +10,18 @@ import { disableScrollAndScrollBar } from "../../helpers/functions";
 import { PortalContentProps, PortalProps } from "./Portal.types";
 import { useConfig } from "../../context/ConfigContext";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 let portalCount = 0;
+
+const usePortalClose = (callback) => {
+	const ref = useRef();
+	const onPointerUp = ({ target }) => {
+		if (target === ref.current) {
+			callback?.();
+		}
+	};
+	return { ref, onPointerUp };
+};
 
 const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref) => {
 	const {
@@ -20,7 +29,6 @@ const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref
 		classBase,
 		backdrop,
 		className,
-		innerClassBase,
 		classDefaults,
 		innerClassName,
 		children,
@@ -31,7 +39,7 @@ const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref
 		verticalAlign,
 		safeZoneSize,
 		onClose,
-		innerRef,
+		innerProps: { classBase: innerClassBase, ...innerProps },
 		...rest
 	} = props;
 
@@ -51,17 +59,16 @@ const PortalContent = forwardRef<HTMLDivElement, PortalContentProps>((props, ref
 					{...rest}
 					ref={ref}>
 					<div
+						id={portalInnerId}
 						className={cn(
 							innerClassBase,
 							{
 								[`${innerClassBase}--vertical-${verticalAlign}`]: !!verticalAlign,
 							},
-							generateStyleClasses(classDefaults),
 							innerClassName
-						)}>
-						<div id={portalInnerId} ref={innerRef}>
-							{children}
-						</div>
+						)}
+						{...innerProps}>
+						<div className={cn(generateStyleClasses(classDefaults))}>{children}</div>
 					</div>
 				</div>
 			</FocusTrap>
@@ -95,28 +102,14 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 	};
 
 	const portalInstance = useRef(0);
-	const portalChildrenWrapperRef = useRef(null);
 
 	const classBase = "dui__portal";
 	const innerClassBase = "dui__portal__inner";
 	const portalId = `${classBase}__${portalInstance.current}`;
 	const portalInnerId = `${innerClassBase}__${portalInstance.current}`;
 
-	const onCloseHandler = useCallback(
-		(e) => {
-			if (onOutsideClick && !onClose) {
-				return onOutsideClick?.(e);
-			}
-			if (backdrop !== "static") {
-				return onClose?.(e);
-			}
-			return null;
-		},
-		[onOutsideClick, onClose, backdrop]
-	);
-
-	useKeyPress("Escape", keyboard && onCloseHandler);
-	useOnClickOutside(portalChildrenWrapperRef, onCloseHandler);
+	const portalCloseProps = usePortalClose(onOutsideClick);
+	useKeyPress("Escape", keyboard && backdrop !== "static" && onClose);
 
 	useEffect(() => {
 		portalCount += 1;
@@ -141,14 +134,16 @@ const Portal: React.ForwardRefRenderFunction<HTMLDivElement, PortalProps> = (pro
 
 	const portalProps = {
 		onClose,
-		innerRef: portalChildrenWrapperRef,
+		innerProps: {
+			...portalCloseProps,
+			classBase: innerClassBase,
+		},
 		isOpen,
 		withFocusLock,
 		portalId,
 		portalInnerId,
 		classBase,
 		backdrop,
-		innerClassBase,
 		classDefaults,
 		safeZoneSize,
 		verticalAlign,

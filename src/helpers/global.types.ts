@@ -261,9 +261,9 @@ export interface Progress {
 }
 
 export interface PortalComponent extends CnCh {
-	onClose: (e: any) => void;
+	onClose: (e: any) => void | (() => void);
 	isOpen: boolean;
-	onOutsideClick?: (e: any) => void;
+	onOutsideClick?: () => void;
 	innerClassName?: string;
 	withFocusLock?: boolean;
 	keyboard?: boolean;
