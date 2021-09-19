@@ -6,7 +6,6 @@ import { AlertProps } from "./Alert.types";
 import CollapseFade from "../util/animations/CollapseFade";
 import Fade from "../util/animations/Fade";
 import { createRipple, mergeRefs } from "../../helpers/functions";
-import { IconClose, IconCompleted, IconDanger, IconInfo, IconWarning } from "../icons";
 import { useConfig } from "../../context/ConfigContext";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
@@ -55,13 +54,13 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 		if (!iconComponent) {
 			switch (type) {
 				case "danger":
-					return <IconDanger className='dui__alert__icon' />;
+					return "Danger";
 				case "warning":
-					return <IconWarning className='dui__alert__icon' />;
+					return "Warning";
 				case "success":
-					return <IconCompleted className='dui__alert__icon' />;
+					return "Success";
 				default:
-					return <IconInfo className='dui__alert__icon' />;
+					return "Info";
 			}
 		}
 		return iconComponent;
@@ -108,7 +107,7 @@ const Alert: React.ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (props
 				ref={mergeRefs([alertRef, ref])}>
 				{withIcon && alertIcon(pigment)}
 				<div className={cn(`${classBase}__content`)}>{children}</div>
-				{isDismissible && <>{dismissibleComponent ?? <IconClose onClick={removeAlert} className='dui__icon' />}</>}
+				{isDismissible && <>{dismissibleComponent ?? <span onClick={removeAlert}>X</span>}</>}
 			</div>
 		);
 	};

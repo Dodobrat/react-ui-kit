@@ -5,7 +5,6 @@ import "./assets/app.scss";
 // Components
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Alert } from "./components/Alert/Alert";
-export { default as BackTop } from "./components/util/BackTop/BackTop";
 export { default as Badge } from "./components/Badge/Badge";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export { default as Button } from "./components/Button/Button";
@@ -51,9 +50,6 @@ export { RadioComponent } from "./components/form_elements/Radio/Radio";
 export { SelectComponent } from "./components/form_elements/Select/Select";
 export { SwitchComponent } from "./components/form_elements/Switch/Switch";
 export { TextAreaComponent } from "./components/form_elements/TextArea/TextArea";
-
-//Icons
-export * from "./components/icons/index";
 
 //Animation
 export { default as CollapseFade } from "./components/util/animations/CollapseFade";

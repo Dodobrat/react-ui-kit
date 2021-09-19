@@ -12,7 +12,6 @@ import { addElementAttributes, createRipple, mergeRefs } from "../../helpers/fun
 import LineLoader from "../LineLoader/LineLoader";
 import CollapseFade from "../util/animations/CollapseFade";
 import CollapseShow from "../util/animations/CollapseShow";
-import { IconCaretDown } from "../icons";
 import { useConfig } from "../../context/ConfigContext";
 import { generateStyleClasses } from "../../helpers/classnameGenerator";
 
@@ -139,7 +138,7 @@ export const ListGroupCollapseToggle = forwardRef<HTMLDivElement, ListGroupColla
 			{collapseIndicator ? (
 				<>
 					<div className={`${classBase}__title`}>{children}</div>
-					{!!collapseIndicatorComponent ? collapseIndicatorComponent : <IconCaretDown className={`${classBase}__indicator`} />}
+					{!!collapseIndicatorComponent ? collapseIndicatorComponent : <span>Toggle</span>}
 				</>
 			) : (
 				children

@@ -4,7 +4,6 @@ import cn from "classnames";
 
 import { InputComponentProps, InputProps } from "./Input.types";
 import SpinnerLoader from "../../SpinnerLoader/SpinnerLoader";
-import { IconCloseOutlined, IconEye, IconEyeCrossed, IconSearch } from "../../icons";
 import { mergeRefs } from "../../../helpers/functions";
 import { useConfig } from "../../../context/ConfigContext";
 import {
@@ -33,7 +32,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		disableWhileLoading = true,
 		isLoading = false,
 		loadingComponent = <SpinnerLoader sizing={sizing} pigment={null} pigmentColor={pigment} componentLoader />,
-		preffix = type === "search" ? <IconSearch /> : null,
+		preffix,
 		suffix,
 		isClearable = false,
 		clearableComponent = null,
@@ -46,8 +45,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 		spellCheck = false,
 		innerRef,
 		withPasswordReveal = type === "password",
-		passwordRevealComponent = (visible = type === "text") =>
-			visible ? <IconEyeCrossed className='dui__icon' /> : <IconEye className='dui__icon' />,
+		passwordRevealComponent = (visible = type === "text") => (visible ? <span>Hide</span> : <span>Show</span>),
 		children,
 		...rest
 	} = props;
@@ -172,7 +170,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (props
 			{isLoading && <div className={cn(`${classBase}__attachment`, `${classBase}__loader`)}>{loadingComponent}</div>}
 			{isClearable && (inputValue?.length > 0 || showClearIndicator) && (
 				<div className={cn(`${classBase}__attachment`, `${classBase}__clear`)} onClick={resetInput}>
-					{clearableComponent ?? <IconCloseOutlined className='dui__icon' />}
+					{clearableComponent ?? <span>Clear</span>}
 				</div>
 			)}
 			{withPasswordReveal && (
