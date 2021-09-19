@@ -83,7 +83,7 @@ export const configError: (prop: string, supports: Object) => void = (prop, supp
 };
 
 export const isTouchDevice: () => boolean = () => {
-	return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+	return "ontouchstart" in window || navigator.maxTouchPoints > 0;
 };
 
 export const mergeRefs: (refs: Array<React.MutableRefObject<any> | React.LegacyRef<any>>) => React.RefCallback<any> = (refs) => {
