@@ -13,7 +13,7 @@
 	}
 	&.dui__btn:hover,
 	&.dui__badge:hover,
-	&.dui__alert:hover,
+	// &.dui__alert:hover,
 	&.filled,
 	&.dui__btn--active {
 		background-color: darken($background, 5%);
@@ -352,7 +352,7 @@
 	}
 	&.dui__btn:hover,
 	&.dui__badge:hover,
-	&.dui__alert:hover,
+	// &.dui__alert:hover,
 	&.filled,
 	&.dui__btn--active {
 		background-color: rgba($background, 0.1);
